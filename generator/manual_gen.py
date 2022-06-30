@@ -2,6 +2,9 @@ import threading
 import requests
 import json
 
+def removeSpace(str):
+    return str.replace(" ", "", -1)
+
 def Snake2BigGolangCase(raw_str):
     # saving first and rest using split()
     init, *temp = raw_str.split('_')
@@ -41,6 +44,9 @@ globalInterface = []
 def ParseObjectToStruct(structName, raw):
     globalStruct.append(structName)
 
+    # store key name to avoid duplicated
+    existingKeyList = []
+
     # store another structs
     dependenciesStructRaw = ""
     
@@ -51,7 +57,10 @@ def ParseObjectToStruct(structName, raw):
 //=======================================================
 type %s struct {""" % (structName, structName))
             
-    for item in raw["children"]:               
+    for item in raw["children"]:
+        # doc bug: remove all space
+        item["name"] = removeSpace(item["name"])              
+
         # omitempty
         omemptyStr = ""
         try:
@@ -98,7 +107,8 @@ type %s struct {""" % (structName, structName))
 // --------------------
 """ % (item["name"])
             continue
-
+        
+        # check if is list, object types... need to recursive extending out to the struct
         if item["type"] in recursiveTypeList:
             # assume no conflict key name, directly using key-name as object name
             subObjName = Snake2BigGolangCase(item["name"])
@@ -122,6 +132,10 @@ type %s struct {""" % (structName, structName))
                 toStrstr
             )
             continue
+        
+        # check is this key duplicated
+        if item["name"] in existingKeyList:
+            continue
 
         structRaw += """
 // %s is %s
@@ -133,6 +147,10 @@ type %s struct {""" % (structName, structName))
             item["name"],
             toStrstr
         )
+
+        # add to duplicated key name detector list
+        existingKeyList.append(Snake2BigGolangCase(item["name"]))
+
     structRaw += ("""
 }""")
 
@@ -188,6 +206,9 @@ if __name__ == "__main__":
 type %sRequest struct {""" % (apiName, apiName))
 
             for reqItem in apiParams["request_params"]:
+                # doc bug: remove all space
+                reqItem["name"] = removeSpace(reqItem["name"])
+
                 # omitempty
                 omemptyStr = ""
                 if reqItem["required"] == "False":
@@ -251,6 +272,9 @@ type %sResponse struct {
 """ % (apiName, apiName))
             
             for resItem in apiParams["response_params"]:
+                # doc bug: remove all space
+                resItem["name"] = removeSpace(resItem["name"])
+
                 # (only got problem in response) all response parameter is store in `response` key-pair, let all unity response key put into V2UnityResponse Object
                 if resItem["name"] != "response":
                     continue
