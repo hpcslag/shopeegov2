@@ -32,8 +32,13 @@ typeMapping = {
     "list": "" # sub
 }
 
-# meet any in list need to trigger recursive parsing
-recursiveTypeList = [ "list", "object", "object[]" ]
+def checkIsExpensivableObject(raw):
+    # meet any in list need to trigger recursive parsing
+    if raw["type"] in [ "list", "object", "object[]" ]:
+        return True
+    
+    if 'children' in raw.keys():
+        return True
 
 # store global object name to share
 globalStruct = []
@@ -106,7 +111,7 @@ type %s struct {""" % (structName, structName))
             continue
         
         # check if is list, object types... need to recursive extending out to the struct
-        if item["type"] in recursiveTypeList:
+        if checkIsExpensivableObject(item):
             # assume no conflict key name, directly using key-name as object name
             subObjName = Snake2BigGolangCase(item["name"])
             if not subObjName in globalStruct:
@@ -216,7 +221,7 @@ type %sRequest struct {""" % (apiName, apiName))
                     continue
                     
                 # DRY:1 
-                if reqItem["type"] in recursiveTypeList:
+                if checkIsExpensivableObject(reqItem):
                     # assume request doesn't have kindof `Response` in unity key response, so we directly using key-name to be a Object name
                     objName = Snake2BigGolangCase(reqItem["name"])
                     if not objName in globalStruct:
@@ -280,7 +285,7 @@ type %sResponse struct {
                     continue
                     
                 # DRY:2 
-                if resItem["type"] in recursiveTypeList:
+                if checkIsExpensivableObject(resItem):
                     # warning: because here they using `Response` will conflict with existing key, we using api name to replace it response contents
                     objName = "%s" % (apiName)
                     if not objName in globalStruct:
@@ -362,23 +367,37 @@ type V2UnityResponse struct {
 
     for item in globalInterface:
         globalInterfaceStr += """
-    %s(*%sRequest) (*%sResponse, error)
+    %s(*%sRequest) (*%s, error)
 """ % (item, item, item)
 
         globalImplementStr += """
 
-func (s *ShopeeClient) %s(req *%sRequest) (resp *%sResponse, err error) {
+func (s *ShopeeClient) %s(req *%sRequest) (resp *%s, err error) {
 	b, err := s.post("%s", req)
 	if err != nil {
 		return
 	}
-	err = json.Unmarshal(b, &resp)
+
+	var wrappedResponse *%sResponse
+	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
+
+    if wrappedResponse.Error != "" {
+		err = errors.New(wrappedResponse.Error)
+		return
+	}
+
+	if wrappedResponse.Warning != "" {
+		log.Printf("[Warning From SHOPEE]" + wrappedResponse.Warning + "\n")
+		return
+	}
+
+	resp = &wrappedResponse.Response
 	return
 }
-""" % (item, item, item, item)
+""" % (item, item, item, item, item)
 
     globalInterfaceStr += """
 }
