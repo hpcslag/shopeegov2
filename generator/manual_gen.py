@@ -44,9 +44,6 @@ globalInterface = []
 def ParseObjectToStruct(structName, raw):
     globalStruct.append(structName)
 
-    # store key name to avoid duplicated
-    existingKeyList = []
-
     # store another structs
     dependenciesStructRaw = ""
     
@@ -133,10 +130,6 @@ type %s struct {""" % (structName, structName))
             )
             continue
         
-        # check is this key duplicated
-        if item["name"] in existingKeyList:
-            continue
-
         structRaw += """
 // %s is %s
 %s %s `json:\"%s,omitempty%s\"`""" % (
@@ -147,10 +140,6 @@ type %s struct {""" % (structName, structName))
             item["name"],
             toStrstr
         )
-
-        # add to duplicated key name detector list
-        existingKeyList.append(Snake2BigGolangCase(item["name"]))
-
     structRaw += ("""
 }""")
 
@@ -198,10 +187,6 @@ if __name__ == "__main__":
 
             # add to global interface list:
             globalInterface.append(apiName)
-
-            # store key name to avoid duplicated
-            existingKeyListForRequest = []
-            existingKeyListForResponse = []
             
             reqStr = ("""
 //=======================================================
@@ -253,10 +238,6 @@ type %sRequest struct {""" % (apiName, apiName))
 
                     continue #DRY END
 
-                # check is this key duplicated
-                if reqItem["name"] in existingKeyListForRequest:
-                    continue
-
                 reqStr += """
     // %s is %s
     %s %s `json:\"%s%s%s\"`""" % (
@@ -268,10 +249,6 @@ type %sRequest struct {""" % (apiName, apiName))
                     omemptyStr,
                     toStrstr
                 )
-
-                # add to duplicated key name detector list
-                existingKeyListForRequest.append(Snake2BigGolangCase(reqItem["name"]))
-
             reqStr += ("""
 }""")
             resStr = ("""
@@ -323,10 +300,6 @@ type %sResponse struct {
                     toStrstr
                 )
                     continue #DRY END
-                
-                # check is this key duplicated
-                if resItem["name"] in existingKeyListForResponse:
-                    continue
 
                 resStr += """
     // %s is %s
@@ -338,10 +311,6 @@ type %sResponse struct {
                     resItem["name"],
                     toStrstr
                 )
-
-                # add to duplicated key name detector list
-                existingKeyListForResponse.append(Snake2BigGolangCase(resItem["name"]))
-
             resStr += ("""
 }""")
 
