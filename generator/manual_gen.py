@@ -18,18 +18,99 @@ def Snake2BigGolangCase(raw_str):
 typeMapping = {
     "string": "string",
     "string[]": "[]string",
-    "object": "interface{}",
+    "object": "interface{}", # sub
     "object[]" : "[]interface{}",
     "int" : "int",
     "int[]" : "[]int",
     "boolean" : "bool",
     "timestamp" : "int",
     "float" : "float64",
+    "file" : "",
+    "list": "" # sub
 }
+
+
+# store global object name to share
+globalStruct = []
+
+def ParseObjectToStruct(structName, raw):
+    globalStruct.append(structName)
+
+    # store another structs
+    dependenciesStructRaw = ""
+    
+    # parent structs
+    structRaw = ("""
+//=======================================================
+// Object Raw Type - %s
+//=======================================================
+type %s struct {""" % (structName, structName))
+            
+    for item in raw["children"]:               
+        # omitempty
+        omemptyStr = ""
+        try:
+            if item["required"] == "False":
+                omemptyStr = ",omitempty"
+        except:
+            print("this object does not support required field, skipped...\n")
+
+        
+        # float convert to string
+        toStrstr = ""
+        if item["type"] == "flaot":
+            toStrstr = ",string"
+        
+        if item["type"] == "file":
+            structRaw += """
+// %s is a filetype, should parse by http.request
+
+""" % (item["name"])
+            continue
+
+        if item["type"] == "list" or item["type"] == "object":
+            subObjName = Snake2BigGolangCase(item["name"])
+            if not subObjName in globalStruct:
+                globalStruct.append(objName)
+                dependenciesStructRaw += ParseObjectToStruct(subObjName, item)
+            
+            if item["type"] == "list":
+                subObjName = '[]' + subObjName
+
+            structRaw += """
+// %s is %s
+%s %s `json:\"%s%s%s\"`""" % (
+                item["name"],
+                item["description"],
+                Snake2BigGolangCase(item["name"]),
+                subObjName,
+                item["name"],
+                omemptyStr,
+                toStrstr
+            )
+            continue
+
+        structRaw += """
+// %s is %s
+%s %s `json:\"%s,omitempty%s\"`""" % (
+            item["name"],
+            item["description"],
+            Snake2BigGolangCase(item["name"]),
+            TypeMappingGolangType(item["type"]),
+            item["name"],
+            toStrstr
+        )
+    structRaw += ("""
+}""")
+
+    return dependenciesStructRaw + "\n\n" + structRaw
+
 
 def TypeMappingGolangType(type_name):
     if not type_name in typeMapping:
         print(type_name + " is not exists in type mapping, plz manually add it")
+
+    # if list
     return typeMapping[type_name]
 
 if __name__ == "__main__":
@@ -80,6 +161,34 @@ type %sRequest struct {""" % (apiName, apiName))
                 toStrstr = ""
                 if reqItem["type"] == "flaot":
                     toStrstr = ",string"
+                
+                if reqItem["type"] == "file":
+                    resStr += """
+// %s is a filetype, should parse by http.request
+
+""" % (resItem["name"])
+                    continue
+                    
+                # DRY:1 
+                if reqItem["type"] == "list" or reqItem["type"] == "object":
+                    objName = Snake2BigGolangCase(reqItem["name"])
+                    if not objName in globalStruct:
+                        globalStruct.append(objName)
+                        f.write(ParseObjectToStruct(objName, reqItem))
+                                       
+                    reqStr += """
+    // %s is %s
+    %s %s `json:\"%s%s%s\"`""" % (
+                    reqItem["name"],
+                    reqItem["description"],
+                    Snake2BigGolangCase(reqItem["name"]),
+                    objName,
+                    reqItem["name"],
+                    omemptyStr,
+                    toStrstr
+                )
+
+                    continue #DRY END
 
                 reqStr += """
     // %s is %s
@@ -105,6 +214,32 @@ type %sResponse struct {""" % (apiName, apiName))
                 toStrstr = ""
                 if resItem["type"] == "flaot":
                     toStrstr = ",string"
+                
+                if resItem["type"] == "file":
+                    resStr += """
+    // %s is a filetype, should parse by http.request
+""" % (resItem["name"])
+                    continue
+                    
+                # DRY:2 
+                if resItem["type"] == "list" or resItem["type"] == "object":
+                    objName = Snake2BigGolangCase(resItem["name"])
+                    if not objName in globalStruct:
+                        globalStruct.append(objName)
+                        f.write(ParseObjectToStruct(objName, resItem))
+                                       
+                    resStr += """
+    // %s is %s
+    %s %s `json:\"%s%s%s\"`""" % (
+                    resItem["name"],
+                    resItem["description"],
+                    Snake2BigGolangCase(resItem["name"]),
+                    objName,
+                    resItem["name"],
+                    omemptyStr,
+                    toStrstr
+                )
+                    continue #DRY END
 
                 resStr += """
     // %s is %s
@@ -124,7 +259,25 @@ type %sResponse struct {""" % (apiName, apiName))
             print(resStr)
             f.write(resStr)
         f.close()
-            
+    
+    # urls.go
+    urlStrRaw = """
+package shopeego
+var availablePaths map[string]string = map[string]string{
+"""
+
+    for urlPair in availablePaths:
+        urlStrRaw += """
+    "%s": "%s",
+""" % (urlPair["name"], urlPair["path"])
+    
+    urlStrRaw += """
+}
+"""
+    f = open("urls.go", "a", encoding="utf-8")
+    f.write(urlStrRaw)
+    f.close()
+
 
 
 
