@@ -390,7 +390,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp *%s, err error) {
 	}
 
 	if wrappedResponse.Warning != "" {
-		log.Printf("[Warning From SHOPEE]" + wrappedResponse.Warning + "\n")
+		log.Printf("[Warning From SHOPEE]" + wrappedResponse.Warning + "\\n")
 		return
 	}
 
