@@ -324,7 +324,7 @@ import "encoding/json"
 
     for item in globalInterface:
         globalInterfaceStr += """
-%s(*%sRequest) (*%sResponse, error)
+    %s(*%sRequest) (*%sResponse, error)
 """ % (item, item, item)
 
         globalImplementStr += """
