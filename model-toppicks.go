@@ -1,4 +1,28 @@
 package shopeego
+
+
+//=======================================================
+// Object Raw Type - CollectionList
+//=======================================================
+type CollectionList struct {
+// is_activated is whether collection is activated.
+IsActivated bool `json:"is_activated,omitempty"`
+// item_list is The items of top picks
+ItemList ItemList `json:"item_list"`
+// top_picks_id is collection id.
+TopPicksID int `json:"top_picks_id,omitempty"`
+// name is The title of  top picks.
+Name string `json:"name,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksGetTopPicksList
+//=======================================================
+type TopPicksGetTopPicksList struct {
+// collection_list is The top picks list in this shop.
+CollectionList CollectionList `json:"collection_list"`
+}
 //=======================================================
 // TopPicksGetTopPicksListRequest
 //=======================================================
@@ -8,14 +32,20 @@ type TopPicksGetTopPicksListRequest struct {
 // TopPicksGetTopPicksListResponse
 //=======================================================
 type TopPicksGetTopPicksListResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response TopPicksGetTopPicksList `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksAddTopPicks
+//=======================================================
+type TopPicksAddTopPicks struct {
+// collection_list is The top picks list in this shop.
+CollectionList CollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksAddTopPicksRequest
@@ -32,14 +62,20 @@ type TopPicksAddTopPicksRequest struct {
 // TopPicksAddTopPicksResponse
 //=======================================================
 type TopPicksAddTopPicksResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response TopPicksAddTopPicks `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksUpdateTopPicks
+//=======================================================
+type TopPicksUpdateTopPicks struct {
+// collection_list is The top picks list in this shop.
+CollectionList CollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksUpdateTopPicksRequest
@@ -58,14 +94,20 @@ type TopPicksUpdateTopPicksRequest struct {
 // TopPicksUpdateTopPicksResponse
 //=======================================================
 type TopPicksUpdateTopPicksResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    Response TopPicksUpdateTopPicks `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksDeleteTopPicks
+//=======================================================
+type TopPicksDeleteTopPicks struct {
+// top_picks_id is collection id
+TopPicksID int `json:"top_picks_id,omitempty"`
 }
 //=======================================================
 // TopPicksDeleteTopPicksRequest
@@ -78,12 +120,9 @@ type TopPicksDeleteTopPicksRequest struct {
 // TopPicksDeleteTopPicksResponse
 //=======================================================
 type TopPicksDeleteTopPicksResponse struct {
-    // request_id is The identifier for an API request for error tracking. 
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response TopPicksDeleteTopPicks `json:"response"`
 }

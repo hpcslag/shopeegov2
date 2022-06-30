@@ -1,4 +1,13 @@
 package shopeego
+
+
+//=======================================================
+// Object Raw Type - MediaSpaceInitVideoUpload
+//=======================================================
+type MediaSpaceInitVideoUpload struct {
+// video_upload_id is The identifier of this upload session, used in following video upload request and item creating and/or updating
+VideoUploadID string `json:"video_upload_id,omitempty"`
+}
 //=======================================================
 // MediaSpaceInitVideoUploadRequest
 //=======================================================
@@ -12,14 +21,11 @@ type MediaSpaceInitVideoUploadRequest struct {
 // MediaSpaceInitVideoUploadResponse
 //=======================================================
 type MediaSpaceInitVideoUploadResponse struct {
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
+    Response MediaSpaceInitVideoUpload `json:"response"`
 }
 //=======================================================
 // MediaSpaceUploadVideoPartRequest
@@ -36,14 +42,9 @@ type MediaSpaceUploadVideoPartRequest struct {
 // MediaSpaceUploadVideoPartResponse
 //=======================================================
 type MediaSpaceUploadVideoPartResponse struct {
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 
 
@@ -69,14 +70,22 @@ type MediaSpaceCompleteVideoUploadRequest struct {
 // MediaSpaceCompleteVideoUploadResponse
 //=======================================================
 type MediaSpaceCompleteVideoUploadResponse struct {
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of this upload session, used in following video upload request and item creating and/or updating
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - MediaSpaceGetVideoUploadResult
+//=======================================================
+type MediaSpaceGetVideoUploadResult struct {
+// status is Current status of this video upload session. could be: INITIATED(waiting for part uploading and/or the complete_video_upload API call), TRANSCODING(has received all video parts, and is transcoding the video file), SUCCEEDED(transcoding completed, and this upload_id can now be used for item adding/updating), FAILED(this upload failed, see the message filed for some info), CANCELLED(this upload is cancelled)
+Status string `json:"status,omitempty"`
+// video_info is Transcoded video info, will be present if status is SUCCEEDED.
+VideoInfo VideoInfo `json:"video_info"`
+// message is Detail error message if video uploading/transcoding failed.
+Message string `json:"message,omitempty"`
 }
 //=======================================================
 // MediaSpaceGetVideoUploadResultRequest
@@ -89,16 +98,11 @@ type MediaSpaceGetVideoUploadResultRequest struct {
 // MediaSpaceGetVideoUploadResultResponse
 //=======================================================
 type MediaSpaceGetVideoUploadResultResponse struct {
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
+    Response MediaSpaceGetVideoUploadResult `json:"response"`
 }
 //=======================================================
 // MediaSpaceCancelVideoUploadRequest
@@ -111,14 +115,18 @@ type MediaSpaceCancelVideoUploadRequest struct {
 // MediaSpaceCancelVideoUploadResponse
 //=======================================================
 type MediaSpaceCancelVideoUploadResponse struct {
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - MediaSpaceUploadImage
+//=======================================================
+type MediaSpaceUploadImage struct {
+// image_info is 
+ImageInfo ImageInfo `json:"image_info"`
 }
 //=======================================================
 // MediaSpaceUploadImageRequest
@@ -131,14 +139,9 @@ type MediaSpaceUploadImageRequest struct {
 // MediaSpaceUploadImageResponse
 //=======================================================
 type MediaSpaceUploadImageResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Indicate warning message you should take care.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response MediaSpaceUploadImage `json:"response,omitempty"`
 }

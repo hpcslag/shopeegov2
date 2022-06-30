@@ -347,8 +347,6 @@ type V2I interface {
     globalImplementStr = """
 package shopeego
 
-import "encoding/json"
-
 // 統一的 API 回應介面
 type V2UnityResponse struct {
 	// error is Indicate error type if hit error. Empty if no error happened.

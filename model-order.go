@@ -1,4 +1,28 @@
 package shopeego
+
+
+//=======================================================
+// Object Raw Type - OrderList
+//=======================================================
+type OrderList struct {
+// order_sn is  Shopee's unique identifier for an order.	
+OrderSn string `json:"order_sn,omitempty"`
+// order_status is The order_status filter for retriveing orders and each one only every request. Available value: UNPAID/READY_TO_SHIP/PROCESSED/SHIPPED/COMPLETED/IN_CANCEL/CANCELLED
+OrderStatus string `json:"order_status,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - OrderGetOrderList
+//=======================================================
+type OrderGetOrderList struct {
+// more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
+More bool `json:"more,omitempty"`
+// order_list is 
+OrderList OrderList `json:"order_list"`
+// next_cursor is If  more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
+NextCursor string `json:"next_cursor,omitempty"`
+}
 //=======================================================
 // OrderGetOrderListRequest
 //=======================================================
@@ -22,14 +46,24 @@ type OrderGetOrderListRequest struct {
 // OrderGetOrderListResponse
 //=======================================================
 type OrderGetOrderListResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response OrderGetOrderList `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - OrderGetShipmentList
+//=======================================================
+type OrderGetShipmentList struct {
+// order_list is The list of  shipment orders
+OrderList OrderList `json:"order_list"`
+// more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
+More bool `json:"more,omitempty"`
+// next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
+NextCursor string `json:"next_cursor,omitempty"`
 }
 //=======================================================
 // OrderGetShipmentListRequest
@@ -44,14 +78,20 @@ type OrderGetShipmentListRequest struct {
 // OrderGetShipmentListResponse
 //=======================================================
 type OrderGetShipmentListResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    Response OrderGetShipmentList `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - OrderGetOrderDetail
+//=======================================================
+type OrderGetOrderDetail struct {
+// order_list is The list of orders.
+OrderList OrderList `json:"order_list"`
 }
 //=======================================================
 // OrderGetOrderDetailRequest
@@ -66,16 +106,31 @@ type OrderGetOrderDetailRequest struct {
 // OrderGetOrderDetailResponse
 //=======================================================
 type OrderGetOrderDetailResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
-    // warning is Indicate warning message you should take care.
-    Warning []string `json:"warning,omitempty"`
+    Response OrderGetOrderDetail `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - PackageList
+//=======================================================
+type PackageList struct {
+// item_list is The list of items under the same package.
+ItemList ItemList `json:"item_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - OrderSplitOrder
+//=======================================================
+type OrderSplitOrder struct {
+// order_sn is Shopee's unique identifier for an order.
+OrderSn string `json:"order_sn,omitempty"`
+// package_list is The list of package under this order you have split.
+PackageList PackageList `json:"package_list"`
 }
 //=======================================================
 // OrderSplitOrderRequest
@@ -84,20 +139,17 @@ type OrderSplitOrderRequest struct {
     // order_sn is Shopee's unique identifier for an order.
     OrderSn string `json:"order_sn"`
     // package_list is The list of packages that you want to split
-    PackageList []interface{} `json:"package_list"`
+    PackageList PackageList `json:"package_list"`
 }
 //=======================================================
 // OrderSplitOrderResponse
 //=======================================================
 type OrderSplitOrderResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    Response OrderSplitOrder `json:"response"`
 }
 //=======================================================
 // OrderUnsplitOrderRequest
@@ -110,12 +162,18 @@ type OrderUnsplitOrderRequest struct {
 // OrderUnsplitOrderResponse
 //=======================================================
 type OrderUnsplitOrderResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - OrderCancelOrder
+//=======================================================
+type OrderCancelOrder struct {
+// update_time is The time when the order is updated.
+UpdateTime int `json:"update_time,omitempty"`
 }
 //=======================================================
 // OrderCancelOrderRequest
@@ -126,20 +184,26 @@ type OrderCancelOrderRequest struct {
     // cancel_reason is The reason seller want to cancel this order. Applicable values: OUT_OF_STOCK, CUSTOMER_REQUEST, UNDELIVERABLE_AREA, COD_NOT_SUPPORTED.
     CancelReason string `json:"cancel_reason"`
     // item_list is Required when cancel_reason is OUT_OF_STOCK. 
-    ItemList []interface{} `json:"item_list,omitempty"`
+    ItemList ItemList `json:"item_list,omitempty"`
 }
 //=======================================================
 // OrderCancelOrderResponse
 //=======================================================
 type OrderCancelOrderResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response OrderCancelOrder `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - OrderHandleBuyerCancellation
+//=======================================================
+type OrderHandleBuyerCancellation struct {
+// update_time is The time when the order is updated.
+UpdateTime int `json:"update_time,omitempty"`
 }
 //=======================================================
 // OrderHandleBuyerCancellationRequest
@@ -154,14 +218,11 @@ type OrderHandleBuyerCancellationRequest struct {
 // OrderHandleBuyerCancellationResponse
 //=======================================================
 type OrderHandleBuyerCancellationResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response OrderHandleBuyerCancellation `json:"response"`
 }
 //=======================================================
 // OrderSetNoteRequest
@@ -176,12 +237,9 @@ type OrderSetNoteRequest struct {
 // OrderSetNoteResponse
 //=======================================================
 type OrderSetNoteResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 
 
@@ -217,12 +275,22 @@ type OrderAddInvoiceDataRequest struct {
 // OrderAddInvoiceDataResponse
 //=======================================================
 type OrderAddInvoiceDataResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - OrderGetPendingBuyerInvoiceOrderList
+//=======================================================
+type OrderGetPendingBuyerInvoiceOrderList struct {
+// more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
+More bool `json:"more,omitempty"`
+// next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
+NextCursor string `json:"next_cursor,omitempty"`
+// order_list is 
+OrderList OrderList `json:"order_list"`
 }
 //=======================================================
 // OrderGetPendingBuyerInvoiceOrderListRequest
@@ -237,14 +305,11 @@ type OrderGetPendingBuyerInvoiceOrderListRequest struct {
 // OrderGetPendingBuyerInvoiceOrderListResponse
 //=======================================================
 type OrderGetPendingBuyerInvoiceOrderListResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response OrderGetPendingBuyerInvoiceOrderList `json:"response"`
 }
 //=======================================================
 // OrderUploadInvoiceDocRequest
@@ -259,12 +324,9 @@ type OrderUploadInvoiceDocRequest struct {
 // OrderUploadInvoiceDocResponse
 //=======================================================
 type OrderUploadInvoiceDocResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 //=======================================================
 // OrderDownloadInvoiceDocRequest
@@ -277,71 +339,31 @@ type OrderDownloadInvoiceDocRequest struct {
 // OrderDownloadInvoiceDocResponse
 //=======================================================
 type OrderDownloadInvoiceDocResponse struct {
-    // invoice_doc is a filetype, should parse by http.request
+    // 通用的 Response 回傳參數
+    V2UnityResponse
 
 }
 
 
 //=======================================================
-// Object Raw Type - InvoiceDetail
+// Object Raw Type - Queries
 //=======================================================
-type InvoiceDetail struct {
-// name is <p>Buyer name (only has value when invoice_type is personal)</p>
-Name string `json:"name,omitempty"`
-// email is <p>Buyer email address&nbsp;(only has value when invoice_type is personal)</p>
-Email string `json:"email,omitempty"`
-// address is <p>Buyer address in format "Streat &amp; number, city, zipcode, any additional info provided by buyer"&nbsp;(only has value when invoice_type is personal)<br /></p>
-Address string `json:"address,omitempty"`
-// company_name is <p>Buyer name&nbsp;(only has value when invoice_type is company)</p>
-CompanyName string `json:"company_name,omitempty"`
-// company_email is <p>Buyer email address&nbsp;(only has value when invoice_type is company)</p>
-CompanyEmail string `json:"company_email,omitempty"`
-// company_nip is <p>Corresponds to NIP in PL.&nbsp;(only has value when invoice_type is company)v</p>
-CompanyNip string `json:"company_nip,omitempty"`
-// company_address is <p>Buyer address in format "Streat &amp; number, city, zipcode, any additional info provided by buyer"&nbsp;(only has value when invoice_type is company)<br /></p>
-CompanyAddress string `json:"company_address,omitempty"`
-}
-
-
-//=======================================================
-// Object Raw Type - InvoiceInfo
-//=======================================================
-type InvoiceInfo struct {
-// order_sn is Shopee's unique identifier for an order.
+type Queries struct {
+// order_sn is <p>Shopee's unique identifier for an order.Limit 50.<br /></p>
 OrderSn string `json:"order_sn,omitempty"`
-// invoice_type is Type of invoice requested: {1: personal, 2: company}.
-InvoiceType string `json:"invoice_type,omitempty"`
-// invoice_detail is Invoice info submitted by buyer. Might be masked, e.g. A****b, depending on order status.
-InvoiceDetail InvoiceDetail `json:"invoice_detail"`
-// error is Error in retrieving the receipt setting of a particular order.
-Error string `json:"error,omitempty"`
-}
-
-
-//=======================================================
-// Object Raw Type - InvoiceInfoList
-//=======================================================
-type InvoiceInfoList struct {
-// invoice_info is 
-InvoiceInfo InvoiceInfo `json:"invoice_info"`
 }
 //=======================================================
 // OrderGetBuyerInvoiceInfoRequest
 //=======================================================
 type OrderGetBuyerInvoiceInfoRequest struct {
     // queries is 
-    Queries []interface{} `json:"queries"`
+    Queries Queries `json:"queries"`
 }
 //=======================================================
 // OrderGetBuyerInvoiceInfoResponse
 //=======================================================
 type OrderGetBuyerInvoiceInfoResponse struct {
-    // invoice_info_list is 
-    InvoiceInfoList InvoiceInfoList `json:"invoice_info_list"`
-    // request_id is <p>Request id for debugging purposes</p>
-    RequestID string `json:"request_id,omitempty"`
-    // error is <p>Indicate error type if hit error. Empty if no error happened.<br /></p>
-    Error string `json:"error,omitempty"`
-    // message is <p>Indicate error details if hit error. Empty if no error happened.<br /></p>
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }

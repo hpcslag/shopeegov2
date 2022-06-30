@@ -1,4 +1,13 @@
 package shopeego
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetCategory
+//=======================================================
+type GlobalProductGetCategory struct {
+// category_list is 
+CategoryList CategoryList `json:"category_list"`
+}
 //=======================================================
 // GlobalProductGetCategoryRequest
 //=======================================================
@@ -10,16 +19,20 @@ type GlobalProductGetCategoryRequest struct {
 // GlobalProductGetCategoryResponse
 //=======================================================
 type GlobalProductGetCategoryResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductGetCategory `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetAttributes
+//=======================================================
+type GlobalProductGetAttributes struct {
+// attribute_list is Attribute info list.
+AttributeList AttributeList `json:"attribute_list"`
 }
 //=======================================================
 // GlobalProductGetAttributesRequest
@@ -36,16 +49,28 @@ type GlobalProductGetAttributesRequest struct {
 // GlobalProductGetAttributesResponse
 //=======================================================
 type GlobalProductGetAttributesResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductGetAttributes `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetBrandList
+//=======================================================
+type GlobalProductGetBrandList struct {
+// brand_list is 
+BrandList BrandList `json:"brand_list"`
+// has_next_page is  This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
+HasNextPage bool `json:"has_next_page,omitempty"`
+// next_offset is If has_next_page is true, this value need set to next request.offset
+NextOffset int `json:"next_offset,omitempty"`
+// is_mandatory is Whether is mandatory.
+IsMandatory bool `json:"is_mandatory,omitempty"`
+// input_type is Input type: DROP_DOWN  TEXT_FILED COMBO_BOX.
+InputType string `json:"input_type,omitempty"`
 }
 //=======================================================
 // GlobalProductGetBrandListRequest
@@ -64,16 +89,69 @@ type GlobalProductGetBrandListRequest struct {
 // GlobalProductGetBrandListResponse
 //=======================================================
 type GlobalProductGetBrandListResponse struct {
-    // error is  Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Indicate waring details if hit waring. Empty if no waring happened.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetBrandList `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalItemNameLengthLimit
+//=======================================================
+type GlobalItemNameLengthLimit struct {
+// min_limit is Global item name length min limit.
+MinLimit int `json:"min_limit,omitempty"`
+// max_limit is Global item name length max limit.
+MaxLimit int `json:"max_limit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalItemImageCountLimit
+//=======================================================
+type GlobalItemImageCountLimit struct {
+// min_limit is Global item image count min limit.
+MinLimit int `json:"min_limit,omitempty"`
+// max_limit is Global item image count max limit.
+MaxLimit int `json:"max_limit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalItemDescriptionLengthLimit
+//=======================================================
+type GlobalItemDescriptionLengthLimit struct {
+// min_limit is Global item description length min limit.
+MinLimit int `json:"min_limit,omitempty"`
+// max_limit is Global item description length max limit.
+MaxLimit int `json:"max_limit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetGlobalItemLimit
+//=======================================================
+type GlobalProductGetGlobalItemLimit struct {
+// price_limit is 
+PriceLimit PriceLimit `json:"price_limit"`
+// stock_limit is 
+StockLimit StockLimit `json:"stock_limit"`
+// global_item_name_length_limit is 
+GlobalItemNameLengthLimit GlobalItemNameLengthLimit `json:"global_item_name_length_limit"`
+// global_item_image_count_limit is 
+GlobalItemImageCountLimit GlobalItemImageCountLimit `json:"global_item_image_count_limit"`
+// global_item_description_length_limit is 
+GlobalItemDescriptionLengthLimit GlobalItemDescriptionLengthLimit `json:"global_item_description_length_limit"`
+// tier_variation_name_length_limit is 
+TierVariationNameLengthLimit TierVariationNameLengthLimit `json:"tier_variation_name_length_limit"`
+// tier_variation_option_length_limit is 
+TierVariationOptionLengthLimit TierVariationOptionLengthLimit `json:"tier_variation_option_length_limit"`
+// text_length_multiplier is Length ratio of Chinese characters to English characters in parameter verification. len(text)=len(Chinese characters)*text_length_multiplier+len(English characters )
+TextLengthMultiplier float64 `json:"text_length_multiplier,omitempty"`
+// extended_description_limit is 
+ExtendedDescriptionLimit ExtendedDescriptionLimit `json:"extended_description_limit"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemLimitRequest
@@ -84,16 +162,31 @@ type GlobalProductGetGlobalItemLimitRequest struct {
 // GlobalProductGetGlobalItemLimitResponse
 //=======================================================
 type GlobalProductGetGlobalItemLimitResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning massage.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetGlobalItemLimit `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - DaysToShipRangeList
+//=======================================================
+type DaysToShipRangeList struct {
+// min_limit is Days to ship min limit.
+MinLimit int `json:"min_limit,omitempty"`
+// max_limit is Days to ship max limit.
+MaxLimit int `json:"max_limit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetDtsLimit
+//=======================================================
+type GlobalProductGetDtsLimit struct {
+// days_to_ship_range_list is If the length of the range list is greater than one, the final result is the union of multiple intervals
+DaysToShipRangeList DaysToShipRangeList `json:"days_to_ship_range_list"`
 }
 //=======================================================
 // GlobalProductGetDtsLimitRequest
@@ -106,16 +199,37 @@ type GlobalProductGetDtsLimitRequest struct {
 // GlobalProductGetDtsLimitResponse
 //=======================================================
 type GlobalProductGetDtsLimitResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetDtsLimit `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalItemList
+//=======================================================
+type GlobalItemList struct {
+// global_item_id is Shopee's unique identifier for an global item.
+GlobalItemID int `json:"global_item_id,omitempty"`
+// update_time is Timestamp that indicates the last time that there was a change in value of the item, such as price/stock change.
+UpdateTime int `json:"update_time,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetGlobalItemList
+//=======================================================
+type GlobalProductGetGlobalItemList struct {
+// global_item_list is 
+GlobalItemList GlobalItemList `json:"global_item_list"`
+// total_count is Total global item count.
+TotalCount int `json:"total_count,omitempty"`
+// has_next_page is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
+HasNextPage bool `json:"has_next_page,omitempty"`
+// offset is If has_next_page is true, this value need set to next request.offset.
+Offset string `json:"offset,omitempty"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemListRequest
@@ -134,16 +248,20 @@ type GlobalProductGetGlobalItemListRequest struct {
 // GlobalProductGetGlobalItemListResponse
 //=======================================================
 type GlobalProductGetGlobalItemListResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning massage.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductGetGlobalItemList `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetGlobalItemInfo
+//=======================================================
+type GlobalProductGetGlobalItemInfo struct {
+// global_item_list is 
+GlobalItemList GlobalItemList `json:"global_item_list"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemInfoRequest
@@ -156,16 +274,20 @@ type GlobalProductGetGlobalItemInfoRequest struct {
 // GlobalProductGetGlobalItemInfoResponse
 //=======================================================
 type GlobalProductGetGlobalItemInfoResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning massage.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetGlobalItemInfo `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductAddGlobalItem
+//=======================================================
+type GlobalProductAddGlobalItem struct {
+// global_item_id is Id of added global item.
+GlobalItemID int `json:"global_item_id,omitempty"`
 }
 //=======================================================
 // GlobalProductAddGlobalItemRequest
@@ -198,7 +320,7 @@ type GlobalProductAddGlobalItemRequest struct {
     // brand is 
     Brand Brand `json:"brand,omitempty"`
     // attribute_list is Item attributes.
-    AttributeList []interface{} `json:"attribute_list,omitempty"`
+    AttributeList AttributeList `json:"attribute_list,omitempty"`
     // description_info is New description field. New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
     DescriptionInfo DescriptionInfo `json:"description_info,omitempty"`
     // description_type is Values: See Data Definition- description_type (normal , extended). If you want to use extended_description, this field must be inputed
@@ -208,16 +330,20 @@ type GlobalProductAddGlobalItemRequest struct {
 // GlobalProductAddGlobalItemResponse
 //=======================================================
 type GlobalProductAddGlobalItemResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductAddGlobalItem `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductUpdateGlobalItem
+//=======================================================
+type GlobalProductUpdateGlobalItem struct {
+// global_item_id is Id of updated global item.
+GlobalItemID int `json:"global_item_id,omitempty"`
 }
 //=======================================================
 // GlobalProductUpdateGlobalItemRequest
@@ -248,7 +374,7 @@ type GlobalProductUpdateGlobalItemRequest struct {
     // brand is 
     Brand Brand `json:"brand,omitempty"`
     // attribute_list is Item attributes.
-    AttributeList []interface{} `json:"attribute_list,omitempty"`
+    AttributeList AttributeList `json:"attribute_list,omitempty"`
     // description_info is New description field. New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
     DescriptionInfo DescriptionInfo `json:"description_info,omitempty"`
     // description_type is Values: See Data Definition- description_type (normal , extended). If you want to use extended_description or change description type ,this field must be inputed
@@ -258,16 +384,31 @@ type GlobalProductUpdateGlobalItemRequest struct {
 // GlobalProductUpdateGlobalItemResponse
 //=======================================================
 type GlobalProductUpdateGlobalItemResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductUpdateGlobalItem `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - FailureDeleteItem
+//=======================================================
+type FailureDeleteItem struct {
+// shop_id is The id of shop corresponding to the related item failed to delete.
+ShopID int `json:"shop_id,omitempty"`
+// item_id is The id of related item failed to delete.
+ItemID int `json:"item_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductDeleteGlobalItem
+//=======================================================
+type GlobalProductDeleteGlobalItem struct {
+// failure_delete_item is If delete failed, this field shows the details.
+FailureDeleteItem FailureDeleteItem `json:"failure_delete_item"`
 }
 //=======================================================
 // GlobalProductDeleteGlobalItemRequest
@@ -280,25 +421,35 @@ type GlobalProductDeleteGlobalItemRequest struct {
 // GlobalProductDeleteGlobalItemResponse
 //=======================================================
 type GlobalProductDeleteGlobalItemResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductDeleteGlobalItem `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalModel
+//=======================================================
+type GlobalModel struct {
+// original_price is Original price of global model.
+OriginalPrice float64 `json:"original_price,omitempty"`
+// normal_stock is Normal stock of global model.
+NormalStock int `json:"normal_stock,omitempty"`
+// global_model_sku is Sku of global model. model_sku length information needs to be no more than 100 characters.
+GlobalModelSku string `json:"global_model_sku,omitempty"`
+// tier_index is Tier index of global model. Index starts from 0.
+TierIndex []int `json:"tier_index,omitempty"`
 }
 //=======================================================
 // GlobalProductInitTierVariationRequest
 //=======================================================
 type GlobalProductInitTierVariationRequest struct {
     // tier_variation is  Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
-    TierVariation []interface{} `json:"tier_variation"`
+    TierVariation TierVariation `json:"tier_variation"`
     // global_model is Model info list, model number at most 50
-    GlobalModel []interface{} `json:"global_model"`
+    GlobalModel GlobalModel `json:"global_model"`
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -306,21 +457,16 @@ type GlobalProductInitTierVariationRequest struct {
 // GlobalProductInitTierVariationResponse
 //=======================================================
 type GlobalProductInitTierVariationResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 //=======================================================
 // GlobalProductUpdateTierVariationRequest
 //=======================================================
 type GlobalProductUpdateTierVariationRequest struct {
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
-    TierVariation []interface{} `json:"tier_variation"`
+    TierVariation TierVariation `json:"tier_variation"`
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -328,14 +474,9 @@ type GlobalProductUpdateTierVariationRequest struct {
 // GlobalProductUpdateTierVariationResponse
 //=======================================================
 type GlobalProductUpdateTierVariationResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 //=======================================================
 // GlobalProductAddGlobalModelRequest
@@ -344,20 +485,15 @@ type GlobalProductAddGlobalModelRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model is Global model setting list. Limit is  [1,50].
-    GlobalModel []interface{} `json:"global_model"`
+    GlobalModel GlobalModel `json:"global_model"`
 }
 //=======================================================
 // GlobalProductAddGlobalModelResponse
 //=======================================================
 type GlobalProductAddGlobalModelResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 //=======================================================
 // GlobalProductUpdateGlobalModelRequest
@@ -366,20 +502,39 @@ type GlobalProductUpdateGlobalModelRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model is Sku setting for global model. Limit is [1,50].
-    GlobalModel []interface{} `json:"global_model"`
+    GlobalModel GlobalModel `json:"global_model"`
 }
 //=======================================================
 // GlobalProductUpdateGlobalModelResponse
 //=======================================================
 type GlobalProductUpdateGlobalModelResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - Failures
+//=======================================================
+type Failures struct {
+// shop_id is Failed shop id.
+ShopID int `json:"shop_id,omitempty"`
+// item_id is Failed item id.
+ItemID int `json:"item_id,omitempty"`
+// model_id is Failed model id.
+ModelID int `json:"model_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductDeleteGlobalModel
+//=======================================================
+type GlobalProductDeleteGlobalModel struct {
+// global_model_id is Global model id.
+GlobalModelID int `json:"global_model_id,omitempty"`
+// failures is 
+Failures Failures `json:"failures"`
 }
 //=======================================================
 // GlobalProductDeleteGlobalModelRequest
@@ -394,16 +549,22 @@ type GlobalProductDeleteGlobalModelRequest struct {
 // GlobalProductDeleteGlobalModelResponse
 //=======================================================
 type GlobalProductDeleteGlobalModelResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning massage.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductDeleteGlobalModel `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetGlobalModelList
+//=======================================================
+type GlobalProductGetGlobalModelList struct {
+// tier_variation is Tier variation information of global item.
+TierVariation TierVariation `json:"tier_variation"`
+// global_model is Global models.
+GlobalModel GlobalModel `json:"global_model"`
 }
 //=======================================================
 // GlobalProductGetGlobalModelListRequest
@@ -416,16 +577,20 @@ type GlobalProductGetGlobalModelListRequest struct {
 // GlobalProductGetGlobalModelListResponse
 //=======================================================
 type GlobalProductGetGlobalModelListResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetGlobalModelList `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductSupportSizeChart
+//=======================================================
+type GlobalProductSupportSizeChart struct {
+// support_size_chart is If category support size chart.
+SupportSizeChart bool `json:"support_size_chart,omitempty"`
 }
 //=======================================================
 // GlobalProductSupportSizeChartRequest
@@ -438,16 +603,11 @@ type GlobalProductSupportSizeChartRequest struct {
 // GlobalProductSupportSizeChartResponse
 //=======================================================
 type GlobalProductSupportSizeChartResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning massage.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductSupportSizeChart `json:"response"`
 }
 //=======================================================
 // GlobalProductUpdateSizeChartRequest
@@ -462,43 +622,18 @@ type GlobalProductUpdateSizeChartRequest struct {
 // GlobalProductUpdateSizeChartResponse
 //=======================================================
 type GlobalProductUpdateSizeChartResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 
 
 //=======================================================
-// Object Raw Type - Item
+// Object Raw Type - GlobalProductCreatePublishTask
 //=======================================================
-type Item struct {
-// item_name is Name of item.
-ItemName string `json:"item_name,omitempty"`
-// description is Description of item.
-Description string `json:"description,omitempty"`
-// item_status is Status of item.
-ItemStatus string `json:"item_status,omitempty"`
-// original_price is <p>Original price of item.</p><p><b><font color="#c24f4a">For&nbsp;SG/MY/BR/MX/PL/ES/AR seller:</font></b>&nbsp;Sellers can set the price with two decimal place,&nbsp;other regions can only set the price as an integer.<br /></p>
-OriginalPrice float64 `json:"original_price,omitempty"`
-// image is Image information of item.
-Image Image `json:"image,omitempty"`
-// tier_variation is Tier variation information of item.
-TierVariation []interface{} `json:"tier_variation,omitempty"`
-// model is Model information of item.
-Model []interface{} `json:"model,omitempty"`
-// size_chart is Size chart of item.
-SizeChart string `json:"size_chart,omitempty"`
-// logistic is Logistic information of item.
-Logistic []interface{} `json:"logistic,omitempty"`
-// pre_order is Preorder information of item.
-PreOrder PreOrder `json:"pre_order,omitempty"`
-// description_info is New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
-DescriptionInfo DescriptionInfo `json:"description_info,omitempty"`
+type GlobalProductCreatePublishTask struct {
+// publish_task_id is The id of publish task.
+PublishTaskID int `json:"publish_task_id,omitempty"`
 }
 //=======================================================
 // GlobalProductCreatePublishTaskRequest
@@ -517,16 +652,31 @@ type GlobalProductCreatePublishTaskRequest struct {
 // GlobalProductCreatePublishTaskResponse
 //=======================================================
 type GlobalProductCreatePublishTaskResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductCreatePublishTask `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - PublishableShop
+//=======================================================
+type PublishableShop struct {
+// shop_id is Id of publishable shop.
+ShopID int `json:"shop_id,omitempty"`
+// shop_region is Region of published shop.
+ShopRegion string `json:"shop_region,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetPublishableShop
+//=======================================================
+type GlobalProductGetPublishableShop struct {
+// publishable_shop is Detail of publishable shops.
+PublishableShop PublishableShop `json:"publishable_shop"`
 }
 //=======================================================
 // GlobalProductGetPublishableShopRequest
@@ -539,16 +689,46 @@ type GlobalProductGetPublishableShopRequest struct {
 // GlobalProductGetPublishableShopResponse
 //=======================================================
 type GlobalProductGetPublishableShopResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetPublishableShop `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - Success
+//=======================================================
+type Success struct {
+// region is The region of published item.
+Region string `json:"region,omitempty"`
+// shop_id is The shop id of published item.
+ShopID string `json:"shop_id,omitempty"`
+// item_id is The id of published item.
+ItemID string `json:"item_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - Failed
+//=======================================================
+type Failed struct {
+// failed_reason is Failed reason.
+FailedReason string `json:"failed_reason,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetPublishTaskResult
+//=======================================================
+type GlobalProductGetPublishTaskResult struct {
+// publish_status is Status of publish task.
+PublishStatus string `json:"publish_status,omitempty"`
+// success is If publish task is successful, this field shows the published results.
+Success Success `json:"success"`
+// failed is If publish task is failed, this field shows the failed reason.
+Failed Failed `json:"failed"`
 }
 //=======================================================
 // GlobalProductGetPublishTaskResultRequest
@@ -561,16 +741,35 @@ type GlobalProductGetPublishTaskResultRequest struct {
 // GlobalProductGetPublishTaskResultResponse
 //=======================================================
 type GlobalProductGetPublishTaskResultResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetPublishTaskResult `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - PublishedItem
+//=======================================================
+type PublishedItem struct {
+// shop_id is Shop id corresponding to the published item.
+ShopID int `json:"shop_id,omitempty"`
+// shop_region is Region of shop.
+ShopRegion string `json:"shop_region,omitempty"`
+// item_id is Id of published item.
+ItemID int `json:"item_id,omitempty"`
+// item_status is <p>Status of published item.Applicable values: 0.DELETED(Item is deleted by seller himself),1.NORMAL, 2.BANNED,3.REVIEWING,4.INVALID(Shopee Admin deleted),5.INVALID_HIDE(Shopee Admin delete confirmed),6.BLACKLISTED(Offensive_hide),8.NORMAL_UNLIST</p>
+ItemStatus int `json:"item_status,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetPublishedList
+//=======================================================
+type GlobalProductGetPublishedList struct {
+// published_item is Detail of published items.
+PublishedItem PublishedItem `json:"published_item"`
 }
 //=======================================================
 // GlobalProductGetPublishedListRequest
@@ -583,16 +782,11 @@ type GlobalProductGetPublishedListRequest struct {
 // GlobalProductGetPublishedListResponse
 //=======================================================
 type GlobalProductGetPublishedListResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetPublishedList `json:"response"`
 }
 //=======================================================
 // GlobalProductUpdatePriceRequest
@@ -601,20 +795,15 @@ type GlobalProductUpdatePriceRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // price_list is Price setting for global model. Limit is [1,50].
-    PriceList []interface{} `json:"price_list"`
+    PriceList PriceList `json:"price_list"`
 }
 //=======================================================
 // GlobalProductUpdatePriceResponse
 //=======================================================
 type GlobalProductUpdatePriceResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }
 //=======================================================
 // GlobalProductUpdateStockRequest
@@ -623,40 +812,71 @@ type GlobalProductUpdateStockRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // stock_list is Stock setting for global model. Limit is [1,50].
-    StockList []interface{} `json:"stock_list"`
+    StockList StockList `json:"stock_list"`
 }
 //=======================================================
 // GlobalProductUpdateStockResponse
 //=======================================================
 type GlobalProductUpdateStockResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - ShopSyncList
+//=======================================================
+type ShopSyncList struct {
+// shop_id is Id of shop.
+ShopID int `json:"shop_id,omitempty"`
+// shop_region is TW TH MY BR IN SG VN
+ShopRegion string `json:"shop_region,omitempty"`
+// name_and_description is sync name and description
+NameAndDescription bool `json:"name_and_description,omitempty"`
+// media_information is sync media information
+MediaInformation bool `json:"media_information,omitempty"`
+// tier_variation_name_and_option is sync tier variation
+TierVariationNameAndOption bool `json:"tier_variation_name_and_option,omitempty"`
+// price is sync price
+Price bool `json:"price,omitempty"`
+// days_to_ship is sync days to ship info
+DaysToShip bool `json:"days_to_ship,omitempty"`
 }
 //=======================================================
 // GlobalProductSetSyncFieldRequest
 //=======================================================
 type GlobalProductSetSyncFieldRequest struct {
     // shop_sync_list is Length limit is [1,50].
-    ShopSyncList []interface{} `json:"shop_sync_list"`
+    ShopSyncList ShopSyncList `json:"shop_sync_list"`
 }
 //=======================================================
 // GlobalProductSetSyncFieldResponse
 //=======================================================
 type GlobalProductSetSyncFieldResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning  message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - ItemIdMap
+//=======================================================
+type ItemIdMap struct {
+// item_id is Id of item.
+ItemID int `json:"item_id,omitempty"`
+// global_item_id is Id of global item.
+GlobalItemID int `json:"global_item_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetGlobalItemID
+//=======================================================
+type GlobalProductGetGlobalItemID struct {
+// item_id_map is 
+ItemIdMap ItemIdMap `json:"item_id_map"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemIDRequest
@@ -671,16 +891,20 @@ type GlobalProductGetGlobalItemIDRequest struct {
 // GlobalProductGetGlobalItemIDResponse
 //=======================================================
 type GlobalProductGetGlobalItemIDResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductGetGlobalItemID `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductCategoryRecommend
+//=======================================================
+type GlobalProductCategoryRecommend struct {
+// category_id is Shopee's unique identifier for a category.
+CategoryID []int `json:"category_id,omitempty"`
 }
 //=======================================================
 // GlobalProductCategoryRecommendRequest
@@ -693,16 +917,20 @@ type GlobalProductCategoryRecommendRequest struct {
 // GlobalProductCategoryRecommendResponse
 //=======================================================
 type GlobalProductCategoryRecommendResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Indicate waring details if hit waring. Empty if no waring happened.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response GlobalProductCategoryRecommend `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - GlobalProductGetRecommendAttribute
+//=======================================================
+type GlobalProductGetRecommendAttribute struct {
+// attribute_list is Attribute info list.
+AttributeList AttributeList `json:"attribute_list"`
 }
 //=======================================================
 // GlobalProductGetRecommendAttributeRequest
@@ -719,14 +947,9 @@ type GlobalProductGetRecommendAttributeRequest struct {
 // GlobalProductGetRecommendAttributeResponse
 //=======================================================
 type GlobalProductGetRecommendAttributeResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Warning message.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response,omitempty"`
+    Response GlobalProductGetRecommendAttribute `json:"response,omitempty"`
 }

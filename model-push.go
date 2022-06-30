@@ -1,4 +1,17 @@
 package shopeego
+//=======================================================
+// PushGetPushConfigRequest
+//=======================================================
+type PushGetPushConfigRequest struct {
+}
+//=======================================================
+// PushGetPushConfigResponse
+//=======================================================
+type PushGetPushConfigResponse struct {
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
 
 
 //=======================================================
@@ -31,26 +44,6 @@ ShopAuthorizationCanceledPush int `json:"shop_authorization_canceled_push,omitem
 ShopAuthorizationPush int `json:"shop_authorization_push,omitempty"`
 }
 //=======================================================
-// PushGetPushConfigRequest
-//=======================================================
-type PushGetPushConfigRequest struct {
-}
-//=======================================================
-// PushGetPushConfigResponse
-//=======================================================
-type PushGetPushConfigResponse struct {
-    // callback_url is The callback url of push mechanism.
-    CallbackUrl string `json:"callback_url,omitempty"`
-    // shut_time is The shutdown time caused by low successful rate of push mechanism.
-    ShutTime int `json:"shut_time,omitempty"`
-    // push_config is Detail configuration of push mechanism.
-    PushConfig PushConfig `json:"push_config"`
-    // blocked_shop_id is Use this filed to set shops that need to be blocked.
-    BlockedShopID []int `json:"blocked_shop_id,omitempty"`
-    // request_id is The identifier for an API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
-}
-//=======================================================
 // PushSetPushConfigRequest
 //=======================================================
 type PushSetPushConfigRequest struct {
@@ -65,8 +58,7 @@ type PushSetPushConfigRequest struct {
 // PushSetPushConfigResponse
 //=======================================================
 type PushSetPushConfigResponse struct {
-    // status is Use this field to indicate whether the configuration is set successfully.
-    Status string `json:"status,omitempty"`
-    // request_id is The identifier for an API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
 }

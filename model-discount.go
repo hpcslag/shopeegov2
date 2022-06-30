@@ -1,4 +1,13 @@
 package shopeego
+
+
+//=======================================================
+// Object Raw Type - DiscountAddDiscount
+//=======================================================
+type DiscountAddDiscount struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+}
 //=======================================================
 // DiscountAddDiscountRequest
 //=======================================================
@@ -14,14 +23,39 @@ type DiscountAddDiscountRequest struct {
 // DiscountAddDiscountResponse
 //=======================================================
 type DiscountAddDiscountResponse struct {
-    // message is The description of error code
-    Message string `json:"message,omitempty"`
-    // error is Error code
-    Error string `json:"error,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
+    Response DiscountAddDiscount `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - ErrorList
+//=======================================================
+type ErrorList struct {
+// item_id is  Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// model_id is Shopee's unique identifier for a variation of an item. If there is no variation of this item, you don't need to input this param. Dafault is 0.
+ModelID int `json:"model_id,omitempty"`
+// fail_message is Indicate error details if one element hit error.
+FailMessage string `json:"fail_message,omitempty"`
+// fail_error is Indicate error type if one element hit error.
+FailError string `json:"fail_error,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountAddDiscountItem
+//=======================================================
+type DiscountAddDiscountItem struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// count is The number of items that add successfully.
+Count int `json:"count,omitempty"`
+// error_list is Indicate error details.
+ErrorList ErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountAddDiscountItemRequest
@@ -30,20 +64,28 @@ type DiscountAddDiscountItemRequest struct {
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_list is The items added in this discount promotion.
-    ItemList []interface{} `json:"item_list"`
+    ItemList ItemList `json:"item_list"`
 }
 //=======================================================
 // DiscountAddDiscountItemResponse
 //=======================================================
 type DiscountAddDiscountItemResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response DiscountAddDiscountItem `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountDeleteDiscount
+//=======================================================
+type DiscountDeleteDiscount struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// modify_time is The time when discount has been deleted.
+ModifyTime int `json:"modify_time,omitempty"`
 }
 //=======================================================
 // DiscountDeleteDiscountRequest
@@ -56,14 +98,22 @@ type DiscountDeleteDiscountRequest struct {
 // DiscountDeleteDiscountResponse
 //=======================================================
 type DiscountDeleteDiscountResponse struct {
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is 
-    Response Response `json:"response"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    Response DiscountDeleteDiscount `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountDeleteDiscountItem
+//=======================================================
+type DiscountDeleteDiscountItem struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// error_list is Detail informations about error.
+ErrorList ErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountDeleteDiscountItemRequest
@@ -80,14 +130,32 @@ type DiscountDeleteDiscountItemRequest struct {
 // DiscountDeleteDiscountItemResponse
 //=======================================================
 type DiscountDeleteDiscountItemResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response DiscountDeleteDiscountItem `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountGetDiscount
+//=======================================================
+type DiscountGetDiscount struct {
+// status is The status of discount promotion
+Status string `json:"status,omitempty"`
+// discount_name is Title of the discount.
+DiscountName string `json:"discount_name,omitempty"`
+// item_list is The items selected in this discount.
+ItemList ItemList `json:"item_list"`
+// start_time is The time when discount activity start.
+StartTime int `json:"start_time,omitempty"`
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// end_time is The time when discount activity end.
+EndTime int `json:"end_time,omitempty"`
+// more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
+More bool `json:"more,omitempty"`
 }
 //=======================================================
 // DiscountGetDiscountRequest
@@ -104,14 +172,41 @@ type DiscountGetDiscountRequest struct {
 // DiscountGetDiscountResponse
 //=======================================================
 type DiscountGetDiscountResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response DiscountGetDiscount `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountList
+//=======================================================
+type DiscountList struct {
+// status is The status of discount.
+Status string `json:"status,omitempty"`
+// discount_name is Title of the discount.
+DiscountName string `json:"discount_name,omitempty"`
+// start_time is The time when discount activity start.
+StartTime int `json:"start_time,omitempty"`
+// end_time is The time when discount activity end.
+EndTime int `json:"end_time,omitempty"`
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// source is Source of the discount. 7: live stream, 1: admin, 0: others
+Source int `json:"source,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountGetDiscountList
+//=======================================================
+type DiscountGetDiscountList struct {
+// discount_list is The discounts created in this shop.
+DiscountList DiscountList `json:"discount_list"`
+// more is <p>This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.<br /></p>
+More bool `json:"more,omitempty"`
 }
 //=======================================================
 // DiscountGetDiscountListRequest
@@ -132,14 +227,22 @@ type DiscountGetDiscountListRequest struct {
 // DiscountGetDiscountListResponse
 //=======================================================
 type DiscountGetDiscountListResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier of the API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response DiscountGetDiscountList `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountUpdateDiscount
+//=======================================================
+type DiscountUpdateDiscount struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// modify_time is The time when discount is updated.
+ModifyTime int `json:"modify_time,omitempty"`
 }
 //=======================================================
 // DiscountUpdateDiscountRequest
@@ -158,14 +261,24 @@ type DiscountUpdateDiscountRequest struct {
 // DiscountUpdateDiscountResponse
 //=======================================================
 type DiscountUpdateDiscountResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    Response DiscountUpdateDiscount `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountUpdateDiscountItem
+//=======================================================
+type DiscountUpdateDiscountItem struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// count is The number of items that modify successfully.
+Count int `json:"count,omitempty"`
+// error_list is Error list of this discount.
+ErrorList ErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountUpdateDiscountItemRequest
@@ -174,22 +287,28 @@ type DiscountUpdateDiscountItemRequest struct {
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_list is The items selected to this discount. You can update at most 50 items per call.
-    ItemList []interface{} `json:"item_list"`
+    ItemList ItemList `json:"item_list"`
 }
 //=======================================================
 // DiscountUpdateDiscountItemResponse
 //=======================================================
 type DiscountUpdateDiscountItemResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Indicate warning message you should take care.
-    Warning string `json:"warning,omitempty"`
-    // request_id is The identifier of the API request for error tracking
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response DiscountUpdateDiscountItem `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountEndDiscount
+//=======================================================
+type DiscountEndDiscount struct {
+// discount_id is Shopee's unique identifier for a discount activity.
+DiscountID int `json:"discount_id,omitempty"`
+// modify_time is The time to track the modified time.
+ModifyTime int `json:"modify_time,omitempty"`
 }
 //=======================================================
 // DiscountEndDiscountRequest
@@ -202,12 +321,9 @@ type DiscountEndDiscountRequest struct {
 // DiscountEndDiscountResponse
 //=======================================================
 type DiscountEndDiscountResponse struct {
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response DiscountEndDiscount `json:"response"`
 }

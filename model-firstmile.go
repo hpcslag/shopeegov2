@@ -1,4 +1,17 @@
 package shopeego
+
+
+//=======================================================
+// Object Raw Type - FirstMileGetUnbindOrderList
+//=======================================================
+type FirstMileGetUnbindOrderList struct {
+// more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
+More bool `json:"more,omitempty"`
+// order_list is The result list of order you querying.
+OrderList OrderList `json:"order_list"`
+// next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
+NextCursor string `json:"next_cursor,omitempty"`
+}
 //=======================================================
 // FirstMileGetUnbindOrderListRequest
 //=======================================================
@@ -14,14 +27,34 @@ type FirstMileGetUnbindOrderListRequest struct {
 // FirstMileGetUnbindOrderListResponse
 //=======================================================
 type FirstMileGetUnbindOrderListResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response FirstMileGetUnbindOrderList `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - FirstMileGetDetail
+//=======================================================
+type FirstMileGetDetail struct {
+// logistics_channel_id is The identity of logistic channel.
+LogisticsChannelID int `json:"logistics_channel_id,omitempty"`
+// first_mile_tracking_number is The first-mile tracking number.
+FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
+// shipment_method is The shipment method for bound orders, should be pickup or dropoff.
+ShipmentMethod string `json:"shipment_method,omitempty"`
+// status is The logistics status for first-mile tracking number. Status could be: INIT,ORDER_CREATED,PICKED_UP,DELIVERED,ORDER_RECEIVED,CANCELING,CANCELED.
+Status string `json:"status,omitempty"`
+// declare_date is The specified delivery date.
+DeclareDate string `json:"declare_date,omitempty"`
+// more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
+More bool `json:"more,omitempty"`
+// order_list is The list of order.
+OrderList OrderList `json:"order_list"`
+// next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
+NextCursor string `json:"next_cursor,omitempty"`
 }
 //=======================================================
 // FirstMileGetDetailRequest
@@ -36,14 +69,11 @@ type FirstMileGetDetailRequest struct {
 // FirstMileGetDetailResponse
 //=======================================================
 type FirstMileGetDetailResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response FirstMileGetDetail `json:"response,omitempty"`
 }
 
 
@@ -62,6 +92,15 @@ Region string `json:"region,omitempty"`
 // phone is Seller's phone number.
 Phone string `json:"phone,omitempty"`
 }
+
+
+//=======================================================
+// Object Raw Type - FirstMileGenerateFirstMileTrackingNumber
+//=======================================================
+type FirstMileGenerateFirstMileTrackingNumber struct {
+// first_mile_tracking_number_list is The list of first mile tracking number that you generate
+FirstMileTrackingNumberList []string `json:"first_mile_tracking_number_list,omitempty"`
+}
 //=======================================================
 // FirstMileGenerateFirstMileTrackingNumberRequest
 //=======================================================
@@ -77,14 +116,22 @@ type FirstMileGenerateFirstMileTrackingNumberRequest struct {
 // FirstMileGenerateFirstMileTrackingNumberResponse
 //=======================================================
 type FirstMileGenerateFirstMileTrackingNumberResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response FirstMileGenerateFirstMileTrackingNumber `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - FirstMileBindFirstMileTrackingNumber
+//=======================================================
+type FirstMileBindFirstMileTrackingNumber struct {
+// first_mile_tracking_number is The first mile tracking number
+FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
+// order_list is The list of orders.
+OrderList OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileBindFirstMileTrackingNumberRequest
@@ -109,22 +156,28 @@ type FirstMileBindFirstMileTrackingNumberRequest struct {
     // height is The height of the parcel.
     Height float64 `json:"height,omitempty"`
     // order_list is The set of ordersn. You can specify up to 50 ordersns in this call.one fm_tn maximum number of total bind orders is 10000.
-    OrderList []interface{} `json:"order_list"`
+    OrderList OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileBindFirstMileTrackingNumberResponse
 //=======================================================
 type FirstMileBindFirstMileTrackingNumberResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Indicate warning message you should take care.
-    Warning []interface{} `json:"warning,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response FirstMileBindFirstMileTrackingNumber `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - FirstMileUnbindFirstMileTrackingNumber
+//=======================================================
+type FirstMileUnbindFirstMileTrackingNumber struct {
+// first_mile_tracking_number is The first mile tracking number.
+FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
+// order_list is The binding result list of each order.
+OrderList OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileUnbindFirstMileTrackingNumberRequest
@@ -133,22 +186,43 @@ type FirstMileUnbindFirstMileTrackingNumberRequest struct {
     // first_mile_tracking_number is The identifier for an API request for error tracking.
     FirstMileTrackingNumber string `json:"first_mile_tracking_number"`
     // order_list is The list of order info you want to unbind from the given first mile tracking number.
-    OrderList []interface{} `json:"order_list"`
+    OrderList OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileUnbindFirstMileTrackingNumberResponse
 //=======================================================
 type FirstMileUnbindFirstMileTrackingNumberResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
-    // warning is Indicate warning message you should take care.
-    Warning []interface{} `json:"warning,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response FirstMileUnbindFirstMileTrackingNumber `json:"response"`
+}
+
+
+//=======================================================
+// Object Raw Type - FirstMileTrackingNumberList
+//=======================================================
+type FirstMileTrackingNumberList struct {
+// first_mile_tracking_number is The specified delivery date.	
+FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
+// status is The logistics status for bound orders.	
+Status string `json:"status,omitempty"`
+// declare_date is The first-mile tracking number.
+DeclareDate string `json:"declare_date,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - FirstMileGetTrackingNumberList
+//=======================================================
+type FirstMileGetTrackingNumberList struct {
+// more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
+More bool `json:"more,omitempty"`
+// first_mile_tracking_number_list is The first-mile tracking number.
+FirstMileTrackingNumberList FirstMileTrackingNumberList `json:"first_mile_tracking_number_list"`
+// next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
+NextCursor string `json:"next_cursor,omitempty"`
 }
 //=======================================================
 // FirstMileGetTrackingNumberListRequest
@@ -167,14 +241,11 @@ type FirstMileGetTrackingNumberListRequest struct {
 // FirstMileGetTrackingNumberListResponse
 //=======================================================
 type FirstMileGetTrackingNumberListResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response,omitempty"`
+    Response FirstMileGetTrackingNumberList `json:"response,omitempty"`
 }
 //=======================================================
 // FirstMileGetWaybillRequest
@@ -187,6 +258,18 @@ type FirstMileGetWaybillRequest struct {
 // FirstMileGetWaybillResponse
 //=======================================================
 type FirstMileGetWaybillResponse struct {
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
+}
+
+
+//=======================================================
+// Object Raw Type - FirstMileGetChannelList
+//=======================================================
+type FirstMileGetChannelList struct {
+// logistics_channel_list is 
+LogisticsChannelList LogisticsChannelList `json:"logistics_channel_list"`
 }
 //=======================================================
 // FirstMileGetChannelListRequest
@@ -199,12 +282,9 @@ type FirstMileGetChannelListRequest struct {
 // FirstMileGetChannelListResponse
 //=======================================================
 type FirstMileGetChannelListResponse struct {
-    // request_id is The identifier for an API request for error tracking.
-    RequestID string `json:"request_id,omitempty"`
-    // error is Indicate error type if hit error. Empty if no error happened.
-    Error string `json:"error,omitempty"`
-    // message is Indicate error details if hit error. Empty if no error happened.
-    Message string `json:"message,omitempty"`
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+
     // response is Detail informations you are querying.
-    Response Response `json:"response"`
+    Response FirstMileGetChannelList `json:"response"`
 }

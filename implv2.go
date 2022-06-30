@@ -1,5 +1,17 @@
 package shopeego
 
+// 統一的 API 回應介面
+type V2UnityResponse struct {
+	// error is Indicate error type if hit error. Empty if no error happened.
+	Error string `json:"error,omitempty"`
+	// message is Indicate error details if hit error. Empty if no error happened.
+	Message string `json:"message,omitempty"`
+	// request_id is The identifier of the API request for error tracking
+	RequestID string `json:"request_id,omitempty"`
+	// Warning message.
+	Warning string `json:"warning,omitempty"`
+}
+
 func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp *ProductGetCategoryResponse, err error) {
 	b, err := s.post("ProductGetCategory", req)
 	if err != nil {
