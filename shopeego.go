@@ -489,7 +489,7 @@ func (s *ShopeeClient) post(method string, in interface{}) ([]byte, error) {
 	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
 	case ClientVersionV2:
 		req, err = http.NewRequest("POST", fmt.Sprintf("%s%s", url, s.makeV2Query(url, body)), bytes.NewReader(body))
-		req.Header.Add("Authorization", s.signV1(url, body))
+		req.Header.Add("Authorization", s.signV2(url, body))
 	}
 
 	//Do request by native lib
