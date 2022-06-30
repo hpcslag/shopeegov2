@@ -25,13 +25,16 @@ typeMapping = {
     "boolean" : "bool",
     "timestamp" : "int",
     "float" : "float64",
-    "file" : "",
+    "file" : "*multipart.FileHeader",
     "list": "" # sub
 }
 
 
 # store global object name to share
 globalStruct = []
+
+# store global interface usage 
+globalInterface = []
 
 def ParseObjectToStruct(structName, raw):
     globalStruct.append(structName)
@@ -64,7 +67,33 @@ type %s struct {""" % (structName, structName))
         if item["type"] == "file":
             structRaw += """
 // %s is a filetype, should parse by http.request
+// File *multipart.FileHeader `form:"file" binding:"required"`
+// Using `ShouldBind`
+// --------------------
+// var form Form
+// _ := c.ShouldBind(&form)
 
+// Get raw file bytes - no reader method
+// openedFile, _ := form.File.Open()
+// file, _ := ioutil.ReadAll(openedFile)
+
+// Upload to disk
+// `form.File` has io.reader method
+// c.SaveUploadedFile(form.File, path)
+// --------------------
+
+// Using `FormFile`
+// --------------------
+// formFile, _ := c.FormFile("file")
+
+// Get raw file bytes - no reader method
+// openedFile, _ := formFile.Open()
+// file, _ := ioutil.ReadAll(openedFile)
+
+// Upload to disk
+// `formFile` has io.reader method
+// c.SaveUploadedFile(formFile, path)
+// --------------------
 """ % (item["name"])
             continue
 
@@ -144,6 +173,9 @@ if __name__ == "__main__":
             })
 
             apiParams = json.loads(apiManual["params"])
+
+            # add to global interface list:
+            globalInterface.append(apiName)
             
             reqStr = ("""
 //=======================================================
@@ -278,6 +310,45 @@ var availablePaths map[string]string = map[string]string{
     f.write(urlStrRaw)
     f.close()
 
+    # generate interface and implements
+    globalInterfaceStr = """
+package shopeego
 
+type V2I interface {
+"""
+    globalImplementStr = """
+package shopeego
 
+import "encoding/json"
+"""
 
+    for item in globalInterface:
+        globalInterfaceStr += """
+%s(*%sRequest) (*%sResponse, error)
+""" % (item, item, item)
+
+        globalImplementStr += """
+
+func (s *ShopeeClient) %s(req *%sRequest) (resp *%sResponse, err error) {
+	b, err := s.post("%s", req)
+	if err != nil {
+		return
+	}
+	err = json.Unmarshal(b, &resp)
+	if err != nil {
+		return
+	}
+	return
+}
+""" % (item, item, item, item)
+
+    globalInterfaceStr += """
+}
+"""
+    f = open("v2i.go", "a", encoding="utf-8")
+    f.write(globalInterfaceStr)
+    f.close()
+
+    f = open("implv2.go", "a", encoding="utf-8")
+    f.write(globalImplementStr)
+    f.close()
