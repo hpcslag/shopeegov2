@@ -29,6 +29,8 @@ typeMapping = {
     "list": "" # sub
 }
 
+# meet any in list need to trigger recursive parsing
+recursiveTypeList = [ "list", "object", "object[]" ]
 
 # store global object name to share
 globalStruct = []
@@ -97,10 +99,12 @@ type %s struct {""" % (structName, structName))
 """ % (item["name"])
             continue
 
-        if item["type"] == "list" or item["type"] == "object":
+        if item["type"] in recursiveTypeList:
+            # assume no conflict key name, directly using key-name as object name
             subObjName = Snake2BigGolangCase(item["name"])
             if not subObjName in globalStruct:
                 globalStruct.append(objName)
+                # gen sub struct for typing
                 dependenciesStructRaw += ParseObjectToStruct(subObjName, item)
             
             if item["type"] == "list":
@@ -202,10 +206,12 @@ type %sRequest struct {""" % (apiName, apiName))
                     continue
                     
                 # DRY:1 
-                if reqItem["type"] == "list" or reqItem["type"] == "object":
+                if reqItem["type"] in recursiveTypeList:
+                    # assume request doesn't have kindof `Response` in unity key response, so we directly using key-name to be a Object name
                     objName = Snake2BigGolangCase(reqItem["name"])
                     if not objName in globalStruct:
                         globalStruct.append(objName)
+                        # gen sub struct for typing
                         f.write(ParseObjectToStruct(objName, reqItem))
                                        
                     reqStr += """
@@ -239,9 +245,16 @@ type %sRequest struct {""" % (apiName, apiName))
 //=======================================================
 // %sResponse
 //=======================================================
-type %sResponse struct {""" % (apiName, apiName))
+type %sResponse struct {
+    // 通用的 Response 回傳參數
+    V2UnityResponse
+""" % (apiName, apiName))
             
-            for resItem in apiParams["response_params"]:               
+            for resItem in apiParams["response_params"]:
+                # (only got problem in response) all response parameter is store in `response` key-pair, let all unity response key put into V2UnityResponse Object
+                if resItem["name"] != "response":
+                    continue
+
                 # float convert to string
                 toStrstr = ""
                 if resItem["type"] == "flaot":
@@ -254,10 +267,12 @@ type %sResponse struct {""" % (apiName, apiName))
                     continue
                     
                 # DRY:2 
-                if resItem["type"] == "list" or resItem["type"] == "object":
-                    objName = Snake2BigGolangCase(resItem["name"])
+                if resItem["type"] in recursiveTypeList:
+                    # warning: because here they using `Response` will conflict with existing key, we using api name to replace it response contents
+                    objName = "%s" % (apiName)
                     if not objName in globalStruct:
                         globalStruct.append(objName)
+                        # gen sub struct for typing
                         f.write(ParseObjectToStruct(objName, resItem))
                                        
                     resStr += """
@@ -320,6 +335,18 @@ type V2I interface {
 package shopeego
 
 import "encoding/json"
+
+// 統一的 API 回應介面
+type V2UnityResponse struct {
+	// error is Indicate error type if hit error. Empty if no error happened.
+	Error string `json:"error,omitempty"`
+	// message is Indicate error details if hit error. Empty if no error happened.
+	Message string `json:"message,omitempty"`
+	// request_id is The identifier of the API request for error tracking
+	RequestID string `json:"request_id,omitempty"`
+	// Warning message.
+	Warning string `json:"warning,omitempty"`
+}
 """
 
     for item in globalInterface:
