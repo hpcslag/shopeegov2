@@ -1,8 +1,4 @@
-
 package shopeego
-
-import "encoding/json"
-
 
 func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp *ProductGetCategoryResponse, err error) {
 	b, err := s.post("ProductGetCategory", req)
@@ -16,7 +12,6 @@ func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp 
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetAttributes(req *ProductGetAttributesRequest) (resp *ProductGetAttributesResponse, err error) {
 	b, err := s.post("ProductGetAttributes", req)
 	if err != nil {
@@ -28,7 +23,6 @@ func (s *ShopeeClient) ProductGetAttributes(req *ProductGetAttributesRequest) (r
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetBrandList(req *ProductGetBrandListRequest) (resp *ProductGetBrandListResponse, err error) {
 	b, err := s.post("ProductGetBrandList", req)
@@ -42,7 +36,6 @@ func (s *ShopeeClient) ProductGetBrandList(req *ProductGetBrandListRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetDtsLimit(req *ProductGetDtsLimitRequest) (resp *ProductGetDtsLimitResponse, err error) {
 	b, err := s.post("ProductGetDtsLimit", req)
 	if err != nil {
@@ -54,7 +47,6 @@ func (s *ShopeeClient) ProductGetDtsLimit(req *ProductGetDtsLimitRequest) (resp 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemLimit(req *ProductGetItemLimitRequest) (resp *ProductGetItemLimitResponse, err error) {
 	b, err := s.post("ProductGetItemLimit", req)
@@ -68,7 +60,6 @@ func (s *ShopeeClient) ProductGetItemLimit(req *ProductGetItemLimitRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetItemList(req *ProductGetItemListRequest) (resp *ProductGetItemListResponse, err error) {
 	b, err := s.post("ProductGetItemList", req)
 	if err != nil {
@@ -80,7 +71,6 @@ func (s *ShopeeClient) ProductGetItemList(req *ProductGetItemListRequest) (resp 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemBaseInfo(req *ProductGetItemBaseInfoRequest) (resp *ProductGetItemBaseInfoResponse, err error) {
 	b, err := s.post("ProductGetItemBaseInfo", req)
@@ -94,7 +84,6 @@ func (s *ShopeeClient) ProductGetItemBaseInfo(req *ProductGetItemBaseInfoRequest
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetItemExtraInfo(req *ProductGetItemExtraInfoRequest) (resp *ProductGetItemExtraInfoResponse, err error) {
 	b, err := s.post("ProductGetItemExtraInfo", req)
 	if err != nil {
@@ -106,7 +95,6 @@ func (s *ShopeeClient) ProductGetItemExtraInfo(req *ProductGetItemExtraInfoReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductAddItem(req *ProductAddItemRequest) (resp *ProductAddItemResponse, err error) {
 	b, err := s.post("ProductAddItem", req)
@@ -120,7 +108,6 @@ func (s *ShopeeClient) ProductAddItem(req *ProductAddItemRequest) (resp *Product
 	return
 }
 
-
 func (s *ShopeeClient) ProductUpdateItem(req *ProductUpdateItemRequest) (resp *ProductUpdateItemResponse, err error) {
 	b, err := s.post("ProductUpdateItem", req)
 	if err != nil {
@@ -132,7 +119,6 @@ func (s *ShopeeClient) ProductUpdateItem(req *ProductUpdateItemRequest) (resp *P
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductDeleteItem(req *ProductDeleteItemRequest) (resp *ProductDeleteItemResponse, err error) {
 	b, err := s.post("ProductDeleteItem", req)
@@ -146,7 +132,6 @@ func (s *ShopeeClient) ProductDeleteItem(req *ProductDeleteItemRequest) (resp *P
 	return
 }
 
-
 func (s *ShopeeClient) ProductInitTierVariation(req *ProductInitTierVariationRequest) (resp *ProductInitTierVariationResponse, err error) {
 	b, err := s.post("ProductInitTierVariation", req)
 	if err != nil {
@@ -158,7 +143,6 @@ func (s *ShopeeClient) ProductInitTierVariation(req *ProductInitTierVariationReq
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateTierVariation(req *ProductUpdateTierVariationRequest) (resp *ProductUpdateTierVariationResponse, err error) {
 	b, err := s.post("ProductUpdateTierVariation", req)
@@ -172,7 +156,6 @@ func (s *ShopeeClient) ProductUpdateTierVariation(req *ProductUpdateTierVariatio
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetModelList(req *ProductGetModelListRequest) (resp *ProductGetModelListResponse, err error) {
 	b, err := s.post("ProductGetModelList", req)
 	if err != nil {
@@ -184,7 +167,6 @@ func (s *ShopeeClient) ProductGetModelList(req *ProductGetModelListRequest) (res
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductAddModel(req *ProductAddModelRequest) (resp *ProductAddModelResponse, err error) {
 	b, err := s.post("ProductAddModel", req)
@@ -198,7 +180,6 @@ func (s *ShopeeClient) ProductAddModel(req *ProductAddModelRequest) (resp *Produ
 	return
 }
 
-
 func (s *ShopeeClient) ProductUpdateModel(req *ProductUpdateModelRequest) (resp *ProductUpdateModelResponse, err error) {
 	b, err := s.post("ProductUpdateModel", req)
 	if err != nil {
@@ -210,7 +191,6 @@ func (s *ShopeeClient) ProductUpdateModel(req *ProductUpdateModelRequest) (resp 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductDeleteModel(req *ProductDeleteModelRequest) (resp *ProductDeleteModelResponse, err error) {
 	b, err := s.post("ProductDeleteModel", req)
@@ -224,7 +204,6 @@ func (s *ShopeeClient) ProductDeleteModel(req *ProductDeleteModelRequest) (resp 
 	return
 }
 
-
 func (s *ShopeeClient) ProductSupportSizeChart(req *ProductSupportSizeChartRequest) (resp *ProductSupportSizeChartResponse, err error) {
 	b, err := s.post("ProductSupportSizeChart", req)
 	if err != nil {
@@ -236,7 +215,6 @@ func (s *ShopeeClient) ProductSupportSizeChart(req *ProductSupportSizeChartReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateSizeChart(req *ProductUpdateSizeChartRequest) (resp *ProductUpdateSizeChartResponse, err error) {
 	b, err := s.post("ProductUpdateSizeChart", req)
@@ -250,7 +228,6 @@ func (s *ShopeeClient) ProductUpdateSizeChart(req *ProductUpdateSizeChartRequest
 	return
 }
 
-
 func (s *ShopeeClient) ProductUnlistItem(req *ProductUnlistItemRequest) (resp *ProductUnlistItemResponse, err error) {
 	b, err := s.post("ProductUnlistItem", req)
 	if err != nil {
@@ -262,7 +239,6 @@ func (s *ShopeeClient) ProductUnlistItem(req *ProductUnlistItemRequest) (resp *P
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdatePrice(req *ProductUpdatePriceRequest) (resp *ProductUpdatePriceResponse, err error) {
 	b, err := s.post("ProductUpdatePrice", req)
@@ -276,7 +252,6 @@ func (s *ShopeeClient) ProductUpdatePrice(req *ProductUpdatePriceRequest) (resp 
 	return
 }
 
-
 func (s *ShopeeClient) ProductUpdateStock(req *ProductUpdateStockRequest) (resp *ProductUpdateStockResponse, err error) {
 	b, err := s.post("ProductUpdateStock", req)
 	if err != nil {
@@ -288,7 +263,6 @@ func (s *ShopeeClient) ProductUpdateStock(req *ProductUpdateStockRequest) (resp 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductBoostItem(req *ProductBoostItemRequest) (resp *ProductBoostItemResponse, err error) {
 	b, err := s.post("ProductBoostItem", req)
@@ -302,7 +276,6 @@ func (s *ShopeeClient) ProductBoostItem(req *ProductBoostItemRequest) (resp *Pro
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetBoostedList(req *ProductGetBoostedListRequest) (resp *ProductGetBoostedListResponse, err error) {
 	b, err := s.post("ProductGetBoostedList", req)
 	if err != nil {
@@ -314,7 +287,6 @@ func (s *ShopeeClient) ProductGetBoostedList(req *ProductGetBoostedListRequest) 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemPromotion(req *ProductGetItemPromotionRequest) (resp *ProductGetItemPromotionResponse, err error) {
 	b, err := s.post("ProductGetItemPromotion", req)
@@ -328,7 +300,6 @@ func (s *ShopeeClient) ProductGetItemPromotion(req *ProductGetItemPromotionReque
 	return
 }
 
-
 func (s *ShopeeClient) ProductUpdateSipItemPrice(req *ProductUpdateSipItemPriceRequest) (resp *ProductUpdateSipItemPriceResponse, err error) {
 	b, err := s.post("ProductUpdateSipItemPrice", req)
 	if err != nil {
@@ -340,7 +311,6 @@ func (s *ShopeeClient) ProductUpdateSipItemPrice(req *ProductUpdateSipItemPriceR
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductSearchItem(req *ProductSearchItemRequest) (resp *ProductSearchItemResponse, err error) {
 	b, err := s.post("ProductSearchItem", req)
@@ -354,7 +324,6 @@ func (s *ShopeeClient) ProductSearchItem(req *ProductSearchItemRequest) (resp *P
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetComment(req *ProductGetCommentRequest) (resp *ProductGetCommentResponse, err error) {
 	b, err := s.post("ProductGetComment", req)
 	if err != nil {
@@ -366,7 +335,6 @@ func (s *ShopeeClient) ProductGetComment(req *ProductGetCommentRequest) (resp *P
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductReplyComment(req *ProductReplyCommentRequest) (resp *ProductReplyCommentResponse, err error) {
 	b, err := s.post("ProductReplyComment", req)
@@ -380,7 +348,6 @@ func (s *ShopeeClient) ProductReplyComment(req *ProductReplyCommentRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) ProductCategoryRecommend(req *ProductCategoryRecommendRequest) (resp *ProductCategoryRecommendResponse, err error) {
 	b, err := s.post("ProductCategoryRecommend", req)
 	if err != nil {
@@ -392,7 +359,6 @@ func (s *ShopeeClient) ProductCategoryRecommend(req *ProductCategoryRecommendReq
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ProductRegisterBrand(req *ProductRegisterBrandRequest) (resp *ProductRegisterBrandResponse, err error) {
 	b, err := s.post("ProductRegisterBrand", req)
@@ -406,7 +372,6 @@ func (s *ShopeeClient) ProductRegisterBrand(req *ProductRegisterBrandRequest) (r
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetRecommendAttribute(req *ProductGetRecommendAttributeRequest) (resp *ProductGetRecommendAttributeResponse, err error) {
 	b, err := s.post("ProductGetRecommendAttribute", req)
 	if err != nil {
@@ -418,7 +383,6 @@ func (s *ShopeeClient) ProductGetRecommendAttribute(req *ProductGetRecommendAttr
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetCategory(req *GlobalProductGetCategoryRequest) (resp *GlobalProductGetCategoryResponse, err error) {
 	b, err := s.post("GlobalProductGetCategory", req)
@@ -432,7 +396,6 @@ func (s *ShopeeClient) GlobalProductGetCategory(req *GlobalProductGetCategoryReq
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetAttributes(req *GlobalProductGetAttributesRequest) (resp *GlobalProductGetAttributesResponse, err error) {
 	b, err := s.post("GlobalProductGetAttributes", req)
 	if err != nil {
@@ -444,7 +407,6 @@ func (s *ShopeeClient) GlobalProductGetAttributes(req *GlobalProductGetAttribute
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetBrandList(req *GlobalProductGetBrandListRequest) (resp *GlobalProductGetBrandListResponse, err error) {
 	b, err := s.post("GlobalProductGetBrandList", req)
@@ -458,7 +420,6 @@ func (s *ShopeeClient) GlobalProductGetBrandList(req *GlobalProductGetBrandListR
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetGlobalItemLimit(req *GlobalProductGetGlobalItemLimitRequest) (resp *GlobalProductGetGlobalItemLimitResponse, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemLimit", req)
 	if err != nil {
@@ -470,7 +431,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemLimit(req *GlobalProductGetGlob
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetDtsLimit(req *GlobalProductGetDtsLimitRequest) (resp *GlobalProductGetDtsLimitResponse, err error) {
 	b, err := s.post("GlobalProductGetDtsLimit", req)
@@ -484,7 +444,6 @@ func (s *ShopeeClient) GlobalProductGetDtsLimit(req *GlobalProductGetDtsLimitReq
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetGlobalItemList(req *GlobalProductGetGlobalItemListRequest) (resp *GlobalProductGetGlobalItemListResponse, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemList", req)
 	if err != nil {
@@ -496,7 +455,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemList(req *GlobalProductGetGloba
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetGlobalItemInfo(req *GlobalProductGetGlobalItemInfoRequest) (resp *GlobalProductGetGlobalItemInfoResponse, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemInfo", req)
@@ -510,7 +468,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemInfo(req *GlobalProductGetGloba
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductAddGlobalItem(req *GlobalProductAddGlobalItemRequest) (resp *GlobalProductAddGlobalItemResponse, err error) {
 	b, err := s.post("GlobalProductAddGlobalItem", req)
 	if err != nil {
@@ -522,7 +479,6 @@ func (s *ShopeeClient) GlobalProductAddGlobalItem(req *GlobalProductAddGlobalIte
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdateGlobalItem(req *GlobalProductUpdateGlobalItemRequest) (resp *GlobalProductUpdateGlobalItemResponse, err error) {
 	b, err := s.post("GlobalProductUpdateGlobalItem", req)
@@ -536,7 +492,6 @@ func (s *ShopeeClient) GlobalProductUpdateGlobalItem(req *GlobalProductUpdateGlo
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductDeleteGlobalItem(req *GlobalProductDeleteGlobalItemRequest) (resp *GlobalProductDeleteGlobalItemResponse, err error) {
 	b, err := s.post("GlobalProductDeleteGlobalItem", req)
 	if err != nil {
@@ -548,7 +503,6 @@ func (s *ShopeeClient) GlobalProductDeleteGlobalItem(req *GlobalProductDeleteGlo
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductInitTierVariation(req *GlobalProductInitTierVariationRequest) (resp *GlobalProductInitTierVariationResponse, err error) {
 	b, err := s.post("GlobalProductInitTierVariation", req)
@@ -562,7 +516,6 @@ func (s *ShopeeClient) GlobalProductInitTierVariation(req *GlobalProductInitTier
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductUpdateTierVariation(req *GlobalProductUpdateTierVariationRequest) (resp *GlobalProductUpdateTierVariationResponse, err error) {
 	b, err := s.post("GlobalProductUpdateTierVariation", req)
 	if err != nil {
@@ -574,7 +527,6 @@ func (s *ShopeeClient) GlobalProductUpdateTierVariation(req *GlobalProductUpdate
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductAddGlobalModel(req *GlobalProductAddGlobalModelRequest) (resp *GlobalProductAddGlobalModelResponse, err error) {
 	b, err := s.post("GlobalProductAddGlobalModel", req)
@@ -588,7 +540,6 @@ func (s *ShopeeClient) GlobalProductAddGlobalModel(req *GlobalProductAddGlobalMo
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductUpdateGlobalModel(req *GlobalProductUpdateGlobalModelRequest) (resp *GlobalProductUpdateGlobalModelResponse, err error) {
 	b, err := s.post("GlobalProductUpdateGlobalModel", req)
 	if err != nil {
@@ -600,7 +551,6 @@ func (s *ShopeeClient) GlobalProductUpdateGlobalModel(req *GlobalProductUpdateGl
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductDeleteGlobalModel(req *GlobalProductDeleteGlobalModelRequest) (resp *GlobalProductDeleteGlobalModelResponse, err error) {
 	b, err := s.post("GlobalProductDeleteGlobalModel", req)
@@ -614,7 +564,6 @@ func (s *ShopeeClient) GlobalProductDeleteGlobalModel(req *GlobalProductDeleteGl
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetGlobalModelList(req *GlobalProductGetGlobalModelListRequest) (resp *GlobalProductGetGlobalModelListResponse, err error) {
 	b, err := s.post("GlobalProductGetGlobalModelList", req)
 	if err != nil {
@@ -626,7 +575,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalModelList(req *GlobalProductGetGlob
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductSupportSizeChart(req *GlobalProductSupportSizeChartRequest) (resp *GlobalProductSupportSizeChartResponse, err error) {
 	b, err := s.post("GlobalProductSupportSizeChart", req)
@@ -640,7 +588,6 @@ func (s *ShopeeClient) GlobalProductSupportSizeChart(req *GlobalProductSupportSi
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductUpdateSizeChart(req *GlobalProductUpdateSizeChartRequest) (resp *GlobalProductUpdateSizeChartResponse, err error) {
 	b, err := s.post("GlobalProductUpdateSizeChart", req)
 	if err != nil {
@@ -652,7 +599,6 @@ func (s *ShopeeClient) GlobalProductUpdateSizeChart(req *GlobalProductUpdateSize
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductCreatePublishTask(req *GlobalProductCreatePublishTaskRequest) (resp *GlobalProductCreatePublishTaskResponse, err error) {
 	b, err := s.post("GlobalProductCreatePublishTask", req)
@@ -666,7 +612,6 @@ func (s *ShopeeClient) GlobalProductCreatePublishTask(req *GlobalProductCreatePu
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetPublishableShop(req *GlobalProductGetPublishableShopRequest) (resp *GlobalProductGetPublishableShopResponse, err error) {
 	b, err := s.post("GlobalProductGetPublishableShop", req)
 	if err != nil {
@@ -678,7 +623,6 @@ func (s *ShopeeClient) GlobalProductGetPublishableShop(req *GlobalProductGetPubl
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetPublishTaskResult(req *GlobalProductGetPublishTaskResultRequest) (resp *GlobalProductGetPublishTaskResultResponse, err error) {
 	b, err := s.post("GlobalProductGetPublishTaskResult", req)
@@ -692,7 +636,6 @@ func (s *ShopeeClient) GlobalProductGetPublishTaskResult(req *GlobalProductGetPu
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetPublishedList(req *GlobalProductGetPublishedListRequest) (resp *GlobalProductGetPublishedListResponse, err error) {
 	b, err := s.post("GlobalProductGetPublishedList", req)
 	if err != nil {
@@ -704,7 +647,6 @@ func (s *ShopeeClient) GlobalProductGetPublishedList(req *GlobalProductGetPublis
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdatePrice(req *GlobalProductUpdatePriceRequest) (resp *GlobalProductUpdatePriceResponse, err error) {
 	b, err := s.post("GlobalProductUpdatePrice", req)
@@ -718,7 +660,6 @@ func (s *ShopeeClient) GlobalProductUpdatePrice(req *GlobalProductUpdatePriceReq
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductUpdateStock(req *GlobalProductUpdateStockRequest) (resp *GlobalProductUpdateStockResponse, err error) {
 	b, err := s.post("GlobalProductUpdateStock", req)
 	if err != nil {
@@ -730,7 +671,6 @@ func (s *ShopeeClient) GlobalProductUpdateStock(req *GlobalProductUpdateStockReq
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductSetSyncField(req *GlobalProductSetSyncFieldRequest) (resp *GlobalProductSetSyncFieldResponse, err error) {
 	b, err := s.post("GlobalProductSetSyncField", req)
@@ -744,7 +684,6 @@ func (s *ShopeeClient) GlobalProductSetSyncField(req *GlobalProductSetSyncFieldR
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetGlobalItemID(req *GlobalProductGetGlobalItemIDRequest) (resp *GlobalProductGetGlobalItemIDResponse, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemID", req)
 	if err != nil {
@@ -756,7 +695,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemID(req *GlobalProductGetGlobalI
 	}
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductCategoryRecommend(req *GlobalProductCategoryRecommendRequest) (resp *GlobalProductCategoryRecommendResponse, err error) {
 	b, err := s.post("GlobalProductCategoryRecommend", req)
@@ -770,7 +708,6 @@ func (s *ShopeeClient) GlobalProductCategoryRecommend(req *GlobalProductCategory
 	return
 }
 
-
 func (s *ShopeeClient) GlobalProductGetRecommendAttribute(req *GlobalProductGetRecommendAttributeRequest) (resp *GlobalProductGetRecommendAttributeResponse, err error) {
 	b, err := s.post("GlobalProductGetRecommendAttribute", req)
 	if err != nil {
@@ -782,7 +719,6 @@ func (s *ShopeeClient) GlobalProductGetRecommendAttribute(req *GlobalProductGetR
 	}
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceInitVideoUpload(req *MediaSpaceInitVideoUploadRequest) (resp *MediaSpaceInitVideoUploadResponse, err error) {
 	b, err := s.post("MediaSpaceInitVideoUpload", req)
@@ -796,7 +732,6 @@ func (s *ShopeeClient) MediaSpaceInitVideoUpload(req *MediaSpaceInitVideoUploadR
 	return
 }
 
-
 func (s *ShopeeClient) MediaSpaceUploadVideoPart(req *MediaSpaceUploadVideoPartRequest) (resp *MediaSpaceUploadVideoPartResponse, err error) {
 	b, err := s.post("MediaSpaceUploadVideoPart", req)
 	if err != nil {
@@ -808,7 +743,6 @@ func (s *ShopeeClient) MediaSpaceUploadVideoPart(req *MediaSpaceUploadVideoPartR
 	}
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceCompleteVideoUpload(req *MediaSpaceCompleteVideoUploadRequest) (resp *MediaSpaceCompleteVideoUploadResponse, err error) {
 	b, err := s.post("MediaSpaceCompleteVideoUpload", req)
@@ -822,7 +756,6 @@ func (s *ShopeeClient) MediaSpaceCompleteVideoUpload(req *MediaSpaceCompleteVide
 	return
 }
 
-
 func (s *ShopeeClient) MediaSpaceGetVideoUploadResult(req *MediaSpaceGetVideoUploadResultRequest) (resp *MediaSpaceGetVideoUploadResultResponse, err error) {
 	b, err := s.post("MediaSpaceGetVideoUploadResult", req)
 	if err != nil {
@@ -834,7 +767,6 @@ func (s *ShopeeClient) MediaSpaceGetVideoUploadResult(req *MediaSpaceGetVideoUpl
 	}
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceCancelVideoUpload(req *MediaSpaceCancelVideoUploadRequest) (resp *MediaSpaceCancelVideoUploadResponse, err error) {
 	b, err := s.post("MediaSpaceCancelVideoUpload", req)
@@ -848,7 +780,6 @@ func (s *ShopeeClient) MediaSpaceCancelVideoUpload(req *MediaSpaceCancelVideoUpl
 	return
 }
 
-
 func (s *ShopeeClient) MediaSpaceUploadImage(req *MediaSpaceUploadImageRequest) (resp *MediaSpaceUploadImageResponse, err error) {
 	b, err := s.post("MediaSpaceUploadImage", req)
 	if err != nil {
@@ -860,7 +791,6 @@ func (s *ShopeeClient) MediaSpaceUploadImage(req *MediaSpaceUploadImageRequest) 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ShopGetShopInfo(req *ShopGetShopInfoRequest) (resp *ShopGetShopInfoResponse, err error) {
 	b, err := s.post("ShopGetShopInfo", req)
@@ -874,7 +804,6 @@ func (s *ShopeeClient) ShopGetShopInfo(req *ShopGetShopInfoRequest) (resp *ShopG
 	return
 }
 
-
 func (s *ShopeeClient) ShopGetProfile(req *ShopGetProfileRequest) (resp *ShopGetProfileResponse, err error) {
 	b, err := s.post("ShopGetProfile", req)
 	if err != nil {
@@ -886,7 +815,6 @@ func (s *ShopeeClient) ShopGetProfile(req *ShopGetProfileRequest) (resp *ShopGet
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ShopUpdateProfile(req *ShopUpdateProfileRequest) (resp *ShopUpdateProfileResponse, err error) {
 	b, err := s.post("ShopUpdateProfile", req)
@@ -900,7 +828,6 @@ func (s *ShopeeClient) ShopUpdateProfile(req *ShopUpdateProfileRequest) (resp *S
 	return
 }
 
-
 func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest) (resp *ShopGetWarehouseDetailResponse, err error) {
 	b, err := s.post("ShopGetWarehouseDetail", req)
 	if err != nil {
@@ -912,7 +839,6 @@ func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest
 	}
 	return
 }
-
 
 func (s *ShopeeClient) MerchantGetMerchantInfo(req *MerchantGetMerchantInfoRequest) (resp *MerchantGetMerchantInfoResponse, err error) {
 	b, err := s.post("MerchantGetMerchantInfo", req)
@@ -926,7 +852,6 @@ func (s *ShopeeClient) MerchantGetMerchantInfo(req *MerchantGetMerchantInfoReque
 	return
 }
 
-
 func (s *ShopeeClient) MerchantGetShopListByMerchant(req *MerchantGetShopListByMerchantRequest) (resp *MerchantGetShopListByMerchantResponse, err error) {
 	b, err := s.post("MerchantGetShopListByMerchant", req)
 	if err != nil {
@@ -938,7 +863,6 @@ func (s *ShopeeClient) MerchantGetShopListByMerchant(req *MerchantGetShopListByM
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetOrderList(req *OrderGetOrderListRequest) (resp *OrderGetOrderListResponse, err error) {
 	b, err := s.post("OrderGetOrderList", req)
@@ -952,7 +876,6 @@ func (s *ShopeeClient) OrderGetOrderList(req *OrderGetOrderListRequest) (resp *O
 	return
 }
 
-
 func (s *ShopeeClient) OrderGetShipmentList(req *OrderGetShipmentListRequest) (resp *OrderGetShipmentListResponse, err error) {
 	b, err := s.post("OrderGetShipmentList", req)
 	if err != nil {
@@ -964,7 +887,6 @@ func (s *ShopeeClient) OrderGetShipmentList(req *OrderGetShipmentListRequest) (r
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetOrderDetail(req *OrderGetOrderDetailRequest) (resp *OrderGetOrderDetailResponse, err error) {
 	b, err := s.post("OrderGetOrderDetail", req)
@@ -978,7 +900,6 @@ func (s *ShopeeClient) OrderGetOrderDetail(req *OrderGetOrderDetailRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) OrderSplitOrder(req *OrderSplitOrderRequest) (resp *OrderSplitOrderResponse, err error) {
 	b, err := s.post("OrderSplitOrder", req)
 	if err != nil {
@@ -990,7 +911,6 @@ func (s *ShopeeClient) OrderSplitOrder(req *OrderSplitOrderRequest) (resp *Order
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderUnsplitOrder(req *OrderUnsplitOrderRequest) (resp *OrderUnsplitOrderResponse, err error) {
 	b, err := s.post("OrderUnsplitOrder", req)
@@ -1004,7 +924,6 @@ func (s *ShopeeClient) OrderUnsplitOrder(req *OrderUnsplitOrderRequest) (resp *O
 	return
 }
 
-
 func (s *ShopeeClient) OrderCancelOrder(req *OrderCancelOrderRequest) (resp *OrderCancelOrderResponse, err error) {
 	b, err := s.post("OrderCancelOrder", req)
 	if err != nil {
@@ -1016,7 +935,6 @@ func (s *ShopeeClient) OrderCancelOrder(req *OrderCancelOrderRequest) (resp *Ord
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderHandleBuyerCancellation(req *OrderHandleBuyerCancellationRequest) (resp *OrderHandleBuyerCancellationResponse, err error) {
 	b, err := s.post("OrderHandleBuyerCancellation", req)
@@ -1030,7 +948,6 @@ func (s *ShopeeClient) OrderHandleBuyerCancellation(req *OrderHandleBuyerCancell
 	return
 }
 
-
 func (s *ShopeeClient) OrderSetNote(req *OrderSetNoteRequest) (resp *OrderSetNoteResponse, err error) {
 	b, err := s.post("OrderSetNote", req)
 	if err != nil {
@@ -1042,7 +959,6 @@ func (s *ShopeeClient) OrderSetNote(req *OrderSetNoteRequest) (resp *OrderSetNot
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderAddInvoiceData(req *OrderAddInvoiceDataRequest) (resp *OrderAddInvoiceDataResponse, err error) {
 	b, err := s.post("OrderAddInvoiceData", req)
@@ -1056,7 +972,6 @@ func (s *ShopeeClient) OrderAddInvoiceData(req *OrderAddInvoiceDataRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) OrderGetPendingBuyerInvoiceOrderList(req *OrderGetPendingBuyerInvoiceOrderListRequest) (resp *OrderGetPendingBuyerInvoiceOrderListResponse, err error) {
 	b, err := s.post("OrderGetPendingBuyerInvoiceOrderList", req)
 	if err != nil {
@@ -1068,7 +983,6 @@ func (s *ShopeeClient) OrderGetPendingBuyerInvoiceOrderList(req *OrderGetPending
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderUploadInvoiceDoc(req *OrderUploadInvoiceDocRequest) (resp *OrderUploadInvoiceDocResponse, err error) {
 	b, err := s.post("OrderUploadInvoiceDoc", req)
@@ -1082,7 +996,6 @@ func (s *ShopeeClient) OrderUploadInvoiceDoc(req *OrderUploadInvoiceDocRequest) 
 	return
 }
 
-
 func (s *ShopeeClient) OrderDownloadInvoiceDoc(req *OrderDownloadInvoiceDocRequest) (resp *OrderDownloadInvoiceDocResponse, err error) {
 	b, err := s.post("OrderDownloadInvoiceDoc", req)
 	if err != nil {
@@ -1094,7 +1007,6 @@ func (s *ShopeeClient) OrderDownloadInvoiceDoc(req *OrderDownloadInvoiceDocReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetBuyerInvoiceInfo(req *OrderGetBuyerInvoiceInfoRequest) (resp *OrderGetBuyerInvoiceInfoResponse, err error) {
 	b, err := s.post("OrderGetBuyerInvoiceInfo", req)
@@ -1108,7 +1020,6 @@ func (s *ShopeeClient) OrderGetBuyerInvoiceInfo(req *OrderGetBuyerInvoiceInfoReq
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsGetShippingParameter(req *LogisticsGetShippingParameterRequest) (resp *LogisticsGetShippingParameterResponse, err error) {
 	b, err := s.post("LogisticsGetShippingParameter", req)
 	if err != nil {
@@ -1120,7 +1031,6 @@ func (s *ShopeeClient) LogisticsGetShippingParameter(req *LogisticsGetShippingPa
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetTrackingNumber(req *LogisticsGetTrackingNumberRequest) (resp *LogisticsGetTrackingNumberResponse, err error) {
 	b, err := s.post("LogisticsGetTrackingNumber", req)
@@ -1134,7 +1044,6 @@ func (s *ShopeeClient) LogisticsGetTrackingNumber(req *LogisticsGetTrackingNumbe
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsShipOrder(req *LogisticsShipOrderRequest) (resp *LogisticsShipOrderResponse, err error) {
 	b, err := s.post("LogisticsShipOrder", req)
 	if err != nil {
@@ -1146,7 +1055,6 @@ func (s *ShopeeClient) LogisticsShipOrder(req *LogisticsShipOrderRequest) (resp 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsUpdateShippingOrder(req *LogisticsUpdateShippingOrderRequest) (resp *LogisticsUpdateShippingOrderResponse, err error) {
 	b, err := s.post("LogisticsUpdateShippingOrder", req)
@@ -1160,7 +1068,6 @@ func (s *ShopeeClient) LogisticsUpdateShippingOrder(req *LogisticsUpdateShipping
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsGetShippingDocumentParameter(req *LogisticsGetShippingDocumentParameterRequest) (resp *LogisticsGetShippingDocumentParameterResponse, err error) {
 	b, err := s.post("LogisticsGetShippingDocumentParameter", req)
 	if err != nil {
@@ -1172,7 +1079,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentParameter(req *LogisticsGetSh
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsCreateShippingDocument(req *LogisticsCreateShippingDocumentRequest) (resp *LogisticsCreateShippingDocumentResponse, err error) {
 	b, err := s.post("LogisticsCreateShippingDocument", req)
@@ -1186,7 +1092,6 @@ func (s *ShopeeClient) LogisticsCreateShippingDocument(req *LogisticsCreateShipp
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsGetShippingDocumentResult(req *LogisticsGetShippingDocumentResultRequest) (resp *LogisticsGetShippingDocumentResultResponse, err error) {
 	b, err := s.post("LogisticsGetShippingDocumentResult", req)
 	if err != nil {
@@ -1198,7 +1103,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentResult(req *LogisticsGetShipp
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsDownloadShippingDocument(req *LogisticsDownloadShippingDocumentRequest) (resp *LogisticsDownloadShippingDocumentResponse, err error) {
 	b, err := s.post("LogisticsDownloadShippingDocument", req)
@@ -1212,7 +1116,6 @@ func (s *ShopeeClient) LogisticsDownloadShippingDocument(req *LogisticsDownloadS
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsGetShippingDocumentInfo(req *LogisticsGetShippingDocumentInfoRequest) (resp *LogisticsGetShippingDocumentInfoResponse, err error) {
 	b, err := s.post("LogisticsGetShippingDocumentInfo", req)
 	if err != nil {
@@ -1224,7 +1127,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentInfo(req *LogisticsGetShippin
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetTrackingInfo(req *LogisticsGetTrackingInfoRequest) (resp *LogisticsGetTrackingInfoResponse, err error) {
 	b, err := s.post("LogisticsGetTrackingInfo", req)
@@ -1238,7 +1140,6 @@ func (s *ShopeeClient) LogisticsGetTrackingInfo(req *LogisticsGetTrackingInfoReq
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsGetAddressList(req *LogisticsGetAddressListRequest) (resp *LogisticsGetAddressListResponse, err error) {
 	b, err := s.post("LogisticsGetAddressList", req)
 	if err != nil {
@@ -1250,7 +1151,6 @@ func (s *ShopeeClient) LogisticsGetAddressList(req *LogisticsGetAddressListReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsSetAddressConfig(req *LogisticsSetAddressConfigRequest) (resp *LogisticsSetAddressConfigResponse, err error) {
 	b, err := s.post("LogisticsSetAddressConfig", req)
@@ -1264,7 +1164,6 @@ func (s *ShopeeClient) LogisticsSetAddressConfig(req *LogisticsSetAddressConfigR
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsDeleteAddress(req *LogisticsDeleteAddressRequest) (resp *LogisticsDeleteAddressResponse, err error) {
 	b, err := s.post("LogisticsDeleteAddress", req)
 	if err != nil {
@@ -1276,7 +1175,6 @@ func (s *ShopeeClient) LogisticsDeleteAddress(req *LogisticsDeleteAddressRequest
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetChannelList(req *LogisticsGetChannelListRequest) (resp *LogisticsGetChannelListResponse, err error) {
 	b, err := s.post("LogisticsGetChannelList", req)
@@ -1290,7 +1188,6 @@ func (s *ShopeeClient) LogisticsGetChannelList(req *LogisticsGetChannelListReque
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsUpdateChannel(req *LogisticsUpdateChannelRequest) (resp *LogisticsUpdateChannelResponse, err error) {
 	b, err := s.post("LogisticsUpdateChannel", req)
 	if err != nil {
@@ -1302,7 +1199,6 @@ func (s *ShopeeClient) LogisticsUpdateChannel(req *LogisticsUpdateChannelRequest
 	}
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsBatchShipOrder(req *LogisticsBatchShipOrderRequest) (resp *LogisticsBatchShipOrderResponse, err error) {
 	b, err := s.post("LogisticsBatchShipOrder", req)
@@ -1316,7 +1212,6 @@ func (s *ShopeeClient) LogisticsBatchShipOrder(req *LogisticsBatchShipOrderReque
 	return
 }
 
-
 func (s *ShopeeClient) FirstMileGetUnbindOrderList(req *FirstMileGetUnbindOrderListRequest) (resp *FirstMileGetUnbindOrderListResponse, err error) {
 	b, err := s.post("FirstMileGetUnbindOrderList", req)
 	if err != nil {
@@ -1328,7 +1223,6 @@ func (s *ShopeeClient) FirstMileGetUnbindOrderList(req *FirstMileGetUnbindOrderL
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetDetail(req *FirstMileGetDetailRequest) (resp *FirstMileGetDetailResponse, err error) {
 	b, err := s.post("FirstMileGetDetail", req)
@@ -1342,7 +1236,6 @@ func (s *ShopeeClient) FirstMileGetDetail(req *FirstMileGetDetailRequest) (resp 
 	return
 }
 
-
 func (s *ShopeeClient) FirstMileGenerateFirstMileTrackingNumber(req *FirstMileGenerateFirstMileTrackingNumberRequest) (resp *FirstMileGenerateFirstMileTrackingNumberResponse, err error) {
 	b, err := s.post("FirstMileGenerateFirstMileTrackingNumber", req)
 	if err != nil {
@@ -1354,7 +1247,6 @@ func (s *ShopeeClient) FirstMileGenerateFirstMileTrackingNumber(req *FirstMileGe
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileBindFirstMileTrackingNumber(req *FirstMileBindFirstMileTrackingNumberRequest) (resp *FirstMileBindFirstMileTrackingNumberResponse, err error) {
 	b, err := s.post("FirstMileBindFirstMileTrackingNumber", req)
@@ -1368,7 +1260,6 @@ func (s *ShopeeClient) FirstMileBindFirstMileTrackingNumber(req *FirstMileBindFi
 	return
 }
 
-
 func (s *ShopeeClient) FirstMileUnbindFirstMileTrackingNumber(req *FirstMileUnbindFirstMileTrackingNumberRequest) (resp *FirstMileUnbindFirstMileTrackingNumberResponse, err error) {
 	b, err := s.post("FirstMileUnbindFirstMileTrackingNumber", req)
 	if err != nil {
@@ -1380,7 +1271,6 @@ func (s *ShopeeClient) FirstMileUnbindFirstMileTrackingNumber(req *FirstMileUnbi
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetTrackingNumberList(req *FirstMileGetTrackingNumberListRequest) (resp *FirstMileGetTrackingNumberListResponse, err error) {
 	b, err := s.post("FirstMileGetTrackingNumberList", req)
@@ -1394,7 +1284,6 @@ func (s *ShopeeClient) FirstMileGetTrackingNumberList(req *FirstMileGetTrackingN
 	return
 }
 
-
 func (s *ShopeeClient) FirstMileGetWaybill(req *FirstMileGetWaybillRequest) (resp *FirstMileGetWaybillResponse, err error) {
 	b, err := s.post("FirstMileGetWaybill", req)
 	if err != nil {
@@ -1406,7 +1295,6 @@ func (s *ShopeeClient) FirstMileGetWaybill(req *FirstMileGetWaybillRequest) (res
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetChannelList(req *FirstMileGetChannelListRequest) (resp *FirstMileGetChannelListResponse, err error) {
 	b, err := s.post("FirstMileGetChannelList", req)
@@ -1420,7 +1308,6 @@ func (s *ShopeeClient) FirstMileGetChannelList(req *FirstMileGetChannelListReque
 	return
 }
 
-
 func (s *ShopeeClient) PaymentGetEscrowDetail(req *PaymentGetEscrowDetailRequest) (resp *PaymentGetEscrowDetailResponse, err error) {
 	b, err := s.post("PaymentGetEscrowDetail", req)
 	if err != nil {
@@ -1432,7 +1319,6 @@ func (s *ShopeeClient) PaymentGetEscrowDetail(req *PaymentGetEscrowDetailRequest
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PaymentSetShopInstallmentStatus(req *PaymentSetShopInstallmentStatusRequest) (resp *PaymentSetShopInstallmentStatusResponse, err error) {
 	b, err := s.post("PaymentSetShopInstallmentStatus", req)
@@ -1446,7 +1332,6 @@ func (s *ShopeeClient) PaymentSetShopInstallmentStatus(req *PaymentSetShopInstal
 	return
 }
 
-
 func (s *ShopeeClient) PaymentGetShopInstallmentStatus(req *PaymentGetShopInstallmentStatusRequest) (resp *PaymentGetShopInstallmentStatusResponse, err error) {
 	b, err := s.post("PaymentGetShopInstallmentStatus", req)
 	if err != nil {
@@ -1458,7 +1343,6 @@ func (s *ShopeeClient) PaymentGetShopInstallmentStatus(req *PaymentGetShopInstal
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetPayoutDetail(req *PaymentGetPayoutDetailRequest) (resp *PaymentGetPayoutDetailResponse, err error) {
 	b, err := s.post("PaymentGetPayoutDetail", req)
@@ -1472,7 +1356,6 @@ func (s *ShopeeClient) PaymentGetPayoutDetail(req *PaymentGetPayoutDetailRequest
 	return
 }
 
-
 func (s *ShopeeClient) PaymentSetItemInstallmentStatus(req *PaymentSetItemInstallmentStatusRequest) (resp *PaymentSetItemInstallmentStatusResponse, err error) {
 	b, err := s.post("PaymentSetItemInstallmentStatus", req)
 	if err != nil {
@@ -1484,7 +1367,6 @@ func (s *ShopeeClient) PaymentSetItemInstallmentStatus(req *PaymentSetItemInstal
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetItemInstallmentStatus(req *PaymentGetItemInstallmentStatusRequest) (resp *PaymentGetItemInstallmentStatusResponse, err error) {
 	b, err := s.post("PaymentGetItemInstallmentStatus", req)
@@ -1498,7 +1380,6 @@ func (s *ShopeeClient) PaymentGetItemInstallmentStatus(req *PaymentGetItemInstal
 	return
 }
 
-
 func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodListRequest) (resp *PaymentGetPaymentMethodListResponse, err error) {
 	b, err := s.post("PaymentGetPaymentMethodList", req)
 	if err != nil {
@@ -1510,7 +1391,6 @@ func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodL
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetWalletTransactionList(req *PaymentGetWalletTransactionListRequest) (resp *PaymentGetWalletTransactionListResponse, err error) {
 	b, err := s.post("PaymentGetWalletTransactionList", req)
@@ -1524,7 +1404,6 @@ func (s *ShopeeClient) PaymentGetWalletTransactionList(req *PaymentGetWalletTran
 	return
 }
 
-
 func (s *ShopeeClient) PaymentGetEscrowList(req *PaymentGetEscrowListRequest) (resp *PaymentGetEscrowListResponse, err error) {
 	b, err := s.post("PaymentGetEscrowList", req)
 	if err != nil {
@@ -1536,7 +1415,6 @@ func (s *ShopeeClient) PaymentGetEscrowList(req *PaymentGetEscrowListRequest) (r
 	}
 	return
 }
-
 
 func (s *ShopeeClient) DiscountAddDiscount(req *DiscountAddDiscountRequest) (resp *DiscountAddDiscountResponse, err error) {
 	b, err := s.post("DiscountAddDiscount", req)
@@ -1550,7 +1428,6 @@ func (s *ShopeeClient) DiscountAddDiscount(req *DiscountAddDiscountRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) DiscountAddDiscountItem(req *DiscountAddDiscountItemRequest) (resp *DiscountAddDiscountItemResponse, err error) {
 	b, err := s.post("DiscountAddDiscountItem", req)
 	if err != nil {
@@ -1562,7 +1439,6 @@ func (s *ShopeeClient) DiscountAddDiscountItem(req *DiscountAddDiscountItemReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) DiscountDeleteDiscount(req *DiscountDeleteDiscountRequest) (resp *DiscountDeleteDiscountResponse, err error) {
 	b, err := s.post("DiscountDeleteDiscount", req)
@@ -1576,7 +1452,6 @@ func (s *ShopeeClient) DiscountDeleteDiscount(req *DiscountDeleteDiscountRequest
 	return
 }
 
-
 func (s *ShopeeClient) DiscountDeleteDiscountItem(req *DiscountDeleteDiscountItemRequest) (resp *DiscountDeleteDiscountItemResponse, err error) {
 	b, err := s.post("DiscountDeleteDiscountItem", req)
 	if err != nil {
@@ -1588,7 +1463,6 @@ func (s *ShopeeClient) DiscountDeleteDiscountItem(req *DiscountDeleteDiscountIte
 	}
 	return
 }
-
 
 func (s *ShopeeClient) DiscountGetDiscount(req *DiscountGetDiscountRequest) (resp *DiscountGetDiscountResponse, err error) {
 	b, err := s.post("DiscountGetDiscount", req)
@@ -1602,7 +1476,6 @@ func (s *ShopeeClient) DiscountGetDiscount(req *DiscountGetDiscountRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) DiscountGetDiscountList(req *DiscountGetDiscountListRequest) (resp *DiscountGetDiscountListResponse, err error) {
 	b, err := s.post("DiscountGetDiscountList", req)
 	if err != nil {
@@ -1614,7 +1487,6 @@ func (s *ShopeeClient) DiscountGetDiscountList(req *DiscountGetDiscountListReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) DiscountUpdateDiscount(req *DiscountUpdateDiscountRequest) (resp *DiscountUpdateDiscountResponse, err error) {
 	b, err := s.post("DiscountUpdateDiscount", req)
@@ -1628,7 +1500,6 @@ func (s *ShopeeClient) DiscountUpdateDiscount(req *DiscountUpdateDiscountRequest
 	return
 }
 
-
 func (s *ShopeeClient) DiscountUpdateDiscountItem(req *DiscountUpdateDiscountItemRequest) (resp *DiscountUpdateDiscountItemResponse, err error) {
 	b, err := s.post("DiscountUpdateDiscountItem", req)
 	if err != nil {
@@ -1640,7 +1511,6 @@ func (s *ShopeeClient) DiscountUpdateDiscountItem(req *DiscountUpdateDiscountIte
 	}
 	return
 }
-
 
 func (s *ShopeeClient) DiscountEndDiscount(req *DiscountEndDiscountRequest) (resp *DiscountEndDiscountResponse, err error) {
 	b, err := s.post("DiscountEndDiscount", req)
@@ -1654,7 +1524,6 @@ func (s *ShopeeClient) DiscountEndDiscount(req *DiscountEndDiscountRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) BundleDealAddBundleDeal(req *BundleDealAddBundleDealRequest) (resp *BundleDealAddBundleDealResponse, err error) {
 	b, err := s.post("BundleDealAddBundleDeal", req)
 	if err != nil {
@@ -1666,7 +1535,6 @@ func (s *ShopeeClient) BundleDealAddBundleDeal(req *BundleDealAddBundleDealReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealAddBundleDealItem(req *BundleDealAddBundleDealItemRequest) (resp *BundleDealAddBundleDealItemResponse, err error) {
 	b, err := s.post("BundleDealAddBundleDealItem", req)
@@ -1680,7 +1548,6 @@ func (s *ShopeeClient) BundleDealAddBundleDealItem(req *BundleDealAddBundleDealI
 	return
 }
 
-
 func (s *ShopeeClient) BundleDealGetBundleDealList(req *BundleDealGetBundleDealListRequest) (resp *BundleDealGetBundleDealListResponse, err error) {
 	b, err := s.post("BundleDealGetBundleDealList", req)
 	if err != nil {
@@ -1692,7 +1559,6 @@ func (s *ShopeeClient) BundleDealGetBundleDealList(req *BundleDealGetBundleDealL
 	}
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealGetBundleDeal(req *BundleDealGetBundleDealRequest) (resp *BundleDealGetBundleDealResponse, err error) {
 	b, err := s.post("BundleDealGetBundleDeal", req)
@@ -1706,7 +1572,6 @@ func (s *ShopeeClient) BundleDealGetBundleDeal(req *BundleDealGetBundleDealReque
 	return
 }
 
-
 func (s *ShopeeClient) BundleDealGetBundleDealItem(req *BundleDealGetBundleDealItemRequest) (resp *BundleDealGetBundleDealItemResponse, err error) {
 	b, err := s.post("BundleDealGetBundleDealItem", req)
 	if err != nil {
@@ -1718,7 +1583,6 @@ func (s *ShopeeClient) BundleDealGetBundleDealItem(req *BundleDealGetBundleDealI
 	}
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealUpdateBundleDeal(req *BundleDealUpdateBundleDealRequest) (resp *BundleDealUpdateBundleDealResponse, err error) {
 	b, err := s.post("BundleDealUpdateBundleDeal", req)
@@ -1732,7 +1596,6 @@ func (s *ShopeeClient) BundleDealUpdateBundleDeal(req *BundleDealUpdateBundleDea
 	return
 }
 
-
 func (s *ShopeeClient) BundleDealUpdateBundleDealItem(req *BundleDealUpdateBundleDealItemRequest) (resp *BundleDealUpdateBundleDealItemResponse, err error) {
 	b, err := s.post("BundleDealUpdateBundleDealItem", req)
 	if err != nil {
@@ -1744,7 +1607,6 @@ func (s *ShopeeClient) BundleDealUpdateBundleDealItem(req *BundleDealUpdateBundl
 	}
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealEndBundleDeal(req *BundleDealEndBundleDealRequest) (resp *BundleDealEndBundleDealResponse, err error) {
 	b, err := s.post("BundleDealEndBundleDeal", req)
@@ -1758,7 +1620,6 @@ func (s *ShopeeClient) BundleDealEndBundleDeal(req *BundleDealEndBundleDealReque
 	return
 }
 
-
 func (s *ShopeeClient) BundleDealDeleteBundleDeal(req *BundleDealDeleteBundleDealRequest) (resp *BundleDealDeleteBundleDealResponse, err error) {
 	b, err := s.post("BundleDealDeleteBundleDeal", req)
 	if err != nil {
@@ -1770,7 +1631,6 @@ func (s *ShopeeClient) BundleDealDeleteBundleDeal(req *BundleDealDeleteBundleDea
 	}
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealDeleteBundleDealItem(req *BundleDealDeleteBundleDealItemRequest) (resp *BundleDealDeleteBundleDealItemResponse, err error) {
 	b, err := s.post("BundleDealDeleteBundleDealItem", req)
@@ -1784,7 +1644,6 @@ func (s *ShopeeClient) BundleDealDeleteBundleDealItem(req *BundleDealDeleteBundl
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealAddAddOnDeal(req *AddOnDealAddAddOnDealRequest) (resp *AddOnDealAddAddOnDealResponse, err error) {
 	b, err := s.post("AddOnDealAddAddOnDeal", req)
 	if err != nil {
@@ -1796,7 +1655,6 @@ func (s *ShopeeClient) AddOnDealAddAddOnDeal(req *AddOnDealAddAddOnDealRequest) 
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealAddAddOnDealMainItem(req *AddOnDealAddAddOnDealMainItemRequest) (resp *AddOnDealAddAddOnDealMainItemResponse, err error) {
 	b, err := s.post("AddOnDealAddAddOnDealMainItem", req)
@@ -1810,7 +1668,6 @@ func (s *ShopeeClient) AddOnDealAddAddOnDealMainItem(req *AddOnDealAddAddOnDealM
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealAddAddOnDealSubItem(req *AddOnDealAddAddOnDealSubItemRequest) (resp *AddOnDealAddAddOnDealSubItemResponse, err error) {
 	b, err := s.post("AddOnDealAddAddOnDealSubItem", req)
 	if err != nil {
@@ -1822,7 +1679,6 @@ func (s *ShopeeClient) AddOnDealAddAddOnDealSubItem(req *AddOnDealAddAddOnDealSu
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealDeleteAddOnDeal(req *AddOnDealDeleteAddOnDealRequest) (resp *AddOnDealDeleteAddOnDealResponse, err error) {
 	b, err := s.post("AddOnDealDeleteAddOnDeal", req)
@@ -1836,7 +1692,6 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDeal(req *AddOnDealDeleteAddOnDealReq
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealDeleteAddOnDealMainItem(req *AddOnDealDeleteAddOnDealMainItemRequest) (resp *AddOnDealDeleteAddOnDealMainItemResponse, err error) {
 	b, err := s.post("AddOnDealDeleteAddOnDealMainItem", req)
 	if err != nil {
@@ -1848,7 +1703,6 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDealMainItem(req *AddOnDealDeleteAddO
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealDeleteAddOnDealSubItem(req *AddOnDealDeleteAddOnDealSubItemRequest) (resp *AddOnDealDeleteAddOnDealSubItemResponse, err error) {
 	b, err := s.post("AddOnDealDeleteAddOnDealSubItem", req)
@@ -1862,7 +1716,6 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDealSubItem(req *AddOnDealDeleteAddOn
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealGetAddOnDealList(req *AddOnDealGetAddOnDealListRequest) (resp *AddOnDealGetAddOnDealListResponse, err error) {
 	b, err := s.post("AddOnDealGetAddOnDealList", req)
 	if err != nil {
@@ -1874,7 +1727,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealList(req *AddOnDealGetAddOnDealListR
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealGetAddOnDeal(req *AddOnDealGetAddOnDealRequest) (resp *AddOnDealGetAddOnDealResponse, err error) {
 	b, err := s.post("AddOnDealGetAddOnDeal", req)
@@ -1888,7 +1740,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDeal(req *AddOnDealGetAddOnDealRequest) 
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealGetAddOnDealMainItem(req *AddOnDealGetAddOnDealMainItemRequest) (resp *AddOnDealGetAddOnDealMainItemResponse, err error) {
 	b, err := s.post("AddOnDealGetAddOnDealMainItem", req)
 	if err != nil {
@@ -1900,7 +1751,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealMainItem(req *AddOnDealGetAddOnDealM
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealGetAddOnDealSubItem(req *AddOnDealGetAddOnDealSubItemRequest) (resp *AddOnDealGetAddOnDealSubItemResponse, err error) {
 	b, err := s.post("AddOnDealGetAddOnDealSubItem", req)
@@ -1914,7 +1764,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealSubItem(req *AddOnDealGetAddOnDealSu
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealUpdateAddOnDeal(req *AddOnDealUpdateAddOnDealRequest) (resp *AddOnDealUpdateAddOnDealResponse, err error) {
 	b, err := s.post("AddOnDealUpdateAddOnDeal", req)
 	if err != nil {
@@ -1926,7 +1775,6 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDeal(req *AddOnDealUpdateAddOnDealReq
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealUpdateAddOnDealMainItem(req *AddOnDealUpdateAddOnDealMainItemRequest) (resp *AddOnDealUpdateAddOnDealMainItemResponse, err error) {
 	b, err := s.post("AddOnDealUpdateAddOnDealMainItem", req)
@@ -1940,7 +1788,6 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDealMainItem(req *AddOnDealUpdateAddO
 	return
 }
 
-
 func (s *ShopeeClient) AddOnDealUpdateAddOnDealSubItem(req *AddOnDealUpdateAddOnDealSubItemRequest) (resp *AddOnDealUpdateAddOnDealSubItemResponse, err error) {
 	b, err := s.post("AddOnDealUpdateAddOnDealSubItem", req)
 	if err != nil {
@@ -1952,7 +1799,6 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDealSubItem(req *AddOnDealUpdateAddOn
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealEndAddOnDeal(req *AddOnDealEndAddOnDealRequest) (resp *AddOnDealEndAddOnDealResponse, err error) {
 	b, err := s.post("AddOnDealEndAddOnDeal", req)
@@ -1966,7 +1812,6 @@ func (s *ShopeeClient) AddOnDealEndAddOnDeal(req *AddOnDealEndAddOnDealRequest) 
 	return
 }
 
-
 func (s *ShopeeClient) VoucherAddVoucher(req *VoucherAddVoucherRequest) (resp *VoucherAddVoucherResponse, err error) {
 	b, err := s.post("VoucherAddVoucher", req)
 	if err != nil {
@@ -1978,7 +1823,6 @@ func (s *ShopeeClient) VoucherAddVoucher(req *VoucherAddVoucherRequest) (resp *V
 	}
 	return
 }
-
 
 func (s *ShopeeClient) VoucherDeleteVoucher(req *VoucherDeleteVoucherRequest) (resp *VoucherDeleteVoucherResponse, err error) {
 	b, err := s.post("VoucherDeleteVoucher", req)
@@ -1992,7 +1836,6 @@ func (s *ShopeeClient) VoucherDeleteVoucher(req *VoucherDeleteVoucherRequest) (r
 	return
 }
 
-
 func (s *ShopeeClient) VoucherEndVoucher(req *VoucherEndVoucherRequest) (resp *VoucherEndVoucherResponse, err error) {
 	b, err := s.post("VoucherEndVoucher", req)
 	if err != nil {
@@ -2004,7 +1847,6 @@ func (s *ShopeeClient) VoucherEndVoucher(req *VoucherEndVoucherRequest) (resp *V
 	}
 	return
 }
-
 
 func (s *ShopeeClient) VoucherUpdateVoucher(req *VoucherUpdateVoucherRequest) (resp *VoucherUpdateVoucherResponse, err error) {
 	b, err := s.post("VoucherUpdateVoucher", req)
@@ -2018,7 +1860,6 @@ func (s *ShopeeClient) VoucherUpdateVoucher(req *VoucherUpdateVoucherRequest) (r
 	return
 }
 
-
 func (s *ShopeeClient) VoucherGetVoucher(req *VoucherGetVoucherRequest) (resp *VoucherGetVoucherResponse, err error) {
 	b, err := s.post("VoucherGetVoucher", req)
 	if err != nil {
@@ -2030,7 +1871,6 @@ func (s *ShopeeClient) VoucherGetVoucher(req *VoucherGetVoucherRequest) (resp *V
 	}
 	return
 }
-
 
 func (s *ShopeeClient) VoucherGetVoucherList(req *VoucherGetVoucherListRequest) (resp *VoucherGetVoucherListResponse, err error) {
 	b, err := s.post("VoucherGetVoucherList", req)
@@ -2044,7 +1884,6 @@ func (s *ShopeeClient) VoucherGetVoucherList(req *VoucherGetVoucherListRequest) 
 	return
 }
 
-
 func (s *ShopeeClient) FollowPrizeAddFollowPrize(req *FollowPrizeAddFollowPrizeRequest) (resp *FollowPrizeAddFollowPrizeResponse, err error) {
 	b, err := s.post("FollowPrizeAddFollowPrize", req)
 	if err != nil {
@@ -2056,7 +1895,6 @@ func (s *ShopeeClient) FollowPrizeAddFollowPrize(req *FollowPrizeAddFollowPrizeR
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeDeleteFollowPrize(req *FollowPrizeDeleteFollowPrizeRequest) (resp *FollowPrizeDeleteFollowPrizeResponse, err error) {
 	b, err := s.post("FollowPrizeDeleteFollowPrize", req)
@@ -2070,7 +1908,6 @@ func (s *ShopeeClient) FollowPrizeDeleteFollowPrize(req *FollowPrizeDeleteFollow
 	return
 }
 
-
 func (s *ShopeeClient) FollowPrizeEndFollowPrize(req *FollowPrizeEndFollowPrizeRequest) (resp *FollowPrizeEndFollowPrizeResponse, err error) {
 	b, err := s.post("FollowPrizeEndFollowPrize", req)
 	if err != nil {
@@ -2082,7 +1919,6 @@ func (s *ShopeeClient) FollowPrizeEndFollowPrize(req *FollowPrizeEndFollowPrizeR
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeUpdateFollowPrize(req *FollowPrizeUpdateFollowPrizeRequest) (resp *FollowPrizeUpdateFollowPrizeResponse, err error) {
 	b, err := s.post("FollowPrizeUpdateFollowPrize", req)
@@ -2096,7 +1932,6 @@ func (s *ShopeeClient) FollowPrizeUpdateFollowPrize(req *FollowPrizeUpdateFollow
 	return
 }
 
-
 func (s *ShopeeClient) FollowPrizeGetFollowPrizeDetail(req *FollowPrizeGetFollowPrizeDetailRequest) (resp *FollowPrizeGetFollowPrizeDetailResponse, err error) {
 	b, err := s.post("FollowPrizeGetFollowPrizeDetail", req)
 	if err != nil {
@@ -2108,7 +1943,6 @@ func (s *ShopeeClient) FollowPrizeGetFollowPrizeDetail(req *FollowPrizeGetFollow
 	}
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeGetFollowPrizeList(req *FollowPrizeGetFollowPrizeListRequest) (resp *FollowPrizeGetFollowPrizeListResponse, err error) {
 	b, err := s.post("FollowPrizeGetFollowPrizeList", req)
@@ -2122,7 +1956,6 @@ func (s *ShopeeClient) FollowPrizeGetFollowPrizeList(req *FollowPrizeGetFollowPr
 	return
 }
 
-
 func (s *ShopeeClient) TopPicksGetTopPicksList(req *TopPicksGetTopPicksListRequest) (resp *TopPicksGetTopPicksListResponse, err error) {
 	b, err := s.post("TopPicksGetTopPicksList", req)
 	if err != nil {
@@ -2134,7 +1967,6 @@ func (s *ShopeeClient) TopPicksGetTopPicksList(req *TopPicksGetTopPicksListReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) TopPicksAddTopPicks(req *TopPicksAddTopPicksRequest) (resp *TopPicksAddTopPicksResponse, err error) {
 	b, err := s.post("TopPicksAddTopPicks", req)
@@ -2148,7 +1980,6 @@ func (s *ShopeeClient) TopPicksAddTopPicks(req *TopPicksAddTopPicksRequest) (res
 	return
 }
 
-
 func (s *ShopeeClient) TopPicksUpdateTopPicks(req *TopPicksUpdateTopPicksRequest) (resp *TopPicksUpdateTopPicksResponse, err error) {
 	b, err := s.post("TopPicksUpdateTopPicks", req)
 	if err != nil {
@@ -2160,7 +1991,6 @@ func (s *ShopeeClient) TopPicksUpdateTopPicks(req *TopPicksUpdateTopPicksRequest
 	}
 	return
 }
-
 
 func (s *ShopeeClient) TopPicksDeleteTopPicks(req *TopPicksDeleteTopPicksRequest) (resp *TopPicksDeleteTopPicksResponse, err error) {
 	b, err := s.post("TopPicksDeleteTopPicks", req)
@@ -2174,7 +2004,6 @@ func (s *ShopeeClient) TopPicksDeleteTopPicks(req *TopPicksDeleteTopPicksRequest
 	return
 }
 
-
 func (s *ShopeeClient) ShopCategoryAddShopCategory(req *ShopCategoryAddShopCategoryRequest) (resp *ShopCategoryAddShopCategoryResponse, err error) {
 	b, err := s.post("ShopCategoryAddShopCategory", req)
 	if err != nil {
@@ -2186,7 +2015,6 @@ func (s *ShopeeClient) ShopCategoryAddShopCategory(req *ShopCategoryAddShopCateg
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryGetShopCategoryList(req *ShopCategoryGetShopCategoryListRequest) (resp *ShopCategoryGetShopCategoryListResponse, err error) {
 	b, err := s.post("ShopCategoryGetShopCategoryList", req)
@@ -2200,7 +2028,6 @@ func (s *ShopeeClient) ShopCategoryGetShopCategoryList(req *ShopCategoryGetShopC
 	return
 }
 
-
 func (s *ShopeeClient) ShopCategoryDeleteShopCategory(req *ShopCategoryDeleteShopCategoryRequest) (resp *ShopCategoryDeleteShopCategoryResponse, err error) {
 	b, err := s.post("ShopCategoryDeleteShopCategory", req)
 	if err != nil {
@@ -2212,7 +2039,6 @@ func (s *ShopeeClient) ShopCategoryDeleteShopCategory(req *ShopCategoryDeleteSho
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryUpdateShopCategory(req *ShopCategoryUpdateShopCategoryRequest) (resp *ShopCategoryUpdateShopCategoryResponse, err error) {
 	b, err := s.post("ShopCategoryUpdateShopCategory", req)
@@ -2226,7 +2052,6 @@ func (s *ShopeeClient) ShopCategoryUpdateShopCategory(req *ShopCategoryUpdateSho
 	return
 }
 
-
 func (s *ShopeeClient) ShopCategoryAddItemList(req *ShopCategoryAddItemListRequest) (resp *ShopCategoryAddItemListResponse, err error) {
 	b, err := s.post("ShopCategoryAddItemList", req)
 	if err != nil {
@@ -2238,7 +2063,6 @@ func (s *ShopeeClient) ShopCategoryAddItemList(req *ShopCategoryAddItemListReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryGetItemList(req *ShopCategoryGetItemListRequest) (resp *ShopCategoryGetItemListResponse, err error) {
 	b, err := s.post("ShopCategoryGetItemList", req)
@@ -2252,7 +2076,6 @@ func (s *ShopeeClient) ShopCategoryGetItemList(req *ShopCategoryGetItemListReque
 	return
 }
 
-
 func (s *ShopeeClient) ShopCategoryDeleteItemList(req *ShopCategoryDeleteItemListRequest) (resp *ShopCategoryDeleteItemListResponse, err error) {
 	b, err := s.post("ShopCategoryDeleteItemList", req)
 	if err != nil {
@@ -2264,7 +2087,6 @@ func (s *ShopeeClient) ShopCategoryDeleteItemList(req *ShopCategoryDeleteItemLis
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsGetReturnDetail(req *ReturnsGetReturnDetailRequest) (resp *ReturnsGetReturnDetailResponse, err error) {
 	b, err := s.post("ReturnsGetReturnDetail", req)
@@ -2278,7 +2100,6 @@ func (s *ShopeeClient) ReturnsGetReturnDetail(req *ReturnsGetReturnDetailRequest
 	return
 }
 
-
 func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (resp *ReturnsGetReturnListResponse, err error) {
 	b, err := s.post("ReturnsGetReturnList", req)
 	if err != nil {
@@ -2290,7 +2111,6 @@ func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (r
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsConfirm(req *ReturnsConfirmRequest) (resp *ReturnsConfirmResponse, err error) {
 	b, err := s.post("ReturnsConfirm", req)
@@ -2304,7 +2124,6 @@ func (s *ShopeeClient) ReturnsConfirm(req *ReturnsConfirmRequest) (resp *Returns
 	return
 }
 
-
 func (s *ShopeeClient) ReturnsDispute(req *ReturnsDisputeRequest) (resp *ReturnsDisputeResponse, err error) {
 	b, err := s.post("ReturnsDispute", req)
 	if err != nil {
@@ -2316,7 +2135,6 @@ func (s *ShopeeClient) ReturnsDispute(req *ReturnsDisputeRequest) (resp *Returns
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsGetAvailableSolutions(req *ReturnsGetAvailableSolutionsRequest) (resp *ReturnsGetAvailableSolutionsResponse, err error) {
 	b, err := s.post("ReturnsGetAvailableSolutions", req)
@@ -2330,7 +2148,6 @@ func (s *ShopeeClient) ReturnsGetAvailableSolutions(req *ReturnsGetAvailableSolu
 	return
 }
 
-
 func (s *ShopeeClient) ReturnsOffer(req *ReturnsOfferRequest) (resp *ReturnsOfferResponse, err error) {
 	b, err := s.post("ReturnsOffer", req)
 	if err != nil {
@@ -2342,7 +2159,6 @@ func (s *ShopeeClient) ReturnsOffer(req *ReturnsOfferRequest) (resp *ReturnsOffe
 	}
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsAcceptOffer(req *ReturnsAcceptOfferRequest) (resp *ReturnsAcceptOfferResponse, err error) {
 	b, err := s.post("ReturnsAcceptOffer", req)
@@ -2356,7 +2172,6 @@ func (s *ShopeeClient) ReturnsAcceptOffer(req *ReturnsAcceptOfferRequest) (resp 
 	return
 }
 
-
 func (s *ShopeeClient) AccountHealthShopPerformance(req *AccountHealthShopPerformanceRequest) (resp *AccountHealthShopPerformanceResponse, err error) {
 	b, err := s.post("AccountHealthShopPerformance", req)
 	if err != nil {
@@ -2368,7 +2183,6 @@ func (s *ShopeeClient) AccountHealthShopPerformance(req *AccountHealthShopPerfor
 	}
 	return
 }
-
 
 func (s *ShopeeClient) AccountHealthShopPenalty(req *AccountHealthShopPenaltyRequest) (resp *AccountHealthShopPenaltyResponse, err error) {
 	b, err := s.post("AccountHealthShopPenalty", req)
@@ -2382,7 +2196,6 @@ func (s *ShopeeClient) AccountHealthShopPenalty(req *AccountHealthShopPenaltyReq
 	return
 }
 
-
 func (s *ShopeeClient) PublicGetShopsByPartner(req *PublicGetShopsByPartnerRequest) (resp *PublicGetShopsByPartnerResponse, err error) {
 	b, err := s.post("PublicGetShopsByPartner", req)
 	if err != nil {
@@ -2394,7 +2207,6 @@ func (s *ShopeeClient) PublicGetShopsByPartner(req *PublicGetShopsByPartnerReque
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PublicGetMerchantsByPartner(req *PublicGetMerchantsByPartnerRequest) (resp *PublicGetMerchantsByPartnerResponse, err error) {
 	b, err := s.post("PublicGetMerchantsByPartner", req)
@@ -2408,7 +2220,6 @@ func (s *ShopeeClient) PublicGetMerchantsByPartner(req *PublicGetMerchantsByPart
 	return
 }
 
-
 func (s *ShopeeClient) PublicGetTokenByResendCode(req *PublicGetTokenByResendCodeRequest) (resp *PublicGetTokenByResendCodeResponse, err error) {
 	b, err := s.post("PublicGetTokenByResendCode", req)
 	if err != nil {
@@ -2420,7 +2231,6 @@ func (s *ShopeeClient) PublicGetTokenByResendCode(req *PublicGetTokenByResendCod
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PublicGetRefreshTokenByUpgradeCode(req *PublicGetRefreshTokenByUpgradeCodeRequest) (resp *PublicGetRefreshTokenByUpgradeCodeResponse, err error) {
 	b, err := s.post("PublicGetRefreshTokenByUpgradeCode", req)
@@ -2434,7 +2244,6 @@ func (s *ShopeeClient) PublicGetRefreshTokenByUpgradeCode(req *PublicGetRefreshT
 	return
 }
 
-
 func (s *ShopeeClient) PushGetPushConfig(req *PushGetPushConfigRequest) (resp *PushGetPushConfigResponse, err error) {
 	b, err := s.post("PushGetPushConfig", req)
 	if err != nil {
@@ -2446,7 +2255,6 @@ func (s *ShopeeClient) PushGetPushConfig(req *PushGetPushConfigRequest) (resp *P
 	}
 	return
 }
-
 
 func (s *ShopeeClient) PushSetPushConfig(req *PushSetPushConfigRequest) (resp *PushSetPushConfigResponse, err error) {
 	b, err := s.post("PushSetPushConfig", req)

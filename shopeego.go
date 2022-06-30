@@ -100,6 +100,9 @@ type Client interface {
 	GetAccessToken(*GetAccessTokenRequest) (*GetAccessTokenResponse, error)
 	// RefreshAccessToken Use this API to refresh the access_token after it expires.
 	RefreshAccessToken(*RefreshAccessTokenRequest) (*RefreshAccessTokenResponse, error)
+
+	// import generated files
+	V2I
 }
 
 // ShopeeClient represents a client to Shopee
