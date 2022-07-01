@@ -178,9 +178,9 @@ type FollowPrizeGetFollowPrizeDetailResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FollowPrizeGetFollowPrizeListFollowPrizeList
+// Object Raw Type - FollowPrizeGetFollowPrizeListFollowPrize
 //=======================================================
-type FollowPrizeGetFollowPrizeListFollowPrizeList struct {
+type FollowPrizeGetFollowPrizeListFollowPrize struct {
 // campaign_id is <p>The unique identifier for the created follow prize.<br /></p>
 CampaignID int `json:"campaign_id,omitempty"`
 // campaign_status is <p>The status of follow prize,the campagin status have upcoming/ongoing/expired.<br /></p>
@@ -205,7 +205,7 @@ type FollowPrizeGetFollowPrizeList struct {
 // more is <p>This is to indicate whether the comment list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of comments.<br /></p>
 More bool `json:"more,omitempty"`
 // follow_prize_list is <p>The list of follow prize.<br /></p>
-FollowPrizeList FollowPrizeGetFollowPrizeListFollowPrizeList `json:"follow_prize_list"`
+FollowPrizeList FollowPrizeGetFollowPrizeListFollowPrize `json:"follow_prize_list"`
 }
 //=======================================================
 // FollowPrizeGetFollowPrizeListRequest

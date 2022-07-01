@@ -44,9 +44,9 @@ VariationSku string `json:"variation_sku,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ReturnsGetReturnDetailActivityItems
+// Object Raw Type - ReturnsGetReturnDetailActivityItem
 //=======================================================
-type ReturnsGetReturnDetailActivityItems struct {
+type ReturnsGetReturnDetailActivityItem struct {
 // item_id is The id of item.
 ItemID int `json:"item_id,omitempty"`
 // variation_id is Shopee's unique identifier for a variation of an item.
@@ -71,7 +71,7 @@ OriginalPrice string `json:"original_price,omitempty"`
 // discounted_price is activity's discount price
 DiscountedPrice string `json:"discounted_price,omitempty"`
 // items is 
-Items []ReturnsGetReturnDetailActivityItems `json:"items"`
+Items []ReturnsGetReturnDetailActivityItem `json:"items"`
 }
 
 
@@ -119,9 +119,9 @@ OfferDueDate int `json:"offer_due_date,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ReturnsGetReturnDetailReturnPickupAddress
+// Object Raw Type - ReturnsGetReturnDetailReturnPickupAddres
 //=======================================================
-type ReturnsGetReturnDetailReturnPickupAddress struct {
+type ReturnsGetReturnDetailReturnPickupAddres struct {
 // address is 
 Address string `json:"address,omitempty"`
 // name is 
@@ -198,7 +198,7 @@ Negotiation ReturnsGetReturnDetailNegotiation `json:"negotiation"`
 // logistics_status is To indicate the reverse logistic status. See "Data Definition - LogisticsStatus"
 LogisticsStatus string `json:"logistics_status,omitempty"`
 // return_pickup_address is To indicate the buyer's pickup address
-ReturnPickupAddress ReturnsGetReturnDetailReturnPickupAddress `json:"return_pickup_address"`
+ReturnPickupAddress ReturnsGetReturnDetailReturnPickupAddres `json:"return_pickup_address"`
 }
 //=======================================================
 // ReturnsGetReturnDetailRequest

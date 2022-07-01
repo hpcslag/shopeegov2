@@ -13,9 +13,9 @@ type LogisticsGetShippingParameterInfoNeeded struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingParameterDropoffBranchList
+// Object Raw Type - LogisticsGetShippingParameterDropoffBranch
 //=======================================================
-type LogisticsGetShippingParameterDropoffBranchList struct {
+type LogisticsGetShippingParameterDropoffBranch struct {
 	// branch_id is The identity of logistics branch.
 	BranchID int `json:"branch_id,omitempty"`
 	// region is The region of specify address.
@@ -35,9 +35,9 @@ type LogisticsGetShippingParameterDropoffBranchList struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingParameterDropoffSlugList
+// Object Raw Type - LogisticsGetShippingParameterDropoffSlug
 //=======================================================
-type LogisticsGetShippingParameterDropoffSlugList struct {
+type LogisticsGetShippingParameterDropoffSlug struct {
 	// slug is  The identity of slug.
 	Slug string `json:"slug,omitempty"`
 	// slug_name is  The name of slug.
@@ -49,15 +49,15 @@ type LogisticsGetShippingParameterDropoffSlugList struct {
 //=======================================================
 type LogisticsGetShippingParameterDropoff struct {
 	// branch_list is List of available dropoff branches info.
-	BranchList []LogisticsGetShippingParameterDropoffBranchList `json:"branch_list"`
+	BranchList []LogisticsGetShippingParameterDropoffBranch `json:"branch_list"`
 	// slug_list is  List of available TW 3PL drop-off partners.
-	SlugList []LogisticsGetShippingParameterDropoffSlugList `json:"slug_list"`
+	SlugList []LogisticsGetShippingParameterDropoffSlug `json:"slug_list"`
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingParameterPickupAddressListTimeSlotList
+// Object Raw Type - LogisticsGetShippingParameterPickupAddressTimeSlot
 //=======================================================
-type LogisticsGetShippingParameterPickupAddressListTimeSlotList struct {
+type LogisticsGetShippingParameterPickupAddressTimeSlot struct {
 	// date is The date of pickup time. In timestamp.
 	Date int `json:"date,omitempty"`
 	// time_text is The text description of pickup time. Only applicable for certain channels.
@@ -67,9 +67,9 @@ type LogisticsGetShippingParameterPickupAddressListTimeSlotList struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingParameterPickupAddressList
+// Object Raw Type - LogisticsGetShippingParameterPickupAddress
 //=======================================================
-type LogisticsGetShippingParameterPickupAddressList struct {
+type LogisticsGetShippingParameterPickupAddress struct {
 	// address_id is The identity of address.
 	AddressID int `json:"address_id,omitempty"`
 	// region is The region of specify address.
@@ -89,7 +89,7 @@ type LogisticsGetShippingParameterPickupAddressList struct {
 	// address_flag is The flag of shop address, applicable values: default_address, pickup_address, return_address
 	AddressFlag []string `json:"address_flag,omitempty"`
 	// time_slot_list is List of pickup_time information corresponding to the address_id.
-	TimeSlotList []LogisticsGetShippingParameterPickupAddressListTimeSlotList `json:"time_slot_list"`
+	TimeSlotList []LogisticsGetShippingParameterPickupAddressTimeSlot `json:"time_slot_list"`
 }
 
 //=======================================================
@@ -97,7 +97,7 @@ type LogisticsGetShippingParameterPickupAddressList struct {
 //=======================================================
 type LogisticsGetShippingParameterPickup struct {
 	// address_list is List of available pickup address info.
-	AddressList []LogisticsGetShippingParameterPickupAddressList `json:"address_list"`
+	AddressList []LogisticsGetShippingParameterPickupAddress `json:"address_list"`
 }
 
 //=======================================================
@@ -259,9 +259,9 @@ type OrderList struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingDocumentParameterResultList
+// Object Raw Type - LogisticsGetShippingDocumentParameterResult
 //=======================================================
-type LogisticsGetShippingDocumentParameterResultList struct {
+type LogisticsGetShippingDocumentParameterResult struct {
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn,omitempty"`
 	// package_number is Shopee's unique identifier for the package under an order.
@@ -281,7 +281,7 @@ type LogisticsGetShippingDocumentParameterResultList struct {
 //=======================================================
 type LogisticsGetShippingDocumentParameter struct {
 	// result_list is The list of the result data.
-	ResultList []LogisticsGetShippingDocumentParameterResultList `json:"result_list"`
+	ResultList []LogisticsGetShippingDocumentParameterResult `json:"result_list"`
 }
 
 //=======================================================
@@ -304,9 +304,9 @@ type LogisticsGetShippingDocumentParameterResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsCreateShippingDocumentResultList
+// Object Raw Type - LogisticsCreateShippingDocumentResult
 //=======================================================
-type LogisticsCreateShippingDocumentResultList struct {
+type LogisticsCreateShippingDocumentResult struct {
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn,omitempty"`
 	// package_number is Shopee's unique identifier for the package under an order.
@@ -322,7 +322,7 @@ type LogisticsCreateShippingDocumentResultList struct {
 //=======================================================
 type LogisticsCreateShippingDocument struct {
 	// result_list is The list of the result data.
-	ResultList []LogisticsCreateShippingDocumentResultList `json:"result_list"`
+	ResultList []LogisticsCreateShippingDocumentResult `json:"result_list"`
 }
 
 //=======================================================
@@ -345,9 +345,9 @@ type LogisticsCreateShippingDocumentResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingDocumentResultResultList
+// Object Raw Type - LogisticsGetShippingDocumentResultResult
 //=======================================================
-type LogisticsGetShippingDocumentResultResultList struct {
+type LogisticsGetShippingDocumentResultResult struct {
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn,omitempty"`
 	// package_number is Shopee's unique identifier for the package under an order.
@@ -365,7 +365,7 @@ type LogisticsGetShippingDocumentResultResultList struct {
 //=======================================================
 type LogisticsGetShippingDocumentResult struct {
 	// result_list is The result data list of the API response.
-	ResultList []LogisticsGetShippingDocumentResultResultList `json:"result_list"`
+	ResultList []LogisticsGetShippingDocumentResultResult `json:"result_list"`
 }
 
 //=======================================================
@@ -406,9 +406,9 @@ type LogisticsDownloadShippingDocumentResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetShippingDocumentInfoShippingDocumentInfoRecipientAddress
+// Object Raw Type - LogisticsGetShippingDocumentInfoShippingDocumentInfoRecipientAddres
 //=======================================================
-type LogisticsGetShippingDocumentInfoShippingDocumentInfoRecipientAddress struct {
+type LogisticsGetShippingDocumentInfoShippingDocumentInfoRecipientAddres struct {
 	// name is Recipient's name for the address.
 	Name string `json:"name,omitempty"`
 	// phone is Recipient's phone number input when order was placed.
@@ -594,7 +594,7 @@ type LogisticsGetShippingDocumentInfoShippingDocumentInfo struct {
 	// warehouse_id is Only work for cross-border order in some special shop. The ID of the warehouse.
 	WarehouseID string `json:"warehouse_id,omitempty"`
 	// recipient_address is This object contains detailed breakdown for the recipient address.
-	RecipientAddress LogisticsGetShippingDocumentInfoShippingDocumentInfoRecipientAddress `json:"recipient_address"`
+	RecipientAddress LogisticsGetShippingDocumentInfoShippingDocumentInfoRecipientAddres `json:"recipient_address"`
 	// cod is This value indicates whether the order was a COD (cash on delivery) order.
 	Cod bool `json:"cod,omitempty"`
 	// recipient_sort_code is The sort_code of recipient.
@@ -623,7 +623,7 @@ type LogisticsGetShippingDocumentInfoShippingDocumentInfo struct {
 	ManufacturersWebsite string `json:"manufacturers_website,omitempty"`
 	// is_lm_dg_bool is Use this field to indicate order contains dangerous goods or not.
 	IsLmDgBool string `json:"is_lm_dg_bool,omitempty"`
-	// preferred_delivery_option is Use this field to indicate delivery address is residential or office address. if "preferred_delivery_option":2, it's Home,  ”preferred_delivery_option“:1, it's Office
+	// preferred_delivery_option is Use this field to indicate delivery address is residential or office address.
 	PreferredDeliveryOption string `json:"preferred_delivery_option,omitempty"`
 	// return_sort_code is The sort code for 3PL doing RTS.
 	ReturnSortCode LogisticsGetShippingDocumentInfoShippingDocumentInfoReturnSortCode `json:"return_sort_code"`
@@ -718,9 +718,9 @@ type LogisticsGetTrackingInfoResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetAddressListAddressList
+// Object Raw Type - LogisticsGetAddressListAddress
 //=======================================================
-type LogisticsGetAddressListAddressList struct {
+type LogisticsGetAddressListAddress struct {
 	// address_id is The identity of address.
 	AddressID int `json:"address_id,omitempty"`
 	// region is The region of specify address.
@@ -748,7 +748,7 @@ type LogisticsGetAddressList struct {
 	// show_pickup_address is Show pickup address or not.
 	ShowPickupAddress bool `json:"show_pickup_address,omitempty"`
 	// address_list is The address list of you shop
-	AddressList []LogisticsGetAddressListAddressList `json:"address_list"`
+	AddressList []LogisticsGetAddressListAddress `json:"address_list"`
 }
 
 //=======================================================
@@ -813,9 +813,9 @@ type LogisticsDeleteAddressResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetChannelListLogisticsChannelListSizeList
+// Object Raw Type - LogisticsGetChannelListLogisticsChannelSize
 //=======================================================
-type LogisticsGetChannelListLogisticsChannelListSizeList struct {
+type LogisticsGetChannelListLogisticsChannelSize struct {
 	// size_id is The identity of size.
 	SizeID string `json:"size_id,omitempty"`
 	// name is The name of size.
@@ -825,9 +825,9 @@ type LogisticsGetChannelListLogisticsChannelListSizeList struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetChannelListLogisticsChannelListWeightLimit
+// Object Raw Type - LogisticsGetChannelListLogisticsChannelWeightLimit
 //=======================================================
-type LogisticsGetChannelListLogisticsChannelListWeightLimit struct {
+type LogisticsGetChannelListLogisticsChannelWeightLimit struct {
 	// item_max_weight is The max weight for an item on this logistic channel.If the value is 0 or null, that means there is no limit.
 	ItemMaxWeight float64 `json:"item_max_weight,omitempty"`
 	// item_min_weight is The min weight for an item on this logistic channel. If the value is 0 or null, that means there is no limit.
@@ -835,9 +835,9 @@ type LogisticsGetChannelListLogisticsChannelListWeightLimit struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetChannelListLogisticsChannelListItemMaxDimension
+// Object Raw Type - LogisticsGetChannelListLogisticsChannelItemMaxDimension
 //=======================================================
-type LogisticsGetChannelListLogisticsChannelListItemMaxDimension struct {
+type LogisticsGetChannelListLogisticsChannelItemMaxDimension struct {
 	// height is The max height limit.
 	Height float64 `json:"height,omitempty"`
 	// width is The max width limit.
@@ -851,9 +851,9 @@ type LogisticsGetChannelListLogisticsChannelListItemMaxDimension struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetChannelListLogisticsChannelListVolumeLimit
+// Object Raw Type - LogisticsGetChannelListLogisticsChannelVolumeLimit
 //=======================================================
-type LogisticsGetChannelListLogisticsChannelListVolumeLimit struct {
+type LogisticsGetChannelListLogisticsChannelVolumeLimit struct {
 	// item_max_volume is The max volume for an item on this logistic channel.If the value is 0 or null, that means there is no limit for the item weight.
 	ItemMaxVolume float64 `json:"item_max_volume,omitempty"`
 	// item_min_volume is The min volume for an item on this logistic channel. If the value is 0 or null, that means there is no limit for the item weight.
@@ -861,9 +861,9 @@ type LogisticsGetChannelListLogisticsChannelListVolumeLimit struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsGetChannelListLogisticsChannelList
+// Object Raw Type - LogisticsGetChannelListLogisticsChannel
 //=======================================================
-type LogisticsGetChannelListLogisticsChannelList struct {
+type LogisticsGetChannelListLogisticsChannel struct {
 	// logistics_channel_id is The identity of logistic channel.
 	LogisticsChannelID int `json:"logistics_channel_id,omitempty"`
 	// preferred is Whether to make this logistic channel preferred. Indonestia logistics channel are not applicable.
@@ -877,13 +877,13 @@ type LogisticsGetChannelListLogisticsChannelList struct {
 	// fee_type is See define FeeType, related to FeeType Value
 	FeeType string `json:"fee_type,omitempty"`
 	// size_list is Only for fee_type is SIZE_SELECTION
-	SizeList []LogisticsGetChannelListLogisticsChannelListSizeList `json:"size_list"`
+	SizeList []LogisticsGetChannelListLogisticsChannelSize `json:"size_list"`
 	// weight_limit is The weight limit for this logistic channel.
-	WeightLimit LogisticsGetChannelListLogisticsChannelListWeightLimit `json:"weight_limit"`
+	WeightLimit LogisticsGetChannelListLogisticsChannelWeightLimit `json:"weight_limit"`
 	// item_max_dimension is The dimension limit for this logistic channel.
-	ItemMaxDimension LogisticsGetChannelListLogisticsChannelListItemMaxDimension `json:"item_max_dimension"`
+	ItemMaxDimension LogisticsGetChannelListLogisticsChannelItemMaxDimension `json:"item_max_dimension"`
 	// volume_limit is The limit of item volume.
-	VolumeLimit LogisticsGetChannelListLogisticsChannelListVolumeLimit `json:"volume_limit"`
+	VolumeLimit LogisticsGetChannelListLogisticsChannelVolumeLimit `json:"volume_limit"`
 	// logistics_description is For checkout channels, this field indicates its corresponding fulfillment channels.
 	LogisticsDescription string `json:"logistics_description,omitempty"`
 	// force_enable is Indicates whether the logistic channel is force enabled on Shop Level. If true, sellers cannot close this channel.
@@ -897,7 +897,7 @@ type LogisticsGetChannelListLogisticsChannelList struct {
 //=======================================================
 type LogisticsGetChannelList struct {
 	// logistics_channel_list is The list of logistics channel.
-	LogisticsChannelList []LogisticsGetChannelListLogisticsChannelList `json:"logistics_channel_list"`
+	LogisticsChannelList []LogisticsGetChannelListLogisticsChannel `json:"logistics_channel_list"`
 }
 
 //=======================================================
@@ -918,9 +918,9 @@ type LogisticsGetChannelListResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsUpdateChannelUpdatedChannelsUnsupportWarehouse
+// Object Raw Type - LogisticsUpdateChannelUpdatedChannelUnsupportWarehouse
 //=======================================================
-type LogisticsUpdateChannelUpdatedChannelsUnsupportWarehouse struct {
+type LogisticsUpdateChannelUpdatedChannelUnsupportWarehouse struct {
 	// warehouse_id is <p>Unsupported warehouse ID<br /></p>
 	WarehouseID int `json:"warehouse_id,omitempty"`
 	// warehouse_name is <p>Unsupported warehouse name<br /></p>
@@ -928,15 +928,15 @@ type LogisticsUpdateChannelUpdatedChannelsUnsupportWarehouse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsUpdateChannelUpdatedChannels
+// Object Raw Type - LogisticsUpdateChannelUpdatedChannel
 //=======================================================
-type LogisticsUpdateChannelUpdatedChannels struct {
+type LogisticsUpdateChannelUpdatedChannel struct {
 	// channel_id is <p>Logistics channel ID<br /></p>
 	ChannelID int `json:"channel_id,omitempty"`
 	// channel_display_name is <p>Logistics channel name<br /></p>
 	ChannelDisplayName string `json:"channel_display_name,omitempty"`
 	// unsupport_warehouse is <p>List details of unsupported warehouses<br /></p>
-	UnsupportWarehouse []LogisticsUpdateChannelUpdatedChannelsUnsupportWarehouse `json:"unsupport_warehouse"`
+	UnsupportWarehouse []LogisticsUpdateChannelUpdatedChannelUnsupportWarehouse `json:"unsupport_warehouse"`
 }
 
 //=======================================================
@@ -954,7 +954,7 @@ type LogisticsUpdateChannel struct {
 	// logistics_channel_id is The identity of logistic channel.
 	LogisticsChannelID int `json:"logistics_channel_id,omitempty"`
 	// updated_channels is <p>List of channels that are updated in the operation (inclusive of dependent logistics channels)<br /></p>
-	UpdatedChannels []LogisticsUpdateChannelUpdatedChannels `json:"updated_channels"`
+	UpdatedChannels []LogisticsUpdateChannelUpdatedChannel `json:"updated_channels"`
 	// is_multi_warehouse is
 	IsMultiWarehouse bool `json:"is_multi_warehouse,omitempty"`
 }
@@ -985,9 +985,9 @@ type LogisticsUpdateChannelResponse struct {
 }
 
 //=======================================================
-// Object Raw Type - LogisticsBatchShipOrderResultList
+// Object Raw Type - LogisticsBatchShipOrderResult
 //=======================================================
-type LogisticsBatchShipOrderResultList struct {
+type LogisticsBatchShipOrderResult struct {
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn,omitempty"`
 	// package_number is Shopee's unique identifier for the package under an order.
@@ -1003,7 +1003,7 @@ type LogisticsBatchShipOrderResultList struct {
 //=======================================================
 type LogisticsBatchShipOrder struct {
 	// result_list is
-	ResultList []LogisticsBatchShipOrderResultList `json:"result_list"`
+	ResultList []LogisticsBatchShipOrderResult `json:"result_list"`
 }
 
 //=======================================================

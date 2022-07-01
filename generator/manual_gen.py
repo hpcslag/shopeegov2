@@ -5,6 +5,16 @@ import json
 def removeSpace(str):
     return str.replace(" ", "", -1)
 
+def toSingleSemantic(str):
+    total = len(str)
+    if total >= 2:
+        if (str[total-1:]).lower() == "s":
+            str = str[:total-1]
+        if (str[total-4:]).lower() == "list":
+            str = str[:total-4]
+    return str
+        
+
 # detect this api is not responsable
 def detectNotResponsable(res_raw):
     noResponse = False
@@ -89,7 +99,7 @@ type %s struct {""" % (structName, structName))
             
     for item in raw["children"]:
         # doc bug: remove all space
-        item["name"] = removeSpace(item["name"])              
+        item["name"] = removeSpace(item["name"])
 
         # omitempty
         omemptyStr = ""
@@ -141,7 +151,7 @@ type %s struct {""" % (structName, structName))
         # check if is list, object types... need to recursive extending out to the struct
         if checkIsExpensivableObject(item):
             # assume no conflict key name, directly using key-name as object name
-            subObjName = structName + "" + Snake2BigGolangCase(item["name"]) # conflict with structName + ItemName
+            subObjName = toSingleSemantic(structName + "" + Snake2BigGolangCase(item["name"])) # conflict with structName + ItemName
             if not subObjName in globalStruct:
                 globalStruct.append(subObjName)
                 # gen sub struct for typing
@@ -304,7 +314,7 @@ type %sResponse struct {
             # iterate response items
             for resItem in apiParams["response_params"]:
                 # doc bug: remove all space
-                resItem["name"] = removeSpace(resItem["name"])
+                resItem["name"] = toSingleSemantic(removeSpace(resItem["name"]))
 
                 # (only got problem in response) all response parameter is store in `response` key-pair, let all unity response key put into V2UnityResponse Object
                 if resItem["name"] != "response":
@@ -486,7 +496,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp %s, err error) {
 	resp = %swrappedResponse.Response
 	return
 }
-""" % (apiName, apiName, responseStructName, apiName, apiName, withPtrStr)
+""" % (apiName, apiName, responseStructName, apiName, toSingleSemantic(apiName), withPtrStr)
 
     globalInterfaceStr += """
 }

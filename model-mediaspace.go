@@ -77,9 +77,9 @@ type MediaSpaceCompleteVideoUploadResponse struct {
 
 
 //=======================================================
-// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfoVideoUrlList
+// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfoVideoUrl
 //=======================================================
-type MediaSpaceGetVideoUploadResultVideoInfoVideoUrlList struct {
+type MediaSpaceGetVideoUploadResultVideoInfoVideoUrl struct {
 // video_url_region is The region of this video URL.
 VideoUrlRegion string `json:"video_url_region,omitempty"`
 // video_url is Video playback URL.
@@ -88,9 +88,9 @@ VideoUrl string `json:"video_url,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrlList
+// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrl
 //=======================================================
-type MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrlList struct {
+type MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrl struct {
 // image_url_region is The region of this image URL.
 ImageUrlRegion string `json:"image_url_region,omitempty"`
 // image_url is Image display URL.
@@ -103,9 +103,9 @@ ImageUrl string `json:"image_url,omitempty"`
 //=======================================================
 type MediaSpaceGetVideoUploadResultVideoInfo struct {
 // video_url_list is Video playback URL list.
-VideoUrlList []MediaSpaceGetVideoUploadResultVideoInfoVideoUrlList `json:"video_url_list"`
+VideoUrlList []MediaSpaceGetVideoUploadResultVideoInfoVideoUrl `json:"video_url_list"`
 // thumbnail_url_list is Video thumbnail image URL list.
-ThumbnailUrlList []MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrlList `json:"thumbnail_url_list"`
+ThumbnailUrlList []MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrl `json:"thumbnail_url_list"`
 // duration is Duration of this video, in seconds.
 Duration int `json:"duration,omitempty"`
 }
@@ -157,9 +157,9 @@ type MediaSpaceCancelVideoUploadResponse struct {
 
 
 //=======================================================
-// Object Raw Type - MediaSpaceUploadImageImageInfoImageUrlList
+// Object Raw Type - MediaSpaceUploadImageImageInfoImageUrl
 //=======================================================
-type MediaSpaceUploadImageImageInfoImageUrlList struct {
+type MediaSpaceUploadImageImageInfoImageUrl struct {
 // image_url_region is Region of image url
 ImageUrlRegion string `json:"image_url_region,omitempty"`
 // image_url is image url
@@ -174,7 +174,7 @@ type MediaSpaceUploadImageImageInfo struct {
 // image_id is Id of image 
 ImageID string `json:"image_id,omitempty"`
 // image_url_list is Image URL of each region
-ImageUrlList []MediaSpaceUploadImageImageInfoImageUrlList `json:"image_url_list"`
+ImageUrlList []MediaSpaceUploadImageImageInfoImageUrl `json:"image_url_list"`
 }
 
 

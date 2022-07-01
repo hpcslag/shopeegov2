@@ -2,9 +2,9 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderListOrderList
+// Object Raw Type - OrderGetOrderListOrder
 //=======================================================
-type OrderGetOrderListOrderList struct {
+type OrderGetOrderListOrder struct {
 // order_sn is  Shopee's unique identifier for an order.	
 OrderSN string `json:"order_sn,omitempty"`
 // order_status is The order_status filter for retriveing orders and each one only every request. Available value: UNPAID/READY_TO_SHIP/PROCESSED/SHIPPED/COMPLETED/IN_CANCEL/CANCELLED
@@ -19,7 +19,7 @@ type OrderGetOrderList struct {
 // more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
 More bool `json:"more,omitempty"`
 // order_list is 
-OrderList []OrderGetOrderListOrderList `json:"order_list"`
+OrderList []OrderGetOrderListOrder `json:"order_list"`
 // next_cursor is If  more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -55,9 +55,9 @@ type OrderGetOrderListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - OrderGetShipmentListOrderList
+// Object Raw Type - OrderGetShipmentListOrder
 //=======================================================
-type OrderGetShipmentListOrderList struct {
+type OrderGetShipmentListOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 // package_number is Shopee's unique identifier for the package under an order
@@ -70,7 +70,7 @@ PackageNumber string `json:"package_number,omitempty"`
 //=======================================================
 type OrderGetShipmentList struct {
 // order_list is The list of  shipment orders
-OrderList []OrderGetShipmentListOrderList `json:"order_list"`
+OrderList []OrderGetShipmentListOrder `json:"order_list"`
 // more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
 More bool `json:"more,omitempty"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
@@ -98,9 +98,9 @@ type OrderGetShipmentListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderListRecipientAddress
+// Object Raw Type - OrderGetOrderDetailOrderRecipientAddres
 //=======================================================
-type OrderGetOrderDetailOrderListRecipientAddress struct {
+type OrderGetOrderDetailOrderRecipientAddres struct {
 // name is Recipient's name for the address.	
 Name string `json:"name,omitempty"`
 // phone is Recipient's phone number input when order was placed.	
@@ -123,18 +123,18 @@ FullAddress string `json:"full_address,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderListItemListImageInfo
+// Object Raw Type - OrderGetOrderDetailOrderItemImageInfo
 //=======================================================
-type OrderGetOrderDetailOrderListItemListImageInfo struct {
+type OrderGetOrderDetailOrderItemImageInfo struct {
 // image_url is The image url of the product. Default to be variation image, if the model does not have a variation image, will use an item main image instead.
 ImageUrl string `json:"image_url,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderListItemList
+// Object Raw Type - OrderGetOrderDetailOrderItem
 //=======================================================
-type OrderGetOrderDetailOrderListItemList struct {
+type OrderGetOrderDetailOrderItem struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // item_name is The name of the item.
@@ -172,16 +172,16 @@ OrderItemID int `json:"order_item_id,omitempty"`
 // promotion_group_id is The identify of product promotion.
 PromotionGroupID int `json:"promotion_group_id,omitempty"`
 // image_info is  Image info of the product.
-ImageInfo OrderGetOrderDetailOrderListItemListImageInfo `json:"image_info"`
+ImageInfo OrderGetOrderDetailOrderItemImageInfo `json:"image_info"`
 // product_location_id is The list of warehouse IDs of the item.
 ProductLocationID []string `json:"product_location_id,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderListPackageListItemList
+// Object Raw Type - OrderGetOrderDetailOrderPackageItem
 //=======================================================
-type OrderGetOrderDetailOrderListPackageListItemList struct {
+type OrderGetOrderDetailOrderPackageItem struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // model_id is Shopee's unique identifier for a model.
@@ -190,9 +190,9 @@ ModelID int `json:"model_id,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderListPackageList
+// Object Raw Type - OrderGetOrderDetailOrderPackage
 //=======================================================
-type OrderGetOrderDetailOrderListPackageList struct {
+type OrderGetOrderDetailOrderPackage struct {
 // package_number is Shopee's unique identifier for the package under an order.
 PackageNumber string `json:"package_number,omitempty"`
 // logistics_status is The Shopee logistics status for the order. Applicable values: See Data Definition-LogisticsStatus.
@@ -200,16 +200,16 @@ LogisticsStatus string `json:"logistics_status,omitempty"`
 // shipping_carrier is The logistics service provider that the buyer selected for the order to deliver items.
 ShippingCarrier string `json:"shipping_carrier,omitempty"`
 // item_list is The lis of items.
-ItemList []OrderGetOrderDetailOrderListPackageListItemList `json:"item_list"`
+ItemList []OrderGetOrderDetailOrderPackageItem `json:"item_list"`
 // parcel_chargeable_weight_gram is <p>For CB shop, display weight used to calculate actual_shipping_fee for this parcel.<br /></p>
 ParcelChargeableWeightGram int `json:"parcel_chargeable_weight_gram,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderListInvoiceData
+// Object Raw Type - OrderGetOrderDetailOrderInvoiceData
 //=======================================================
-type OrderGetOrderDetailOrderListInvoiceData struct {
+type OrderGetOrderDetailOrderInvoiceData struct {
 // number is The number of the invoice. The number should be 9 digits. pt: número da NF-e.
 Number string `json:"number,omitempty"`
 // series_number is The series number of the invoice. The series number should be 3 digits. pt: série da NF-e.
@@ -228,9 +228,9 @@ TaxCode string `json:"tax_code,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - OrderGetOrderDetailOrderList
+// Object Raw Type - OrderGetOrderDetailOrder
 //=======================================================
-type OrderGetOrderDetailOrderList struct {
+type OrderGetOrderDetailOrder struct {
 // order_sn is Return by default. Shopee's unique identifier for an order.	
 OrderSN string `json:"order_sn,omitempty"`
 // region is Return by default. The two-digit code representing the region where the order was made.	
@@ -264,7 +264,7 @@ BuyerUserID int `json:"buyer_user_id,omitempty"`
 // buyer_username is The name of buyer	
 BuyerUsername string `json:"buyer_username,omitempty"`
 // recipient_address is This object contains detailed breakdown for the recipient address.	
-RecipientAddress OrderGetOrderDetailOrderListRecipientAddress `json:"recipient_address"`
+RecipientAddress OrderGetOrderDetailOrderRecipientAddres `json:"recipient_address"`
 // actual_shipping_fee is The actual shipping fee of the order if available from external logistics partners.	
 ActualShippingFee float64 `json:"actual_shipping_fee,omitempty"`
 // goods_to_declare is Only work for cross-border order.This value indicates whether the order contains goods that are required to declare at customs. "T" means true and it will mark as "T" on the shipping label; "F" means false and it will mark as "P" on the shipping label. This value is accurate ONLY AFTER the order trackingNo is generated, please capture this value AFTER your retrieve the trackingNo.	
@@ -274,7 +274,7 @@ Note string `json:"note,omitempty"`
 // note_update_time is Update time for the note.	
 NoteUpdateTime int `json:"note_update_time,omitempty"`
 // item_list is This object contains the detailed breakdown for the result of this API call.	
-ItemList []OrderGetOrderDetailOrderListItemList `json:"item_list"`
+ItemList []OrderGetOrderDetailOrderItem `json:"item_list"`
 // pay_time is The time when the order status is updated from UNPAID to PAID. This value is NULL when order is not paid yet.	
 PayTime int `json:"pay_time,omitempty"`
 // dropshipper is For Indonesia orders only. The name of the dropshipper.	
@@ -298,9 +298,9 @@ FulfillmentFlag string `json:"fulfillment_flag,omitempty"`
 // pickup_done_time is The timestamp when pickup is done.
 PickupDoneTime int `json:"pickup_done_time,omitempty"`
 // package_list is The list of package under an order
-PackageList []OrderGetOrderDetailOrderListPackageList `json:"package_list"`
+PackageList []OrderGetOrderDetailOrderPackage `json:"package_list"`
 // invoice_data is The invoice data of the order. pt: Nota Fiscal eletrônica (NF-e) do pedido.
-InvoiceData OrderGetOrderDetailOrderListInvoiceData `json:"invoice_data"`
+InvoiceData OrderGetOrderDetailOrderInvoiceData `json:"invoice_data"`
 // checkout_shipping_carrier is For non masking order, the logistics service provider that the buyer selected for the order to deliver items. For masking order, the logistics service type that the buyer selected for the order to deliver items.
 CheckoutShippingCarrier string `json:"checkout_shipping_carrier,omitempty"`
 // reverse_shipping_fee is Shopee charges the reverse shipping fee for the returned order.The value of this field will be non-negative.
@@ -315,7 +315,7 @@ OrderChargeableWeightGram int `json:"order_chargeable_weight_gram,omitempty"`
 //=======================================================
 type OrderGetOrderDetail struct {
 // order_list is The list of orders.
-OrderList []OrderGetOrderDetailOrderList `json:"order_list"`
+OrderList []OrderGetOrderDetailOrder `json:"order_list"`
 }
 //=======================================================
 // OrderGetOrderDetailRequest
@@ -339,9 +339,9 @@ type OrderGetOrderDetailResponse struct {
 
 
 //=======================================================
-// Object Raw Type - PackageListItemList
+// Object Raw Type - PackageListItem
 //=======================================================
-type PackageListItemList struct {
+type PackageListItem struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // model_id is Shopee's unique identifier for a model of an item.
@@ -358,14 +358,14 @@ PromotionGroupID int `json:"promotion_group_id,omitempty"`
 //=======================================================
 type PackageList struct {
 // item_list is The list of items under the same package.
-ItemList []PackageListItemList `json:"item_list"`
+ItemList []PackageListItem `json:"item_list"`
 }
 
 
 //=======================================================
-// Object Raw Type - OrderSplitOrderPackageListItemList
+// Object Raw Type - OrderSplitOrderPackageItem
 //=======================================================
-type OrderSplitOrderPackageListItemList struct {
+type OrderSplitOrderPackageItem struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // model_id is Shopee's unique identifier for a model.
@@ -378,13 +378,13 @@ PromotionGroupID int `json:"promotion_group_id,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - OrderSplitOrderPackageList
+// Object Raw Type - OrderSplitOrderPackage
 //=======================================================
-type OrderSplitOrderPackageList struct {
+type OrderSplitOrderPackage struct {
 // package_number is Shopee's unique identifier for the package under an order.
 PackageNumber string `json:"package_number,omitempty"`
 // item_list is The list of items under this package.
-ItemList []OrderSplitOrderPackageListItemList `json:"item_list"`
+ItemList []OrderSplitOrderPackageItem `json:"item_list"`
 }
 
 
@@ -395,7 +395,7 @@ type OrderSplitOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 // package_list is The list of package under this order you have split.
-PackageList []OrderSplitOrderPackageList `json:"package_list"`
+PackageList []OrderSplitOrderPackage `json:"package_list"`
 }
 //=======================================================
 // OrderSplitOrderRequest
@@ -547,9 +547,9 @@ type OrderAddInvoiceDataResponse struct {
 
 
 //=======================================================
-// Object Raw Type - OrderGetPendingBuyerInvoiceOrderListOrderList
+// Object Raw Type - OrderGetPendingBuyerInvoiceOrderListOrder
 //=======================================================
-type OrderGetPendingBuyerInvoiceOrderListOrderList struct {
+type OrderGetPendingBuyerInvoiceOrderListOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 }
@@ -564,7 +564,7 @@ More bool `json:"more,omitempty"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 // order_list is 
-OrderList []OrderGetPendingBuyerInvoiceOrderListOrderList `json:"order_list"`
+OrderList []OrderGetPendingBuyerInvoiceOrderListOrder `json:"order_list"`
 }
 //=======================================================
 // OrderGetPendingBuyerInvoiceOrderListRequest

@@ -2,9 +2,9 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetCategoryCategoryList
+// Object Raw Type - GlobalProductGetCategoryCategory
 //=======================================================
-type GlobalProductGetCategoryCategoryList struct {
+type GlobalProductGetCategoryCategory struct {
 // category_id is 
 CategoryID int `json:"category_id,omitempty"`
 // parent_category_id is 
@@ -23,7 +23,7 @@ HasChildren bool `json:"has_children,omitempty"`
 //=======================================================
 type GlobalProductGetCategory struct {
 // category_list is 
-CategoryList []GlobalProductGetCategoryCategoryList `json:"category_list"`
+CategoryList []GlobalProductGetCategoryCategory `json:"category_list"`
 }
 //=======================================================
 // GlobalProductGetCategoryRequest
@@ -45,9 +45,9 @@ type GlobalProductGetCategoryResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetAttributesAttributeListAttributeValueListParentAttributeList
+// Object Raw Type - GlobalProductGetAttributesAttributeAttributeValueParentAttribute
 //=======================================================
-type GlobalProductGetAttributesAttributeListAttributeValueListParentAttributeList struct {
+type GlobalProductGetAttributesAttributeAttributeValueParentAttribute struct {
 // parent_attribute_id is ID of parent attribute.
 ParentAttributeID int `json:"parent_attribute_id,omitempty"`
 // parent_value_id is ID of parent attribute value.
@@ -56,18 +56,18 @@ ParentValueID int `json:"parent_value_id,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetAttributesAttributeListAttributeValueListParentBrandList
+// Object Raw Type - GlobalProductGetAttributesAttributeAttributeValueParentBrand
 //=======================================================
-type GlobalProductGetAttributesAttributeListAttributeValueListParentBrandList struct {
+type GlobalProductGetAttributesAttributeAttributeValueParentBrand struct {
 // parent_brand_id is ID of parent brand.
 ParentBrandID int `json:"parent_brand_id,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetAttributesAttributeListAttributeValueList
+// Object Raw Type - GlobalProductGetAttributesAttributeAttributeValue
 //=======================================================
-type GlobalProductGetAttributesAttributeListAttributeValueList struct {
+type GlobalProductGetAttributesAttributeAttributeValue struct {
 // value_id is ID of attribute value.
 ValueID int `json:"value_id,omitempty"`
 // original_value_name is Original name of value.
@@ -77,16 +77,16 @@ DisplayValueName string `json:"display_value_name,omitempty"`
 // value_unit is Unit of value.
 ValueUnit string `json:"value_unit,omitempty"`
 // parent_attribute_list is 
-ParentAttributeList []GlobalProductGetAttributesAttributeListAttributeValueListParentAttributeList `json:"parent_attribute_list"`
+ParentAttributeList []GlobalProductGetAttributesAttributeAttributeValueParentAttribute `json:"parent_attribute_list"`
 // parent_brand_list is 
-ParentBrandList []GlobalProductGetAttributesAttributeListAttributeValueListParentBrandList `json:"parent_brand_list"`
+ParentBrandList []GlobalProductGetAttributesAttributeAttributeValueParentBrand `json:"parent_brand_list"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetAttributesAttributeList
+// Object Raw Type - GlobalProductGetAttributesAttribute
 //=======================================================
-type GlobalProductGetAttributesAttributeList struct {
+type GlobalProductGetAttributesAttribute struct {
 // attribute_id is ID of attribute.
 AttributeID int `json:"attribute_id,omitempty"`
 // original_attribute_name is Attribute default name.
@@ -106,7 +106,7 @@ InputType string `json:"input_type,omitempty"`
 // attribute_unit is All applicable attribute units.
 AttributeUnit []string `json:"attribute_unit,omitempty"`
 // attribute_value_list is Value list of this attribute.
-AttributeValueList []GlobalProductGetAttributesAttributeListAttributeValueList `json:"attribute_value_list"`
+AttributeValueList []GlobalProductGetAttributesAttributeAttributeValue `json:"attribute_value_list"`
 // mandatory_region is This attribute will be used to check the required regions.
 MandatoryRegion []string `json:"mandatory_region,omitempty"`
 }
@@ -117,7 +117,7 @@ MandatoryRegion []string `json:"mandatory_region,omitempty"`
 //=======================================================
 type GlobalProductGetAttributes struct {
 // attribute_list is Attribute info list.
-AttributeList []GlobalProductGetAttributesAttributeList `json:"attribute_list"`
+AttributeList []GlobalProductGetAttributesAttribute `json:"attribute_list"`
 }
 //=======================================================
 // GlobalProductGetAttributesRequest
@@ -143,9 +143,9 @@ type GlobalProductGetAttributesResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetBrandListBrandList
+// Object Raw Type - GlobalProductGetBrandListBrand
 //=======================================================
-type GlobalProductGetBrandListBrandList struct {
+type GlobalProductGetBrandListBrand struct {
 // brand_id is  Id of brand.
 BrandID int `json:"brand_id,omitempty"`
 // original_brand_name is Original name of brand
@@ -160,7 +160,7 @@ DisplayBrandName string `json:"display_brand_name,omitempty"`
 //=======================================================
 type GlobalProductGetBrandList struct {
 // brand_list is 
-BrandList []GlobalProductGetBrandListBrandList `json:"brand_list"`
+BrandList []GlobalProductGetBrandListBrand `json:"brand_list"`
 // has_next_page is  This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 HasNextPage bool `json:"has_next_page,omitempty"`
 // next_offset is If has_next_page is true, this value need set to next request.offset
@@ -336,9 +336,9 @@ type GlobalProductGetGlobalItemLimitResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetDtsLimitDaysToShipRangeList
+// Object Raw Type - GlobalProductGetDtsLimitDaysToShipRange
 //=======================================================
-type GlobalProductGetDtsLimitDaysToShipRangeList struct {
+type GlobalProductGetDtsLimitDaysToShipRange struct {
 // min_limit is Days to ship min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Days to ship max limit.
@@ -351,7 +351,7 @@ MaxLimit int `json:"max_limit,omitempty"`
 //=======================================================
 type GlobalProductGetDtsLimit struct {
 // days_to_ship_range_list is If the length of the range list is greater than one, the final result is the union of multiple intervals
-DaysToShipRangeList []GlobalProductGetDtsLimitDaysToShipRangeList `json:"days_to_ship_range_list"`
+DaysToShipRangeList []GlobalProductGetDtsLimitDaysToShipRange `json:"days_to_ship_range_list"`
 }
 //=======================================================
 // GlobalProductGetDtsLimitRequest
@@ -373,9 +373,9 @@ type GlobalProductGetDtsLimitResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemListGlobalItemList
+// Object Raw Type - GlobalProductGetGlobalItemListGlobalItem
 //=======================================================
-type GlobalProductGetGlobalItemListGlobalItemList struct {
+type GlobalProductGetGlobalItemListGlobalItem struct {
 // global_item_id is Shopee's unique identifier for an global item.
 GlobalItemID int `json:"global_item_id,omitempty"`
 // update_time is Timestamp that indicates the last time that there was a change in value of the item, such as price/stock change.
@@ -388,7 +388,7 @@ UpdateTime int `json:"update_time,omitempty"`
 //=======================================================
 type GlobalProductGetGlobalItemList struct {
 // global_item_list is 
-GlobalItemList []GlobalProductGetGlobalItemListGlobalItemList `json:"global_item_list"`
+GlobalItemList []GlobalProductGetGlobalItemListGlobalItem `json:"global_item_list"`
 // total_count is Total global item count.
 TotalCount int `json:"total_count,omitempty"`
 // has_next_page is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
@@ -422,9 +422,9 @@ type GlobalProductGetGlobalItemListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListStockInfo
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemStockInfo
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListStockInfo struct {
+type GlobalProductGetGlobalItemInfoGlobalItemStockInfo struct {
 // stock_type is The stock type.
 StockType int `json:"stock_type,omitempty"`
 // stock_location_id is location_id of the stock.
@@ -437,9 +437,9 @@ ReservedStock int `json:"reserved_stock,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListPriceInfo
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemPriceInfo
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListPriceInfo struct {
+type GlobalProductGetGlobalItemInfoGlobalItemPriceInfo struct {
 // currency is The three-digit code representing the currency unit used for the item in Shopee Listings.
 Currency string `json:"currency,omitempty"`
 // original_price is The original price of the item in the listing currency.
@@ -452,9 +452,9 @@ SipItemPriceSource string `json:"sip_item_price_source,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListImage
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemImage
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListImage struct {
+type GlobalProductGetGlobalItemInfoGlobalItemImage struct {
 // image_id_list is List of image url.
 ImageIdList []string `json:"image_id_list,omitempty"`
 // image_url_list is List of image id.
@@ -463,9 +463,9 @@ ImageUrlList []string `json:"image_url_list,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListDimension
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemDimension
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListDimension struct {
+type GlobalProductGetGlobalItemInfoGlobalItemDimension struct {
 // package_length is The length of package for this single item.
 PackageLength int `json:"package_length,omitempty"`
 // package_width is The width of package for this single item.
@@ -476,18 +476,18 @@ PackageHeight int `json:"package_height,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListPreOrder
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemPreOrder
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListPreOrder struct {
+type GlobalProductGetGlobalItemInfoGlobalItemPreOrder struct {
 // days_to_ship is Days to ship.
 DaysToShip int `json:"days_to_ship,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListVideo
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemVideo
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListVideo struct {
+type GlobalProductGetGlobalItemInfoGlobalItemVideo struct {
 // video_url is Url of video.
 VideoUrl string `json:"video_url,omitempty"`
 // thumbnail_url is Thumbnail of video.
@@ -498,9 +498,9 @@ Duration int `json:"duration,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListBrand
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemBrand
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListBrand struct {
+type GlobalProductGetGlobalItemInfoGlobalItemBrand struct {
 // brand_id is Id of brand.
 BrandID int `json:"brand_id,omitempty"`
 // original_brand_name is Original name of brand.
@@ -509,9 +509,9 @@ OriginalBrandName string `json:"original_brand_name,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListAttributeListAttributeValueList
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemAttributeAttributeValue
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListAttributeListAttributeValueList struct {
+type GlobalProductGetGlobalItemInfoGlobalItemAttributeAttributeValue struct {
 // value_id is Unique identifier for value of this item attribute.
 ValueID int `json:"value_id,omitempty"`
 // original_value_name is Value name of this item attribute.
@@ -522,22 +522,22 @@ ValueUnit string `json:"value_unit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListAttributeList
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemAttribute
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListAttributeList struct {
+type GlobalProductGetGlobalItemInfoGlobalItemAttribute struct {
 // attribute_id is The Identify of each category.
 AttributeID int `json:"attribute_id,omitempty"`
 // original_attribute_name is The name of each attribute.
 OriginalAttributeName string `json:"original_attribute_name,omitempty"`
 // attribute_value_list is 
-AttributeValueList []GlobalProductGetGlobalItemInfoGlobalItemListAttributeListAttributeValueList `json:"attribute_value_list"`
+AttributeValueList []GlobalProductGetGlobalItemInfoGlobalItemAttributeAttributeValue `json:"attribute_value_list"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescriptionFieldListImageInfo
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescriptionFieldImageInfo
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescriptionFieldListImageInfo struct {
+type GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescriptionFieldImageInfo struct {
 // image_id is Image id.
 ImageID string `json:"image_id,omitempty"`
 // image_url is Image url.
@@ -546,40 +546,40 @@ ImageUrl string `json:"image_url,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescriptionFieldList
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescriptionField
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescriptionFieldList struct {
+type GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescriptionField struct {
 // field_type is Type of extended description field: values: See Data Definition- description_field_type (text , image).
 FieldType string `json:"field_type,omitempty"`
 // text is If field_type is text, text information will be returned through this field.
 Text string `json:"text,omitempty"`
 // image_info is If field_type is image, image url will be returned through this field.
-ImageInfo GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_info"`
+ImageInfo GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescriptionFieldImageInfo `json:"image_info"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescription
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescription
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescription struct {
+type GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescription struct {
 // field_list is Field of extended description
-FieldList []GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescriptionFieldList `json:"field_list"`
+FieldList []GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescriptionField `json:"field_list"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfo
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfo
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfo struct {
+type GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfo struct {
 // extended_description is If description_type is extended , Description information will be returned through this field.
-ExtendedDescription GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfoExtendedDescription `json:"extended_description"`
+ExtendedDescription GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfoExtendedDescription `json:"extended_description"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItemList
+// Object Raw Type - GlobalProductGetGlobalItemInfoGlobalItem
 //=======================================================
-type GlobalProductGetGlobalItemInfoGlobalItemList struct {
+type GlobalProductGetGlobalItemInfoGlobalItem struct {
 // global_item_id is Shopee's unique identifier for an global item.
 GlobalItemID int `json:"global_item_id,omitempty"`
 // global_item_name is Name of the global item.
@@ -595,17 +595,17 @@ CreateTime int `json:"create_time,omitempty"`
 // update_time is Timestamp that indicates the last time that there was a change in value of the global item.
 UpdateTime int `json:"update_time,omitempty"`
 // stock_info is If the item has models, this field will not be returned, please get it through get_model_list api.
-StockInfo []GlobalProductGetGlobalItemInfoGlobalItemListStockInfo `json:"stock_info"`
+StockInfo []GlobalProductGetGlobalItemInfoGlobalItemStockInfo `json:"stock_info"`
 // price_info is If the item has models, price_info will not be returned. Please get the price of each model through the get_global_model_list api.
-PriceInfo []GlobalProductGetGlobalItemInfoGlobalItemListPriceInfo `json:"price_info"`
+PriceInfo []GlobalProductGetGlobalItemInfoGlobalItemPriceInfo `json:"price_info"`
 // image is 
-Image GlobalProductGetGlobalItemInfoGlobalItemListImage `json:"image"`
+Image GlobalProductGetGlobalItemInfoGlobalItemImage `json:"image"`
 // weight is The weight of this item.
 Weight float64 `json:"weight,omitempty"`
 // dimension is 
-Dimension GlobalProductGetGlobalItemInfoGlobalItemListDimension `json:"dimension"`
+Dimension GlobalProductGetGlobalItemInfoGlobalItemDimension `json:"dimension"`
 // pre_order is 
-PreOrder GlobalProductGetGlobalItemInfoGlobalItemListPreOrder `json:"pre_order"`
+PreOrder GlobalProductGetGlobalItemInfoGlobalItemPreOrder `json:"pre_order"`
 // size_chart is Url of size chart image.
 SizeChart string `json:"size_chart,omitempty"`
 // condition is Is it second-hand.
@@ -613,15 +613,15 @@ Condition string `json:"condition,omitempty"`
 // has_model is Does it contain model.
 HasModel bool `json:"has_model,omitempty"`
 // video is 
-Video GlobalProductGetGlobalItemInfoGlobalItemListVideo `json:"video"`
+Video GlobalProductGetGlobalItemInfoGlobalItemVideo `json:"video"`
 // category_id is Shopee's unique identifier for a category.
 CategoryID int `json:"category_id,omitempty"`
 // brand is 
-Brand GlobalProductGetGlobalItemInfoGlobalItemListBrand `json:"brand"`
+Brand GlobalProductGetGlobalItemInfoGlobalItemBrand `json:"brand"`
 // attribute_list is 
-AttributeList []GlobalProductGetGlobalItemInfoGlobalItemListAttributeList `json:"attribute_list"`
+AttributeList []GlobalProductGetGlobalItemInfoGlobalItemAttribute `json:"attribute_list"`
 // description_info is New description field.New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
-DescriptionInfo GlobalProductGetGlobalItemInfoGlobalItemListDescriptionInfo `json:"description_info"`
+DescriptionInfo GlobalProductGetGlobalItemInfoGlobalItemDescriptionInfo `json:"description_info"`
 // description_type is Type of description : values: See Data Definition- description_type (normal , extended).
 DescriptionType map[string]interface{} `json:"description_type,omitempty"`
 }
@@ -632,7 +632,7 @@ DescriptionType map[string]interface{} `json:"description_type,omitempty"`
 //=======================================================
 type GlobalProductGetGlobalItemInfo struct {
 // global_item_list is 
-GlobalItemList []GlobalProductGetGlobalItemInfoGlobalItemList `json:"global_item_list"`
+GlobalItemList []GlobalProductGetGlobalItemInfoGlobalItem `json:"global_item_list"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemInfoRequest
@@ -886,9 +886,9 @@ type GlobalProductUpdateGlobalModelResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductDeleteGlobalModelFailures
+// Object Raw Type - GlobalProductDeleteGlobalModelFailure
 //=======================================================
-type GlobalProductDeleteGlobalModelFailures struct {
+type GlobalProductDeleteGlobalModelFailure struct {
 // shop_id is Failed shop id.
 ShopID int `json:"shop_id,omitempty"`
 // item_id is Failed item id.
@@ -905,7 +905,7 @@ type GlobalProductDeleteGlobalModel struct {
 // global_model_id is Global model id.
 GlobalModelID int `json:"global_model_id,omitempty"`
 // failures is 
-Failures []GlobalProductDeleteGlobalModelFailures `json:"failures"`
+Failures []GlobalProductDeleteGlobalModelFailure `json:"failures"`
 }
 //=======================================================
 // GlobalProductDeleteGlobalModelRequest
@@ -929,9 +929,9 @@ type GlobalProductDeleteGlobalModelResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalModelListTierVariationOptionListImage
+// Object Raw Type - GlobalProductGetGlobalModelListTierVariationOptionImage
 //=======================================================
-type GlobalProductGetGlobalModelListTierVariationOptionListImage struct {
+type GlobalProductGetGlobalModelListTierVariationOptionImage struct {
 // image_url is Image url.
 ImageUrl string `json:"image_url,omitempty"`
 // image_id is Id of image.
@@ -940,13 +940,13 @@ ImageID string `json:"image_id,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetGlobalModelListTierVariationOptionList
+// Object Raw Type - GlobalProductGetGlobalModelListTierVariationOption
 //=======================================================
-type GlobalProductGetGlobalModelListTierVariationOptionList struct {
+type GlobalProductGetGlobalModelListTierVariationOption struct {
 // option is Tier option.
 Option string `json:"option,omitempty"`
 // image is Image information of tier.
-Image GlobalProductGetGlobalModelListTierVariationOptionListImage `json:"image"`
+Image GlobalProductGetGlobalModelListTierVariationOptionImage `json:"image"`
 }
 
 
@@ -957,7 +957,7 @@ type GlobalProductGetGlobalModelListTierVariation struct {
 // name is Tier name.
 Name string `json:"name,omitempty"`
 // option_list is Tier option list for corresponding tier name.
-OptionList []GlobalProductGetGlobalModelListTierVariationOptionList `json:"option_list"`
+OptionList []GlobalProductGetGlobalModelListTierVariationOption `json:"option_list"`
 }
 
 
@@ -1085,22 +1085,22 @@ ImageIdList []string `json:"image_id_list,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemTierVariationOptionListImage
+// Object Raw Type - ItemTierVariationOptionImage
 //=======================================================
-type ItemTierVariationOptionListImage struct {
+type ItemTierVariationOptionImage struct {
 // image_id is Image id.
 ImageID string `json:"image_id,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - ItemTierVariationOptionList
+// Object Raw Type - ItemTierVariationOption
 //=======================================================
-type ItemTierVariationOptionList struct {
+type ItemTierVariationOption struct {
 // option is Tier option.
 Option string `json:"option,omitempty"`
 // image is Image information for tier.
-Image ItemTierVariationOptionListImage `json:"image,omitempty"`
+Image ItemTierVariationOptionImage `json:"image,omitempty"`
 }
 
 
@@ -1111,7 +1111,7 @@ type ItemTierVariation struct {
 // name is Tier name.
 Name string `json:"name,omitempty"`
 // option_list is Tier option list.
-OptionList []ItemTierVariationOptionList `json:"option_list"`
+OptionList []ItemTierVariationOption `json:"option_list"`
 }
 
 
@@ -1155,24 +1155,24 @@ DaysToShip int `json:"days_to_ship,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemDescriptionInfoExtendedDescriptionFieldListImageInfo
+// Object Raw Type - ItemDescriptionInfoExtendedDescriptionFieldImageInfo
 //=======================================================
-type ItemDescriptionInfoExtendedDescriptionFieldListImageInfo struct {
+type ItemDescriptionInfoExtendedDescriptionFieldImageInfo struct {
 // image_id is Image id.
 ImageID string `json:"image_id,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - ItemDescriptionInfoExtendedDescriptionFieldList
+// Object Raw Type - ItemDescriptionInfoExtendedDescriptionField
 //=======================================================
-type ItemDescriptionInfoExtendedDescriptionFieldList struct {
+type ItemDescriptionInfoExtendedDescriptionField struct {
 // field_type is Type of extended description field ：values: See Data Definition- description_field_type (text , image).
 FieldType string `json:"field_type,omitempty"`
 // text is If field_type is text， text information will be set by this field.
 Text string `json:"text,omitempty"`
 // image_info is If field_type is image，image url will be set by this field.
-ImageInfo ItemDescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_info,omitempty"`
+ImageInfo ItemDescriptionInfoExtendedDescriptionFieldImageInfo `json:"image_info,omitempty"`
 }
 
 
@@ -1181,7 +1181,7 @@ ImageInfo ItemDescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_
 //=======================================================
 type ItemDescriptionInfoExtendedDescription struct {
 // field_list is Field of extended description.
-FieldList []ItemDescriptionInfoExtendedDescriptionFieldList `json:"field_list,omitempty"`
+FieldList []ItemDescriptionInfoExtendedDescriptionField `json:"field_list,omitempty"`
 }
 
 
@@ -1293,9 +1293,9 @@ type GlobalProductGetPublishableShopResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetPublishTaskResultSuccess
+// Object Raw Type - GlobalProductGetPublishTaskResultSucces
 //=======================================================
-type GlobalProductGetPublishTaskResultSuccess struct {
+type GlobalProductGetPublishTaskResultSucces struct {
 // region is The region of published item.
 Region string `json:"region,omitempty"`
 // shop_id is The shop id of published item.
@@ -1321,7 +1321,7 @@ type GlobalProductGetPublishTaskResult struct {
 // publish_status is Status of publish task.
 PublishStatus string `json:"publish_status,omitempty"`
 // success is If publish task is successful, this field shows the published results.
-Success GlobalProductGetPublishTaskResultSuccess `json:"success"`
+Success GlobalProductGetPublishTaskResultSucces `json:"success"`
 // failed is If publish task is failed, this field shows the failed reason.
 Failed GlobalProductGetPublishTaskResultFailed `json:"failed"`
 }
@@ -1521,22 +1521,22 @@ type GlobalProductCategoryRecommendResponse struct {
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetRecommendAttributeAttributeListAttributeValueList
+// Object Raw Type - GlobalProductGetRecommendAttributeAttributeAttributeValue
 //=======================================================
-type GlobalProductGetRecommendAttributeAttributeListAttributeValueList struct {
+type GlobalProductGetRecommendAttributeAttributeAttributeValue struct {
 // value_id is ID of attribute value.
 ValueID int `json:"value_id,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - GlobalProductGetRecommendAttributeAttributeList
+// Object Raw Type - GlobalProductGetRecommendAttributeAttribute
 //=======================================================
-type GlobalProductGetRecommendAttributeAttributeList struct {
+type GlobalProductGetRecommendAttributeAttribute struct {
 // attribute_id is ID of attribute.
 AttributeID int `json:"attribute_id,omitempty"`
 // attribute_value_list is Value list of this attribute.
-AttributeValueList []GlobalProductGetRecommendAttributeAttributeListAttributeValueList `json:"attribute_value_list"`
+AttributeValueList []GlobalProductGetRecommendAttributeAttributeAttributeValue `json:"attribute_value_list"`
 }
 
 
@@ -1545,7 +1545,7 @@ AttributeValueList []GlobalProductGetRecommendAttributeAttributeListAttributeVal
 //=======================================================
 type GlobalProductGetRecommendAttribute struct {
 // attribute_list is Attribute info list.
-AttributeList []GlobalProductGetRecommendAttributeAttributeList `json:"attribute_list"`
+AttributeList []GlobalProductGetRecommendAttributeAttribute `json:"attribute_list"`
 }
 //=======================================================
 // GlobalProductGetRecommendAttributeRequest

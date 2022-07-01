@@ -2,9 +2,9 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - FirstMileGetUnbindOrderListOrderList
+// Object Raw Type - FirstMileGetUnbindOrderListOrder
 //=======================================================
-type FirstMileGetUnbindOrderListOrderList struct {
+type FirstMileGetUnbindOrderListOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 // package_number is Shopee's unique identifier for the package under an order.
@@ -21,7 +21,7 @@ type FirstMileGetUnbindOrderList struct {
 // more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 More bool `json:"more,omitempty"`
 // order_list is The result list of order you querying.
-OrderList []FirstMileGetUnbindOrderListOrderList `json:"order_list"`
+OrderList []FirstMileGetUnbindOrderListOrder `json:"order_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -49,9 +49,9 @@ type FirstMileGetUnbindOrderListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FirstMileGetDetailOrderList
+// Object Raw Type - FirstMileGetDetailOrder
 //=======================================================
-type FirstMileGetDetailOrderList struct {
+type FirstMileGetDetailOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 // package_number is Shopee's unique identifier for the package under an order.
@@ -82,7 +82,7 @@ DeclareDate string `json:"declare_date,omitempty"`
 // more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 More bool `json:"more,omitempty"`
 // order_list is The list of order.
-OrderList []FirstMileGetDetailOrderList `json:"order_list"`
+OrderList []FirstMileGetDetailOrder `json:"order_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -155,9 +155,9 @@ type FirstMileGenerateFirstMileTrackingNumberResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FirstMileBindFirstMileTrackingNumberOrderList
+// Object Raw Type - FirstMileBindFirstMileTrackingNumberOrder
 //=======================================================
-type FirstMileBindFirstMileTrackingNumberOrderList struct {
+type FirstMileBindFirstMileTrackingNumberOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 // package_number is Shopee's unique identifier for the package under an order.
@@ -176,7 +176,7 @@ type FirstMileBindFirstMileTrackingNumber struct {
 // first_mile_tracking_number is The first mile tracking number
 FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
 // order_list is The list of orders.
-OrderList []FirstMileBindFirstMileTrackingNumberOrderList `json:"order_list"`
+OrderList []FirstMileBindFirstMileTrackingNumberOrder `json:"order_list"`
 }
 //=======================================================
 // FirstMileBindFirstMileTrackingNumberRequest
@@ -216,9 +216,9 @@ type FirstMileBindFirstMileTrackingNumberResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FirstMileUnbindFirstMileTrackingNumberOrderList
+// Object Raw Type - FirstMileUnbindFirstMileTrackingNumberOrder
 //=======================================================
-type FirstMileUnbindFirstMileTrackingNumberOrderList struct {
+type FirstMileUnbindFirstMileTrackingNumberOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSN string `json:"order_sn,omitempty"`
 // package_number is Shopee's unique identifier for the package under an order.
@@ -237,7 +237,7 @@ type FirstMileUnbindFirstMileTrackingNumber struct {
 // first_mile_tracking_number is The first mile tracking number.
 FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
 // order_list is The binding result list of each order.
-OrderList []FirstMileUnbindFirstMileTrackingNumberOrderList `json:"order_list"`
+OrderList []FirstMileUnbindFirstMileTrackingNumberOrder `json:"order_list"`
 }
 //=======================================================
 // FirstMileUnbindFirstMileTrackingNumberRequest
@@ -261,9 +261,9 @@ type FirstMileUnbindFirstMileTrackingNumberResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FirstMileGetTrackingNumberListFirstMileTrackingNumberList
+// Object Raw Type - FirstMileGetTrackingNumberListFirstMileTrackingNumber
 //=======================================================
-type FirstMileGetTrackingNumberListFirstMileTrackingNumberList struct {
+type FirstMileGetTrackingNumberListFirstMileTrackingNumber struct {
 // first_mile_tracking_number is The specified delivery date.	
 FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
 // status is The logistics status for bound orders.	
@@ -280,7 +280,7 @@ type FirstMileGetTrackingNumberList struct {
 // more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
 More bool `json:"more,omitempty"`
 // first_mile_tracking_number_list is The first-mile tracking number.
-FirstMileTrackingNumberList []FirstMileGetTrackingNumberListFirstMileTrackingNumberList `json:"first_mile_tracking_number_list"`
+FirstMileTrackingNumberList []FirstMileGetTrackingNumberListFirstMileTrackingNumber `json:"first_mile_tracking_number_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -325,9 +325,9 @@ type FirstMileGetWaybillResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FirstMileGetChannelListLogisticsChannelList
+// Object Raw Type - FirstMileGetChannelListLogisticsChannel
 //=======================================================
-type FirstMileGetChannelListLogisticsChannelList struct {
+type FirstMileGetChannelListLogisticsChannel struct {
 // logistics_channel_id is The identity of logistic channel.
 LogisticsChannelID int `json:"logistics_channel_id,omitempty"`
 // logistics_channel_name is The name of logistic channel.
@@ -342,7 +342,7 @@ ShipmentMethod string `json:"shipment_method,omitempty"`
 //=======================================================
 type FirstMileGetChannelList struct {
 // logistics_channel_list is 
-LogisticsChannelList []FirstMileGetChannelListLogisticsChannelList `json:"logistics_channel_list"`
+LogisticsChannelList []FirstMileGetChannelListLogisticsChannel `json:"logistics_channel_list"`
 }
 //=======================================================
 // FirstMileGetChannelListRequest

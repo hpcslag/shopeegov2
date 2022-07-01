@@ -51,9 +51,9 @@ type PublicGetTokenByResendCodeResponse struct {
 
 
 //=======================================================
-// Object Raw Type - PublicGetRefreshTokenByUpgradeCodeFailureList
+// Object Raw Type - PublicGetRefreshTokenByUpgradeCodeFailure
 //=======================================================
-type PublicGetRefreshTokenByUpgradeCodeFailureList struct {
+type PublicGetRefreshTokenByUpgradeCodeFailure struct {
 // shop_id is <p>The list of shop id which failed to get the refresh_token.<br /></p>
 ShopID int `json:"shop_id,omitempty"`
 // failed_reason is <p>The reason why your shop failed to get refresh token<br /></p>
@@ -70,7 +70,7 @@ SuccessShopIdList []int `json:"success_shop_id_list,omitempty"`
 // refresh_token is <p>Use refresh_token to obtain new access_token. Valid for each shop_id and merchant_id respectively one-time use, expires in 30 days.<br /></p>
 RefreshToken string `json:"refresh_token,omitempty"`
 // failure_list is <p>The failure information list<br /></p>
-FailureList []PublicGetRefreshTokenByUpgradeCodeFailureList `json:"failure_list"`
+FailureList []PublicGetRefreshTokenByUpgradeCodeFailure `json:"failure_list"`
 }
 //=======================================================
 // PublicGetRefreshTokenByUpgradeCodeRequest
