@@ -2,9 +2,9 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - CategoryList
+// Object Raw Type - ProductGetCategoryCategoryList
 //=======================================================
-type CategoryList struct {
+type ProductGetCategoryCategoryList struct {
 // category_id is ID for category.
 CategoryID int `json:"category_id,omitempty"`
 // parent_category_id is ID for parent category.
@@ -23,7 +23,7 @@ HasChildren bool `json:"has_children,omitempty"`
 //=======================================================
 type ProductGetCategory struct {
 // category_list is 
-CategoryList []CategoryList `json:"category_list"`
+CategoryList []ProductGetCategoryCategoryList `json:"category_list"`
 }
 //=======================================================
 // ProductGetCategoryRequest
@@ -45,9 +45,9 @@ type ProductGetCategoryResponse struct {
 
 
 //=======================================================
-// Object Raw Type - ParentAttributeList
+// Object Raw Type - ProductGetAttributesAttributeListAttributeValueListParentAttributeList
 //=======================================================
-type ParentAttributeList struct {
+type ProductGetAttributesAttributeListAttributeValueListParentAttributeList struct {
 // parent_attribute_id is ID of parent attribute.
 ParentAttributeID int `json:"parent_attribute_id,omitempty"`
 // parent_value_id is ID of parent attribute value.
@@ -56,18 +56,18 @@ ParentValueID int `json:"parent_value_id,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ParentBrandList
+// Object Raw Type - ProductGetAttributesAttributeListAttributeValueListParentBrandList
 //=======================================================
-type ParentBrandList struct {
+type ProductGetAttributesAttributeListAttributeValueListParentBrandList struct {
 // parent_brand_id is ID of parent brand.
 ParentBrandID int `json:"parent_brand_id,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - AttributeValueList
+// Object Raw Type - ProductGetAttributesAttributeListAttributeValueList
 //=======================================================
-type AttributeValueList struct {
+type ProductGetAttributesAttributeListAttributeValueList struct {
 // value_id is ID of attribute value.
 ValueID int `json:"value_id,omitempty"`
 // original_value_name is Original name of value.
@@ -77,16 +77,16 @@ DisplayValueName string `json:"display_value_name,omitempty"`
 // value_unit is Unit of value(quantitative attribute only).
 ValueUnit string `json:"value_unit,omitempty"`
 // parent_attribute_list is 
-ParentAttributeList []ParentAttributeList `json:"parent_attribute_list"`
+ParentAttributeList []ProductGetAttributesAttributeListAttributeValueListParentAttributeList `json:"parent_attribute_list"`
 // parent_brand_list is 
-ParentBrandList []ParentBrandList `json:"parent_brand_list"`
+ParentBrandList []ProductGetAttributesAttributeListAttributeValueListParentBrandList `json:"parent_brand_list"`
 }
 
 
 //=======================================================
-// Object Raw Type - AttributeList
+// Object Raw Type - ProductGetAttributesAttributeList
 //=======================================================
-type AttributeList struct {
+type ProductGetAttributesAttributeList struct {
 // attribute_id is ID of attribute.
 AttributeID int `json:"attribute_id,omitempty"`
 // original_attribute_name is Attribute default name.
@@ -106,7 +106,7 @@ InputType string `json:"input_type,omitempty"`
 // attribute_unit is All applicable attribute units
 AttributeUnit []string `json:"attribute_unit,omitempty"`
 // attribute_value_list is Value list of this attribute.
-AttributeValueList []AttributeValueList `json:"attribute_value_list"`
+AttributeValueList []ProductGetAttributesAttributeListAttributeValueList `json:"attribute_value_list"`
 }
 
 
@@ -115,7 +115,7 @@ AttributeValueList []AttributeValueList `json:"attribute_value_list"`
 //=======================================================
 type ProductGetAttributes struct {
 // attribute_list is Attribute info list.
-AttributeList []AttributeList `json:"attribute_list"`
+AttributeList []ProductGetAttributesAttributeList `json:"attribute_list"`
 }
 //=======================================================
 // ProductGetAttributesRequest
@@ -139,9 +139,9 @@ type ProductGetAttributesResponse struct {
 
 
 //=======================================================
-// Object Raw Type - BrandList
+// Object Raw Type - ProductGetBrandListBrandList
 //=======================================================
-type BrandList struct {
+type ProductGetBrandListBrandList struct {
 // original_brand_name is Original name of brand
 OriginalBrandName string `json:"original_brand_name,omitempty"`
 // brand_id is 
@@ -156,7 +156,7 @@ DisplayBrandName string `json:"display_brand_name,omitempty"`
 //=======================================================
 type ProductGetBrandList struct {
 // brand_list is 
-BrandList []BrandList `json:"brand_list"`
+BrandList []ProductGetBrandListBrandList `json:"brand_list"`
 // has_next_page is  This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 HasNextPage bool `json:"has_next_page,omitempty"`
 // next_offset is If has_next_page is true, this value need set to next request.offset
@@ -194,9 +194,9 @@ type ProductGetBrandListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - DaysToShipLimit
+// Object Raw Type - ProductGetDtsLimitDaysToShipLimit
 //=======================================================
-type DaysToShipLimit struct {
+type ProductGetDtsLimitDaysToShipLimit struct {
 // min_limit is Days to ship min limit
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Days to ship max limit
@@ -209,7 +209,7 @@ MaxLimit int `json:"max_limit,omitempty"`
 //=======================================================
 type ProductGetDtsLimit struct {
 // days_to_ship_limit is 
-DaysToShipLimit DaysToShipLimit `json:"days_to_ship_limit"`
+DaysToShipLimit ProductGetDtsLimitDaysToShipLimit `json:"days_to_ship_limit"`
 // non_pre_order_days_to_ship is Non pre order days to ship
 NonPreOrderDaysToShip int `json:"non_pre_order_days_to_ship,omitempty"`
 }
@@ -233,9 +233,9 @@ type ProductGetDtsLimitResponse struct {
 
 
 //=======================================================
-// Object Raw Type - PriceLimit
+// Object Raw Type - ProductGetItemLimitPriceLimit
 //=======================================================
-type PriceLimit struct {
+type ProductGetItemLimitPriceLimit struct {
 // min_limit is Item price max limit.
 MinLimit float64 `json:"min_limit,omitempty"`
 // max_limit is Item price min limit.
@@ -244,9 +244,9 @@ MaxLimit float64 `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - WholesalePriceThresholdPercentage
+// Object Raw Type - ProductGetItemLimitWholesalePriceThresholdPercentage
 //=======================================================
-type WholesalePriceThresholdPercentage struct {
+type ProductGetItemLimitWholesalePriceThresholdPercentage struct {
 // min_limit is Item wholesale price percentage of original price min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item wholesale price percentage of original price min limit.
@@ -255,9 +255,9 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - StockLimit
+// Object Raw Type - ProductGetItemLimitStockLimit
 //=======================================================
-type StockLimit struct {
+type ProductGetItemLimitStockLimit struct {
 // min_limit is Item stock min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item stock max limit.
@@ -266,9 +266,9 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemNameLengthLimit
+// Object Raw Type - ProductGetItemLimitItemNameLengthLimit
 //=======================================================
-type ItemNameLengthLimit struct {
+type ProductGetItemLimitItemNameLengthLimit struct {
 // min_limit is Item name length min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item name length max limit.
@@ -277,9 +277,9 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemImageCountLimit
+// Object Raw Type - ProductGetItemLimitItemImageCountLimit
 //=======================================================
-type ItemImageCountLimit struct {
+type ProductGetItemLimitItemImageCountLimit struct {
 // min_limit is Item image count min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item image count max limit.
@@ -288,9 +288,9 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemDescriptionLengthLimit
+// Object Raw Type - ProductGetItemLimitItemDescriptionLengthLimit
 //=======================================================
-type ItemDescriptionLengthLimit struct {
+type ProductGetItemLimitItemDescriptionLengthLimit struct {
 // min_limit is Item description length min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item description length max limit.
@@ -299,9 +299,9 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - TierVariationNameLengthLimit
+// Object Raw Type - ProductGetItemLimitTierVariationNameLengthLimit
 //=======================================================
-type TierVariationNameLengthLimit struct {
+type ProductGetItemLimitTierVariationNameLengthLimit struct {
 // min_limit is Item tier variation name length min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item tier variation name length max limit.
@@ -310,9 +310,9 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - TierVariationOptionLengthLimit
+// Object Raw Type - ProductGetItemLimitTierVariationOptionLengthLimit
 //=======================================================
-type TierVariationOptionLengthLimit struct {
+type ProductGetItemLimitTierVariationOptionLengthLimit struct {
 // min_limit is Item tier variation option length min limit.
 MinLimit int `json:"min_limit,omitempty"`
 // max_limit is Item tier variation option length max limit.
@@ -321,18 +321,18 @@ MaxLimit int `json:"max_limit,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemCountLimit
+// Object Raw Type - ProductGetItemLimitItemCountLimit
 //=======================================================
-type ItemCountLimit struct {
+type ProductGetItemLimitItemCountLimit struct {
 // max_limit is Item count max limit.
 MaxLimit int `json:"max_limit,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - ExtendedDescriptionLimit
+// Object Raw Type - ProductGetItemLimitExtendedDescriptionLimit
 //=======================================================
-type ExtendedDescriptionLimit struct {
+type ProductGetItemLimitExtendedDescriptionLimit struct {
 // description_text_length_min is length min limit for item extended description text part, when one of the minimum limits for image and text is reached, the item can be added or updated successfully.
 DescriptionTextLengthMin int `json:"description_text_length_min,omitempty"`
 // description_text_length_max is length max limit for item extended description text part 
@@ -357,25 +357,25 @@ DescriptionImageAspectRatioMax float64 `json:"description_image_aspect_ratio_max
 //=======================================================
 type ProductGetItemLimit struct {
 // price_limit is 
-PriceLimit PriceLimit `json:"price_limit"`
+PriceLimit ProductGetItemLimitPriceLimit `json:"price_limit"`
 // wholesale_price_threshold_percentage is 
-WholesalePriceThresholdPercentage WholesalePriceThresholdPercentage `json:"wholesale_price_threshold_percentage"`
+WholesalePriceThresholdPercentage ProductGetItemLimitWholesalePriceThresholdPercentage `json:"wholesale_price_threshold_percentage"`
 // stock_limit is 
-StockLimit StockLimit `json:"stock_limit"`
+StockLimit ProductGetItemLimitStockLimit `json:"stock_limit"`
 // item_name_length_limit is 
-ItemNameLengthLimit ItemNameLengthLimit `json:"item_name_length_limit"`
+ItemNameLengthLimit ProductGetItemLimitItemNameLengthLimit `json:"item_name_length_limit"`
 // item_image_count_limit is 
-ItemImageCountLimit ItemImageCountLimit `json:"item_image_count_limit"`
+ItemImageCountLimit ProductGetItemLimitItemImageCountLimit `json:"item_image_count_limit"`
 // item_description_length_limit is 
-ItemDescriptionLengthLimit ItemDescriptionLengthLimit `json:"item_description_length_limit"`
+ItemDescriptionLengthLimit ProductGetItemLimitItemDescriptionLengthLimit `json:"item_description_length_limit"`
 // tier_variation_name_length_limit is 
-TierVariationNameLengthLimit TierVariationNameLengthLimit `json:"tier_variation_name_length_limit"`
+TierVariationNameLengthLimit ProductGetItemLimitTierVariationNameLengthLimit `json:"tier_variation_name_length_limit"`
 // tier_variation_option_length_limit is 
-TierVariationOptionLengthLimit TierVariationOptionLengthLimit `json:"tier_variation_option_length_limit"`
+TierVariationOptionLengthLimit ProductGetItemLimitTierVariationOptionLengthLimit `json:"tier_variation_option_length_limit"`
 // item_count_limit is 
-ItemCountLimit ItemCountLimit `json:"item_count_limit"`
+ItemCountLimit ProductGetItemLimitItemCountLimit `json:"item_count_limit"`
 // extended_description_limit is 
-ExtendedDescriptionLimit ExtendedDescriptionLimit `json:"extended_description_limit"`
+ExtendedDescriptionLimit ProductGetItemLimitExtendedDescriptionLimit `json:"extended_description_limit"`
 }
 //=======================================================
 // ProductGetItemLimitRequest
@@ -395,9 +395,9 @@ type ProductGetItemLimitResponse struct {
 
 
 //=======================================================
-// Object Raw Type - Item
+// Object Raw Type - ProductGetItemListItem
 //=======================================================
-type Item struct {
+type ProductGetItemListItem struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // item_status is Enumerated type that defines the current status of the item. Applicable values: NORMAL, DELETED, UNLIST and BANNED.
@@ -412,7 +412,7 @@ UpdateTime int `json:"update_time,omitempty"`
 //=======================================================
 type ProductGetItemList struct {
 // item is list of item info with item_id/ item_status/ update_time
-Item []Item `json:"item"`
+Item []ProductGetItemListItem `json:"item"`
 // total_count is total count of all items
 TotalCount int `json:"total_count,omitempty"`
 // has_next_page is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
@@ -448,9 +448,37 @@ type ProductGetItemListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - PriceInfo
+// Object Raw Type - ProductGetItemBaseInfoItemListAttributeListAttributeValueList
 //=======================================================
-type PriceInfo struct {
+type ProductGetItemBaseInfoItemListAttributeListAttributeValueList struct {
+// value_id is Unique identifier for value of this item attribute.
+ValueID int `json:"value_id,omitempty"`
+// original_value_name is Value name of this item attribute.
+OriginalValueName string `json:"original_value_name,omitempty"`
+// value_unit is Value unit of this item attribute.
+ValueUnit string `json:"value_unit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemBaseInfoItemListAttributeList
+//=======================================================
+type ProductGetItemBaseInfoItemListAttributeList struct {
+// attribute_id is The Identify of each category.
+AttributeID int `json:"attribute_id,omitempty"`
+// original_attribute_name is The name of each attribute.
+OriginalAttributeName string `json:"original_attribute_name,omitempty"`
+// is_mandatory is This is to indicate whether this attribute is mandantory.
+IsMandatory bool `json:"is_mandatory,omitempty"`
+// attribute_value_list is 
+AttributeValueList []ProductGetItemBaseInfoItemListAttributeListAttributeValueList `json:"attribute_value_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemBaseInfoItemListPriceInfo
+//=======================================================
+type ProductGetItemBaseInfoItemListPriceInfo struct {
 // currency is The three-digit code representing the currency unit used for the item in Shopee Listings.
 Currency string `json:"currency,omitempty"`
 // original_price is The original price of the item in the listing currency.
@@ -469,9 +497,9 @@ SipItemPriceSource string `json:"sip_item_price_source,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - StockInfo
+// Object Raw Type - ProductGetItemBaseInfoItemListStockInfo
 //=======================================================
-type StockInfo struct {
+type ProductGetItemBaseInfoItemListStockInfo struct {
 // stock_type is The stock type. Applicable values: See Data Definition- StockType.
 StockType int `json:"stock_type,omitempty"`
 // stock_location_id is location_id of the stock.
@@ -486,9 +514,9 @@ ReservedStock int `json:"reserved_stock,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Image
+// Object Raw Type - ProductGetItemBaseInfoItemListImage
 //=======================================================
-type Image struct {
+type ProductGetItemBaseInfoItemListImage struct {
 // image_url_list is List of image url.
 ImageUrlList []string `json:"image_url_list,omitempty"`
 // image_id_list is List of image id.
@@ -497,9 +525,9 @@ ImageIdList []string `json:"image_id_list,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Dimension
+// Object Raw Type - ProductGetItemBaseInfoItemListDimension
 //=======================================================
-type Dimension struct {
+type ProductGetItemBaseInfoItemListDimension struct {
 // package_length is The length of package for this single item, the unit is CM.
 PackageLength int `json:"package_length,omitempty"`
 // package_width is The width of package for this single item, the unit is CM.
@@ -510,9 +538,9 @@ PackageHeight int `json:"package_height,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - LogisticInfo
+// Object Raw Type - ProductGetItemBaseInfoItemListLogisticInfo
 //=======================================================
-type LogisticInfo struct {
+type ProductGetItemBaseInfoItemListLogisticInfo struct {
 // logistic_id is The identity of logistic channel.
 LogisticID int `json:"logistic_id,omitempty"`
 // logistic_name is The name of logistic.
@@ -531,9 +559,9 @@ EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - PreOrder
+// Object Raw Type - ProductGetItemBaseInfoItemListPreOrder
 //=======================================================
-type PreOrder struct {
+type ProductGetItemBaseInfoItemListPreOrder struct {
 // is_pre_order is  Pre-order will be set true.
 IsPreOrder bool `json:"is_pre_order,omitempty"`
 // days_to_ship is The days to ship. Only work for pre-order, it means this value should be bigger than 7.
@@ -542,9 +570,9 @@ DaysToShip int `json:"days_to_ship,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Wholesales
+// Object Raw Type - ProductGetItemBaseInfoItemListWholesales
 //=======================================================
-type Wholesales struct {
+type ProductGetItemBaseInfoItemListWholesales struct {
 // min_count is The min count of this tier wholesale.
 MinCount int `json:"min_count,omitempty"`
 // max_count is The max count of this tier wholesale.
@@ -557,9 +585,9 @@ InflatedPriceOfUnitPrice float64 `json:"inflated_price_of_unit_price,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - VideoInfo
+// Object Raw Type - ProductGetItemBaseInfoItemListVideoInfo
 //=======================================================
-type VideoInfo struct {
+type ProductGetItemBaseInfoItemListVideoInfo struct {
 // video_url is Url of video.
 VideoUrl string `json:"video_url,omitempty"`
 // thumbnail_url is Thumbnail of video.
@@ -570,9 +598,9 @@ Duration int `json:"duration,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Brand
+// Object Raw Type - ProductGetItemBaseInfoItemListBrand
 //=======================================================
-type Brand struct {
+type ProductGetItemBaseInfoItemListBrand struct {
 // brand_id is Id of brand.
 BrandID int `json:"brand_id,omitempty"`
 // original_brand_name is Original name of brand.
@@ -581,9 +609,9 @@ OriginalBrandName string `json:"original_brand_name,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ComplaintPolicy
+// Object Raw Type - ProductGetItemBaseInfoItemListComplaintPolicy
 //=======================================================
-type ComplaintPolicy struct {
+type ProductGetItemBaseInfoItemListComplaintPolicy struct {
 // warranty_time is <p>Time for a warranty claim.Value should be in one of ONE_YEAR TWO_YEARS OVER_TWO_YEARS.<br /></p>
 WarrantyTime string `json:"warranty_time,omitempty"`
 // exclude_entrepreneur_warranty is <p>If True means "I exclude warranty complaints for entrepreneur"<br /></p>
@@ -596,15 +624,15 @@ AdditionalInformation string `json:"additional_information,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - TaxInfo
+// Object Raw Type - ProductGetItemBaseInfoItemListTaxInfo
 //=======================================================
-type TaxInfo struct {
+type ProductGetItemBaseInfoItemListTaxInfo struct {
 // ncm is <p>Mercosur Common Nomenclature, it is a convention between Mercosur member countries to easily recognize goods, services and productive factors negotiated among themselves.(<b><font color="#c24f4a">only for BR region</font></b>)<br /></p>
 Ncm string `json:"ncm,omitempty"`
 // diff_state_cfop is <p>Tax Code of Operations and Installments for orders that seller and buyer are in different states. It identifies a specific operation by category at the time of issuing the invoice. (<b><font color="#c24f4a">only for BR region</font></b>)<br /></p>
 DiffStateCfop string `json:"diff_state_cfop,omitempty"`
 // csosn is <p>Code of Operation Status – Simples Nacional, code for company operations to identify the origin of the goods and the taxation regime of the operations. (<b><font color="#c24f4a">only for BR region</font></b>)<br /></p>
-Csosn string `json:"csosn,omitempty"`
+CsoSN string `json:"csosn,omitempty"`
 // origin is <p>Product source, domestic or foreig (<b><font color="#c24f4a">only for BR region)</font></b><br /></p>
 Origin string `json:"origin,omitempty"`
 // cest is <p>(<font color="#c24f4a" style><b>only for BR region</b></font>)<br /></p>
@@ -623,9 +651,9 @@ TaxCode string `json:"tax_code,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - SummaryInfo
+// Object Raw Type - ProductGetItemBaseInfoItemListStockInfoV2SummaryInfo
 //=======================================================
-type SummaryInfo struct {
+type ProductGetItemBaseInfoItemListStockInfoV2SummaryInfo struct {
 // total_reserved_stock is <p>total reserved stock<br /></p>
 TotalReservedStock int `json:"total_reserved_stock,omitempty"`
 // total_available_stock is <p>total available stock<br /></p>
@@ -634,9 +662,9 @@ TotalAvailableStock int `json:"total_available_stock,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - SellerStock
+// Object Raw Type - ProductGetItemBaseInfoItemListStockInfoV2SellerStock
 //=======================================================
-type SellerStock struct {
+type ProductGetItemBaseInfoItemListStockInfoV2SellerStock struct {
 // location_id is 
 LocationID string `json:"location_id,omitempty"`
 // stock is <p>stock in the current warehouse<br /></p>
@@ -645,9 +673,9 @@ Stock int `json:"stock,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ShopeeStock
+// Object Raw Type - ProductGetItemBaseInfoItemListStockInfoV2ShopeeStock
 //=======================================================
-type ShopeeStock struct {
+type ProductGetItemBaseInfoItemListStockInfoV2ShopeeStock struct {
 // location_id is 
 LocationID string `json:"location_id,omitempty"`
 // stock is <p>stock in the current warehouse<br /></p>
@@ -656,22 +684,22 @@ Stock int `json:"stock,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - StockInfoV2
+// Object Raw Type - ProductGetItemBaseInfoItemListStockInfoV2
 //=======================================================
-type StockInfoV2 struct {
+type ProductGetItemBaseInfoItemListStockInfoV2 struct {
 // summary_info is <p>stock summary info<br /></p>
-SummaryInfo SummaryInfo `json:"summary_info"`
+SummaryInfo ProductGetItemBaseInfoItemListStockInfoV2SummaryInfo `json:"summary_info"`
 // seller_stock is <p>seller stock<br /></p>
-SellerStock []SellerStock `json:"seller_stock"`
+SellerStock []ProductGetItemBaseInfoItemListStockInfoV2SellerStock `json:"seller_stock"`
 // shopee_stock is <p>shopee stock<br /></p>
-ShopeeStock []ShopeeStock `json:"shopee_stock"`
+ShopeeStock []ProductGetItemBaseInfoItemListStockInfoV2ShopeeStock `json:"shopee_stock"`
 }
 
 
 //=======================================================
-// Object Raw Type - ItemList
+// Object Raw Type - ProductGetItemBaseInfoItemList
 //=======================================================
-type ItemList struct {
+type ProductGetItemBaseInfoItemList struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // category_id is Shopee's unique identifier for a category.
@@ -687,23 +715,23 @@ CreateTime int `json:"create_time,omitempty"`
 // update_time is Timestamp that indicates the last time that there was a change in value of the item, such as price/stock change.
 UpdateTime int `json:"update_time,omitempty"`
 // attribute_list is 
-AttributeList []AttributeList `json:"attribute_list"`
+AttributeList []ProductGetItemBaseInfoItemListAttributeList `json:"attribute_list"`
 // price_info is If the item has models, price_info will not be returned. Please get the price of each model through the get_model_list api
-PriceInfo []PriceInfo `json:"price_info"`
+PriceInfo []ProductGetItemBaseInfoItemListPriceInfo `json:"price_info"`
 // stock_info is <p>if the item has models, this field will not be returned, please get it through get_model_list api.</p><p><b><font color="#c24f4a">Please use the stock_info_v2 field instead, we will deprecate this field in the future.</font></b><br /></p>
-StockInfo []StockInfo `json:"stock_info"`
+StockInfo []ProductGetItemBaseInfoItemListStockInfo `json:"stock_info"`
 // image is 
-Image Image `json:"image"`
+Image ProductGetItemBaseInfoItemListImage `json:"image"`
 // weight is The net weight of this item, the unit is KG.
 Weight string `json:"weight,omitempty"`
 // dimension is The dimension of this item.
-Dimension Dimension `json:"dimension"`
+Dimension ProductGetItemBaseInfoItemListDimension `json:"dimension"`
 // logistic_info is The logistics list.
-LogisticInfo []LogisticInfo `json:"logistic_info"`
+LogisticInfo []ProductGetItemBaseInfoItemListLogisticInfo `json:"logistic_info"`
 // pre_order is 
-PreOrder PreOrder `json:"pre_order"`
+PreOrder ProductGetItemBaseInfoItemListPreOrder `json:"pre_order"`
 // wholesales is The wholesales tier list.
-Wholesales []Wholesales `json:"wholesales"`
+Wholesales []ProductGetItemBaseInfoItemListWholesales `json:"wholesales"`
 // condition is Is it second-hand.
 Condition string `json:"condition,omitempty"`
 // size_chart is Url of size chart image.
@@ -715,24 +743,24 @@ HasModel bool `json:"has_model,omitempty"`
 // promotion_id is 
 PromotionID int `json:"promotion_id,omitempty"`
 // video_info is Info of video list.
-VideoInfo []VideoInfo `json:"video_info"`
+VideoInfo []ProductGetItemBaseInfoItemListVideoInfo `json:"video_info"`
 // brand is 
-Brand Brand `json:"brand"`
+Brand ProductGetItemBaseInfoItemListBrand `json:"brand"`
 // item_dangerous is This field is only applicable for local sellers in Indonesia and Malaysia. Use this field to identify whether a product is a dangerous product. 0 for non-dangerous product and 1 for dangerous product. For more information, please visit the market's respective Seller Education Hub.
 ItemDangerous int `json:"item_dangerous,omitempty"`
 // complaint_policy is <p>Time for a warranty claim.Value should be in one of ONE_YEAR TWO_YEARS OVER_TWO_YEARS.<br /></p>
-ComplaintPolicy ComplaintPolicy `json:"complaint_policy"`
+ComplaintPolicy ProductGetItemBaseInfoItemListComplaintPolicy `json:"complaint_policy"`
 // tax_info is <p>Tax information<br /></p>
-TaxInfo TaxInfo `json:"tax_info"`
+TaxInfo ProductGetItemBaseInfoItemListTaxInfo `json:"tax_info"`
 // stock_info_v2 is <p>new stock object.<br /></p><p>Please check this FAQ for more detail:<a style="font-size:14px;">https://open.shopee.com/faq?top=162&amp;sub=166&amp;page=1&amp;faq=230</a></p><a href="https://open.shopee.com/faq?top=162&amp;sub=166&amp;page=1&amp;faq=230" target="_blank"></a>
-StockInfoV2 StockInfoV2 `json:"stock_info_v2"`
+StockInfoV2 ProductGetItemBaseInfoItemListStockInfoV2 `json:"stock_info_v2"`
 }
 
 
 //=======================================================
-// Object Raw Type - ImageInfo
+// Object Raw Type - ProductGetItemBaseInfoDescriptionInfoExtendedDescriptionFieldListImageInfo
 //=======================================================
-type ImageInfo struct {
+type ProductGetItemBaseInfoDescriptionInfoExtendedDescriptionFieldListImageInfo struct {
 // image_id is Image id
 ImageID string `json:"image_id,omitempty"`
 // image_url is Image url.
@@ -741,33 +769,33 @@ ImageUrl string `json:"image_url,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - FieldList
+// Object Raw Type - ProductGetItemBaseInfoDescriptionInfoExtendedDescriptionFieldList
 //=======================================================
-type FieldList struct {
+type ProductGetItemBaseInfoDescriptionInfoExtendedDescriptionFieldList struct {
 // field_type is Type of extended description field ：values: See Data Definition- description_field_type (text , image).
 FieldType string `json:"field_type,omitempty"`
 // text is If field_type is text, text information will be returned through this field.
 Text string `json:"text,omitempty"`
 // image_info is If field_type is image, image url will be returned through this field.
-ImageInfo ImageInfo `json:"image_info"`
+ImageInfo ProductGetItemBaseInfoDescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_info"`
 }
 
 
 //=======================================================
-// Object Raw Type - ExtendedDescription
+// Object Raw Type - ProductGetItemBaseInfoDescriptionInfoExtendedDescription
 //=======================================================
-type ExtendedDescription struct {
+type ProductGetItemBaseInfoDescriptionInfoExtendedDescription struct {
 // field_list is Field of extended description
-FieldList []FieldList `json:"field_list"`
+FieldList []ProductGetItemBaseInfoDescriptionInfoExtendedDescriptionFieldList `json:"field_list"`
 }
 
 
 //=======================================================
-// Object Raw Type - DescriptionInfo
+// Object Raw Type - ProductGetItemBaseInfoDescriptionInfo
 //=======================================================
-type DescriptionInfo struct {
+type ProductGetItemBaseInfoDescriptionInfo struct {
 // extended_description is  If description_type is extended , Description information will be returned through this field.
-ExtendedDescription ExtendedDescription `json:"extended_description"`
+ExtendedDescription ProductGetItemBaseInfoDescriptionInfoExtendedDescription `json:"extended_description"`
 }
 
 
@@ -776,9 +804,9 @@ ExtendedDescription ExtendedDescription `json:"extended_description"`
 //=======================================================
 type ProductGetItemBaseInfo struct {
 // item_list is 
-ItemList []ItemList `json:"item_list"`
+ItemList []ProductGetItemBaseInfoItemList `json:"item_list"`
 // description_info is New description  field. Only whitelist sellers can use it.
-DescriptionInfo DescriptionInfo `json:"description_info"`
+DescriptionInfo ProductGetItemBaseInfoDescriptionInfo `json:"description_info"`
 // description_type is Type of description : values: See Data Definition- description_type (normal , extended).
 DescriptionType string `json:"description_type,omitempty"`
 }
@@ -806,11 +834,30 @@ type ProductGetItemBaseInfoResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductGetItemExtraInfoItemList
+//=======================================================
+type ProductGetItemExtraInfoItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// sale is The sales volume of item.
+Sale int `json:"sale,omitempty"`
+// views is The page view of item.
+Views int `json:"views,omitempty"`
+// likes is The collection number of item.
+Likes int `json:"likes,omitempty"`
+// rating_star is The rating star scores of this item.
+RatingStar float64 `json:"rating_star,omitempty"`
+// comment_count is Count of comments for the item.
+CommentCount int `json:"comment_count,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductGetItemExtraInfo
 //=======================================================
 type ProductGetItemExtraInfo struct {
 // item_list is extra info of item list.
-ItemList []ItemList `json:"item_list"`
+ItemList []ProductGetItemExtraInfoItemList `json:"item_list"`
 }
 //=======================================================
 // ProductGetItemExtraInfoRequest
@@ -832,6 +879,80 @@ type ProductGetItemExtraInfoResponse struct {
 
 
 //=======================================================
+// Object Raw Type - Dimension
+//=======================================================
+type Dimension struct {
+// package_height is <p>Package height, unit is cm</p>
+PackageHeight int `json:"package_height,omitempty"`
+// package_length is <p>Package height, unit is cm</p>
+PackageLength int `json:"package_length,omitempty"`
+// package_width is <p>Package height, unit is cm</p>
+PackageWidth int `json:"package_width,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - LogisticInfo
+//=======================================================
+type LogisticInfo struct {
+// size_id is Size ID, If specify logistic fee_type is SIZE_SELECTION size_id is required.
+SizeID int `json:"size_id,omitempty"`
+// shipping_fee is Shipping fee, Only needed when logistics fee_type = CUSTOM_PRICE.
+ShippingFee float64 `json:"shipping_fee,omitempty"`
+// enabled is Whether channel is enabled for this item
+Enabled bool `json:"enabled,omitempty"`
+// logistic_id is ID of the channel
+LogisticID int `json:"logistic_id,omitempty"`
+// is_free is Whether cover shipping fee for buyer
+IsFree bool `json:"is_free,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - AttributeListAttributeValueList
+//=======================================================
+type AttributeListAttributeValueList struct {
+// value_id is Value ID. In the following cases, the value id needs to be uploaded as 0, and original_value_name is mandatory, needs to be filled in customized value. (1) AttributeInputType is TEXT_FILED; (2) AttributeInputType is COMBO_BOX or MULTIPLE_SELECT_COMBO_BOX, and the seller want to fill in a customized value.
+ValueID int `json:"value_id,omitempty"`
+// original_value_name is Value name. original_value_name from product.get_attributes api. If value id=0, this field is required. If AttributeType is DATE_TYPE or TIMESTAMP_TYPE, you can upload timestamp(string type) as the original_value_name.
+OriginalValueName string `json:"original_value_name,omitempty"`
+// value_unit is Unit of attribute value (quantitative attribute only).
+ValueUnit string `json:"value_unit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - AttributeList
+//=======================================================
+type AttributeList struct {
+// attribute_id is ID of attribute
+AttributeID int `json:"attribute_id,omitempty"`
+// attribute_value_list is 
+AttributeValueList []AttributeListAttributeValueList `json:"attribute_value_list,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - Image
+//=======================================================
+type Image struct {
+// image_id_list is ID of image
+ImageIdList []string `json:"image_id_list,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - PreOrder
+//=======================================================
+type PreOrder struct {
+// is_pre_order is Whether item is pre order
+IsPreOrder bool `json:"is_pre_order,omitempty"`
+// days_to_ship is The guaranteed days to ship orders. Please get the days_to_ship range from get_dts_limit api
+DaysToShip int `json:"days_to_ship,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - Wholesale
 //=======================================================
 type Wholesale struct {
@@ -845,9 +966,124 @@ UnitPrice float64 `json:"unit_price,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Images
+// Object Raw Type - Brand
 //=======================================================
-type Images struct {
+type Brand struct {
+// brand_id is Id of brand.
+BrandID int `json:"brand_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TaxInfo
+//=======================================================
+type TaxInfo struct {
+// ncm is Mercosur Common Nomenclature, it is a convention between Mercosur member countries to easily recognize goods, services and productive factors negotiated among themselves. (BR region)
+Ncm string `json:"ncm,omitempty"`
+// same_state_cfop is Tax Code of Operations and Installments for orders that seller and buyer are in the same state. It identifies a specific operation by category at the time of issuing the invoice.(BR region)
+SameStateCfop string `json:"same_state_cfop,omitempty"`
+// diff_state_cfop is Tax Code of Operations and Installments for orders that seller and buyer are in different states. It identifies a specific operation by category at the time of issuing the invoice.(BR region)
+DiffStateCfop string `json:"diff_state_cfop,omitempty"`
+// csosn is Code of Operation Status – Simples Nacional, code for company operations to identify the origin of the goods and the taxation regime of the operations.(BR region)
+CsoSN string `json:"csosn,omitempty"`
+// origin is Product source, domestic or foreig (BR region)
+Origin string `json:"origin,omitempty"`
+// cest is (BR region)
+Cest string `json:"cest,omitempty"`
+// measure_unit is (BR region)
+MeasureUnit string `json:"measure_unit,omitempty"`
+// invoice_option is Value shuold be one of NO_INVOICES VAT_MARGIN_SCHEME_INVOICES VAT_INVOICES NON_VAT_INVOICES and if value is NON_VAT_INVOICE vat_rate should be null (PL region)
+InvoiceOption string `json:"invoice_option,omitempty"`
+// vat_rate is Value should be one of 0% 5% 8% 23% NO_VAT_RATE (PL region)
+VatRate string `json:"vat_rate,omitempty"`
+// hs_code is HS Code (Only for IN region)
+HsCode string `json:"hs_code,omitempty"`
+// tax_code is Tax Code (Only for IN region)
+TaxCode string `json:"tax_code,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ComplaintPolicy
+//=======================================================
+type ComplaintPolicy struct {
+// warranty_time is Value should be in one of ONE_YEAR TWO_YEARS OVER_TWO_YEARS.
+WarrantyTime string `json:"warranty_time,omitempty"`
+// exclude_entrepreneur_warranty is Whether to exclude warranty complaints for entrepreneurs.If True means "I exclude warranty complaints for entrepreneur"
+ExcludeEntrepreneurWarranty bool `json:"exclude_entrepreneur_warranty,omitempty"`
+// complaint_address_id is  Address for complaint. Fetch available addresses using v2.logistics.get_address_list, and use address_id  returned from it.
+ComplaintAddressID int `json:"complaint_address_id,omitempty"`
+// additional_information is Additional information for warranty claim. Should be less than 1000 characters.
+AdditionalInformation string `json:"additional_information,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DescriptionInfoExtendedDescriptionFieldListImageInfo
+//=======================================================
+type DescriptionInfoExtendedDescriptionFieldListImageInfo struct {
+// image_id is Image id.
+ImageID string `json:"image_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DescriptionInfoExtendedDescriptionFieldList
+//=======================================================
+type DescriptionInfoExtendedDescriptionFieldList struct {
+// field_type is Type of extended description field: values: See Data Definition- description_field_type (text , image).
+FieldType string `json:"field_type,omitempty"`
+// text is If field_type is text, text information will be set by this field.
+Text string `json:"text,omitempty"`
+// image_info is If field_type is image, image url will be set by this field.
+ImageInfo DescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_info,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DescriptionInfoExtendedDescription
+//=======================================================
+type DescriptionInfoExtendedDescription struct {
+// field_list is Field of extended description.
+FieldList []DescriptionInfoExtendedDescriptionFieldList `json:"field_list,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DescriptionInfo
+//=======================================================
+type DescriptionInfo struct {
+// extended_description is If description_type is extended , Description information should be set by this field.
+ExtendedDescription DescriptionInfoExtendedDescription `json:"extended_description,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - SellerStock
+//=======================================================
+type SellerStock struct {
+// location_id is <p>location id,&nbsp;you can get the location id from v2.shop.get_warehouse_detail api, if seller don't have any warehouses, you don't need to upload this field.<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock<br /></p>
+Stock int `json:"stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemPreOrder
+//=======================================================
+type ProductAddItemPreOrder struct {
+// days_to_ship is The guaranteed days to ship orders.
+DaysToShip int `json:"days_to_ship,omitempty"`
+// is_pre_order is Whether this item is pre order
+IsPreOrder bool `json:"is_pre_order,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemImages
+//=======================================================
+type ProductAddItemImages struct {
 // image_id_list is ID of image
 ImageIdList []string `json:"image_id_list,omitempty"`
 // image_url_list is Display URL of image
@@ -856,13 +1092,183 @@ ImageUrlList []string `json:"image_url_list,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Attributes
+// Object Raw Type - ProductAddItemPriceInfo
 //=======================================================
-type Attributes struct {
+type ProductAddItemPriceInfo struct {
+// current_price is Current price of item
+CurrentPrice float64 `json:"current_price,omitempty"`
+// original_price is Original price of item
+OriginalPrice float64 `json:"original_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemLogisticInfo
+//=======================================================
+type ProductAddItemLogisticInfo struct {
+// size_id is Size ID
+SizeID int `json:"size_id,omitempty"`
+// shipping_fee is Shipping fee
+ShippingFee float64 `json:"shipping_fee,omitempty"`
+// enabled is Whether this channel is enabled for this item
+Enabled bool `json:"enabled,omitempty"`
+// logistic_id is Logistic channel ID
+LogisticID int `json:"logistic_id,omitempty"`
+// is_free is Whether cover shipping fee for buyer
+IsFree bool `json:"is_free,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemStockInfo
+//=======================================================
+type ProductAddItemStockInfo struct {
+// normal_stock is Normal stock
+NormalStock int `json:"normal_stock,omitempty"`
+// stock_type is Stock type
+StockType int `json:"stock_type,omitempty"`
+// current_stock is Current stock
+CurrentStock int `json:"current_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemAttributesAttributeValueList
+//=======================================================
+type ProductAddItemAttributesAttributeValueList struct {
+// original_value_name is Value name
+OriginalValueName string `json:"original_value_name,omitempty"`
+// value_id is Value ID
+ValueID int `json:"value_id,omitempty"`
+// value_unit is Unit of attribute value
+ValueUnit string `json:"value_unit,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemAttributes
+//=======================================================
+type ProductAddItemAttributes struct {
 // attribute_id is Attribute ID
 AttributeID int `json:"attribute_id,omitempty"`
 // attribute_value_list is 
-AttributeValueList []AttributeValueList `json:"attribute_value_list"`
+AttributeValueList []ProductAddItemAttributesAttributeValueList `json:"attribute_value_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemDimension
+//=======================================================
+type ProductAddItemDimension struct {
+// package_width is Package width, unit is cm
+PackageWidth int `json:"package_width,omitempty"`
+// package_length is Package length, unit is cm
+PackageLength int `json:"package_length,omitempty"`
+// package_height is Package height, unit is cm
+PackageHeight int `json:"package_height,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemVideoInfo
+//=======================================================
+type ProductAddItemVideoInfo struct {
+// video_url is Video playback url
+VideoUrl string `json:"video_url,omitempty"`
+// thumbnail_url is Video preview image url
+ThumbnailUrl string `json:"thumbnail_url,omitempty"`
+// duration is Video duration
+Duration int `json:"duration,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemWholesale
+//=======================================================
+type ProductAddItemWholesale struct {
+// min_count is Minimum count of this tier
+MinCount int `json:"min_count,omitempty"`
+// max_count is Maximum count of this tier
+MaxCount int `json:"max_count,omitempty"`
+// unit_price is Unit price of this tier
+UnitPrice float64 `json:"unit_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemBrand
+//=======================================================
+type ProductAddItemBrand struct {
+// brand_id is Id of brand.
+BrandID int `json:"brand_id,omitempty"`
+// original_brand_name is Original name of brand.
+OriginalBrandName string `json:"original_brand_name,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemDescriptionInfoExtendedDescriptionFieldListImageInfo
+//=======================================================
+type ProductAddItemDescriptionInfoExtendedDescriptionFieldListImageInfo struct {
+// image_id is Image id.
+ImageID string `json:"image_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemDescriptionInfoExtendedDescriptionFieldList
+//=======================================================
+type ProductAddItemDescriptionInfoExtendedDescriptionFieldList struct {
+// field_type is Type of extended description field ：values: See Data Definition- description_field_type (text , image).
+FieldType string `json:"field_type,omitempty"`
+// text is If field_type is text, text information will be set by this field.
+Text string `json:"text,omitempty"`
+// image_info is If field_type is image, image url will be set by this field.
+ImageInfo ProductAddItemDescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_info"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemDescriptionInfoExtendedDescription
+//=======================================================
+type ProductAddItemDescriptionInfoExtendedDescription struct {
+// field_list is Field of extended description.
+FieldList []ProductAddItemDescriptionInfoExtendedDescriptionFieldList `json:"field_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemDescriptionInfo
+//=======================================================
+type ProductAddItemDescriptionInfo struct {
+// extended_description is If description_type is extended , description information should be set by this field.
+ExtendedDescription ProductAddItemDescriptionInfoExtendedDescription `json:"extended_description"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemComplaintPolicy
+//=======================================================
+type ProductAddItemComplaintPolicy struct {
+// warranty_time is Time for a warranty claim. Could be ONE_YEAR, TWO_YEARS, OVER_TWO_YEARS.
+WarrantyTime string `json:"warranty_time,omitempty"`
+// exclude_entrepreneur_warranty is If True means "I exclude warranty complaints for entrepreneur"
+ExcludeEntrepreneurWarranty bool `json:"exclude_entrepreneur_warranty,omitempty"`
+// complaint_address_id is The identity of complaint address.
+ComplaintAddressID int `json:"complaint_address_id,omitempty"`
+// additional_information is  Additional information for complaint policy.
+AdditionalInformation string `json:"additional_information,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddItemSellerStock
+//=======================================================
+type ProductAddItemSellerStock struct {
+// location_id is <p>location id<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock<br /></p>
+Stock int `json:"stock,omitempty"`
 }
 
 
@@ -875,45 +1281,45 @@ Description string `json:"description,omitempty"`
 // weight is Item weight
 Weight int `json:"weight,omitempty"`
 // pre_order is Pre order setting
-PreOrder PreOrder `json:"pre_order"`
+PreOrder ProductAddItemPreOrder `json:"pre_order"`
 // item_name is Item name
 ItemName string `json:"item_name,omitempty"`
 // images is Item images
-Images Images `json:"images"`
+Images ProductAddItemImages `json:"images"`
 // item_status is Item status
 ItemStatus string `json:"item_status,omitempty"`
 // price_info is Item price info
-PriceInfo PriceInfo `json:"price_info"`
+PriceInfo ProductAddItemPriceInfo `json:"price_info"`
 // logistic_info is Logistic setting
-LogisticInfo []LogisticInfo `json:"logistic_info"`
+LogisticInfo []ProductAddItemLogisticInfo `json:"logistic_info"`
 // stock_info is Stock info
-StockInfo StockInfo `json:"stock_info"`
+StockInfo ProductAddItemStockInfo `json:"stock_info"`
 // item_id is Item ID
 ItemID int `json:"item_id,omitempty"`
 // attributes is Item attributes
-Attributes []Attributes `json:"attributes"`
+Attributes []ProductAddItemAttributes `json:"attributes"`
 // category_id is Category ID
 CategoryID int `json:"category_id,omitempty"`
 // dimension is Item dimension
-Dimension Dimension `json:"dimension"`
+Dimension ProductAddItemDimension `json:"dimension"`
 // condition is Item condition, could be NEW or USED
 Condition string `json:"condition,omitempty"`
 // video_info is Item video
-VideoInfo []VideoInfo `json:"video_info"`
+VideoInfo []ProductAddItemVideoInfo `json:"video_info"`
 // wholesale is Wholesale setting
-Wholesale []Wholesale `json:"wholesale"`
+Wholesale []ProductAddItemWholesale `json:"wholesale"`
 // brand is 
-Brand Brand `json:"brand"`
+Brand ProductAddItemBrand `json:"brand"`
 // item_dangerous is This field is only applicable for local sellers in Indonesia and Malaysia. Use this field to identify whether a product is a dangerous product. 0 for non-dangerous product and 1 for dangerous product. For more information, please visit the market's respective Seller Education Hub.
 ItemDangerous int `json:"item_dangerous,omitempty"`
 // description_info is New description field. Only whitelist sellers can use it. If item with extended_description this field will return, otherwise do not return.
-DescriptionInfo DescriptionInfo `json:"description_info"`
+DescriptionInfo ProductAddItemDescriptionInfo `json:"description_info"`
 // description_type is <p>description_type (normal , extended).</p>
 DescriptionType string `json:"description_type,omitempty"`
 // complaint_policy is Complaint Policy for item. Only returned for local PL sellers.
-ComplaintPolicy ComplaintPolicy `json:"complaint_policy"`
+ComplaintPolicy ProductAddItemComplaintPolicy `json:"complaint_policy"`
 // seller_stock is <p>seller stock<br /></p>
-SellerStock []SellerStock `json:"seller_stock"`
+SellerStock []ProductAddItemSellerStock `json:"seller_stock"`
 }
 //=======================================================
 // ProductAddItemRequest
@@ -979,6 +1385,122 @@ type ProductAddItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductUpdateItemPreOrder
+//=======================================================
+type ProductUpdateItemPreOrder struct {
+// days_to_ship is The time it takes to ship the item.
+DaysToShip int `json:"days_to_ship,omitempty"`
+// is_pre_order is Whether item is pre order.
+IsPreOrder bool `json:"is_pre_order,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemImages
+//=======================================================
+type ProductUpdateItemImages struct {
+// image_id_list is ID list of item image.
+ImageIdList []string `json:"image_id_list,omitempty"`
+// image_url_list is URL list of item image
+ImageUrlList []string `json:"image_url_list,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemLogisticInfo
+//=======================================================
+type ProductUpdateItemLogisticInfo struct {
+// estimated_shipping_fee is Estimated shipping fee.
+EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty"`
+// logistic_name is Name of logistics channel.
+LogisticName string `json:"logistic_name,omitempty"`
+// enabled is Whether this channel is enabled.
+Enabled bool `json:"enabled,omitempty"`
+// logistic_id is ID of this channel.
+LogisticID int `json:"logistic_id,omitempty"`
+// is_free is Whether cover shipping fee for buyer.
+IsFree bool `json:"is_free,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemDimension
+//=======================================================
+type ProductUpdateItemDimension struct {
+// package_width is <p>Package height, unit is cm</p><p><b><font color="#c24f4a">For CB and&nbsp;SG/MY/PH/VN/PL/ES local sellers:&nbsp;</font></b>Support&nbsp;1 decimal place</p><p><b><font color="#c24f4a">For&nbsp;TH/TW/ID/BR/MX/CO/CL/AR local sellers:&nbsp;</font></b>Not support&nbsp;1 decimal place</p>
+PackageWidth int `json:"package_width,omitempty"`
+// package_length is <p>Package height, unit is cm</p><p><b><font color="#c24f4a">For CB and&nbsp;SG/MY/PH/VN/PL/ES local sellers:&nbsp;</font></b>Support&nbsp;1 decimal place</p><p><b><font color="#c24f4a">For&nbsp;TH/TW/ID/BR/MX/CO/CL/AR local sellers:&nbsp;</font></b>Not support&nbsp;1 decimal place</p>
+PackageLength int `json:"package_length,omitempty"`
+// package_height is <p>Package height, unit is cm</p><p><b><font color="#c24f4a">For CB and&nbsp;SG/MY/PH/VN/PL/ES local sellers:&nbsp;</font></b>Support&nbsp;1 decimal place</p><p><b><font color="#c24f4a">For&nbsp;TH/TW/ID/BR/MX/CO/CL/AR local sellers:&nbsp;</font></b>Not support&nbsp;1 decimal place</p>
+PackageHeight int `json:"package_height,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemBrand
+//=======================================================
+type ProductUpdateItemBrand struct {
+// brand_id is Id of brand.
+BrandID int `json:"brand_id,omitempty"`
+// original_brand_name is  Original name of brand.
+OriginalBrandName string `json:"original_brand_name,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemComplaintPolicy
+//=======================================================
+type ProductUpdateItemComplaintPolicy struct {
+// warranty_time is Value should be in one of ONE_YEAR TWO_YEARS OVER_TWO_YEARS.
+WarrantyTime string `json:"warranty_time,omitempty"`
+// exclude_entrepreneur_warranty is If True means "I exclude warranty complaints for entrepreneur"
+ExcludeEntrepreneurWarranty bool `json:"exclude_entrepreneur_warranty,omitempty"`
+// additional_information is Additional information for complaint policy
+AdditionalInformation string `json:"additional_information,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemDescriptionInfoExtendedDescriptionFieldListImageInfo
+//=======================================================
+type ProductUpdateItemDescriptionInfoExtendedDescriptionFieldListImageInfo struct {
+// image_id is Image id.
+ImageID string `json:"image_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemDescriptionInfoExtendedDescriptionFieldList
+//=======================================================
+type ProductUpdateItemDescriptionInfoExtendedDescriptionFieldList struct {
+// field_type is Type of extended description field ：values: See Data Definition- description_field_type (text , image).
+FieldType string `json:"field_type,omitempty"`
+// text is If field_type is text， text information will be set by this field.
+Text string `json:"text,omitempty"`
+// image_info is If field_type is image，image url will be set by this field.
+ImageInfo ProductUpdateItemDescriptionInfoExtendedDescriptionFieldListImageInfo `json:"image_info"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemDescriptionInfoExtendedDescription
+//=======================================================
+type ProductUpdateItemDescriptionInfoExtendedDescription struct {
+// field_list is  Field of extended description.
+FieldList []ProductUpdateItemDescriptionInfoExtendedDescriptionFieldList `json:"field_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateItemDescriptionInfo
+//=======================================================
+type ProductUpdateItemDescriptionInfo struct {
+// extended_description is If description_type is extended , description information should be set by this field.
+ExtendedDescription ProductUpdateItemDescriptionInfoExtendedDescription `json:"extended_description"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductUpdateItem
 //=======================================================
 type ProductUpdateItem struct {
@@ -987,31 +1509,31 @@ Description string `json:"description,omitempty"`
 // weight is Item weight.
 Weight float64 `json:"weight,omitempty"`
 // pre_order is 
-PreOrder PreOrder `json:"pre_order"`
+PreOrder ProductUpdateItemPreOrder `json:"pre_order"`
 // item_name is Item name.
 ItemName string `json:"item_name,omitempty"`
 // item_status is Item status.
 ItemStatus string `json:"item_status,omitempty"`
 // images is Item images.
-Images Images `json:"images"`
+Images ProductUpdateItemImages `json:"images"`
 // logistic_info is 
-LogisticInfo []LogisticInfo `json:"logistic_info"`
+LogisticInfo []ProductUpdateItemLogisticInfo `json:"logistic_info"`
 // item_id is ID of item.
 ItemID int `json:"item_id,omitempty"`
 // category_id is ID of item category.
 CategoryID int `json:"category_id,omitempty"`
 // dimension is 
-Dimension Dimension `json:"dimension"`
+Dimension ProductUpdateItemDimension `json:"dimension"`
 // condition is Item condition, could be USED or NEW.
 Condition string `json:"condition,omitempty"`
 // brand is 
-Brand Brand `json:"brand"`
+Brand ProductUpdateItemBrand `json:"brand"`
 // item_dangerous is This field is only applicable for local sellers in Indonesia and Malaysia. Use this field to identify whether a product is a dangerous product. 0 for non-dangerous product and 1 for dangerous product. For more information, please visit the market's respective Seller Education Hub.
 ItemDangerous int `json:"item_dangerous,omitempty"`
 // complaint_policy is Complaint policy
-ComplaintPolicy ComplaintPolicy `json:"complaint_policy"`
+ComplaintPolicy ProductUpdateItemComplaintPolicy `json:"complaint_policy"`
 // description_info is New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
-DescriptionInfo DescriptionInfo `json:"description_info"`
+DescriptionInfo ProductUpdateItemDescriptionInfo `json:"description_info"`
 // description_type is <p>description_type (normal , extended).</p>
 DescriptionType string `json:"description_type,omitempty"`
 }
@@ -1090,13 +1612,22 @@ type ProductDeleteItemResponse struct {
 
 
 //=======================================================
-// Object Raw Type - OptionList
+// Object Raw Type - TierVariationOptionListImage
 //=======================================================
-type OptionList struct {
+type TierVariationOptionListImage struct {
+// image_id is ID of image. You can choose to define or not define the option image. If you choose to define, you can only define an image for the first tier, and you need to define an image for all options of the first tier
+ImageID string `json:"image_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TierVariationOptionList
+//=======================================================
+type TierVariationOptionList struct {
 // option is Option name
 Option string `json:"option,omitempty"`
 // image is Option image
-Image Image `json:"image,omitempty"`
+Image TierVariationOptionListImage `json:"image,omitempty"`
 }
 
 
@@ -1107,7 +1638,18 @@ type TierVariation struct {
 // name is Tier variation name
 Name string `json:"name,omitempty"`
 // option_list is Tier variation option info list
-OptionList []OptionList `json:"option_list"`
+OptionList []TierVariationOptionList `json:"option_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - ModelSellerStock
+//=======================================================
+type ModelSellerStock struct {
+// location_id is <p>location id, you can get the location id from v2.shop.get_warehouse_detail api, if seller don't have any warehouse, you don't need to upload this field.<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock</p>
+Stock int `json:"stock,omitempty"`
 }
 
 
@@ -1124,7 +1666,88 @@ OriginalPrice float64 `json:"original_price,omitempty"`
 // model_sku is Seller SKU of this model, model_sku length information needs to be no more than 100 characters.
 ModelSku string `json:"model_sku,omitempty"`
 // seller_stock is <p>new stock info（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-SellerStock []SellerStock `json:"seller_stock,omitempty"`
+SellerStock []ModelSellerStock `json:"seller_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationTierVariationOptionListImage
+//=======================================================
+type ProductInitTierVariationTierVariationOptionListImage struct {
+// image_url is URL of image
+ImageUrl string `json:"image_url,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationTierVariationOptionList
+//=======================================================
+type ProductInitTierVariationTierVariationOptionList struct {
+// image is Image of this option
+Image ProductInitTierVariationTierVariationOptionListImage `json:"image"`
+// option is Option name
+Option string `json:"option,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationTierVariation
+//=======================================================
+type ProductInitTierVariationTierVariation struct {
+// name is Variation name
+Name string `json:"name,omitempty"`
+// option_list is Options of this variation
+OptionList []ProductInitTierVariationTierVariationOptionList `json:"option_list"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationModelStockInfo
+//=======================================================
+type ProductInitTierVariationModelStockInfo struct {
+// stock_type is Stock type, could be 1: WmsOnHand, 2: SellerOnHand
+StockType int `json:"stock_type,omitempty"`
+// normal_stock is Normal stock
+NormalStock int `json:"normal_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationModelPriceInfo
+//=======================================================
+type ProductInitTierVariationModelPriceInfo struct {
+// original_price is Original price
+OriginalPrice float64 `json:"original_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationModelSellerStock
+//=======================================================
+type ProductInitTierVariationModelSellerStock struct {
+// location_id is <p>location id<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock</p>
+Stock int `json:"stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductInitTierVariationModel
+//=======================================================
+type ProductInitTierVariationModel struct {
+// tier_index is Tier index of model. Index starts from 0.
+TierIndex []map[string]interface{} `json:"tier_index,omitempty"`
+// model_id is ID of model
+ModelID int `json:"model_id,omitempty"`
+// model_sku is Seller SKU of this model
+ModelSku string `json:"model_sku,omitempty"`
+// stock_info is 
+StockInfo []ProductInitTierVariationModelStockInfo `json:"stock_info"`
+// price_info is 
+PriceInfo []ProductInitTierVariationModelPriceInfo `json:"price_info"`
+// seller_stock is <p>new stock info<br /></p>
+SellerStock []ProductInitTierVariationModelSellerStock `json:"seller_stock"`
 }
 
 
@@ -1135,9 +1758,9 @@ type ProductInitTierVariation struct {
 // item_id is ID of item
 ItemID int `json:"item_id,omitempty"`
 // tier_variation is Variations of item
-TierVariation []TierVariation `json:"tier_variation"`
+TierVariation []ProductInitTierVariationTierVariation `json:"tier_variation"`
 // model is 
-Model []Model `json:"model"`
+Model []ProductInitTierVariationModel `json:"model"`
 }
 //=======================================================
 // ProductInitTierVariationRequest
@@ -1180,13 +1803,162 @@ type ProductUpdateTierVariationResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductGetModelListTierVariationOptionListImage
+//=======================================================
+type ProductGetModelListTierVariationOptionListImage struct {
+// image_id is Id of image
+ImageID string `json:"image_id,omitempty"`
+// image_url is Url of image.
+ImageUrl string `json:"image_url,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListTierVariationOptionList
+//=======================================================
+type ProductGetModelListTierVariationOptionList struct {
+// option is Option name.
+Option string `json:"option,omitempty"`
+// image is 
+Image ProductGetModelListTierVariationOptionListImage `json:"image"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListTierVariation
+//=======================================================
+type ProductGetModelListTierVariation struct {
+// option_list is Option list.
+OptionList []ProductGetModelListTierVariationOptionList `json:"option_list"`
+// name is Variation name.
+Name string `json:"name,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelPriceInfo
+//=======================================================
+type ProductGetModelListModelPriceInfo struct {
+// current_price is Current price of item.
+CurrentPrice float64 `json:"current_price,omitempty"`
+// original_price is Original price of item.
+OriginalPrice float64 `json:"original_price,omitempty"`
+// inflated_price_of_original_price is Original price of item after tax.
+InflatedPriceOfOriginalPrice float64 `json:"inflated_price_of_original_price,omitempty"`
+// inflated_price_of_current_price is Current price of item after tax.
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+// sip_item_price is SIP item price.If item is for CNSC primary shop, this field will not be returned
+SipItemPrice float64 `json:"sip_item_price,omitempty"`
+// sip_item_price_source is SIP item price source, could be manual or auto.If item is for CNSC primary shop, this field will not be returned
+SipItemPriceSource string `json:"sip_item_price_source,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelStockInfo
+//=======================================================
+type ProductGetModelListModelStockInfo struct {
+// normal_stock is Normal stock.
+NormalStock int `json:"normal_stock,omitempty"`
+// stock_type is Stock type.
+StockType int `json:"stock_type,omitempty"`
+// current_stock is Current stock.
+CurrentStock int `json:"current_stock,omitempty"`
+// reserved_stock is Stock reserved for upcoming promotion.
+ReservedStock int `json:"reserved_stock,omitempty"`
+// stock_location_id is  location_id of the stock.
+StockLocationID string `json:"stock_location_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelPreOrder
+//=======================================================
+type ProductGetModelListModelPreOrder struct {
+// is_pre_order is Pre-order.
+IsPreOrder bool `json:"is_pre_order,omitempty"`
+// days_to_ship is The days to ship.
+DaysToShip int `json:"days_to_ship,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelStockInfoV2SummaryInfo
+//=======================================================
+type ProductGetModelListModelStockInfoV2SummaryInfo struct {
+// total_reserved_stock is <p>total reserved stock<br /></p>
+TotalReservedStock int `json:"total_reserved_stock,omitempty"`
+// total_available_stock is <p>total available stock<br /></p>
+TotalAvailableStock int `json:"total_available_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelStockInfoV2SellerStock
+//=======================================================
+type ProductGetModelListModelStockInfoV2SellerStock struct {
+// location_id is <p>location id<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock<br /></p>
+Stock int `json:"stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelStockInfoV2ShopeeStock
+//=======================================================
+type ProductGetModelListModelStockInfoV2ShopeeStock struct {
+// location_id is <p>location id<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock<br /></p>
+Stock string `json:"stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModelStockInfoV2
+//=======================================================
+type ProductGetModelListModelStockInfoV2 struct {
+// summary_info is <p>stock summary Info<br /></p>
+SummaryInfo ProductGetModelListModelStockInfoV2SummaryInfo `json:"summary_info"`
+// seller_stock is <p>seller stock<br /></p>
+SellerStock []ProductGetModelListModelStockInfoV2SellerStock `json:"seller_stock"`
+// shopee_stock is <p>shopee stock<br /></p>
+ShopeeStock []ProductGetModelListModelStockInfoV2ShopeeStock `json:"shopee_stock"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetModelListModel
+//=======================================================
+type ProductGetModelListModel struct {
+// price_info is Price info.
+PriceInfo []ProductGetModelListModelPriceInfo `json:"price_info"`
+// model_id is Model ID.
+ModelID int `json:"model_id,omitempty"`
+// stock_info is <p>Stock info.</p><p><b><font color="#c24f4a">Please use the stock_info_v2 field instead, we will deprecate this field in the future.</font></b><br /></p>
+StockInfo []ProductGetModelListModelStockInfo `json:"stock_info"`
+// tier_index is Tier index of this model.
+TierIndex []int `json:"tier_index,omitempty"`
+// promotion_id is Current promotion ID of this model.
+PromotionID int `json:"promotion_id,omitempty"`
+// model_sku is SKU of this model. the length should be under 100.
+ModelSku string `json:"model_sku,omitempty"`
+// pre_order is (Only whitelisted users can use)
+PreOrder ProductGetModelListModelPreOrder `json:"pre_order"`
+// stock_info_v2 is <p>new stock info.<br /></p><p>Please check this FAQ for more detail:&nbsp;<a href="https://open.shopee.com/faq?top=162&amp;sub=166&amp;page=1&amp;faq=230" target="_blank" style="font-size:14px;">https://open.shopee.com/faq?top=162&amp;sub=166&amp;page=1&amp;faq=230</a></p>
+StockInfoV2 ProductGetModelListModelStockInfoV2 `json:"stock_info_v2"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductGetModelList
 //=======================================================
 type ProductGetModelList struct {
 // tier_variation is Variation config of item.
-TierVariation []TierVariation `json:"tier_variation"`
+TierVariation []ProductGetModelListTierVariation `json:"tier_variation"`
 // model is Model list.
-Model []Model `json:"model"`
+Model []ProductGetModelListModel `json:"model"`
 }
 //=======================================================
 // ProductGetModelListRequest
@@ -1208,6 +1980,17 @@ type ProductGetModelListResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ModelListSellerStock
+//=======================================================
+type ModelListSellerStock struct {
+// location_id is <p>location id,&nbsp;you can get the location id from v2.shop.get_warehouse_detail api, if seller don't have any warehouse, you don't need to upload this field.<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock<br /></p>
+Stock int `json:"stock,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - ModelList
 //=======================================================
 type ModelList struct {
@@ -1220,7 +2003,57 @@ OriginalPrice float64 `json:"original_price,omitempty"`
 // model_sku is Seller sku, model_sku length information needs to be no more than 100 characters.
 ModelSku string `json:"model_sku,omitempty"`
 // seller_stock is <p>new stock info for model（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-SellerStock []SellerStock `json:"seller_stock,omitempty"`
+SellerStock []ModelListSellerStock `json:"seller_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddModelModelStockInfo
+//=======================================================
+type ProductAddModelModelStockInfo struct {
+// stock_type is Stock type, could be 1: WmsOnHand, 2: SellerOnHand
+StockType int `json:"stock_type,omitempty"`
+// normal_stock is Normal stock
+NormalStock int `json:"normal_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddModelModelPriceInfo
+//=======================================================
+type ProductAddModelModelPriceInfo struct {
+// original_price is <p>Original Price.</p><p><font color="#c24f4a"><b>For CO local VAT responsible seller：</b></font>Please remember the price you set in here must be VAT inclusive. If you have any doubts on how to calculate VAT for your product please refer to the Seller Education Hub（https://seller.shopee.com.co/edu/article/13565）<br /></p>
+OriginalPrice float64 `json:"original_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddModelModelSellerStock
+//=======================================================
+type ProductAddModelModelSellerStock struct {
+// location_id is <p>location id<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock<br /></p>
+Stock int `json:"stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductAddModelModel
+//=======================================================
+type ProductAddModelModel struct {
+// tier_index is model tier index
+TierIndex []int `json:"tier_index,omitempty"`
+// model_id is ID of model
+ModelID int `json:"model_id,omitempty"`
+// model_sku is Seller SKU of this model, model_sku length information needs to be no more than 100 characters.
+ModelSku string `json:"model_sku,omitempty"`
+// stock_info is 
+StockInfo []ProductAddModelModelStockInfo `json:"stock_info"`
+// price_info is 
+PriceInfo []ProductAddModelModelPriceInfo `json:"price_info"`
+// seller_stock is <p>new stock info</p>
+SellerStock []ProductAddModelModelSellerStock `json:"seller_stock"`
 }
 
 
@@ -1229,7 +2062,7 @@ SellerStock []SellerStock `json:"seller_stock,omitempty"`
 //=======================================================
 type ProductAddModel struct {
 // model is 
-Model []Model `json:"model"`
+Model []ProductAddModelModel `json:"model"`
 }
 //=======================================================
 // ProductAddModelRequest
@@ -1330,9 +2163,20 @@ type ProductUpdateSizeChartResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FailureList
+// Object Raw Type - ItemList
 //=======================================================
-type FailureList struct {
+type ItemList struct {
+// item_id is Shopee's unique identifier for an item
+ItemID int `json:"item_id,omitempty"`
+// unlist is Unlist or not
+Unlist bool `json:"unlist,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUnlistItemFailureList
+//=======================================================
+type ProductUnlistItemFailureList struct {
 // item_id is Failed item id
 ItemID int `json:"item_id,omitempty"`
 // failed_reason is Failed reason
@@ -1341,9 +2185,9 @@ FailedReason string `json:"failed_reason,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - SuccessList
+// Object Raw Type - ProductUnlistItemSuccessList
 //=======================================================
-type SuccessList struct {
+type ProductUnlistItemSuccessList struct {
 // item_id is Success item id 
 ItemID int `json:"item_id,omitempty"`
 // unlist is Whether the item is unlisted
@@ -1356,9 +2200,9 @@ Unlist bool `json:"unlist,omitempty"`
 //=======================================================
 type ProductUnlistItem struct {
 // failure_list is 
-FailureList []FailureList `json:"failure_list"`
+FailureList []ProductUnlistItemFailureList `json:"failure_list"`
 // success_list is 
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []ProductUnlistItemSuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductUnlistItemRequest
@@ -1391,13 +2235,35 @@ OriginalPrice float64 `json:"original_price,omitempty"`
 
 
 //=======================================================
+// Object Raw Type - ProductUpdatePriceFailureList
+//=======================================================
+type ProductUpdatePriceFailureList struct {
+// model_id is ID of model.
+ModelID int `json:"model_id,omitempty"`
+// failed_reason is Reason for failure.
+FailedReason string `json:"failed_reason,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdatePriceSuccessList
+//=======================================================
+type ProductUpdatePriceSuccessList struct {
+// model_id is ID of model.
+ModelID int `json:"model_id,omitempty"`
+// original_price is Original price for model.
+OriginalPrice float64 `json:"original_price,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductUpdatePrice
 //=======================================================
 type ProductUpdatePrice struct {
 // failure_list is Fail model list.
-FailureList []FailureList `json:"failure_list"`
+FailureList []ProductUpdatePriceFailureList `json:"failure_list"`
 // success_list is Success model list.
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []ProductUpdatePriceSuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductUpdatePriceRequest
@@ -1421,6 +2287,17 @@ type ProductUpdatePriceResponse struct {
 
 
 //=======================================================
+// Object Raw Type - StockListSellerStock
+//=======================================================
+type StockListSellerStock struct {
+// location_id is <p>location id, you can get the location id from v2.shop.get_warehouse_detail api, if seller don't have any warehouse, you don't need to upload this field.<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock</p>
+Stock int `json:"stock,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - StockList
 //=======================================================
 type StockList struct {
@@ -1429,7 +2306,33 @@ ModelID int `json:"model_id,omitempty"`
 // normal_stock is <p>Normal stock.</p><p><b><font color="#c24f4a">Please use the seller_stock field instead, we will deprecate this field in the future.</font></b><br /></p>
 NormalStock int `json:"normal_stock,omitempty"`
 // seller_stock is <p>new stock info（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-SellerStock []SellerStock `json:"seller_stock,omitempty"`
+SellerStock []StockListSellerStock `json:"seller_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateStockFailureList
+//=======================================================
+type ProductUpdateStockFailureList struct {
+// model_id is ID of model.
+ModelID int `json:"model_id,omitempty"`
+// failed_reason is Reason for failure.
+FailedReason string `json:"failed_reason,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductUpdateStockSuccessList
+//=======================================================
+type ProductUpdateStockSuccessList struct {
+// model_id is ID of model.
+ModelID int `json:"model_id,omitempty"`
+// normal_stock is Stock of this model.
+NormalStock int `json:"normal_stock,omitempty"`
+// location_id is <p>location id; This field and the stock field are returned in pairs<br /></p>
+LocationID string `json:"location_id,omitempty"`
+// stock is <p>stock;This field is returned if seller stock is used in the request, and normal stock fields are not returned.<br /></p>
+Stock int `json:"stock,omitempty"`
 }
 
 
@@ -1438,9 +2341,9 @@ SellerStock []SellerStock `json:"seller_stock,omitempty"`
 //=======================================================
 type ProductUpdateStock struct {
 // failure_list is Fail model list.
-FailureList []FailureList `json:"failure_list"`
+FailureList []ProductUpdateStockFailureList `json:"failure_list"`
 // success_list is Success model list.
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []ProductUpdateStockSuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductUpdateStockRequest
@@ -1464,13 +2367,33 @@ type ProductUpdateStockResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductBoostItemFailureList
+//=======================================================
+type ProductBoostItemFailureList struct {
+// item_id is Failed item ID.
+ItemID int `json:"item_id,omitempty"`
+// failed_reason is Reason for failure.
+FailedReason string `json:"failed_reason,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductBoostItemSuccessList
+//=======================================================
+type ProductBoostItemSuccessList struct {
+// item_id_list is Success item ID.
+ItemIdList []int `json:"item_id_list,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductBoostItem
 //=======================================================
 type ProductBoostItem struct {
 // failure_list is 
-FailureList []FailureList `json:"failure_list"`
+FailureList []ProductBoostItemFailureList `json:"failure_list"`
 // success_list is 
-SuccessList SuccessList `json:"success_list"`
+SuccessList ProductBoostItemSuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductBoostItemRequest
@@ -1492,11 +2415,22 @@ type ProductBoostItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductGetBoostedListItemList
+//=======================================================
+type ProductGetBoostedListItemList struct {
+// item_id is Shopee's unique identifier for an item
+ItemID int `json:"item_id,omitempty"`
+// cool_down_second is Remain cool down time
+CoolDownSecond int `json:"cool_down_second,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductGetBoostedList
 //=======================================================
 type ProductGetBoostedList struct {
 // item_list is 
-ItemList []ItemList `json:"item_list"`
+ItemList []ProductGetBoostedListItemList `json:"item_list"`
 }
 //=======================================================
 // ProductGetBoostedListRequest
@@ -1516,13 +2450,93 @@ type ProductGetBoostedListResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductGetItemPromotionSuccessListPromotionPromotionPriceInfo
+//=======================================================
+type ProductGetItemPromotionSuccessListPromotionPromotionPriceInfo struct {
+// promotion_price is Promotion price.
+PromotionPrice float64 `json:"promotion_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemPromotionSuccessListPromotionReservedStockInfo
+//=======================================================
+type ProductGetItemPromotionSuccessListPromotionReservedStockInfo struct {
+// stock_type is Stock type, could be 1: WmsOnHand;  2: SellerOnHand.
+StockType int `json:"stock_type,omitempty"`
+// stock_location_id is Stock location identity.
+StockLocationID string `json:"stock_location_id,omitempty"`
+// reserved_stock is Promotion reserved stock.
+ReservedStock int `json:"reserved_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemPromotionSuccessListPromotionPromotionStockInfoV2
+//=======================================================
+type ProductGetItemPromotionSuccessListPromotionPromotionStockInfoV2 struct {
+// summary_info is <p>stock summary info<br /></p>
+SummaryInfo map[string]interface{} `json:"summary_info,omitempty"`
+// total_reserved_stock is <p>total reserved stock<br /></p>
+TotalReservedStock int `json:"total_reserved_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemPromotionSuccessListPromotion
+//=======================================================
+type ProductGetItemPromotionSuccessListPromotion struct {
+// promotion_type is Promotion type, Applicable values: See Data Definition- PromotionType.
+PromotionType string `json:"promotion_type,omitempty"`
+// promotion_id is The identity of item promotion.
+PromotionID int `json:"promotion_id,omitempty"`
+// model_id is The identity of product model.
+ModelID int `json:"model_id,omitempty"`
+// start_time is Promotion start tiem.
+StartTime int `json:"start_time,omitempty"`
+// end_time is Promotion end item.
+EndTime int `json:"end_time,omitempty"`
+// promotion_price_info is Promotion price info.
+PromotionPriceInfo []ProductGetItemPromotionSuccessListPromotionPromotionPriceInfo `json:"promotion_price_info"`
+// reserved_stock_info is <p>Promotion reserved stock info.</p><p><b><font color="#c24f4a">Please use the promotion_stock_info_v2 field instead, we will deprecate this field in the future.</font></b><br /></p>
+ReservedStockInfo []ProductGetItemPromotionSuccessListPromotionReservedStockInfo `json:"reserved_stock_info"`
+// promotion_staging is Could be ongoing/upcoming
+PromotionStaging string `json:"promotion_staging,omitempty"`
+// promotion_stock_info_v2 is <p>new promotion stock<br /></p>
+PromotionStockInfoV2 ProductGetItemPromotionSuccessListPromotionPromotionStockInfoV2 `json:"promotion_stock_info_v2"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemPromotionSuccessList
+//=======================================================
+type ProductGetItemPromotionSuccessList struct {
+// item_id is The identity of product item.
+ItemID int `json:"item_id,omitempty"`
+// promotion is Item promotion info list
+Promotion []ProductGetItemPromotionSuccessListPromotion `json:"promotion"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetItemPromotionFailureList
+//=======================================================
+type ProductGetItemPromotionFailureList struct {
+// item_id is The identity of item.
+ItemID int `json:"item_id,omitempty"`
+// failed_reason is Fail reason.
+FailedReason string `json:"failed_reason,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductGetItemPromotion
 //=======================================================
 type ProductGetItemPromotion struct {
 // success_list is Success item promotion info.
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []ProductGetItemPromotionSuccessList `json:"success_list"`
 // failure_list is Fail item promotion info.
-FailureList []FailureList `json:"failure_list"`
+FailureList []ProductGetItemPromotionFailureList `json:"failure_list"`
 }
 //=======================================================
 // ProductGetItemPromotionRequest
@@ -1608,9 +2622,9 @@ type ProductSearchItemResponse struct {
 
 
 //=======================================================
-// Object Raw Type - CommentReply
+// Object Raw Type - ProductGetCommentItemCommentListCommentReply
 //=======================================================
-type CommentReply struct {
+type ProductGetCommentItemCommentListCommentReply struct {
 // reply is The content of reply.
 Reply string `json:"reply,omitempty"`
 // hidden is The comment reply is hidden or not.
@@ -1619,11 +2633,11 @@ Hidden bool `json:"hidden,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemCommentList
+// Object Raw Type - ProductGetCommentItemCommentList
 //=======================================================
-type ItemCommentList struct {
+type ProductGetCommentItemCommentList struct {
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 // comment_id is The identity of comment.
 CommentID string `json:"comment_id,omitempty"`
 // comment is The content of the comment.
@@ -1643,7 +2657,7 @@ Hidden bool `json:"hidden,omitempty"`
 // create_time is The create time of the comment.
 CreateTime int `json:"create_time,omitempty"`
 // comment_reply is The reply of the comment.
-CommentReply CommentReply `json:"comment_reply"`
+CommentReply ProductGetCommentItemCommentListCommentReply `json:"comment_reply"`
 }
 
 
@@ -1654,7 +2668,7 @@ type ProductGetComment struct {
 // more is <p>This is to indicate whether the comment list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of comments. But only respond 500 comments at most through OpenAPI, if there are more than 500, this field "more" also respond "true".</p>
 More bool `json:"more,omitempty"`
 // item_comment_list is The comment data list of the items.
-ItemCommentList []ItemCommentList `json:"item_comment_list"`
+ItemCommentList []ProductGetCommentItemCommentList `json:"item_comment_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -1695,9 +2709,9 @@ Comment string `json:"comment,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ResultList
+// Object Raw Type - ProductReplyCommentResultList
 //=======================================================
-type ResultList struct {
+type ProductReplyCommentResultList struct {
 // comment_id is The identity of comment.
 CommentID int `json:"comment_id,omitempty"`
 // fail_error is Indicate error details if one element hit error.
@@ -1712,7 +2726,7 @@ FailMessage string `json:"fail_message,omitempty"`
 //=======================================================
 type ProductReplyComment struct {
 // result_list is The result list of the request comment list.
-ResultList []ResultList `json:"result_list"`
+ResultList []ProductReplyCommentResultList `json:"result_list"`
 }
 //=======================================================
 // ProductReplyCommentRequest
@@ -1813,11 +2827,31 @@ type ProductRegisterBrandResponse struct {
 
 
 //=======================================================
+// Object Raw Type - ProductGetRecommendAttributeAttributeListAttributeValueList
+//=======================================================
+type ProductGetRecommendAttributeAttributeListAttributeValueList struct {
+// value_id is ID of attribute value.
+ValueID int `json:"value_id,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ProductGetRecommendAttributeAttributeList
+//=======================================================
+type ProductGetRecommendAttributeAttributeList struct {
+// attribute_id is ID of attribute.
+AttributeID int `json:"attribute_id,omitempty"`
+// attribute_value_list is Value list of this attribute.
+AttributeValueList []ProductGetRecommendAttributeAttributeListAttributeValueList `json:"attribute_value_list"`
+}
+
+
+//=======================================================
 // Object Raw Type - ProductGetRecommendAttribute
 //=======================================================
 type ProductGetRecommendAttribute struct {
 // attribute_list is Attribute info list.
-AttributeList []AttributeList `json:"attribute_list"`
+AttributeList []ProductGetRecommendAttributeAttributeList `json:"attribute_list"`
 }
 //=======================================================
 // ProductGetRecommendAttributeRequest

@@ -216,9 +216,9 @@ type VoucherGetVoucherResponse struct {
 
 
 //=======================================================
-// Object Raw Type - VoucherList
+// Object Raw Type - VoucherGetVoucherListVoucherList
 //=======================================================
-type VoucherList struct {
+type VoucherGetVoucherListVoucherList struct {
 // voucher_id is The unique identifier for a voucher.
 VoucherID int `json:"voucher_id,omitempty"`
 // voucher_code is Voucher Code
@@ -259,7 +259,7 @@ type VoucherGetVoucherList struct {
 // more is This is to indicate whether the comment list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of comments.
 More bool `json:"more,omitempty"`
 // voucher_list is The list of voucher.
-VoucherList []VoucherList `json:"voucher_list"`
+VoucherList []VoucherGetVoucherListVoucherList `json:"voucher_list"`
 }
 //=======================================================
 // VoucherGetVoucherListRequest

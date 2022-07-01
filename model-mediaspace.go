@@ -77,13 +77,48 @@ type MediaSpaceCompleteVideoUploadResponse struct {
 
 
 //=======================================================
+// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfoVideoUrlList
+//=======================================================
+type MediaSpaceGetVideoUploadResultVideoInfoVideoUrlList struct {
+// video_url_region is The region of this video URL.
+VideoUrlRegion string `json:"video_url_region,omitempty"`
+// video_url is Video playback URL.
+VideoUrl string `json:"video_url,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrlList
+//=======================================================
+type MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrlList struct {
+// image_url_region is The region of this image URL.
+ImageUrlRegion string `json:"image_url_region,omitempty"`
+// image_url is Image display URL.
+ImageUrl string `json:"image_url,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - MediaSpaceGetVideoUploadResultVideoInfo
+//=======================================================
+type MediaSpaceGetVideoUploadResultVideoInfo struct {
+// video_url_list is Video playback URL list.
+VideoUrlList []MediaSpaceGetVideoUploadResultVideoInfoVideoUrlList `json:"video_url_list"`
+// thumbnail_url_list is Video thumbnail image URL list.
+ThumbnailUrlList []MediaSpaceGetVideoUploadResultVideoInfoThumbnailUrlList `json:"thumbnail_url_list"`
+// duration is Duration of this video, in seconds.
+Duration int `json:"duration,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - MediaSpaceGetVideoUploadResult
 //=======================================================
 type MediaSpaceGetVideoUploadResult struct {
 // status is Current status of this video upload session. could be: INITIATED(waiting for part uploading and/or the complete_video_upload API call), TRANSCODING(has received all video parts, and is transcoding the video file), SUCCEEDED(transcoding completed, and this upload_id can now be used for item adding/updating), FAILED(this upload failed, see the message filed for some info), CANCELLED(this upload is cancelled)
 Status string `json:"status,omitempty"`
 // video_info is Transcoded video info, will be present if status is SUCCEEDED.
-VideoInfo VideoInfo `json:"video_info"`
+VideoInfo MediaSpaceGetVideoUploadResultVideoInfo `json:"video_info"`
 // message is Detail error message if video uploading/transcoding failed.
 Message string `json:"message,omitempty"`
 }
@@ -122,11 +157,33 @@ type MediaSpaceCancelVideoUploadResponse struct {
 
 
 //=======================================================
+// Object Raw Type - MediaSpaceUploadImageImageInfoImageUrlList
+//=======================================================
+type MediaSpaceUploadImageImageInfoImageUrlList struct {
+// image_url_region is Region of image url
+ImageUrlRegion string `json:"image_url_region,omitempty"`
+// image_url is image url
+ImageUrl string `json:"image_url,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - MediaSpaceUploadImageImageInfo
+//=======================================================
+type MediaSpaceUploadImageImageInfo struct {
+// image_id is Id of image 
+ImageID string `json:"image_id,omitempty"`
+// image_url_list is Image URL of each region
+ImageUrlList []MediaSpaceUploadImageImageInfoImageUrlList `json:"image_url_list"`
+}
+
+
+//=======================================================
 // Object Raw Type - MediaSpaceUploadImage
 //=======================================================
 type MediaSpaceUploadImage struct {
 // image_info is 
-ImageInfo ImageInfo `json:"image_info"`
+ImageInfo MediaSpaceUploadImageImageInfo `json:"image_info"`
 }
 //=======================================================
 // MediaSpaceUploadImageRequest

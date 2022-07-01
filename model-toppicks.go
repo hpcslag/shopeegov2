@@ -2,13 +2,30 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - CollectionList
+// Object Raw Type - TopPicksGetTopPicksListCollectionListItemList
 //=======================================================
-type CollectionList struct {
+type TopPicksGetTopPicksListCollectionListItemList struct {
+// item_name is The name of item.
+ItemName string `json:"item_name,omitempty"`
+// item_id is The id of item.
+ItemID int `json:"item_id,omitempty"`
+// current_price is The price before tax of item.
+CurrentPrice float64 `json:"current_price,omitempty"`
+// inflated_price_of_current_price is The price after tax of item.
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+// sales is The sales of  item.
+Sales int `json:"sales,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksGetTopPicksListCollectionList
+//=======================================================
+type TopPicksGetTopPicksListCollectionList struct {
 // is_activated is whether collection is activated.
 IsActivated bool `json:"is_activated,omitempty"`
 // item_list is The items of top picks
-ItemList []ItemList `json:"item_list"`
+ItemList []TopPicksGetTopPicksListCollectionListItemList `json:"item_list"`
 // top_picks_id is collection id.
 TopPicksID int `json:"top_picks_id,omitempty"`
 // name is The title of  top picks.
@@ -21,7 +38,7 @@ Name string `json:"name,omitempty"`
 //=======================================================
 type TopPicksGetTopPicksList struct {
 // collection_list is The top picks list in this shop.
-CollectionList []CollectionList `json:"collection_list"`
+CollectionList []TopPicksGetTopPicksListCollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksGetTopPicksListRequest
@@ -41,11 +58,43 @@ type TopPicksGetTopPicksListResponse struct {
 
 
 //=======================================================
+// Object Raw Type - TopPicksAddTopPicksCollectionListItemList
+//=======================================================
+type TopPicksAddTopPicksCollectionListItemList struct {
+// item_name is The name of item.
+ItemName string `json:"item_name,omitempty"`
+// item_id is The id of item.
+ItemID int `json:"item_id,omitempty"`
+// current_price is The price before tax of item.
+CurrentPrice float64 `json:"current_price,omitempty"`
+// inflated_price_of_current_price is The price after tax of item.
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+// sales is The sales of item.
+Sales int `json:"sales,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksAddTopPicksCollectionList
+//=======================================================
+type TopPicksAddTopPicksCollectionList struct {
+// is_activated is whether collection is activated.
+IsActivated bool `json:"is_activated,omitempty"`
+// item_list is The items of top picks
+ItemList []TopPicksAddTopPicksCollectionListItemList `json:"item_list"`
+// top_picks_id is Collection id.
+TopPicksID int `json:"top_picks_id,omitempty"`
+// name is The title of top picks.
+Name string `json:"name,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - TopPicksAddTopPicks
 //=======================================================
 type TopPicksAddTopPicks struct {
 // collection_list is The top picks list in this shop.
-CollectionList []CollectionList `json:"collection_list"`
+CollectionList []TopPicksAddTopPicksCollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksAddTopPicksRequest
@@ -71,11 +120,43 @@ type TopPicksAddTopPicksResponse struct {
 
 
 //=======================================================
+// Object Raw Type - TopPicksUpdateTopPicksCollectionListItemList
+//=======================================================
+type TopPicksUpdateTopPicksCollectionListItemList struct {
+// item_name is The name of item.
+ItemName string `json:"item_name,omitempty"`
+// item_id is The id of item.
+ItemID int `json:"item_id,omitempty"`
+// current_price is The price before tax of item.
+CurrentPrice float64 `json:"current_price,omitempty"`
+// inflated_price_of_current_price is The price after tax of item.
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+// sales is The sales of item.
+Sales int `json:"sales,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - TopPicksUpdateTopPicksCollectionList
+//=======================================================
+type TopPicksUpdateTopPicksCollectionList struct {
+// is_activated is whether is activated
+IsActivated bool `json:"is_activated,omitempty"`
+// item_list is a list of item
+ItemList []TopPicksUpdateTopPicksCollectionListItemList `json:"item_list"`
+// top_picks_id is collection id
+TopPicksID int `json:"top_picks_id,omitempty"`
+// name is collection name
+Name string `json:"name,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - TopPicksUpdateTopPicks
 //=======================================================
 type TopPicksUpdateTopPicks struct {
 // collection_list is The top picks list in this shop.
-CollectionList []CollectionList `json:"collection_list"`
+CollectionList []TopPicksUpdateTopPicksCollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksUpdateTopPicksRequest

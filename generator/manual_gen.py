@@ -26,13 +26,15 @@ def Snake2BigGolangCase(raw_str):
     if total >= 2:
         if (res[total-2:]).lower() == "id":
             res = res[:total-2] + "ID"
+        if (res[total-2:]).lower() == "sn":
+            res = res[:total-2] + "SN"
     return res
 
 typeMapping = {
     "string": "string",
     "string[]": "[]string",
-    "object": "interface{}", # sub
-    "object[]" : "[]interface{}",
+    "object": "map[string]interface{}", # sub
+    "object[]" : "[]map[string]interface{}",
     "int" : "int",
     "int[]" : "[]int",
     "boolean" : "bool",
@@ -45,6 +47,10 @@ typeMapping = {
 def checkIsExpensivableObject(raw):
     # meet any in list need to trigger recursive parsing
     if raw["type"] in [ "list", "object", "object[]" ]:
+        # if is object but no children, return False, let it be an map[string]interface{}
+        if not 'children' in raw.keys():
+            return False
+        
         return True
     
     if 'children' in raw.keys():
@@ -135,9 +141,9 @@ type %s struct {""" % (structName, structName))
         # check if is list, object types... need to recursive extending out to the struct
         if checkIsExpensivableObject(item):
             # assume no conflict key name, directly using key-name as object name
-            subObjName = Snake2BigGolangCase(item["name"])
+            subObjName = structName + "" + Snake2BigGolangCase(item["name"]) # conflict with structName + ItemName
             if not subObjName in globalStruct:
-                globalStruct.append(objName)
+                globalStruct.append(subObjName)
                 # gen sub struct for typing
                 dependenciesStructRaw += ParseObjectToStruct(subObjName, item)
             

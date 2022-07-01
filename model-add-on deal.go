@@ -51,11 +51,22 @@ Status int `json:"status,omitempty"`
 
 
 //=======================================================
+// Object Raw Type - AddOnDealAddAddOnDealMainItemMainItemList
+//=======================================================
+type AddOnDealAddAddOnDealMainItemMainItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of add on deal item：enable = 1；disable =2
+Status int `json:"status,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealAddAddOnDealMainItem
 //=======================================================
 type AddOnDealAddAddOnDealMainItem struct {
 // main_item_list is The main items added in this add on deal promotion.
-MainItemList []MainItemList `json:"main_item_list"`
+MainItemList []AddOnDealAddAddOnDealMainItemMainItemList `json:"main_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -98,11 +109,28 @@ SubItemLimit int `json:"sub_item_limit,omitempty"`
 
 
 //=======================================================
+// Object Raw Type - AddOnDealAddAddOnDealSubItemSubItemList
+//=======================================================
+type AddOnDealAddAddOnDealSubItemSubItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of add on deal item：enable = 1；disable =2
+Status int `json:"status,omitempty"`
+// model_id is Shopee's unique identifier for a model.
+ModelID int `json:"model_id,omitempty"`
+// fail_error is 
+FailError string `json:"fail_error,omitempty"`
+// fail_message is 
+FailMessage string `json:"fail_message,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealAddAddOnDealSubItem
 //=======================================================
 type AddOnDealAddAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList []SubItemList `json:"sub_item_list"`
+SubItemList []AddOnDealAddAddOnDealSubItemSubItemList `json:"sub_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -184,11 +212,26 @@ type AddOnDealDeleteAddOnDealMainItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - AddOnDealDeleteAddOnDealSubItemSubItemList
+//=======================================================
+type AddOnDealDeleteAddOnDealSubItemSubItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// model_id is Shopee's unique identifier for a model.
+ModelID int `json:"model_id,omitempty"`
+// fail_error is 
+FailError string `json:"fail_error,omitempty"`
+// fail_message is 
+FailMessage string `json:"fail_message,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealDeleteAddOnDealSubItem
 //=======================================================
 type AddOnDealDeleteAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList []SubItemList `json:"sub_item_list"`
+SubItemList []AddOnDealDeleteAddOnDealSubItemSubItemList `json:"sub_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -214,9 +257,9 @@ type AddOnDealDeleteAddOnDealSubItemResponse struct {
 
 
 //=======================================================
-// Object Raw Type - AddOnDealList
+// Object Raw Type - AddOnDealGetAddOnDealListAddOnDealList
 //=======================================================
-type AddOnDealList struct {
+type AddOnDealGetAddOnDealListAddOnDealList struct {
 // start_time is The time when add on deal activity start.
 StartTime int `json:"start_time,omitempty"`
 // end_time is The time when add on deal activity end
@@ -245,7 +288,7 @@ SubItemPrioriry []int `json:"sub_item_prioriry,omitempty"`
 //=======================================================
 type AddOnDealGetAddOnDealList struct {
 // add_on_deal_list is The list of add on deal id
-AddOnDealList []AddOnDealList `json:"add_on_deal_list"`
+AddOnDealList []AddOnDealGetAddOnDealListAddOnDealList `json:"add_on_deal_list"`
 // more is This is to indicate whether the promotion list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of promotions.
 More bool `json:"more,omitempty"`
 }
@@ -317,11 +360,22 @@ type AddOnDealGetAddOnDealResponse struct {
 
 
 //=======================================================
+// Object Raw Type - AddOnDealGetAddOnDealMainItemMainItemList
+//=======================================================
+type AddOnDealGetAddOnDealMainItemMainItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of add on deal item：enable = 1；disable =2
+Status int `json:"status,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealGetAddOnDealMainItem
 //=======================================================
 type AddOnDealGetAddOnDealMainItem struct {
 // main_item_list is The main items added in this add on deal promotion.
-MainItemList []MainItemList `json:"main_item_list"`
+MainItemList []AddOnDealGetAddOnDealMainItemMainItemList `json:"main_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -345,11 +399,46 @@ type AddOnDealGetAddOnDealMainItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - AddOnDealGetAddOnDealSubItemSubItemListPricePromoInputPrice
+//=======================================================
+type AddOnDealGetAddOnDealSubItemSubItemListPricePromoInputPrice struct {
+// promo_price is Add-on discount price after tax
+PromoPrice float64 `json:"promo_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - AddOnDealGetAddOnDealSubItemSubItemListPrice
+//=======================================================
+type AddOnDealGetAddOnDealSubItemSubItemListPrice struct {
+// promo_input_price is Add-on discount price before tax
+PromoInputPrice AddOnDealGetAddOnDealSubItemSubItemListPricePromoInputPrice `json:"promo_input_price"`
+}
+
+
+//=======================================================
+// Object Raw Type - AddOnDealGetAddOnDealSubItemSubItemList
+//=======================================================
+type AddOnDealGetAddOnDealSubItemSubItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of add on deal item：enable = 1；disable =2
+Status int `json:"status,omitempty"`
+// sub_item_limit is The purchase limit of each sub item. Only the add on discount can be set and the default limit of gift with mini.spend is 1
+SubItemLimit int `json:"sub_item_limit,omitempty"`
+// model_id is Shopee's unique identifier for a model.
+ModelID int `json:"model_id,omitempty"`
+// price is 
+Price AddOnDealGetAddOnDealSubItemSubItemListPrice `json:"price"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealGetAddOnDealSubItem
 //=======================================================
 type AddOnDealGetAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList []SubItemList `json:"sub_item_list"`
+SubItemList []AddOnDealGetAddOnDealSubItemSubItemList `json:"sub_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -427,11 +516,22 @@ type AddOnDealUpdateAddOnDealResponse struct {
 
 
 //=======================================================
+// Object Raw Type - AddOnDealUpdateAddOnDealMainItemMainItemList
+//=======================================================
+type AddOnDealUpdateAddOnDealMainItemMainItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of add on deal item：enable = 1；disable =2
+Status int `json:"status,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealUpdateAddOnDealMainItem
 //=======================================================
 type AddOnDealUpdateAddOnDealMainItem struct {
 // main_item_list is The main items added in this add on deal promotion.
-MainItemList []MainItemList `json:"main_item_list"`
+MainItemList []AddOnDealUpdateAddOnDealMainItemMainItemList `json:"main_item_list"`
 }
 //=======================================================
 // AddOnDealUpdateAddOnDealMainItemRequest
@@ -455,11 +555,32 @@ type AddOnDealUpdateAddOnDealMainItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - AddOnDealUpdateAddOnDealSubItemSubItemList
+//=======================================================
+type AddOnDealUpdateAddOnDealSubItemSubItemList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of add on deal item：enable = 1；disable =2
+Status int `json:"status,omitempty"`
+// model_id is Shopee's unique identifier for a model.
+ModelID int `json:"model_id,omitempty"`
+// fail_error is 
+FailError string `json:"fail_error,omitempty"`
+// fail_message is 
+FailMessage string `json:"fail_message,omitempty"`
+// sub_item_input_price is The discounted price of sub item
+SubItemInputPrice float64 `json:"sub_item_input_price,omitempty"`
+// sub_item_limit is The purchase limit of sub item.The purchase limit of each sub item. Only the add on discount can be set and the default limit of gift with mini.spend is 1
+SubItemLimit int `json:"sub_item_limit,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - AddOnDealUpdateAddOnDealSubItem
 //=======================================================
 type AddOnDealUpdateAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList []SubItemList `json:"sub_item_list"`
+SubItemList []AddOnDealUpdateAddOnDealSubItemSubItemList `json:"sub_item_list"`
 }
 //=======================================================
 // AddOnDealUpdateAddOnDealSubItemRequest

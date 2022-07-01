@@ -44,9 +44,9 @@ type BundleDealAddBundleDealResponse struct {
 
 
 //=======================================================
-// Object Raw Type - FailedList
+// Object Raw Type - BundleDealAddBundleDealItemFailedList
 //=======================================================
-type FailedList struct {
+type BundleDealAddBundleDealItemFailedList struct {
 // item_id is Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // fail_error is Indicate error type if one element hit error.
@@ -61,9 +61,9 @@ FailMessage string `json:"fail_message,omitempty"`
 //=======================================================
 type BundleDealAddBundleDealItem struct {
 // failed_list is Indicate error details.
-FailedList []FailedList `json:"failed_list"`
+FailedList []BundleDealAddBundleDealItemFailedList `json:"failed_list"`
 // success_list is The list of succeed added items
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []map[string]interface{} `json:"success_list,omitempty"`
 }
 //=======================================================
 // BundleDealAddBundleDealItemRequest
@@ -87,9 +87,9 @@ type BundleDealAddBundleDealItemResponse struct {
 
 
 //=======================================================
-// Object Raw Type - BundleDealRule
+// Object Raw Type - BundleDealGetBundleDealListBundleDealListBundleDealRule
 //=======================================================
-type BundleDealRule struct {
+type BundleDealGetBundleDealListBundleDealListBundleDealRule struct {
 // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
 RuleType int `json:"rule_type,omitempty"`
 // discount_value is The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
@@ -104,9 +104,9 @@ MinAmount int `json:"min_amount,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - BundleDealList
+// Object Raw Type - BundleDealGetBundleDealListBundleDealList
 //=======================================================
-type BundleDealList struct {
+type BundleDealGetBundleDealListBundleDealList struct {
 // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
 BundleDealID int `json:"bundle_deal_id,omitempty"`
 // name is Title of the bundle deal
@@ -116,7 +116,7 @@ StartTime int `json:"start_time,omitempty"`
 // end_time is The time when bundle deal activity end.
 EndTime int `json:"end_time,omitempty"`
 // bundle_deal_rule is 
-BundleDealRule BundleDealRule `json:"bundle_deal_rule"`
+BundleDealRule BundleDealGetBundleDealListBundleDealListBundleDealRule `json:"bundle_deal_rule"`
 // purchase_limit is Maximum number of bundle deals that can be bought by a buyer.
 PurchaseLimit int `json:"purchase_limit,omitempty"`
 }
@@ -127,7 +127,7 @@ PurchaseLimit int `json:"purchase_limit,omitempty"`
 //=======================================================
 type BundleDealGetBundleDealList struct {
 // bundle_deal_list is The list of bundle deal id
-BundleDealList []BundleDealList `json:"bundle_deal_list"`
+BundleDealList []BundleDealGetBundleDealListBundleDealList `json:"bundle_deal_list"`
 // more is this field shows whether there are more bundle deals in next page or not
 More bool `json:"more,omitempty"`
 }
@@ -155,6 +155,23 @@ type BundleDealGetBundleDealListResponse struct {
 
 
 //=======================================================
+// Object Raw Type - BundleDealGetBundleDealBundleDealRule
+//=======================================================
+type BundleDealGetBundleDealBundleDealRule struct {
+// rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
+RuleType int `json:"rule_type,omitempty"`
+// discount_value is The deducted price when when buying a bundle deal.Need to input it when the bundle deal rule type is 3
+DiscountValue float64 `json:"discount_value,omitempty"`
+// fix_price is The amount of the buyer needs to spend to purchase a bundle deal. Need to input it when the bundle deal rule type is 1
+FixPrice float64 `json:"fix_price,omitempty"`
+// discount_percentage is The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
+DiscountPercentage int `json:"discount_percentage,omitempty"`
+// min_amount is The quantity of items that need buyer to combine purchased
+MinAmount int `json:"min_amount,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - BundleDealGetBundleDeal
 //=======================================================
 type BundleDealGetBundleDeal struct {
@@ -167,7 +184,7 @@ StartTime int `json:"start_time,omitempty"`
 // end_time is The time when bundle deal activity end. 
 EndTime int `json:"end_time,omitempty"`
 // bundle_deal_rule is 
-BundleDealRule BundleDealRule `json:"bundle_deal_rule"`
+BundleDealRule BundleDealGetBundleDealBundleDealRule `json:"bundle_deal_rule"`
 // purchase_limit is Maximum number of bundle deals that can be bought by a buyer.
 PurchaseLimit int `json:"purchase_limit,omitempty"`
 }
@@ -191,11 +208,22 @@ type BundleDealGetBundleDealResponse struct {
 
 
 //=======================================================
+// Object Raw Type - BundleDealGetBundleDealItemItemList
+//=======================================================
+type BundleDealGetBundleDealItemItemList struct {
+// item_id is Shopee's unique identifier for a bundle deal activity.
+ItemID int `json:"item_id,omitempty"`
+// status is The status of items：enable = 1，disable =0
+Status int `json:"status,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - BundleDealGetBundleDealItem
 //=======================================================
 type BundleDealGetBundleDealItem struct {
 // item_list is The list of bundle deal item
-ItemList []ItemList `json:"item_list"`
+ItemList []BundleDealGetBundleDealItemItemList `json:"item_list"`
 // total_count is The number of  items in this bundle deal
 TotalCount int `json:"total_count,omitempty"`
 }
@@ -219,6 +247,23 @@ type BundleDealGetBundleDealItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - BundleDealUpdateBundleDealBundleDealRule
+//=======================================================
+type BundleDealUpdateBundleDealBundleDealRule struct {
+// rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
+RuleType int `json:"rule_type,omitempty"`
+// discount_value is The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
+DiscountValue float64 `json:"discount_value,omitempty"`
+// fix_price is The amount of the buyer needs to spend to purchase a bundle deal. Need to input it when the bundle deal rule type is 1
+FixPrice float64 `json:"fix_price,omitempty"`
+// discount_percentage is  The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
+DiscountPercentage int `json:"discount_percentage,omitempty"`
+// min_amount is  The quantity of items that need buyer to combine purchased
+MinAmount int `json:"min_amount,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - BundleDealUpdateBundleDeal
 //=======================================================
 type BundleDealUpdateBundleDeal struct {
@@ -231,7 +276,7 @@ StartTime int `json:"start_time,omitempty"`
 // end_time is The time when bundle deal activity end. 
 EndTime int `json:"end_time,omitempty"`
 // bundle_deal_rule is 
-BundleDealRule BundleDealRule `json:"bundle_deal_rule"`
+BundleDealRule BundleDealUpdateBundleDealBundleDealRule `json:"bundle_deal_rule"`
 // purchase_limit is Maximum number of bundle deals that can be bought by a buyer.
 PurchaseLimit int `json:"purchase_limit,omitempty"`
 }
@@ -273,13 +318,26 @@ type BundleDealUpdateBundleDealResponse struct {
 
 
 //=======================================================
+// Object Raw Type - BundleDealUpdateBundleDealItemFailedList
+//=======================================================
+type BundleDealUpdateBundleDealItemFailedList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// fail_error is Indicate error type if one element hit error.
+FailError string `json:"fail_error,omitempty"`
+// fail_message is Indicate error details if one element hit error.
+FailMessage string `json:"fail_message,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - BundleDealUpdateBundleDealItem
 //=======================================================
 type BundleDealUpdateBundleDealItem struct {
 // failed_list is Indicate error details.
-FailedList []FailedList `json:"failed_list"`
+FailedList []BundleDealUpdateBundleDealItemFailedList `json:"failed_list"`
 // success_list is The list of succeed added items
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []map[string]interface{} `json:"success_list,omitempty"`
 }
 //=======================================================
 // BundleDealUpdateBundleDealItemRequest
@@ -355,13 +413,26 @@ type BundleDealDeleteBundleDealResponse struct {
 
 
 //=======================================================
+// Object Raw Type - BundleDealDeleteBundleDealItemFailedList
+//=======================================================
+type BundleDealDeleteBundleDealItemFailedList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// fail_error is Indicate error type if one element hit error.
+FailError string `json:"fail_error,omitempty"`
+// fail_message is Indicate error details if one element hit error.
+FailMessage string `json:"fail_message,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - BundleDealDeleteBundleDealItem
 //=======================================================
 type BundleDealDeleteBundleDealItem struct {
 // failed_list is Indicate error details.
-FailedList []FailedList `json:"failed_list"`
+FailedList []BundleDealDeleteBundleDealItemFailedList `json:"failed_list"`
 // success_list is The list of succeed added items
-SuccessList []SuccessList `json:"success_list"`
+SuccessList []map[string]interface{} `json:"success_list,omitempty"`
 }
 //=======================================================
 // BundleDealDeleteBundleDealItemRequest

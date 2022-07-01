@@ -2,9 +2,9 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - User
+// Object Raw Type - ReturnsGetReturnDetailUser
 //=======================================================
-type User struct {
+type ReturnsGetReturnDetailUser struct {
 // username is Buyer's nickname.
 Username string `json:"username,omitempty"`
 // email is Buyer's email.
@@ -15,9 +15,53 @@ Portrait string `json:"portrait,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Activity
+// Object Raw Type - ReturnsGetReturnDetailItem
 //=======================================================
-type Activity struct {
+type ReturnsGetReturnDetailItem struct {
+// model_id is Shopee's unique identifier for a variation of an item.
+ModelID int `json:"model_id,omitempty"`
+// name is Name of item in local language.
+Name string `json:"name,omitempty"`
+// images is Image URLs of item.
+Images []string `json:"images,omitempty"`
+// amount is Amount of this item.
+Amount int `json:"amount,omitempty"`
+// item_price is The price of item.
+ItemPrice float64 `json:"item_price,omitempty"`
+// is_add_on_deal is To indicate if this item belongs to an addon deal.
+IsAddOnDeal bool `json:"is_add_on_deal,omitempty"`
+// is_main_item is To indicate if this item is main item or sub item. True means main item, false means sub item.
+IsMainItem bool `json:"is_main_item,omitempty"`
+// add_on_deal_id is The unique identity of an addon deal.
+AddOnDealID int `json:"add_on_deal_id,omitempty"`
+// item_id is The id of item.
+ItemID int `json:"item_id,omitempty"`
+// item_sku is The sku of item.
+ItemSku string `json:"item_sku,omitempty"`
+// variation_sku is the variation sku of item
+VariationSku string `json:"variation_sku,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ReturnsGetReturnDetailActivityItems
+//=======================================================
+type ReturnsGetReturnDetailActivityItems struct {
+// item_id is The id of item.
+ItemID int `json:"item_id,omitempty"`
+// variation_id is Shopee's unique identifier for a variation of an item.
+VariationID int `json:"variation_id,omitempty"`
+// quantity_purchased is item's quantity purchase
+QuantityPurchased int `json:"quantity_purchased,omitempty"`
+// original_price is item's origin price
+OriginalPrice string `json:"original_price,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ReturnsGetReturnDetailActivity
+//=======================================================
+type ReturnsGetReturnDetailActivity struct {
 // activity_id is The id of activity.
 ActivityID int `json:"activity_id,omitempty"`
 // activity_type is The type of activity.
@@ -27,14 +71,14 @@ OriginalPrice string `json:"original_price,omitempty"`
 // discounted_price is activity's discount price
 DiscountedPrice string `json:"discounted_price,omitempty"`
 // items is 
-Items []Items `json:"items"`
+Items []ReturnsGetReturnDetailActivityItems `json:"items"`
 }
 
 
 //=======================================================
-// Object Raw Type - SellerProof
+// Object Raw Type - ReturnsGetReturnDetailSellerProof
 //=======================================================
-type SellerProof struct {
+type ReturnsGetReturnDetailSellerProof struct {
 // seller_proof_status is To indicate whether the seller needs to provide evidence when the return status is RT4 and RT8. See "Data Definition - SellerProofStatus"
 SellerProofStatus string `json:"seller_proof_status,omitempty"`
 // seller_evidence_deadline is To indicate the deadline for submitting the evidence
@@ -43,9 +87,9 @@ SellerEvidenceDeadline int `json:"seller_evidence_deadline,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - SellerCompensation
+// Object Raw Type - ReturnsGetReturnDetailSellerCompensation
 //=======================================================
-type SellerCompensation struct {
+type ReturnsGetReturnDetailSellerCompensation struct {
 // seller_compensation_status is To indicate whether the seller is eligible for raising a compensation request. See "Data Definition - SellerCompensationStatus"
 SellerCompensationStatus string `json:"seller_compensation_status,omitempty"`
 // seller_compensation_due_date is To indicate the deadline for requesting the compensation
@@ -56,9 +100,9 @@ CompensationAmount float64 `json:"compensation_amount,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - Negotiation
+// Object Raw Type - ReturnsGetReturnDetailNegotiation
 //=======================================================
-type Negotiation struct {
+type ReturnsGetReturnDetailNegotiation struct {
 // negotiation_status is To indicate whether the seller can negotiate with the buyer. See "Data Definition - NegotiationStatus"
 NegotiationStatus string `json:"negotiation_status,omitempty"`
 // latest_solution is To indicate what is the offer solution. See "Data Definition - ReturnSolution"
@@ -75,9 +119,9 @@ OfferDueDate int `json:"offer_due_date,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ReturnPickupAddress
+// Object Raw Type - ReturnsGetReturnDetailReturnPickupAddress
 //=======================================================
-type ReturnPickupAddress struct {
+type ReturnsGetReturnDetailReturnPickupAddress struct {
 // address is 
 Address string `json:"address,omitempty"`
 // name is 
@@ -110,7 +154,7 @@ Reason string `json:"reason,omitempty"`
 // text_reason is Reason that buyer provide.
 TextReason string `json:"text_reason,omitempty"`
 // return_sn is The serial number of return.
-ReturnSn int `json:"return_sn,omitempty"`
+ReturnSN int `json:"return_sn,omitempty"`
 // refund_amount is Amount of the refund.
 RefundAmount float64 `json:"refund_amount,omitempty"`
 // currency is Currency of the return.
@@ -134,34 +178,34 @@ NeedsLogistics bool `json:"needs_logistics,omitempty"`
 // amount_before_discount is Order price before discount.
 AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty"`
 // user is 
-User User `json:"user"`
+User ReturnsGetReturnDetailUser `json:"user"`
 // item is 
-Item []Item `json:"item"`
+Item []ReturnsGetReturnDetailItem `json:"item"`
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 // return_ship_due_date is The due date for buyer to ship order.
 ReturnShipDueDate int `json:"return_ship_due_date,omitempty"`
 // return_seller_due_date is The due date for seller to deal with this return when buyer have shipped order.
 ReturnSellerDueDate int `json:"return_seller_due_date,omitempty"`
 // activity is 
-Activity []Activity `json:"activity"`
+Activity []ReturnsGetReturnDetailActivity `json:"activity"`
 // seller_proof is 
-SellerProof SellerProof `json:"seller_proof"`
+SellerProof ReturnsGetReturnDetailSellerProof `json:"seller_proof"`
 // seller_compensation is 
-SellerCompensation SellerCompensation `json:"seller_compensation"`
+SellerCompensation ReturnsGetReturnDetailSellerCompensation `json:"seller_compensation"`
 // negotiation is 
-Negotiation Negotiation `json:"negotiation"`
+Negotiation ReturnsGetReturnDetailNegotiation `json:"negotiation"`
 // logistics_status is To indicate the reverse logistic status. See "Data Definition - LogisticsStatus"
 LogisticsStatus string `json:"logistics_status,omitempty"`
 // return_pickup_address is To indicate the buyer's pickup address
-ReturnPickupAddress ReturnPickupAddress `json:"return_pickup_address"`
+ReturnPickupAddress ReturnsGetReturnDetailReturnPickupAddress `json:"return_pickup_address"`
 }
 //=======================================================
 // ReturnsGetReturnDetailRequest
 //=======================================================
 type ReturnsGetReturnDetailRequest struct {
     // return_sn is The serial number of return.
-    ReturnSn string `json:"return_sn"`
+    ReturnSN string `json:"return_sn"`
 }
 //=======================================================
 // ReturnsGetReturnDetailResponse
@@ -176,9 +220,51 @@ type ReturnsGetReturnDetailResponse struct {
 
 
 //=======================================================
-// Object Raw Type - Return
+// Object Raw Type - ReturnsGetReturnListReturnUser
 //=======================================================
-type Return struct {
+type ReturnsGetReturnListReturnUser struct {
+// username is Buyer's nickname.
+Username string `json:"username,omitempty"`
+// email is Buyer's email.
+Email string `json:"email,omitempty"`
+// portrait is Buyer's portrait.
+Portrait string `json:"portrait,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ReturnsGetReturnListReturnItem
+//=======================================================
+type ReturnsGetReturnListReturnItem struct {
+// model_id is Shopee's unique identifier for a variation of an item.
+ModelID int `json:"model_id,omitempty"`
+// name is Name of item in local language.
+Name string `json:"name,omitempty"`
+// images is Image URLs of item.
+Images []string `json:"images,omitempty"`
+// amount is Amount of this item.
+Amount int `json:"amount,omitempty"`
+// item_price is The price of item.
+ItemPrice float64 `json:"item_price,omitempty"`
+// is_add_on_deal is To indicate if this item belongs to an addon deal.
+IsAddOnDeal bool `json:"is_add_on_deal,omitempty"`
+// is_main_item is To indicate if this item is main item or sub item. True means main item, false means sub item.
+IsMainItem bool `json:"is_main_item,omitempty"`
+// add_on_deal_id is The unique identity of an addon deal.
+AddOnDealID int `json:"add_on_deal_id,omitempty"`
+// item_id is The id of item.
+ItemID int `json:"item_id,omitempty"`
+// item_sku is The sku of item.
+ItemSku string `json:"item_sku,omitempty"`
+// variation_sku is The variation sku of item
+VariationSku string `json:"variation_sku,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ReturnsGetReturnListReturn
+//=======================================================
+type ReturnsGetReturnListReturn struct {
 // image is Image URLs of return.
 Image []string `json:"image,omitempty"`
 // reason is Reason for return product. Applicable values: See Data Definition- ReturnReason.
@@ -186,7 +272,7 @@ Reason string `json:"reason,omitempty"`
 // text_reason is Reason that buyer provide.
 TextReason string `json:"text_reason,omitempty"`
 // return_sn is The serial number of return.
-ReturnSn int `json:"return_sn,omitempty"`
+ReturnSN int `json:"return_sn,omitempty"`
 // refund_amount is Amount of the refund.
 RefundAmount float64 `json:"refund_amount,omitempty"`
 // currency is Currency of the return.
@@ -210,11 +296,11 @@ NeedsLogistics bool `json:"needs_logistics,omitempty"`
 // amount_before_discount is Order price before discount.
 AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty"`
 // user is 
-User User `json:"user"`
+User ReturnsGetReturnListReturnUser `json:"user"`
 // item is 
-Item []Item `json:"item"`
+Item []ReturnsGetReturnListReturnItem `json:"item"`
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 // return_ship_due_date is The due date for buyer to ship order.
 ReturnShipDueDate int `json:"return_ship_due_date,omitempty"`
 // return_seller_due_date is The due date for seller to deal with this return when buyer have shipped order.
@@ -235,7 +321,7 @@ type ReturnsGetReturnList struct {
 // more is Whether has next page
 More bool `json:"more,omitempty"`
 // return is 
-Return []Return `json:"return"`
+Return []ReturnsGetReturnListReturn `json:"return"`
 }
 //=======================================================
 // ReturnsGetReturnListRequest
@@ -275,14 +361,14 @@ type ReturnsGetReturnListResponse struct {
 //=======================================================
 type ReturnsConfirm struct {
 // return_sn is The identifier for an API request for error tracking
-ReturnSn string `json:"return_sn,omitempty"`
+ReturnSN string `json:"return_sn,omitempty"`
 }
 //=======================================================
 // ReturnsConfirmRequest
 //=======================================================
 type ReturnsConfirmRequest struct {
     // return_sn is The serial number of return.
-    ReturnSn string `json:"return_sn"`
+    ReturnSN string `json:"return_sn"`
 }
 //=======================================================
 // ReturnsConfirmResponse
@@ -301,14 +387,14 @@ type ReturnsConfirmResponse struct {
 //=======================================================
 type ReturnsDispute struct {
 // return_sn is The identifier for an API request for error tracking
-ReturnSn string `json:"return_sn,omitempty"`
+ReturnSN string `json:"return_sn,omitempty"`
 }
 //=======================================================
 // ReturnsDisputeRequest
 //=======================================================
 type ReturnsDisputeRequest struct {
     // return_sn is The serial number of return.
-    ReturnSn string `json:"return_sn"`
+    ReturnSN string `json:"return_sn"`
     // email is 
     Email string `json:"email"`
     // dispute_reason is 
@@ -331,9 +417,9 @@ type ReturnsDisputeResponse struct {
 
 
 //=======================================================
-// Object Raw Type - OfferReturnRefund
+// Object Raw Type - ReturnsGetAvailableSolutionsOfferReturnRefund
 //=======================================================
-type OfferReturnRefund struct {
+type ReturnsGetAvailableSolutionsOfferReturnRefund struct {
 // eligibility is To indicate whether ReturnRefund solution is available for sellers to select
 Eligibility bool `json:"eligibility,omitempty"`
 // refund_amount_adjustable is To indicate whether refund is adjustable for ReturnRefund solution
@@ -344,9 +430,9 @@ MaxRefundAmount float64 `json:"max_refund_amount,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - OfferRefund
+// Object Raw Type - ReturnsGetAvailableSolutionsOfferRefund
 //=======================================================
-type OfferRefund struct {
+type ReturnsGetAvailableSolutionsOfferRefund struct {
 // eligibility is To indicate whether Refund solution is available for sellers to select
 Eligibility bool `json:"eligibility,omitempty"`
 // refund_amount_adjustable is To indicate whether refund is adjustable for Refund solution
@@ -361,18 +447,18 @@ MaxRefundAmount float64 `json:"max_refund_amount,omitempty"`
 //=======================================================
 type ReturnsGetAvailableSolutions struct {
 // return_sn is 
-ReturnSn string `json:"return_sn,omitempty"`
+ReturnSN string `json:"return_sn,omitempty"`
 // offer_return_refund is 
-OfferReturnRefund OfferReturnRefund `json:"offer_return_refund"`
+OfferReturnRefund ReturnsGetAvailableSolutionsOfferReturnRefund `json:"offer_return_refund"`
 // offer_refund is 
-OfferRefund OfferRefund `json:"offer_refund"`
+OfferRefund ReturnsGetAvailableSolutionsOfferRefund `json:"offer_refund"`
 }
 //=======================================================
 // ReturnsGetAvailableSolutionsRequest
 //=======================================================
 type ReturnsGetAvailableSolutionsRequest struct {
     // return_sn is The serial number of return.
-    ReturnSn string `json:"return_sn"`
+    ReturnSN string `json:"return_sn"`
 }
 //=======================================================
 // ReturnsGetAvailableSolutionsResponse
@@ -391,14 +477,14 @@ type ReturnsGetAvailableSolutionsResponse struct {
 //=======================================================
 type ReturnsOffer struct {
 // return_sn is 
-ReturnSn string `json:"return_sn,omitempty"`
+ReturnSN string `json:"return_sn,omitempty"`
 }
 //=======================================================
 // ReturnsOfferRequest
 //=======================================================
 type ReturnsOfferRequest struct {
     // return_sn is The serial number of return.
-    ReturnSn string `json:"return_sn"`
+    ReturnSN string `json:"return_sn"`
     // proposed_solution is The new solution to be offered. See "Data Definition - ReturnSolution"
     ProposedSolution string `json:"proposed_solution"`
     // proposed_adjusted_refund_amount is The new refund amount to be offered
@@ -421,14 +507,14 @@ type ReturnsOfferResponse struct {
 //=======================================================
 type ReturnsAcceptOffer struct {
 // return_sn is 
-ReturnSn string `json:"return_sn,omitempty"`
+ReturnSN string `json:"return_sn,omitempty"`
 }
 //=======================================================
 // ReturnsAcceptOfferRequest
 //=======================================================
 type ReturnsAcceptOfferRequest struct {
     // return_sn is The serial number of return.
-    ReturnSn string `json:"return_sn"`
+    ReturnSN string `json:"return_sn"`
 }
 //=======================================================
 // ReturnsAcceptOfferResponse

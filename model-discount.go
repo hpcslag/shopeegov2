@@ -32,9 +32,9 @@ type DiscountAddDiscountResponse struct {
 
 
 //=======================================================
-// Object Raw Type - ErrorList
+// Object Raw Type - DiscountAddDiscountItemErrorList
 //=======================================================
-type ErrorList struct {
+type DiscountAddDiscountItemErrorList struct {
 // item_id is  Shopee's unique identifier for an item.
 ItemID int `json:"item_id,omitempty"`
 // model_id is Shopee's unique identifier for a variation of an item. If there is no variation of this item, you don't need to input this param. Dafault is 0.
@@ -55,7 +55,7 @@ DiscountID int `json:"discount_id,omitempty"`
 // count is The number of items that add successfully.
 Count int `json:"count,omitempty"`
 // error_list is Indicate error details.
-ErrorList []ErrorList `json:"error_list"`
+ErrorList []DiscountAddDiscountItemErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountAddDiscountItemRequest
@@ -107,13 +107,28 @@ type DiscountDeleteDiscountResponse struct {
 
 
 //=======================================================
+// Object Raw Type - DiscountDeleteDiscountItemErrorList
+//=======================================================
+type DiscountDeleteDiscountItemErrorList struct {
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// modle_id is Shopee's unique identifier for a variation of an item.
+ModleID int `json:"modle_id,omitempty"`
+// fail_message is Indicate error details if one element hit error.
+FailMessage string `json:"fail_message,omitempty"`
+// fail_error is Indicate error type if one element hit error.
+FailError string `json:"fail_error,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - DiscountDeleteDiscountItem
 //=======================================================
 type DiscountDeleteDiscountItem struct {
 // discount_id is Shopee's unique identifier for a discount activity.
 DiscountID int `json:"discount_id,omitempty"`
 // error_list is Detail informations about error.
-ErrorList []ErrorList `json:"error_list"`
+ErrorList []DiscountDeleteDiscountItemErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountDeleteDiscountItemRequest
@@ -139,6 +154,56 @@ type DiscountDeleteDiscountItemResponse struct {
 
 
 //=======================================================
+// Object Raw Type - DiscountGetDiscountItemListModelList
+//=======================================================
+type DiscountGetDiscountItemListModelList struct {
+// model_name is Name of the variation that belongs to the same item.
+ModelName string `json:"model_name,omitempty"`
+// model_normal_stock is The current stock quantity of the variation.
+ModelNormalStock int `json:"model_normal_stock,omitempty"`
+// model_original_price is The original price before discount of the variation.
+ModelOriginalPrice float64 `json:"model_original_price,omitempty"`
+// model_promotion_price is The discount price of the variation.
+ModelPromotionPrice float64 `json:"model_promotion_price,omitempty"`
+// model_id is Shopee's unique identifier for a variation of an item.
+ModelID int `json:"model_id,omitempty"`
+// model_inflated_price_of_original_price is The original price after tax of item (Only for taxable Shop).
+ModelInflatedPriceOfOriginalPrice float64 `json:"model_inflated_price_of_original_price,omitempty"`
+// model_inflated_price_of_promotion_price is The discount price after tax of item (Only for taxable Shop).
+ModelInflatedPriceOfPromotionPrice float64 `json:"model_inflated_price_of_promotion_price,omitempty"`
+// model_promotion_stock is The reserved stock of the model. 
+ModelPromotionStock int `json:"model_promotion_stock,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - DiscountGetDiscountItemList
+//=======================================================
+type DiscountGetDiscountItemList struct {
+// item_promotion_price is The discount price of the item. If there is variation, this value is 0.
+ItemPromotionPrice float64 `json:"item_promotion_price,omitempty"`
+// item_name is Name of the item in local language.
+ItemName string `json:"item_name,omitempty"`
+// model_list is The models belong to this item.
+ModelList []DiscountGetDiscountItemListModelList `json:"model_list"`
+// item_id is Shopee's unique identifier for an item.
+ItemID int `json:"item_id,omitempty"`
+// purchase_limit is The max number of this product in the promotion price.
+PurchaseLimit int `json:"purchase_limit,omitempty"`
+// item_original_price is The original price before discount of the item. If there is variation, this value is 0.
+ItemOriginalPrice float64 `json:"item_original_price,omitempty"`
+// normal_stock is The current stock quantity of the item. 
+NormalStock int `json:"normal_stock,omitempty"`
+// item_inflated_price_of_original_price is The original price after tax of model (Only for taxable Shop).
+ItemInflatedPriceOfOriginalPrice float64 `json:"item_inflated_price_of_original_price,omitempty"`
+// item_inflated_price_of_promotion_price is The discount price after tax of model (Only for taxable Shop).
+ItemInflatedPriceOfPromotionPrice float64 `json:"item_inflated_price_of_promotion_price,omitempty"`
+// item_promotion_stock is The reserved stock of the item. If the item has no variation, this param is necessary.
+ItemPromotionStock int `json:"item_promotion_stock,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - DiscountGetDiscount
 //=======================================================
 type DiscountGetDiscount struct {
@@ -147,7 +212,7 @@ Status string `json:"status,omitempty"`
 // discount_name is Title of the discount.
 DiscountName string `json:"discount_name,omitempty"`
 // item_list is The items selected in this discount.
-ItemList []ItemList `json:"item_list"`
+ItemList []DiscountGetDiscountItemList `json:"item_list"`
 // start_time is The time when discount activity start.
 StartTime int `json:"start_time,omitempty"`
 // discount_id is Shopee's unique identifier for a discount activity.
@@ -181,9 +246,9 @@ type DiscountGetDiscountResponse struct {
 
 
 //=======================================================
-// Object Raw Type - DiscountList
+// Object Raw Type - DiscountGetDiscountListDiscountList
 //=======================================================
-type DiscountList struct {
+type DiscountGetDiscountListDiscountList struct {
 // status is The status of discount.
 Status string `json:"status,omitempty"`
 // discount_name is Title of the discount.
@@ -204,7 +269,7 @@ Source int `json:"source,omitempty"`
 //=======================================================
 type DiscountGetDiscountList struct {
 // discount_list is The discounts created in this shop.
-DiscountList []DiscountList `json:"discount_list"`
+DiscountList []DiscountGetDiscountListDiscountList `json:"discount_list"`
 // more is <p>This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.<br /></p>
 More bool `json:"more,omitempty"`
 }
@@ -270,6 +335,21 @@ type DiscountUpdateDiscountResponse struct {
 
 
 //=======================================================
+// Object Raw Type - DiscountUpdateDiscountItemErrorList
+//=======================================================
+type DiscountUpdateDiscountItemErrorList struct {
+// item_id is The items which have something error.
+ItemID int `json:"item_id,omitempty"`
+// model_id is The models which have something error.
+ModelID int `json:"model_id,omitempty"`
+// fail_message is Indicate error details if one element hit error.
+FailMessage string `json:"fail_message,omitempty"`
+// fail_error is Indicate error type if one element hit error.
+FailError string `json:"fail_error,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - DiscountUpdateDiscountItem
 //=======================================================
 type DiscountUpdateDiscountItem struct {
@@ -278,7 +358,7 @@ DiscountID int `json:"discount_id,omitempty"`
 // count is The number of items that modify successfully.
 Count int `json:"count,omitempty"`
 // error_list is Error list of this discount.
-ErrorList []ErrorList `json:"error_list"`
+ErrorList []DiscountUpdateDiscountItemErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountUpdateDiscountItemRequest

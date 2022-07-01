@@ -2,9 +2,9 @@ package shopeego
 
 
 //=======================================================
-// Object Raw Type - Items
+// Object Raw Type - PaymentGetEscrowDetailOrderIncomeItems
 //=======================================================
-type Items struct {
+type PaymentGetEscrowDetailOrderIncomeItems struct {
 // item_id is ID of item
 ItemID int `json:"item_id,omitempty"`
 // item_name is Name of item
@@ -43,9 +43,9 @@ QuantityPurchased int `json:"quantity_purchased,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - OrderIncome
+// Object Raw Type - PaymentGetEscrowDetailOrderIncome
 //=======================================================
-type OrderIncome struct {
+type PaymentGetEscrowDetailOrderIncome struct {
 // escrow_amount is <p>The total amount that the seller is expected to receive for the order and will change before order completed.&nbsp;</p><p>For non cb sip affiliate shop: escrow_amount=buyer_total_amount+shopee_discount+voucher_from_shopee+coins+payment_promotion-buyer_transaction_fee-cross_border_tax-commission_fee-service_fee-seller_transaction_fee-seller_coin_cash_back-escrow_tax-final_product_vat_tax-drc_adjustable_refund+final_shipping_fee(could be postitive/negtive).&nbsp;</p><p>For cb sip affiliate shop:&nbsp;</p><p>escrow_amount=sum of all Asku's settlement price - service_fee - commission_fee -seller_return_refund - drc_adjustable_refund.</p>
 EscrowAmount float64 `json:"escrow_amount,omitempty"`
 // buyer_total_amount is The total amount that paid by buyer.
@@ -109,7 +109,7 @@ OriginalShopeeDiscount float64 `json:"original_shopee_discount,omitempty"`
 // seller_return_refund is Amount returned to Seller in the event of Partial Return.
 SellerReturnRefund float64 `json:"seller_return_refund,omitempty"`
 // items is This object contains the detailed breakdown for all the items in this order, including regular items(non-activity) and activity items.
-Items []Items `json:"items"`
+Items []PaymentGetEscrowDetailOrderIncomeItems `json:"items"`
 // escrow_amount_pri is The total amount in the prim currency that the seller is expected to receive for the order and will change before order completed . escrow_amount_pri=original_price_pri-seller_return_refund_pri-commission_fee_pri-service_fee_pri-drc_adjustable_refund_pri. (Only display for non cb sip order.)
 EscrowAmountPri float64 `json:"escrow_amount_pri,omitempty"`
 // buyer_total_amount_pri is The total amount that paid by buyer in the primary currency. (Only display for cb sip affiliate order. )
@@ -148,20 +148,20 @@ FinalProductVatTax float64 `json:"final_product_vat_tax,omitempty"`
 //=======================================================
 type PaymentGetEscrowDetail struct {
 // order_sn is  Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 // buyer_user_name is The username of buyer.
 BuyerUserName string `json:"buyer_user_name,omitempty"`
 // return_order_sn_list is The list of the serial number of return.
 ReturnOrderSnList []string `json:"return_order_sn_list,omitempty"`
 // order_income is 
-OrderIncome OrderIncome `json:"order_income"`
+OrderIncome PaymentGetEscrowDetailOrderIncome `json:"order_income"`
 }
 //=======================================================
 // PaymentGetEscrowDetailRequest
 //=======================================================
 type PaymentGetEscrowDetailRequest struct {
     // order_sn is Shopee's unique identifier for an order.
-    OrderSn string `json:"order_sn"`
+    OrderSN string `json:"order_sn"`
 }
 //=======================================================
 // PaymentGetEscrowDetailResponse
@@ -226,9 +226,9 @@ type PaymentGetShopInstallmentStatusResponse struct {
 
 
 //=======================================================
-// Object Raw Type - PayoutInfo
+// Object Raw Type - PaymentGetPayoutDetailPayoutListPayoutInfo
 //=======================================================
-type PayoutInfo struct {
+type PaymentGetPayoutDetailPayoutListPayoutInfo struct {
 // from_currency is The settlement currency of orders.
 FromCurrency string `json:"from_currency,omitempty"`
 // payout_currency is The actual currency of payout.
@@ -249,22 +249,22 @@ PayeeID string `json:"payee_id,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - EscrowList
+// Object Raw Type - PaymentGetPayoutDetailPayoutListEscrowList
 //=======================================================
-type EscrowList struct {
+type PaymentGetPayoutDetailPayoutListEscrowList struct {
 // escrow_amount is The total amount that the seller is expected to receive for the order.
 EscrowAmount float64 `json:"escrow_amount,omitempty"`
 // currency is The currency used for calculating escrow amount.
 Currency string `json:"currency,omitempty"`
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - OfflineAdjustmentList
+// Object Raw Type - PaymentGetPayoutDetailPayoutListOfflineAdjustmentList
 //=======================================================
-type OfflineAdjustmentList struct {
+type PaymentGetPayoutDetailPayoutListOfflineAdjustmentList struct {
 // adjustment_amount is The amount of offline adjustments.
 AdjustmentAmount float64 `json:"adjustment_amount,omitempty"`
 // module is The reason for offline adjustment.
@@ -276,20 +276,20 @@ Scenario string `json:"scenario,omitempty"`
 // adjustment_level is Dimension of offline adjustment. Available value: shop, order.
 AdjustmentLevel string `json:"adjustment_level,omitempty"`
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - PayoutList
+// Object Raw Type - PaymentGetPayoutDetailPayoutList
 //=======================================================
-type PayoutList struct {
+type PaymentGetPayoutDetailPayoutList struct {
 // payout_info is The information of payout.
-PayoutInfo PayoutInfo `json:"payout_info"`
+PayoutInfo PaymentGetPayoutDetailPayoutListPayoutInfo `json:"payout_info"`
 // escrow_list is 
-EscrowList []EscrowList `json:"escrow_list"`
+EscrowList []PaymentGetPayoutDetailPayoutListEscrowList `json:"escrow_list"`
 // offline_adjustment_list is The list of offline adjustments.
-OfflineAdjustmentList []OfflineAdjustmentList `json:"offline_adjustment_list"`
+OfflineAdjustmentList []PaymentGetPayoutDetailPayoutListOfflineAdjustmentList `json:"offline_adjustment_list"`
 }
 
 
@@ -300,7 +300,7 @@ type PaymentGetPayoutDetail struct {
 // more is 
 More bool `json:"more,omitempty"`
 // payout_list is 
-PayoutList []PayoutList `json:"payout_list"`
+PayoutList []PaymentGetPayoutDetailPayoutList `json:"payout_list"`
 }
 //=======================================================
 // PaymentGetPayoutDetailRequest
@@ -328,9 +328,9 @@ type PaymentGetPayoutDetailResponse struct {
 
 
 //=======================================================
-// Object Raw Type - ItemInstallmentList
+// Object Raw Type - PaymentSetItemInstallmentStatusItemInstallmentList
 //=======================================================
-type ItemInstallmentList struct {
+type PaymentSetItemInstallmentStatusItemInstallmentList struct {
 // item_id is Item unique id
 ItemID int `json:"item_id,omitempty"`
 // tenure_list is The tenures of item support installment. [] represents with no installment
@@ -339,9 +339,9 @@ TenureList []int `json:"tenure_list,omitempty"`
 
 
 //=======================================================
-// Object Raw Type - ItemPlanAhoraList
+// Object Raw Type - PaymentSetItemInstallmentStatusItemPlanAhoraList
 //=======================================================
-type ItemPlanAhoraList struct {
+type PaymentSetItemInstallmentStatusItemPlanAhoraList struct {
 // item_id is Only applicable for local AR sellers.
 ItemID int `json:"item_id,omitempty"`
 // participate_plan_ahor is Only applicable for local AR sellers.
@@ -354,9 +354,9 @@ ParticipatePlanAhor bool `json:"participate_plan_ahor,omitempty"`
 //=======================================================
 type PaymentSetItemInstallmentStatus struct {
 // item_installment_list is 
-ItemInstallmentList []ItemInstallmentList `json:"item_installment_list"`
+ItemInstallmentList []PaymentSetItemInstallmentStatusItemInstallmentList `json:"item_installment_list"`
 // item_plan_ahora_list is Only applicable for local AR sellers.
-ItemPlanAhoraList []ItemPlanAhoraList `json:"item_plan_ahora_list"`
+ItemPlanAhoraList []PaymentSetItemInstallmentStatusItemPlanAhoraList `json:"item_plan_ahora_list"`
 }
 //=======================================================
 // PaymentSetItemInstallmentStatusRequest
@@ -382,13 +382,35 @@ type PaymentSetItemInstallmentStatusResponse struct {
 
 
 //=======================================================
+// Object Raw Type - PaymentGetItemInstallmentStatusItemInstallmentList
+//=======================================================
+type PaymentGetItemInstallmentStatusItemInstallmentList struct {
+// item_id is Item unique id
+ItemID int `json:"item_id,omitempty"`
+// tenure_list is The tenures of item support installment. [] represents with no installment
+TenureList []int `json:"tenure_list,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - PaymentGetItemInstallmentStatusItemPlanAhoraList
+//=======================================================
+type PaymentGetItemInstallmentStatusItemPlanAhoraList struct {
+// item_id is Only applicable for local AR sellers.
+ItemID int `json:"item_id,omitempty"`
+// participate_plan_ahora is Only applicable for local AR sellers.
+ParticipatePlanAhora bool `json:"participate_plan_ahora,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - PaymentGetItemInstallmentStatus
 //=======================================================
 type PaymentGetItemInstallmentStatus struct {
 // item_installment_list is 
-ItemInstallmentList []ItemInstallmentList `json:"item_installment_list"`
+ItemInstallmentList []PaymentGetItemInstallmentStatusItemInstallmentList `json:"item_installment_list"`
 // item_plan_ahora_list is Only applicable for local AR sellers.
-ItemPlanAhoraList []ItemPlanAhoraList `json:"item_plan_ahora_list"`
+ItemPlanAhoraList []PaymentGetItemInstallmentStatusItemPlanAhoraList `json:"item_plan_ahora_list"`
 }
 //=======================================================
 // PaymentGetItemInstallmentStatusRequest
@@ -436,20 +458,20 @@ type PaymentGetPaymentMethodListResponse struct {
 
 
 //=======================================================
-// Object Raw Type - PayOrderList
+// Object Raw Type - PaymentGetWalletTransactionListTransactionListPayOrderList
 //=======================================================
-type PayOrderList struct {
+type PaymentGetWalletTransactionListTransactionListPayOrderList struct {
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 // shop_name is Name of the shop.
 ShopName string `json:"shop_name,omitempty"`
 }
 
 
 //=======================================================
-// Object Raw Type - TransactionList
+// Object Raw Type - PaymentGetWalletTransactionListTransactionList
 //=======================================================
-type TransactionList struct {
+type PaymentGetWalletTransactionListTransactionList struct {
 // status is The status of the transaction，available values: FAILED,COMPLETED,PENDING,INITIAL.
 Status string `json:"status,omitempty"`
 // transaction_type is The type of transaction.
@@ -461,9 +483,9 @@ CurrentBalance float64 `json:"current_balance,omitempty"`
 // create_time is The create time of the transaction.
 CreateTime int `json:"create_time,omitempty"`
 // order_sn is Shopee's unique identifier for an order.
-OrderSn string `json:"order_sn,omitempty"`
+OrderSN string `json:"order_sn,omitempty"`
 // refund_sn is The serial number of return.
-RefundSn string `json:"refund_sn,omitempty"`
+RefundSN string `json:"refund_sn,omitempty"`
 // withdrawal_type is The type of withdrawal.
 WithdrawalType string `json:"withdrawal_type,omitempty"`
 // transaction_fee is This field indicates the transaction fee.
@@ -473,7 +495,7 @@ Description string `json:"description,omitempty"`
 // buyer_name is The name of buyer.
 BuyerName string `json:"buyer_name,omitempty"`
 // pay_order_list is 
-PayOrderList []PayOrderList `json:"pay_order_list"`
+PayOrderList []PaymentGetWalletTransactionListTransactionListPayOrderList `json:"pay_order_list"`
 // shop_name is Name of the shop.
 ShopName string `json:"shop_name,omitempty"`
 // withdraw_id is Withdraw ID when transaction type is withdraw_created, withdrawal_completed, withdrawal_cancelled.
@@ -490,7 +512,7 @@ RootWithdrawalID int `json:"root_withdrawal_id,omitempty"`
 //=======================================================
 type PaymentGetWalletTransactionList struct {
 // transaction_list is 
-TransactionList []TransactionList `json:"transaction_list"`
+TransactionList []PaymentGetWalletTransactionListTransactionList `json:"transaction_list"`
 // more is 
 More bool `json:"more,omitempty"`
 }
@@ -524,11 +546,24 @@ type PaymentGetWalletTransactionListResponse struct {
 
 
 //=======================================================
+// Object Raw Type - PaymentGetEscrowListEscrowList
+//=======================================================
+type PaymentGetEscrowListEscrowList struct {
+// order_sn is 
+OrderSN string `json:"order_sn,omitempty"`
+// payout_amount is The settlement amount
+PayoutAmount float64 `json:"payout_amount,omitempty"`
+// escrow_release_time is The release time
+EscrowReleaseTime int `json:"escrow_release_time,omitempty"`
+}
+
+
+//=======================================================
 // Object Raw Type - PaymentGetEscrowList
 //=======================================================
 type PaymentGetEscrowList struct {
 // escrow_list is 
-EscrowList []EscrowList `json:"escrow_list"`
+EscrowList []PaymentGetEscrowListEscrowList `json:"escrow_list"`
 // more is 
 More bool `json:"more,omitempty"`
 }
