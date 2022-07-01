@@ -1,6 +1,6 @@
 package shopeego
 
 func init() {
-	availablePaths["GetAccessToken"] = "/auth/token/get"
-	availablePaths["RefreshAccessToken"] = "/auth/access_token/get"
+	availablePaths["GetAccessToken"] = "/api/v2/auth/token/get"
+	availablePaths["RefreshAccessToken"] = "/api/v2/auth/access_token/get"
 }
