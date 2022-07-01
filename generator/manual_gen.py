@@ -129,7 +129,7 @@ type %s struct {""" % (structName, structName))
                 # gen sub struct for typing
                 dependenciesStructRaw += ParseObjectToStruct(subObjName, item)
             
-            if item["type"] == "list":
+            if item["type"] == "list" or item["type"] == "object[]":
                 subObjName = '[]' + subObjName
 
             structRaw += """
@@ -242,6 +242,9 @@ type %sRequest struct {""" % (apiName, apiName))
                         globalStruct.append(objName)
                         # gen sub struct for typing
                         f.write(ParseObjectToStruct(objName, reqItem))
+
+                    if reqItem["type"] == "list" or reqItem["type"] == "object[]":
+                        objName = '[]' + objName
                                        
                     reqStr += """
     // %s is %s
@@ -306,6 +309,9 @@ type %sResponse struct {
                         globalStruct.append(objName)
                         # gen sub struct for typing
                         f.write(ParseObjectToStruct(objName, resItem))
+
+                    if reqItem["type"] == "list" or reqItem["type"] == "object[]":
+                        objName = '[]' + objName
                                        
                     resStr += """
     // %s is %s
