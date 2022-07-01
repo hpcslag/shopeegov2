@@ -61,9 +61,9 @@ FailMessage string `json:"fail_message,omitempty"`
 //=======================================================
 type BundleDealAddBundleDealItem struct {
 // failed_list is Indicate error details.
-FailedList FailedList `json:"failed_list"`
+FailedList []FailedList `json:"failed_list"`
 // success_list is The list of succeed added items
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 }
 //=======================================================
 // BundleDealAddBundleDealItemRequest
@@ -72,7 +72,7 @@ type BundleDealAddBundleDealItemRequest struct {
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
     // item_list is The items added in this bundle deal promotion.
-    ItemList ItemList `json:"item_list"`
+    ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // BundleDealAddBundleDealItemResponse
@@ -127,7 +127,7 @@ PurchaseLimit int `json:"purchase_limit,omitempty"`
 //=======================================================
 type BundleDealGetBundleDealList struct {
 // bundle_deal_list is The list of bundle deal id
-BundleDealList BundleDealList `json:"bundle_deal_list"`
+BundleDealList []BundleDealList `json:"bundle_deal_list"`
 // more is this field shows whether there are more bundle deals in next page or not
 More bool `json:"more,omitempty"`
 }
@@ -195,7 +195,7 @@ type BundleDealGetBundleDealResponse struct {
 //=======================================================
 type BundleDealGetBundleDealItem struct {
 // item_list is The list of bundle deal item
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 // total_count is The number of  items in this bundle deal
 TotalCount int `json:"total_count,omitempty"`
 }
@@ -277,9 +277,9 @@ type BundleDealUpdateBundleDealResponse struct {
 //=======================================================
 type BundleDealUpdateBundleDealItem struct {
 // failed_list is Indicate error details.
-FailedList FailedList `json:"failed_list"`
+FailedList []FailedList `json:"failed_list"`
 // success_list is The list of succeed added items
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 }
 //=======================================================
 // BundleDealUpdateBundleDealItemRequest
@@ -288,7 +288,7 @@ type BundleDealUpdateBundleDealItemRequest struct {
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
     // item_list is The items added in this bundle deal promotion.
-    ItemList ItemList `json:"item_list"`
+    ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // BundleDealUpdateBundleDealItemResponse
@@ -359,9 +359,9 @@ type BundleDealDeleteBundleDealResponse struct {
 //=======================================================
 type BundleDealDeleteBundleDealItem struct {
 // failed_list is Indicate error details.
-FailedList FailedList `json:"failed_list"`
+FailedList []FailedList `json:"failed_list"`
 // success_list is The list of succeed added items
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 }
 //=======================================================
 // BundleDealDeleteBundleDealItemRequest
@@ -370,7 +370,7 @@ type BundleDealDeleteBundleDealItemRequest struct {
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
     // item_list is The items deleted in this bundle deal promotion.
-    ItemList ItemList `json:"item_list"`
+    ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // BundleDealDeleteBundleDealItemResponse

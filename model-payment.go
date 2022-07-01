@@ -109,7 +109,7 @@ OriginalShopeeDiscount float64 `json:"original_shopee_discount,omitempty"`
 // seller_return_refund is Amount returned to Seller in the event of Partial Return.
 SellerReturnRefund float64 `json:"seller_return_refund,omitempty"`
 // items is This object contains the detailed breakdown for all the items in this order, including regular items(non-activity) and activity items.
-Items Items `json:"items"`
+Items []Items `json:"items"`
 // escrow_amount_pri is The total amount in the prim currency that the seller is expected to receive for the order and will change before order completed . escrow_amount_pri=original_price_pri-seller_return_refund_pri-commission_fee_pri-service_fee_pri-drc_adjustable_refund_pri. (Only display for non cb sip order.)
 EscrowAmountPri float64 `json:"escrow_amount_pri,omitempty"`
 // buyer_total_amount_pri is The total amount that paid by buyer in the primary currency. (Only display for cb sip affiliate order. )
@@ -287,9 +287,9 @@ type PayoutList struct {
 // payout_info is The information of payout.
 PayoutInfo PayoutInfo `json:"payout_info"`
 // escrow_list is 
-EscrowList EscrowList `json:"escrow_list"`
+EscrowList []EscrowList `json:"escrow_list"`
 // offline_adjustment_list is The list of offline adjustments.
-OfflineAdjustmentList OfflineAdjustmentList `json:"offline_adjustment_list"`
+OfflineAdjustmentList []OfflineAdjustmentList `json:"offline_adjustment_list"`
 }
 
 
@@ -300,7 +300,7 @@ type PaymentGetPayoutDetail struct {
 // more is 
 More bool `json:"more,omitempty"`
 // payout_list is 
-PayoutList PayoutList `json:"payout_list"`
+PayoutList []PayoutList `json:"payout_list"`
 }
 //=======================================================
 // PaymentGetPayoutDetailRequest
@@ -354,9 +354,9 @@ ParticipatePlanAhor bool `json:"participate_plan_ahor,omitempty"`
 //=======================================================
 type PaymentSetItemInstallmentStatus struct {
 // item_installment_list is 
-ItemInstallmentList ItemInstallmentList `json:"item_installment_list"`
+ItemInstallmentList []ItemInstallmentList `json:"item_installment_list"`
 // item_plan_ahora_list is Only applicable for local AR sellers.
-ItemPlanAhoraList ItemPlanAhoraList `json:"item_plan_ahora_list"`
+ItemPlanAhoraList []ItemPlanAhoraList `json:"item_plan_ahora_list"`
 }
 //=======================================================
 // PaymentSetItemInstallmentStatusRequest
@@ -386,9 +386,9 @@ type PaymentSetItemInstallmentStatusResponse struct {
 //=======================================================
 type PaymentGetItemInstallmentStatus struct {
 // item_installment_list is 
-ItemInstallmentList ItemInstallmentList `json:"item_installment_list"`
+ItemInstallmentList []ItemInstallmentList `json:"item_installment_list"`
 // item_plan_ahora_list is Only applicable for local AR sellers.
-ItemPlanAhoraList ItemPlanAhoraList `json:"item_plan_ahora_list"`
+ItemPlanAhoraList []ItemPlanAhoraList `json:"item_plan_ahora_list"`
 }
 //=======================================================
 // PaymentGetItemInstallmentStatusRequest
@@ -431,7 +431,7 @@ type PaymentGetPaymentMethodListResponse struct {
     V2UnityResponse
 
     // response is 
-    Response PaymentGetPaymentMethodList `json:"response"`
+    Response []PaymentGetPaymentMethodList `json:"response"`
 }
 
 
@@ -473,7 +473,7 @@ Description string `json:"description,omitempty"`
 // buyer_name is The name of buyer.
 BuyerName string `json:"buyer_name,omitempty"`
 // pay_order_list is 
-PayOrderList PayOrderList `json:"pay_order_list"`
+PayOrderList []PayOrderList `json:"pay_order_list"`
 // shop_name is Name of the shop.
 ShopName string `json:"shop_name,omitempty"`
 // withdraw_id is Withdraw ID when transaction type is withdraw_created, withdrawal_completed, withdrawal_cancelled.
@@ -490,7 +490,7 @@ RootWithdrawalID int `json:"root_withdrawal_id,omitempty"`
 //=======================================================
 type PaymentGetWalletTransactionList struct {
 // transaction_list is 
-TransactionList TransactionList `json:"transaction_list"`
+TransactionList []TransactionList `json:"transaction_list"`
 // more is 
 More bool `json:"more,omitempty"`
 }
@@ -528,7 +528,7 @@ type PaymentGetWalletTransactionListResponse struct {
 //=======================================================
 type PaymentGetEscrowList struct {
 // escrow_list is 
-EscrowList EscrowList `json:"escrow_list"`
+EscrowList []EscrowList `json:"escrow_list"`
 // more is 
 More bool `json:"more,omitempty"`
 }

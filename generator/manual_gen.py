@@ -403,12 +403,14 @@ type V2UnityResponse struct {
         apiName = item["name"]
         noResponse = item["no_response"]
         isArray = item["is_array"]
-
+        
+        withPtrStr = ""
         responseStructName = apiName
         if isArray:
             responseStructName = '[]' + responseStructName
         else:
             responseStructName = '*' + responseStructName
+            withPtrStr = "&"
 
         if noResponse:
             # not response
@@ -448,7 +450,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (err error) {
         
 
         globalInterfaceStr += """
-    %s(*%sRequest) (*%s, error)
+    %s(*%sRequest) (%s, error)
 """ % (apiName, apiName, responseStructName)
 
         globalImplementStr += """
@@ -475,10 +477,10 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp %s, err error) {
 		return
 	}
 
-	resp = wrappedResponse.Response
+	resp = %swrappedResponse.Response
 	return
 }
-""" % (apiName, apiName, responseStructName, apiName, apiName)
+""" % (apiName, apiName, responseStructName, apiName, apiName, withPtrStr)
 
     globalInterfaceStr += """
 }

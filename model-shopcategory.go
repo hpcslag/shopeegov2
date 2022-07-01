@@ -49,7 +49,7 @@ SortWeight int `json:"sort_weight,omitempty"`
 //=======================================================
 type ShopCategoryGetShopCategoryList struct {
 // shop_categorys is ShopCategory's unique identifier.
-ShopCategorys ShopCategorys `json:"shop_categorys"`
+ShopCategorys []ShopCategorys `json:"shop_categorys"`
 // total_count is This is to indicate the whole number of  in-shop categories under the shop.
 TotalCount int `json:"total_count,omitempty"`
 // more is This is to indicate whether the list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest.
@@ -160,7 +160,7 @@ FailMessage string `json:"fail_message,omitempty"`
 //=======================================================
 type ShopCategoryAddItemList struct {
 // invalid_item_id_list is List of invalid item ids.
-InvalidItemIdList InvalidItemIdList `json:"invalid_item_id_list"`
+InvalidItemIdList []InvalidItemIdList `json:"invalid_item_id_list"`
 // shop_category_id is ShopCategory's unique identifier.
 ShopCategoryID int `json:"shop_category_id,omitempty"`
 // current_count is Count of items under this shop category after deletion.

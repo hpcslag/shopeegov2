@@ -8,7 +8,7 @@ type FirstMileGetUnbindOrderList struct {
 // more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 More bool `json:"more,omitempty"`
 // order_list is The result list of order you querying.
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -52,7 +52,7 @@ DeclareDate string `json:"declare_date,omitempty"`
 // more is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 More bool `json:"more,omitempty"`
 // order_list is The list of order.
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -131,7 +131,7 @@ type FirstMileBindFirstMileTrackingNumber struct {
 // first_mile_tracking_number is The first mile tracking number
 FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
 // order_list is The list of orders.
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileBindFirstMileTrackingNumberRequest
@@ -156,7 +156,7 @@ type FirstMileBindFirstMileTrackingNumberRequest struct {
     // height is The height of the parcel.
     Height float64 `json:"height,omitempty"`
     // order_list is The set of ordersn. You can specify up to 50 ordersns in this call.one fm_tn maximum number of total bind orders is 10000.
-    OrderList OrderList `json:"order_list"`
+    OrderList []OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileBindFirstMileTrackingNumberResponse
@@ -177,7 +177,7 @@ type FirstMileUnbindFirstMileTrackingNumber struct {
 // first_mile_tracking_number is The first mile tracking number.
 FirstMileTrackingNumber string `json:"first_mile_tracking_number,omitempty"`
 // order_list is The binding result list of each order.
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileUnbindFirstMileTrackingNumberRequest
@@ -186,7 +186,7 @@ type FirstMileUnbindFirstMileTrackingNumberRequest struct {
     // first_mile_tracking_number is The identifier for an API request for error tracking.
     FirstMileTrackingNumber string `json:"first_mile_tracking_number"`
     // order_list is The list of order info you want to unbind from the given first mile tracking number.
-    OrderList OrderList `json:"order_list"`
+    OrderList []OrderList `json:"order_list"`
 }
 //=======================================================
 // FirstMileUnbindFirstMileTrackingNumberResponse
@@ -220,7 +220,7 @@ type FirstMileGetTrackingNumberList struct {
 // more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
 More bool `json:"more,omitempty"`
 // first_mile_tracking_number_list is The first-mile tracking number.
-FirstMileTrackingNumberList FirstMileTrackingNumberList `json:"first_mile_tracking_number_list"`
+FirstMileTrackingNumberList []FirstMileTrackingNumberList `json:"first_mile_tracking_number_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -269,7 +269,7 @@ type FirstMileGetWaybillResponse struct {
 //=======================================================
 type FirstMileGetChannelList struct {
 // logistics_channel_list is 
-LogisticsChannelList LogisticsChannelList `json:"logistics_channel_list"`
+LogisticsChannelList []LogisticsChannelList `json:"logistics_channel_list"`
 }
 //=======================================================
 // FirstMileGetChannelListRequest

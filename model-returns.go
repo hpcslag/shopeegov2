@@ -27,7 +27,7 @@ OriginalPrice string `json:"original_price,omitempty"`
 // discounted_price is activity's discount price
 DiscountedPrice string `json:"discounted_price,omitempty"`
 // items is 
-Items Items `json:"items"`
+Items []Items `json:"items"`
 }
 
 
@@ -136,7 +136,7 @@ AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty"`
 // user is 
 User User `json:"user"`
 // item is 
-Item Item `json:"item"`
+Item []Item `json:"item"`
 // order_sn is Shopee's unique identifier for an order.
 OrderSn string `json:"order_sn,omitempty"`
 // return_ship_due_date is The due date for buyer to ship order.
@@ -144,7 +144,7 @@ ReturnShipDueDate int `json:"return_ship_due_date,omitempty"`
 // return_seller_due_date is The due date for seller to deal with this return when buyer have shipped order.
 ReturnSellerDueDate int `json:"return_seller_due_date,omitempty"`
 // activity is 
-Activity Activity `json:"activity"`
+Activity []Activity `json:"activity"`
 // seller_proof is 
 SellerProof SellerProof `json:"seller_proof"`
 // seller_compensation is 
@@ -212,7 +212,7 @@ AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty"`
 // user is 
 User User `json:"user"`
 // item is 
-Item Item `json:"item"`
+Item []Item `json:"item"`
 // order_sn is Shopee's unique identifier for an order.
 OrderSn string `json:"order_sn,omitempty"`
 // return_ship_due_date is The due date for buyer to ship order.
@@ -235,7 +235,7 @@ type ReturnsGetReturnList struct {
 // more is Whether has next page
 More bool `json:"more,omitempty"`
 // return is 
-Return Return `json:"return"`
+Return []Return `json:"return"`
 }
 //=======================================================
 // ReturnsGetReturnListRequest
@@ -266,7 +266,7 @@ type ReturnsGetReturnListResponse struct {
     V2UnityResponse
 
     // response is Amount of the refund.
-    Response ReturnsGetReturnList `json:"response,omitempty"`
+    Response []ReturnsGetReturnList `json:"response,omitempty"`
 }
 
 

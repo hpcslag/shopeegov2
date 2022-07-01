@@ -59,7 +59,7 @@ SuccessShopIdList []int `json:"success_shop_id_list,omitempty"`
 // refresh_token is <p>Use refresh_token to obtain new access_token. Valid for each shop_id and merchant_id respectively one-time use, expires in 30 days.<br /></p>
 RefreshToken string `json:"refresh_token,omitempty"`
 // failure_list is <p>The failure information list<br /></p>
-FailureList FailureList `json:"failure_list"`
+FailureList []FailureList `json:"failure_list"`
 }
 //=======================================================
 // PublicGetRefreshTokenByUpgradeCodeRequest

@@ -55,7 +55,7 @@ Status int `json:"status,omitempty"`
 //=======================================================
 type AddOnDealAddAddOnDealMainItem struct {
 // main_item_list is The main items added in this add on deal promotion.
-MainItemList MainItemList `json:"main_item_list"`
+MainItemList []MainItemList `json:"main_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -66,7 +66,7 @@ type AddOnDealAddAddOnDealMainItemRequest struct {
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // main_item_list is The main items added in this add on deal promotion.
-    MainItemList MainItemList `json:"main_item_list"`
+    MainItemList []MainItemList `json:"main_item_list"`
 }
 //=======================================================
 // AddOnDealAddAddOnDealMainItemResponse
@@ -102,7 +102,7 @@ SubItemLimit int `json:"sub_item_limit,omitempty"`
 //=======================================================
 type AddOnDealAddAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList SubItemList `json:"sub_item_list"`
+SubItemList []SubItemList `json:"sub_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -113,7 +113,7 @@ type AddOnDealAddAddOnDealSubItemRequest struct {
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // sub_item_list is The sub items added in this add on deal promotion.
-    SubItemList SubItemList `json:"sub_item_list"`
+    SubItemList []SubItemList `json:"sub_item_list"`
 }
 //=======================================================
 // AddOnDealAddAddOnDealSubItemResponse
@@ -188,7 +188,7 @@ type AddOnDealDeleteAddOnDealMainItemResponse struct {
 //=======================================================
 type AddOnDealDeleteAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList SubItemList `json:"sub_item_list"`
+SubItemList []SubItemList `json:"sub_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -199,7 +199,7 @@ type AddOnDealDeleteAddOnDealSubItemRequest struct {
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // sub_item_list is The sub items added in this add on deal promotion.
-    SubItemList SubItemList `json:"sub_item_list"`
+    SubItemList []SubItemList `json:"sub_item_list"`
 }
 //=======================================================
 // AddOnDealDeleteAddOnDealSubItemResponse
@@ -245,7 +245,7 @@ SubItemPrioriry []int `json:"sub_item_prioriry,omitempty"`
 //=======================================================
 type AddOnDealGetAddOnDealList struct {
 // add_on_deal_list is The list of add on deal id
-AddOnDealList AddOnDealList `json:"add_on_deal_list"`
+AddOnDealList []AddOnDealList `json:"add_on_deal_list"`
 // more is This is to indicate whether the promotion list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of promotions.
 More bool `json:"more,omitempty"`
 }
@@ -321,7 +321,7 @@ type AddOnDealGetAddOnDealResponse struct {
 //=======================================================
 type AddOnDealGetAddOnDealMainItem struct {
 // main_item_list is The main items added in this add on deal promotion.
-MainItemList MainItemList `json:"main_item_list"`
+MainItemList []MainItemList `json:"main_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -349,7 +349,7 @@ type AddOnDealGetAddOnDealMainItemResponse struct {
 //=======================================================
 type AddOnDealGetAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList SubItemList `json:"sub_item_list"`
+SubItemList []SubItemList `json:"sub_item_list"`
 // add_on_deal_id is Shopee's unique identifier for add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 }
@@ -431,7 +431,7 @@ type AddOnDealUpdateAddOnDealResponse struct {
 //=======================================================
 type AddOnDealUpdateAddOnDealMainItem struct {
 // main_item_list is The main items added in this add on deal promotion.
-MainItemList MainItemList `json:"main_item_list"`
+MainItemList []MainItemList `json:"main_item_list"`
 }
 //=======================================================
 // AddOnDealUpdateAddOnDealMainItemRequest
@@ -440,7 +440,7 @@ type AddOnDealUpdateAddOnDealMainItemRequest struct {
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // main_item_list is The main items added in this add on deal promotion.
-    MainItemList MainItemList `json:"main_item_list"`
+    MainItemList []MainItemList `json:"main_item_list"`
 }
 //=======================================================
 // AddOnDealUpdateAddOnDealMainItemResponse
@@ -459,7 +459,7 @@ type AddOnDealUpdateAddOnDealMainItemResponse struct {
 //=======================================================
 type AddOnDealUpdateAddOnDealSubItem struct {
 // sub_item_list is The sub items added in this add on deal promotion.
-SubItemList SubItemList `json:"sub_item_list"`
+SubItemList []SubItemList `json:"sub_item_list"`
 }
 //=======================================================
 // AddOnDealUpdateAddOnDealSubItemRequest
@@ -468,7 +468,7 @@ type AddOnDealUpdateAddOnDealSubItemRequest struct {
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // sub_item_list is The sub items added in this add on deal promotion.
-    SubItemList SubItemList `json:"sub_item_list"`
+    SubItemList []SubItemList `json:"sub_item_list"`
 }
 //=======================================================
 // AddOnDealUpdateAddOnDealSubItemResponse

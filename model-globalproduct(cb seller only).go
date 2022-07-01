@@ -6,7 +6,7 @@ package shopeego
 //=======================================================
 type GlobalProductGetCategory struct {
 // category_list is 
-CategoryList CategoryList `json:"category_list"`
+CategoryList []CategoryList `json:"category_list"`
 }
 //=======================================================
 // GlobalProductGetCategoryRequest
@@ -32,7 +32,7 @@ type GlobalProductGetCategoryResponse struct {
 //=======================================================
 type GlobalProductGetAttributes struct {
 // attribute_list is Attribute info list.
-AttributeList AttributeList `json:"attribute_list"`
+AttributeList []AttributeList `json:"attribute_list"`
 }
 //=======================================================
 // GlobalProductGetAttributesRequest
@@ -62,7 +62,7 @@ type GlobalProductGetAttributesResponse struct {
 //=======================================================
 type GlobalProductGetBrandList struct {
 // brand_list is 
-BrandList BrandList `json:"brand_list"`
+BrandList []BrandList `json:"brand_list"`
 // has_next_page is  This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 HasNextPage bool `json:"has_next_page,omitempty"`
 // next_offset is If has_next_page is true, this value need set to next request.offset
@@ -186,7 +186,7 @@ MaxLimit int `json:"max_limit,omitempty"`
 //=======================================================
 type GlobalProductGetDtsLimit struct {
 // days_to_ship_range_list is If the length of the range list is greater than one, the final result is the union of multiple intervals
-DaysToShipRangeList DaysToShipRangeList `json:"days_to_ship_range_list"`
+DaysToShipRangeList []DaysToShipRangeList `json:"days_to_ship_range_list"`
 }
 //=======================================================
 // GlobalProductGetDtsLimitRequest
@@ -223,7 +223,7 @@ UpdateTime int `json:"update_time,omitempty"`
 //=======================================================
 type GlobalProductGetGlobalItemList struct {
 // global_item_list is 
-GlobalItemList GlobalItemList `json:"global_item_list"`
+GlobalItemList []GlobalItemList `json:"global_item_list"`
 // total_count is Total global item count.
 TotalCount int `json:"total_count,omitempty"`
 // has_next_page is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
@@ -261,7 +261,7 @@ type GlobalProductGetGlobalItemListResponse struct {
 //=======================================================
 type GlobalProductGetGlobalItemInfo struct {
 // global_item_list is 
-GlobalItemList GlobalItemList `json:"global_item_list"`
+GlobalItemList []GlobalItemList `json:"global_item_list"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemInfoRequest
@@ -320,7 +320,7 @@ type GlobalProductAddGlobalItemRequest struct {
     // brand is 
     Brand Brand `json:"brand,omitempty"`
     // attribute_list is Item attributes.
-    AttributeList AttributeList `json:"attribute_list,omitempty"`
+    AttributeList []AttributeList `json:"attribute_list,omitempty"`
     // description_info is New description field. New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
     DescriptionInfo DescriptionInfo `json:"description_info,omitempty"`
     // description_type is Values: See Data Definition- description_type (normal , extended). If you want to use extended_description, this field must be inputed
@@ -374,7 +374,7 @@ type GlobalProductUpdateGlobalItemRequest struct {
     // brand is 
     Brand Brand `json:"brand,omitempty"`
     // attribute_list is Item attributes.
-    AttributeList AttributeList `json:"attribute_list,omitempty"`
+    AttributeList []AttributeList `json:"attribute_list,omitempty"`
     // description_info is New description field. New description field. Only whitelist sellers can use it. If you use the field, please upload the description_type=extended otherwise api will return error. If you don't use this field, you don't need to upload the description_type or upload description_type=normal
     DescriptionInfo DescriptionInfo `json:"description_info,omitempty"`
     // description_type is Values: See Data Definition- description_type (normal , extended). If you want to use extended_description or change description type ,this field must be inputed
@@ -408,7 +408,7 @@ ItemID int `json:"item_id,omitempty"`
 //=======================================================
 type GlobalProductDeleteGlobalItem struct {
 // failure_delete_item is If delete failed, this field shows the details.
-FailureDeleteItem FailureDeleteItem `json:"failure_delete_item"`
+FailureDeleteItem []FailureDeleteItem `json:"failure_delete_item"`
 }
 //=======================================================
 // GlobalProductDeleteGlobalItemRequest
@@ -447,9 +447,9 @@ TierIndex []int `json:"tier_index,omitempty"`
 //=======================================================
 type GlobalProductInitTierVariationRequest struct {
     // tier_variation is  Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
-    TierVariation TierVariation `json:"tier_variation"`
+    TierVariation []TierVariation `json:"tier_variation"`
     // global_model is Model info list, model number at most 50
-    GlobalModel GlobalModel `json:"global_model"`
+    GlobalModel []GlobalModel `json:"global_model"`
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -466,7 +466,7 @@ type GlobalProductInitTierVariationResponse struct {
 //=======================================================
 type GlobalProductUpdateTierVariationRequest struct {
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
-    TierVariation TierVariation `json:"tier_variation"`
+    TierVariation []TierVariation `json:"tier_variation"`
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -485,7 +485,7 @@ type GlobalProductAddGlobalModelRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model is Global model setting list. Limit is  [1,50].
-    GlobalModel GlobalModel `json:"global_model"`
+    GlobalModel []GlobalModel `json:"global_model"`
 }
 //=======================================================
 // GlobalProductAddGlobalModelResponse
@@ -502,7 +502,7 @@ type GlobalProductUpdateGlobalModelRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model is Sku setting for global model. Limit is [1,50].
-    GlobalModel GlobalModel `json:"global_model"`
+    GlobalModel []GlobalModel `json:"global_model"`
 }
 //=======================================================
 // GlobalProductUpdateGlobalModelResponse
@@ -534,7 +534,7 @@ type GlobalProductDeleteGlobalModel struct {
 // global_model_id is Global model id.
 GlobalModelID int `json:"global_model_id,omitempty"`
 // failures is 
-Failures Failures `json:"failures"`
+Failures []Failures `json:"failures"`
 }
 //=======================================================
 // GlobalProductDeleteGlobalModelRequest
@@ -562,9 +562,9 @@ type GlobalProductDeleteGlobalModelResponse struct {
 //=======================================================
 type GlobalProductGetGlobalModelList struct {
 // tier_variation is Tier variation information of global item.
-TierVariation TierVariation `json:"tier_variation"`
+TierVariation []TierVariation `json:"tier_variation"`
 // global_model is Global models.
-GlobalModel GlobalModel `json:"global_model"`
+GlobalModel []GlobalModel `json:"global_model"`
 }
 //=======================================================
 // GlobalProductGetGlobalModelListRequest
@@ -676,7 +676,7 @@ ShopRegion string `json:"shop_region,omitempty"`
 //=======================================================
 type GlobalProductGetPublishableShop struct {
 // publishable_shop is Detail of publishable shops.
-PublishableShop PublishableShop `json:"publishable_shop"`
+PublishableShop []PublishableShop `json:"publishable_shop"`
 }
 //=======================================================
 // GlobalProductGetPublishableShopRequest
@@ -769,7 +769,7 @@ ItemStatus int `json:"item_status,omitempty"`
 //=======================================================
 type GlobalProductGetPublishedList struct {
 // published_item is Detail of published items.
-PublishedItem PublishedItem `json:"published_item"`
+PublishedItem []PublishedItem `json:"published_item"`
 }
 //=======================================================
 // GlobalProductGetPublishedListRequest
@@ -795,7 +795,7 @@ type GlobalProductUpdatePriceRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // price_list is Price setting for global model. Limit is [1,50].
-    PriceList PriceList `json:"price_list"`
+    PriceList []PriceList `json:"price_list"`
 }
 //=======================================================
 // GlobalProductUpdatePriceResponse
@@ -812,7 +812,7 @@ type GlobalProductUpdateStockRequest struct {
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // stock_list is Stock setting for global model. Limit is [1,50].
-    StockList StockList `json:"stock_list"`
+    StockList []StockList `json:"stock_list"`
 }
 //=======================================================
 // GlobalProductUpdateStockResponse
@@ -848,7 +848,7 @@ DaysToShip bool `json:"days_to_ship,omitempty"`
 //=======================================================
 type GlobalProductSetSyncFieldRequest struct {
     // shop_sync_list is Length limit is [1,50].
-    ShopSyncList ShopSyncList `json:"shop_sync_list"`
+    ShopSyncList []ShopSyncList `json:"shop_sync_list"`
 }
 //=======================================================
 // GlobalProductSetSyncFieldResponse
@@ -876,7 +876,7 @@ GlobalItemID int `json:"global_item_id,omitempty"`
 //=======================================================
 type GlobalProductGetGlobalItemID struct {
 // item_id_map is 
-ItemIdMap ItemIdMap `json:"item_id_map"`
+ItemIdMap []ItemIdMap `json:"item_id_map"`
 }
 //=======================================================
 // GlobalProductGetGlobalItemIDRequest
@@ -930,7 +930,7 @@ type GlobalProductCategoryRecommendResponse struct {
 //=======================================================
 type GlobalProductGetRecommendAttribute struct {
 // attribute_list is Attribute info list.
-AttributeList AttributeList `json:"attribute_list"`
+AttributeList []AttributeList `json:"attribute_list"`
 }
 //=======================================================
 // GlobalProductGetRecommendAttributeRequest

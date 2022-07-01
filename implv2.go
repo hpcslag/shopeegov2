@@ -1793,7 +1793,7 @@ func (s *ShopeeClient) ShopUpdateProfile(req *ShopUpdateProfileRequest) (resp *S
 	return
 }
 
-func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest) (resp *ShopGetWarehouseDetail, err error) {
+func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest) (resp []ShopGetWarehouseDetail, err error) {
 	b, err := s.post("ShopGetWarehouseDetail", req)
 	if err != nil {
 		return
@@ -1815,7 +1815,7 @@ func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest
 		return
 	}
 
-	resp = &wrappedResponse.Response
+	resp = wrappedResponse.Response
 	return
 }
 
@@ -2975,7 +2975,7 @@ func (s *ShopeeClient) PaymentGetItemInstallmentStatus(req *PaymentGetItemInstal
 	return
 }
 
-func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodListRequest) (resp *PaymentGetPaymentMethodList, err error) {
+func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodListRequest) (resp []PaymentGetPaymentMethodList, err error) {
 	b, err := s.post("PaymentGetPaymentMethodList", req)
 	if err != nil {
 		return
@@ -2997,7 +2997,7 @@ func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodL
 		return
 	}
 
-	resp = &wrappedResponse.Response
+	resp = wrappedResponse.Response
 	return
 }
 
@@ -4535,7 +4535,7 @@ func (s *ShopeeClient) ReturnsGetReturnDetail(req *ReturnsGetReturnDetailRequest
 	return
 }
 
-func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (resp *ReturnsGetReturnList, err error) {
+func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (resp []ReturnsGetReturnList, err error) {
 	b, err := s.post("ReturnsGetReturnList", req)
 	if err != nil {
 		return
@@ -4557,7 +4557,7 @@ func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (r
 		return
 	}
 
-	resp = &wrappedResponse.Response
+	resp = wrappedResponse.Response
 	return
 }
 

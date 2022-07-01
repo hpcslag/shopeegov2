@@ -55,7 +55,7 @@ DiscountID int `json:"discount_id,omitempty"`
 // count is The number of items that add successfully.
 Count int `json:"count,omitempty"`
 // error_list is Indicate error details.
-ErrorList ErrorList `json:"error_list"`
+ErrorList []ErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountAddDiscountItemRequest
@@ -64,7 +64,7 @@ type DiscountAddDiscountItemRequest struct {
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_list is The items added in this discount promotion.
-    ItemList ItemList `json:"item_list"`
+    ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // DiscountAddDiscountItemResponse
@@ -113,7 +113,7 @@ type DiscountDeleteDiscountItem struct {
 // discount_id is Shopee's unique identifier for a discount activity.
 DiscountID int `json:"discount_id,omitempty"`
 // error_list is Detail informations about error.
-ErrorList ErrorList `json:"error_list"`
+ErrorList []ErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountDeleteDiscountItemRequest
@@ -147,7 +147,7 @@ Status string `json:"status,omitempty"`
 // discount_name is Title of the discount.
 DiscountName string `json:"discount_name,omitempty"`
 // item_list is The items selected in this discount.
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 // start_time is The time when discount activity start.
 StartTime int `json:"start_time,omitempty"`
 // discount_id is Shopee's unique identifier for a discount activity.
@@ -204,7 +204,7 @@ Source int `json:"source,omitempty"`
 //=======================================================
 type DiscountGetDiscountList struct {
 // discount_list is The discounts created in this shop.
-DiscountList DiscountList `json:"discount_list"`
+DiscountList []DiscountList `json:"discount_list"`
 // more is <p>This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.<br /></p>
 More bool `json:"more,omitempty"`
 }
@@ -278,7 +278,7 @@ DiscountID int `json:"discount_id,omitempty"`
 // count is The number of items that modify successfully.
 Count int `json:"count,omitempty"`
 // error_list is Error list of this discount.
-ErrorList ErrorList `json:"error_list"`
+ErrorList []ErrorList `json:"error_list"`
 }
 //=======================================================
 // DiscountUpdateDiscountItemRequest
@@ -287,7 +287,7 @@ type DiscountUpdateDiscountItemRequest struct {
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_list is The items selected to this discount. You can update at most 50 items per call.
-    ItemList ItemList `json:"item_list"`
+    ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // DiscountUpdateDiscountItemResponse

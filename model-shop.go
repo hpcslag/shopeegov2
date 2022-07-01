@@ -118,5 +118,5 @@ type ShopGetWarehouseDetailResponse struct {
     V2UnityResponse
 
     // response is 
-    Response ShopGetWarehouseDetail `json:"response,omitempty"`
+    Response []ShopGetWarehouseDetail `json:"response,omitempty"`
 }

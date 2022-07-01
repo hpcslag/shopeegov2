@@ -23,7 +23,7 @@ HasChildren bool `json:"has_children,omitempty"`
 //=======================================================
 type ProductGetCategory struct {
 // category_list is 
-CategoryList CategoryList `json:"category_list"`
+CategoryList []CategoryList `json:"category_list"`
 }
 //=======================================================
 // ProductGetCategoryRequest
@@ -77,9 +77,9 @@ DisplayValueName string `json:"display_value_name,omitempty"`
 // value_unit is Unit of value(quantitative attribute only).
 ValueUnit string `json:"value_unit,omitempty"`
 // parent_attribute_list is 
-ParentAttributeList ParentAttributeList `json:"parent_attribute_list"`
+ParentAttributeList []ParentAttributeList `json:"parent_attribute_list"`
 // parent_brand_list is 
-ParentBrandList ParentBrandList `json:"parent_brand_list"`
+ParentBrandList []ParentBrandList `json:"parent_brand_list"`
 }
 
 
@@ -106,7 +106,7 @@ InputType string `json:"input_type,omitempty"`
 // attribute_unit is All applicable attribute units
 AttributeUnit []string `json:"attribute_unit,omitempty"`
 // attribute_value_list is Value list of this attribute.
-AttributeValueList AttributeValueList `json:"attribute_value_list"`
+AttributeValueList []AttributeValueList `json:"attribute_value_list"`
 }
 
 
@@ -115,7 +115,7 @@ AttributeValueList AttributeValueList `json:"attribute_value_list"`
 //=======================================================
 type ProductGetAttributes struct {
 // attribute_list is Attribute info list.
-AttributeList AttributeList `json:"attribute_list"`
+AttributeList []AttributeList `json:"attribute_list"`
 }
 //=======================================================
 // ProductGetAttributesRequest
@@ -156,7 +156,7 @@ DisplayBrandName string `json:"display_brand_name,omitempty"`
 //=======================================================
 type ProductGetBrandList struct {
 // brand_list is 
-BrandList BrandList `json:"brand_list"`
+BrandList []BrandList `json:"brand_list"`
 // has_next_page is  This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
 HasNextPage bool `json:"has_next_page,omitempty"`
 // next_offset is If has_next_page is true, this value need set to next request.offset
@@ -412,7 +412,7 @@ UpdateTime int `json:"update_time,omitempty"`
 //=======================================================
 type ProductGetItemList struct {
 // item is list of item info with item_id/ item_status/ update_time
-Item Item `json:"item"`
+Item []Item `json:"item"`
 // total_count is total count of all items
 TotalCount int `json:"total_count,omitempty"`
 // has_next_page is This is to indicate whether the item list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of items.
@@ -662,9 +662,9 @@ type StockInfoV2 struct {
 // summary_info is <p>stock summary info<br /></p>
 SummaryInfo SummaryInfo `json:"summary_info"`
 // seller_stock is <p>seller stock<br /></p>
-SellerStock SellerStock `json:"seller_stock"`
+SellerStock []SellerStock `json:"seller_stock"`
 // shopee_stock is <p>shopee stock<br /></p>
-ShopeeStock ShopeeStock `json:"shopee_stock"`
+ShopeeStock []ShopeeStock `json:"shopee_stock"`
 }
 
 
@@ -687,11 +687,11 @@ CreateTime int `json:"create_time,omitempty"`
 // update_time is Timestamp that indicates the last time that there was a change in value of the item, such as price/stock change.
 UpdateTime int `json:"update_time,omitempty"`
 // attribute_list is 
-AttributeList AttributeList `json:"attribute_list"`
+AttributeList []AttributeList `json:"attribute_list"`
 // price_info is If the item has models, price_info will not be returned. Please get the price of each model through the get_model_list api
-PriceInfo PriceInfo `json:"price_info"`
+PriceInfo []PriceInfo `json:"price_info"`
 // stock_info is <p>if the item has models, this field will not be returned, please get it through get_model_list api.</p><p><b><font color="#c24f4a">Please use the stock_info_v2 field instead, we will deprecate this field in the future.</font></b><br /></p>
-StockInfo StockInfo `json:"stock_info"`
+StockInfo []StockInfo `json:"stock_info"`
 // image is 
 Image Image `json:"image"`
 // weight is The net weight of this item, the unit is KG.
@@ -699,11 +699,11 @@ Weight string `json:"weight,omitempty"`
 // dimension is The dimension of this item.
 Dimension Dimension `json:"dimension"`
 // logistic_info is The logistics list.
-LogisticInfo LogisticInfo `json:"logistic_info"`
+LogisticInfo []LogisticInfo `json:"logistic_info"`
 // pre_order is 
 PreOrder PreOrder `json:"pre_order"`
 // wholesales is The wholesales tier list.
-Wholesales Wholesales `json:"wholesales"`
+Wholesales []Wholesales `json:"wholesales"`
 // condition is Is it second-hand.
 Condition string `json:"condition,omitempty"`
 // size_chart is Url of size chart image.
@@ -715,7 +715,7 @@ HasModel bool `json:"has_model,omitempty"`
 // promotion_id is 
 PromotionID int `json:"promotion_id,omitempty"`
 // video_info is Info of video list.
-VideoInfo VideoInfo `json:"video_info"`
+VideoInfo []VideoInfo `json:"video_info"`
 // brand is 
 Brand Brand `json:"brand"`
 // item_dangerous is This field is only applicable for local sellers in Indonesia and Malaysia. Use this field to identify whether a product is a dangerous product. 0 for non-dangerous product and 1 for dangerous product. For more information, please visit the market's respective Seller Education Hub.
@@ -758,7 +758,7 @@ ImageInfo ImageInfo `json:"image_info"`
 //=======================================================
 type ExtendedDescription struct {
 // field_list is Field of extended description
-FieldList FieldList `json:"field_list"`
+FieldList []FieldList `json:"field_list"`
 }
 
 
@@ -776,7 +776,7 @@ ExtendedDescription ExtendedDescription `json:"extended_description"`
 //=======================================================
 type ProductGetItemBaseInfo struct {
 // item_list is 
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 // description_info is New description  field. Only whitelist sellers can use it.
 DescriptionInfo DescriptionInfo `json:"description_info"`
 // description_type is Type of description : values: See Data Definition- description_type (normal , extended).
@@ -810,7 +810,7 @@ type ProductGetItemBaseInfoResponse struct {
 //=======================================================
 type ProductGetItemExtraInfo struct {
 // item_list is extra info of item list.
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // ProductGetItemExtraInfoRequest
@@ -862,7 +862,7 @@ type Attributes struct {
 // attribute_id is Attribute ID
 AttributeID int `json:"attribute_id,omitempty"`
 // attribute_value_list is 
-AttributeValueList AttributeValueList `json:"attribute_value_list"`
+AttributeValueList []AttributeValueList `json:"attribute_value_list"`
 }
 
 
@@ -885,13 +885,13 @@ ItemStatus string `json:"item_status,omitempty"`
 // price_info is Item price info
 PriceInfo PriceInfo `json:"price_info"`
 // logistic_info is Logistic setting
-LogisticInfo LogisticInfo `json:"logistic_info"`
+LogisticInfo []LogisticInfo `json:"logistic_info"`
 // stock_info is Stock info
 StockInfo StockInfo `json:"stock_info"`
 // item_id is Item ID
 ItemID int `json:"item_id,omitempty"`
 // attributes is Item attributes
-Attributes Attributes `json:"attributes"`
+Attributes []Attributes `json:"attributes"`
 // category_id is Category ID
 CategoryID int `json:"category_id,omitempty"`
 // dimension is Item dimension
@@ -899,9 +899,9 @@ Dimension Dimension `json:"dimension"`
 // condition is Item condition, could be NEW or USED
 Condition string `json:"condition,omitempty"`
 // video_info is Item video
-VideoInfo VideoInfo `json:"video_info"`
+VideoInfo []VideoInfo `json:"video_info"`
 // wholesale is Wholesale setting
-Wholesale Wholesale `json:"wholesale"`
+Wholesale []Wholesale `json:"wholesale"`
 // brand is 
 Brand Brand `json:"brand"`
 // item_dangerous is This field is only applicable for local sellers in Indonesia and Malaysia. Use this field to identify whether a product is a dangerous product. 0 for non-dangerous product and 1 for dangerous product. For more information, please visit the market's respective Seller Education Hub.
@@ -913,7 +913,7 @@ DescriptionType string `json:"description_type,omitempty"`
 // complaint_policy is Complaint Policy for item. Only returned for local PL sellers.
 ComplaintPolicy ComplaintPolicy `json:"complaint_policy"`
 // seller_stock is <p>seller stock<br /></p>
-SellerStock SellerStock `json:"seller_stock"`
+SellerStock []SellerStock `json:"seller_stock"`
 }
 //=======================================================
 // ProductAddItemRequest
@@ -934,9 +934,9 @@ type ProductAddItemRequest struct {
     // normal_stock is Item stock
     NormalStock int `json:"normal_stock"`
     // logistic_info is Logistic channel setting
-    LogisticInfo LogisticInfo `json:"logistic_info"`
+    LogisticInfo []LogisticInfo `json:"logistic_info"`
     // attribute_list is <p>This field is optional(expect Indonesia) depending on the specific attribute under different categories. Should call get_attribute api to get attribute first. Must contain all all mandatory attribute.</p>
-    AttributeList AttributeList `json:"attribute_list,omitempty"`
+    AttributeList []AttributeList `json:"attribute_list,omitempty"`
     // category_id is ID of category
     CategoryID int `json:"category_id"`
     // image is Item images
@@ -948,7 +948,7 @@ type ProductAddItemRequest struct {
     // condition is Condition of item, could be USED or NEW
     Condition string `json:"condition,omitempty"`
     // wholesale is <p>Wholesale setting.</p>
-    Wholesale Wholesale `json:"wholesale,omitempty"`
+    Wholesale []Wholesale `json:"wholesale,omitempty"`
     // video_upload_id is Video upload ID returned from video uploading API. Only accept one video_upload_id.
     VideoUploadID []string `json:"video_upload_id,omitempty"`
     // brand is 
@@ -964,7 +964,7 @@ type ProductAddItemRequest struct {
     // description_type is <p>description_type (normal , extended). If you want to use extended_description, this field must be inputed</p>
     DescriptionType string `json:"description_type,omitempty"`
     // seller_stock is <p>seller stock（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-    SellerStock SellerStock `json:"seller_stock,omitempty"`
+    SellerStock []SellerStock `json:"seller_stock,omitempty"`
 }
 //=======================================================
 // ProductAddItemResponse
@@ -995,7 +995,7 @@ ItemStatus string `json:"item_status,omitempty"`
 // images is Item images.
 Images Images `json:"images"`
 // logistic_info is 
-LogisticInfo LogisticInfo `json:"logistic_info"`
+LogisticInfo []LogisticInfo `json:"logistic_info"`
 // item_id is ID of item.
 ItemID int `json:"item_id,omitempty"`
 // category_id is ID of item category.
@@ -1028,7 +1028,7 @@ type ProductUpdateItemRequest struct {
     // item_name is Item name.
     ItemName string `json:"item_name,omitempty"`
     // attribute_list is Item attributes.
-    AttributeList AttributeList `json:"attribute_list,omitempty"`
+    AttributeList []AttributeList `json:"attribute_list,omitempty"`
     // image is Images of item.
     Image Image `json:"image,omitempty"`
     // item_sku is SKU tag for item.
@@ -1036,9 +1036,9 @@ type ProductUpdateItemRequest struct {
     // item_status is Item status, could be UNLIST or NORMAL.
     ItemStatus string `json:"item_status,omitempty"`
     // logistic_info is Logistic channel setting.
-    LogisticInfo LogisticInfo `json:"logistic_info,omitempty"`
+    LogisticInfo []LogisticInfo `json:"logistic_info,omitempty"`
     // wholesale is Wholesale setting.
-    Wholesale Wholesale `json:"wholesale,omitempty"`
+    Wholesale []Wholesale `json:"wholesale,omitempty"`
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // category_id is ID of category.
@@ -1107,7 +1107,7 @@ type TierVariation struct {
 // name is Tier variation name
 Name string `json:"name,omitempty"`
 // option_list is Tier variation option info list
-OptionList OptionList `json:"option_list"`
+OptionList []OptionList `json:"option_list"`
 }
 
 
@@ -1124,7 +1124,7 @@ OriginalPrice float64 `json:"original_price,omitempty"`
 // model_sku is Seller SKU of this model, model_sku length information needs to be no more than 100 characters.
 ModelSku string `json:"model_sku,omitempty"`
 // seller_stock is <p>new stock info（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-SellerStock SellerStock `json:"seller_stock,omitempty"`
+SellerStock []SellerStock `json:"seller_stock,omitempty"`
 }
 
 
@@ -1135,9 +1135,9 @@ type ProductInitTierVariation struct {
 // item_id is ID of item
 ItemID int `json:"item_id,omitempty"`
 // tier_variation is Variations of item
-TierVariation TierVariation `json:"tier_variation"`
+TierVariation []TierVariation `json:"tier_variation"`
 // model is 
-Model Model `json:"model"`
+Model []Model `json:"model"`
 }
 //=======================================================
 // ProductInitTierVariationRequest
@@ -1146,9 +1146,9 @@ type ProductInitTierVariationRequest struct {
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
-    TierVariation TierVariation `json:"tier_variation"`
+    TierVariation []TierVariation `json:"tier_variation"`
     // model is Model info list, model number at most 50
-    Model Model `json:"model"`
+    Model []Model `json:"model"`
 }
 //=======================================================
 // ProductInitTierVariationResponse
@@ -1167,7 +1167,7 @@ type ProductUpdateTierVariationRequest struct {
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
-    TierVariation TierVariation `json:"tier_variation"`
+    TierVariation []TierVariation `json:"tier_variation"`
 }
 //=======================================================
 // ProductUpdateTierVariationResponse
@@ -1184,9 +1184,9 @@ type ProductUpdateTierVariationResponse struct {
 //=======================================================
 type ProductGetModelList struct {
 // tier_variation is Variation config of item.
-TierVariation TierVariation `json:"tier_variation"`
+TierVariation []TierVariation `json:"tier_variation"`
 // model is Model list.
-Model Model `json:"model"`
+Model []Model `json:"model"`
 }
 //=======================================================
 // ProductGetModelListRequest
@@ -1220,7 +1220,7 @@ OriginalPrice float64 `json:"original_price,omitempty"`
 // model_sku is Seller sku, model_sku length information needs to be no more than 100 characters.
 ModelSku string `json:"model_sku,omitempty"`
 // seller_stock is <p>new stock info for model（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-SellerStock SellerStock `json:"seller_stock,omitempty"`
+SellerStock []SellerStock `json:"seller_stock,omitempty"`
 }
 
 
@@ -1229,7 +1229,7 @@ SellerStock SellerStock `json:"seller_stock,omitempty"`
 //=======================================================
 type ProductAddModel struct {
 // model is 
-Model Model `json:"model"`
+Model []Model `json:"model"`
 }
 //=======================================================
 // ProductAddModelRequest
@@ -1238,7 +1238,7 @@ type ProductAddModelRequest struct {
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // model_list is Model list
-    ModelList ModelList `json:"model_list"`
+    ModelList []ModelList `json:"model_list"`
 }
 //=======================================================
 // ProductAddModelResponse
@@ -1257,7 +1257,7 @@ type ProductUpdateModelRequest struct {
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // model is Length should be between 1 to 50
-    Model Model `json:"model"`
+    Model []Model `json:"model"`
 }
 //=======================================================
 // ProductUpdateModelResponse
@@ -1356,16 +1356,16 @@ Unlist bool `json:"unlist,omitempty"`
 //=======================================================
 type ProductUnlistItem struct {
 // failure_list is 
-FailureList FailureList `json:"failure_list"`
+FailureList []FailureList `json:"failure_list"`
 // success_list is 
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductUnlistItemRequest
 //=======================================================
 type ProductUnlistItemRequest struct {
     // item_list is Length should be between 1 to 50.
-    ItemList ItemList `json:"item_list"`
+    ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // ProductUnlistItemResponse
@@ -1395,9 +1395,9 @@ OriginalPrice float64 `json:"original_price,omitempty"`
 //=======================================================
 type ProductUpdatePrice struct {
 // failure_list is Fail model list.
-FailureList FailureList `json:"failure_list"`
+FailureList []FailureList `json:"failure_list"`
 // success_list is Success model list.
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductUpdatePriceRequest
@@ -1406,7 +1406,7 @@ type ProductUpdatePriceRequest struct {
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // price_list is Length should be between 1 to 50.
-    PriceList PriceList `json:"price_list"`
+    PriceList []PriceList `json:"price_list"`
 }
 //=======================================================
 // ProductUpdatePriceResponse
@@ -1429,7 +1429,7 @@ ModelID int `json:"model_id,omitempty"`
 // normal_stock is <p>Normal stock.</p><p><b><font color="#c24f4a">Please use the seller_stock field instead, we will deprecate this field in the future.</font></b><br /></p>
 NormalStock int `json:"normal_stock,omitempty"`
 // seller_stock is <p>new stock info（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
-SellerStock SellerStock `json:"seller_stock,omitempty"`
+SellerStock []SellerStock `json:"seller_stock,omitempty"`
 }
 
 
@@ -1438,9 +1438,9 @@ SellerStock SellerStock `json:"seller_stock,omitempty"`
 //=======================================================
 type ProductUpdateStock struct {
 // failure_list is Fail model list.
-FailureList FailureList `json:"failure_list"`
+FailureList []FailureList `json:"failure_list"`
 // success_list is Success model list.
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 }
 //=======================================================
 // ProductUpdateStockRequest
@@ -1449,7 +1449,7 @@ type ProductUpdateStockRequest struct {
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // stock_list is Length should be between 1 to 50.
-    StockList StockList `json:"stock_list"`
+    StockList []StockList `json:"stock_list"`
 }
 //=======================================================
 // ProductUpdateStockResponse
@@ -1468,7 +1468,7 @@ type ProductUpdateStockResponse struct {
 //=======================================================
 type ProductBoostItem struct {
 // failure_list is 
-FailureList FailureList `json:"failure_list"`
+FailureList []FailureList `json:"failure_list"`
 // success_list is 
 SuccessList SuccessList `json:"success_list"`
 }
@@ -1496,7 +1496,7 @@ type ProductBoostItemResponse struct {
 //=======================================================
 type ProductGetBoostedList struct {
 // item_list is 
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 }
 //=======================================================
 // ProductGetBoostedListRequest
@@ -1520,9 +1520,9 @@ type ProductGetBoostedListResponse struct {
 //=======================================================
 type ProductGetItemPromotion struct {
 // success_list is Success item promotion info.
-SuccessList SuccessList `json:"success_list"`
+SuccessList []SuccessList `json:"success_list"`
 // failure_list is Fail item promotion info.
-FailureList FailureList `json:"failure_list"`
+FailureList []FailureList `json:"failure_list"`
 }
 //=======================================================
 // ProductGetItemPromotionRequest
@@ -1559,7 +1559,7 @@ type ProductUpdateSipItemPriceRequest struct {
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // sip_item_price is 
-    SipItemPrice SipItemPrice `json:"sip_item_price,omitempty"`
+    SipItemPrice []SipItemPrice `json:"sip_item_price,omitempty"`
 }
 //=======================================================
 // ProductUpdateSipItemPriceResponse
@@ -1654,7 +1654,7 @@ type ProductGetComment struct {
 // more is <p>This is to indicate whether the comment list is more than one page. If this value is true, you may want to continue to check next page to retrieve the rest of comments. But only respond 500 comments at most through OpenAPI, if there are more than 500, this field "more" also respond "true".</p>
 More bool `json:"more,omitempty"`
 // item_comment_list is The comment data list of the items.
-ItemCommentList ItemCommentList `json:"item_comment_list"`
+ItemCommentList []ItemCommentList `json:"item_comment_list"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -1712,14 +1712,14 @@ FailMessage string `json:"fail_message,omitempty"`
 //=======================================================
 type ProductReplyComment struct {
 // result_list is The result list of the request comment list.
-ResultList ResultList `json:"result_list"`
+ResultList []ResultList `json:"result_list"`
 }
 //=======================================================
 // ProductReplyCommentRequest
 //=======================================================
 type ProductReplyCommentRequest struct {
     // comment_list is The list of comment. The limit is between 1 and 100.
-    CommentList CommentList `json:"comment_list"`
+    CommentList []CommentList `json:"comment_list"`
 }
 //=======================================================
 // ProductReplyCommentResponse
@@ -1817,7 +1817,7 @@ type ProductRegisterBrandResponse struct {
 //=======================================================
 type ProductGetRecommendAttribute struct {
 // attribute_list is Attribute info list.
-AttributeList AttributeList `json:"attribute_list"`
+AttributeList []AttributeList `json:"attribute_list"`
 }
 //=======================================================
 // ProductGetRecommendAttributeRequest

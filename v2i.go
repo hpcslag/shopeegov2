@@ -141,7 +141,7 @@ type V2I interface {
 
     ShopUpdateProfile(*ShopUpdateProfileRequest) (*ShopUpdateProfile, error)
 
-    ShopGetWarehouseDetail(*ShopGetWarehouseDetailRequest) (*ShopGetWarehouseDetail, error)
+    ShopGetWarehouseDetail(*ShopGetWarehouseDetailRequest) ([]ShopGetWarehouseDetail, error)
 
     MerchantGetMerchantInfo(*MerchantGetMerchantInfoRequest) error
 
@@ -233,7 +233,7 @@ type V2I interface {
 
     PaymentGetItemInstallmentStatus(*PaymentGetItemInstallmentStatusRequest) (*PaymentGetItemInstallmentStatus, error)
 
-    PaymentGetPaymentMethodList(*PaymentGetPaymentMethodListRequest) (*PaymentGetPaymentMethodList, error)
+    PaymentGetPaymentMethodList(*PaymentGetPaymentMethodListRequest) ([]PaymentGetPaymentMethodList, error)
 
     PaymentGetWalletTransactionList(*PaymentGetWalletTransactionListRequest) (*PaymentGetWalletTransactionList, error)
 
@@ -353,7 +353,7 @@ type V2I interface {
 
     ReturnsGetReturnDetail(*ReturnsGetReturnDetailRequest) (*ReturnsGetReturnDetail, error)
 
-    ReturnsGetReturnList(*ReturnsGetReturnListRequest) (*ReturnsGetReturnList, error)
+    ReturnsGetReturnList(*ReturnsGetReturnListRequest) ([]ReturnsGetReturnList, error)
 
     ReturnsConfirm(*ReturnsConfirmRequest) (*ReturnsConfirm, error)
 

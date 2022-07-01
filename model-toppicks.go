@@ -8,7 +8,7 @@ type CollectionList struct {
 // is_activated is whether collection is activated.
 IsActivated bool `json:"is_activated,omitempty"`
 // item_list is The items of top picks
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 // top_picks_id is collection id.
 TopPicksID int `json:"top_picks_id,omitempty"`
 // name is The title of  top picks.
@@ -21,7 +21,7 @@ Name string `json:"name,omitempty"`
 //=======================================================
 type TopPicksGetTopPicksList struct {
 // collection_list is The top picks list in this shop.
-CollectionList CollectionList `json:"collection_list"`
+CollectionList []CollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksGetTopPicksListRequest
@@ -45,7 +45,7 @@ type TopPicksGetTopPicksListResponse struct {
 //=======================================================
 type TopPicksAddTopPicks struct {
 // collection_list is The top picks list in this shop.
-CollectionList CollectionList `json:"collection_list"`
+CollectionList []CollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksAddTopPicksRequest
@@ -75,7 +75,7 @@ type TopPicksAddTopPicksResponse struct {
 //=======================================================
 type TopPicksUpdateTopPicks struct {
 // collection_list is The top picks list in this shop.
-CollectionList CollectionList `json:"collection_list"`
+CollectionList []CollectionList `json:"collection_list"`
 }
 //=======================================================
 // TopPicksUpdateTopPicksRequest

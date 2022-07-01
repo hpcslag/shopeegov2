@@ -49,9 +49,9 @@ type SlugList struct {
 //=======================================================
 type Dropoff struct {
 	// branch_list is List of available dropoff branches info.
-	BranchList BranchList `json:"branch_list"`
+	BranchList []BranchList `json:"branch_list"`
 	// slug_list is  List of available TW 3PL drop-off partners.
-	SlugList SlugList `json:"slug_list"`
+	SlugList []SlugList `json:"slug_list"`
 }
 
 //=======================================================
@@ -89,7 +89,7 @@ type AddressList struct {
 	// address_flag is The flag of shop address, applicable values: default_address, pickup_address, return_address
 	AddressFlag []string `json:"address_flag,omitempty"`
 	// time_slot_list is List of pickup_time information corresponding to the address_id.
-	TimeSlotList TimeSlotList `json:"time_slot_list"`
+	TimeSlotList []TimeSlotList `json:"time_slot_list"`
 }
 
 //=======================================================
@@ -97,7 +97,7 @@ type AddressList struct {
 //=======================================================
 type Pickup struct {
 	// address_list is List of available pickup address info.
-	AddressList AddressList `json:"address_list"`
+	AddressList []AddressList `json:"address_list"`
 }
 
 //=======================================================
@@ -227,7 +227,7 @@ type LogisticsUpdateShippingOrderResponse struct {
 //=======================================================
 type LogisticsGetShippingDocumentParameter struct {
 	// result_list is The list of the result data.
-	ResultList ResultList `json:"result_list"`
+	ResultList []ResultList `json:"result_list"`
 }
 
 //=======================================================
@@ -235,7 +235,7 @@ type LogisticsGetShippingDocumentParameter struct {
 //=======================================================
 type LogisticsGetShippingDocumentParameterRequest struct {
 	// order_list is The list of orders you want to get. limit [1,50]
-	OrderList OrderList `json:"order_list"`
+	OrderList []OrderList `json:"order_list"`
 }
 
 //=======================================================
@@ -254,7 +254,7 @@ type LogisticsGetShippingDocumentParameterResponse struct {
 //=======================================================
 type LogisticsCreateShippingDocument struct {
 	// result_list is The list of the result data.
-	ResultList ResultList `json:"result_list"`
+	ResultList []ResultList `json:"result_list"`
 }
 
 //=======================================================
@@ -262,7 +262,7 @@ type LogisticsCreateShippingDocument struct {
 //=======================================================
 type LogisticsCreateShippingDocumentRequest struct {
 	// order_list is The list of order you want to create shipping document. limit [1, 50]
-	OrderList OrderList `json:"order_list"`
+	OrderList []OrderList `json:"order_list"`
 }
 
 //=======================================================
@@ -281,7 +281,7 @@ type LogisticsCreateShippingDocumentResponse struct {
 //=======================================================
 type LogisticsGetShippingDocumentResult struct {
 	// result_list is The result data list of the API response.
-	ResultList ResultList `json:"result_list"`
+	ResultList []ResultList `json:"result_list"`
 }
 
 //=======================================================
@@ -289,7 +289,7 @@ type LogisticsGetShippingDocumentResult struct {
 //=======================================================
 type LogisticsGetShippingDocumentResultRequest struct {
 	// order_list is The list of orders, limit [1,50]
-	OrderList OrderList `json:"order_list"`
+	OrderList []OrderList `json:"order_list"`
 }
 
 //=======================================================
@@ -310,7 +310,7 @@ type LogisticsDownloadShippingDocumentRequest struct {
 	// shipping_document_type is The type of shipping document. Available values: NORMAL_AIR_WAYBILL,THERMAL_AIR_WAYBILL,NORMAL_JOB_AIR_WAYBILL,THERMAL_JOB_AIR_WAYBILL
 	ShippingDocumentType string `json:"shipping_document_type,omitempty"`
 	// order_list is The list of orders you need to download it's shipping document.
-	OrderList OrderList `json:"order_list"`
+	OrderList []OrderList `json:"order_list"`
 }
 
 //=======================================================
@@ -539,7 +539,7 @@ type ShippingDocumentInfo struct {
 	ManufacturersWebsite string `json:"manufacturers_website,omitempty"`
 	// is_lm_dg_bool is Use this field to indicate order contains dangerous goods or not.
 	IsLmDgBool string `json:"is_lm_dg_bool,omitempty"`
-	// preferred_delivery_option is Use this field to indicate delivery address is residential or office address. if "preferred_delivery_option":2, it's Home,  ”preferred_delivery_option“:1, it's Office
+	// preferred_delivery_option is Use this field to indicate delivery address is residential or office address.
 	PreferredDeliveryOption string `json:"preferred_delivery_option,omitempty"`
 	// return_sort_code is The sort code for 3PL doing RTS.
 	ReturnSortCode ReturnSortCode `json:"return_sort_code"`
@@ -609,7 +609,7 @@ type LogisticsGetTrackingInfo struct {
 	// logistics_status is The Shopee logistics status for the order. Applicable values: See Data Definition- LogisticsStatus.
 	LogisticsStatus string `json:"logistics_status,omitempty"`
 	// tracking_info is The tracking info of the order.
-	TrackingInfo TrackingInfo `json:"tracking_info"`
+	TrackingInfo []TrackingInfo `json:"tracking_info"`
 }
 
 //=======================================================
@@ -640,7 +640,7 @@ type LogisticsGetAddressList struct {
 	// show_pickup_address is Show pickup address or not.
 	ShowPickupAddress bool `json:"show_pickup_address,omitempty"`
 	// address_list is The address list of you shop
-	AddressList AddressList `json:"address_list"`
+	AddressList []AddressList `json:"address_list"`
 }
 
 //=======================================================
@@ -769,7 +769,7 @@ type LogisticsChannelList struct {
 	// fee_type is See define FeeType, related to FeeType Value
 	FeeType string `json:"fee_type,omitempty"`
 	// size_list is Only for fee_type is SIZE_SELECTION
-	SizeList SizeList `json:"size_list"`
+	SizeList []SizeList `json:"size_list"`
 	// weight_limit is The weight limit for this logistic channel.
 	WeightLimit WeightLimit `json:"weight_limit"`
 	// item_max_dimension is The dimension limit for this logistic channel.
@@ -789,7 +789,7 @@ type LogisticsChannelList struct {
 //=======================================================
 type LogisticsGetChannelList struct {
 	// logistics_channel_list is The list of logistics channel.
-	LogisticsChannelList LogisticsChannelList `json:"logistics_channel_list"`
+	LogisticsChannelList []LogisticsChannelList `json:"logistics_channel_list"`
 }
 
 //=======================================================
@@ -828,7 +828,7 @@ type UpdatedChannels struct {
 	// channel_display_name is <p>Logistics channel name<br /></p>
 	ChannelDisplayName string `json:"channel_display_name,omitempty"`
 	// unsupport_warehouse is <p>List details of unsupported warehouses<br /></p>
-	UnsupportWarehouse UnsupportWarehouse `json:"unsupport_warehouse"`
+	UnsupportWarehouse []UnsupportWarehouse `json:"unsupport_warehouse"`
 }
 
 //=======================================================
@@ -846,7 +846,7 @@ type LogisticsUpdateChannel struct {
 	// logistics_channel_id is The identity of logistic channel.
 	LogisticsChannelID int `json:"logistics_channel_id,omitempty"`
 	// updated_channels is <p>List of channels that are updated in the operation (inclusive of dependent logistics channels)<br /></p>
-	UpdatedChannels UpdatedChannels `json:"updated_channels"`
+	UpdatedChannels []UpdatedChannels `json:"updated_channels"`
 	// is_multi_warehouse is
 	IsMultiWarehouse bool `json:"is_multi_warehouse,omitempty"`
 }
@@ -881,7 +881,7 @@ type LogisticsUpdateChannelResponse struct {
 //=======================================================
 type LogisticsBatchShipOrder struct {
 	// result_list is
-	ResultList ResultList `json:"result_list"`
+	ResultList []ResultList `json:"result_list"`
 }
 
 //=======================================================
@@ -889,7 +889,7 @@ type LogisticsBatchShipOrder struct {
 //=======================================================
 type LogisticsBatchShipOrderRequest struct {
 	// order_list is The list of order.
-	OrderList OrderList `json:"order_list"`
+	OrderList []OrderList `json:"order_list"`
 	// pickup is Required parameter ONLY if GetParameterForInit returns "pickup" or if GetLogisticsInfo returns "pickup" under "info_needed" for the same order. Developer should still include "pickup" field in the call even if "pickup" has empty value.
 	Pickup Pickup `json:"pickup,omitempty"`
 	// dropoff is Required parameter ONLY if GetParameterForInit returns "dropoff" or if GetLogisticsInfo returns "dropoff" under "info_needed" for the same order. Developer should still include "dropoff" field in the call even if "dropoff" has empty value. For logistic_id 80003 and 80004, both Regular and JOB shipping methods are supported. If you choose Regular shipping method, please use "tracking_no" to call Init API. If you choose JOB shipping method, please use "sender_real_name" to call Init API. Note that only one of "tracking_no" and "sender_real_name" can be selected.

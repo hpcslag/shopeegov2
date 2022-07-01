@@ -19,7 +19,7 @@ type OrderGetOrderList struct {
 // more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
 More bool `json:"more,omitempty"`
 // order_list is 
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 // next_cursor is If  more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 }
@@ -59,7 +59,7 @@ type OrderGetOrderListResponse struct {
 //=======================================================
 type OrderGetShipmentList struct {
 // order_list is The list of  shipment orders
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 // more is This is to indicate whether the order list is more than one page. If this value is true, you may want to continue to check next page to retrieve orders.
 More bool `json:"more,omitempty"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
@@ -91,7 +91,7 @@ type OrderGetShipmentListResponse struct {
 //=======================================================
 type OrderGetOrderDetail struct {
 // order_list is The list of orders.
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 }
 //=======================================================
 // OrderGetOrderDetailRequest
@@ -119,7 +119,7 @@ type OrderGetOrderDetailResponse struct {
 //=======================================================
 type PackageList struct {
 // item_list is The list of items under the same package.
-ItemList ItemList `json:"item_list"`
+ItemList []ItemList `json:"item_list"`
 }
 
 
@@ -130,7 +130,7 @@ type OrderSplitOrder struct {
 // order_sn is Shopee's unique identifier for an order.
 OrderSn string `json:"order_sn,omitempty"`
 // package_list is The list of package under this order you have split.
-PackageList PackageList `json:"package_list"`
+PackageList []PackageList `json:"package_list"`
 }
 //=======================================================
 // OrderSplitOrderRequest
@@ -139,7 +139,7 @@ type OrderSplitOrderRequest struct {
     // order_sn is Shopee's unique identifier for an order.
     OrderSn string `json:"order_sn"`
     // package_list is The list of packages that you want to split
-    PackageList PackageList `json:"package_list"`
+    PackageList []PackageList `json:"package_list"`
 }
 //=======================================================
 // OrderSplitOrderResponse
@@ -184,7 +184,7 @@ type OrderCancelOrderRequest struct {
     // cancel_reason is The reason seller want to cancel this order. Applicable values: OUT_OF_STOCK, CUSTOMER_REQUEST, UNDELIVERABLE_AREA, COD_NOT_SUPPORTED.
     CancelReason string `json:"cancel_reason"`
     // item_list is Required when cancel_reason is OUT_OF_STOCK. 
-    ItemList ItemList `json:"item_list,omitempty"`
+    ItemList []ItemList `json:"item_list,omitempty"`
 }
 //=======================================================
 // OrderCancelOrderResponse
@@ -290,7 +290,7 @@ More bool `json:"more,omitempty"`
 // next_cursor is If more is true, you should pass the next_cursor in the next request as cursor. The value of next_cursor will be empty string when more is false.
 NextCursor string `json:"next_cursor,omitempty"`
 // order_list is 
-OrderList OrderList `json:"order_list"`
+OrderList []OrderList `json:"order_list"`
 }
 //=======================================================
 // OrderGetPendingBuyerInvoiceOrderListRequest
@@ -357,7 +357,7 @@ OrderSn string `json:"order_sn,omitempty"`
 //=======================================================
 type OrderGetBuyerInvoiceInfoRequest struct {
     // queries is 
-    Queries Queries `json:"queries"`
+    Queries []Queries `json:"queries"`
 }
 //=======================================================
 // OrderGetBuyerInvoiceInfoResponse
