@@ -50,6 +50,18 @@ def checkIsExpensivableObject(raw):
     if 'children' in raw.keys():
         return True
 
+def checkIsArrayType(raw):
+    return raw["type"] in [ "list", "object[]" ]
+
+def checkResponseIsArrayType(raw):
+    isArrayType = False
+    for resItem in raw["response_params"]:
+        if resItem["name"] != "response":
+            continue
+        isArrayType = checkIsArrayType(resItem)
+
+    return isArrayType
+
 # store global object name to share
 globalStruct = []
 
@@ -129,7 +141,7 @@ type %s struct {""" % (structName, structName))
                 # gen sub struct for typing
                 dependenciesStructRaw += ParseObjectToStruct(subObjName, item)
             
-            if item["type"] == "list" or item["type"] == "object[]":
+            if checkIsArrayType(item):
                 subObjName = '[]' + subObjName
 
             structRaw += """
@@ -203,7 +215,8 @@ if __name__ == "__main__":
             # add to global interface list:
             globalInterface.append({
                 "name": apiName,
-                "no_response": detectNotResponsable(apiParams)
+                "no_response": detectNotResponsable(apiParams),
+                "is_array": checkResponseIsArrayType(apiParams)
             })
 
             
@@ -243,7 +256,7 @@ type %sRequest struct {""" % (apiName, apiName))
                         # gen sub struct for typing
                         f.write(ParseObjectToStruct(objName, reqItem))
 
-                    if reqItem["type"] == "list" or reqItem["type"] == "object[]":
+                    if checkIsArrayType(reqItem):
                         objName = '[]' + objName
                                        
                     reqStr += """
@@ -281,7 +294,8 @@ type %sResponse struct {
     // 通用的 Response 回傳參數
     V2UnityResponse
 """ % (apiName, apiName))
-            
+
+            # iterate response items
             for resItem in apiParams["response_params"]:
                 # doc bug: remove all space
                 resItem["name"] = removeSpace(resItem["name"])
@@ -310,7 +324,7 @@ type %sResponse struct {
                         # gen sub struct for typing
                         f.write(ParseObjectToStruct(objName, resItem))
 
-                    if reqItem["type"] == "list" or reqItem["type"] == "object[]":
+                    if checkIsArrayType(resItem):
                         objName = '[]' + objName
                                        
                     resStr += """
@@ -388,6 +402,13 @@ type V2UnityResponse struct {
     for item in globalInterface:
         apiName = item["name"]
         noResponse = item["no_response"]
+        isArray = item["is_array"]
+
+        responseStructName = apiName
+        if isArray:
+            responseStructName = '[]' + responseStructName
+        else:
+            responseStructName = '*' + responseStructName
 
         if noResponse:
             # not response
@@ -428,11 +449,11 @@ func (s *ShopeeClient) %s(req *%sRequest) (err error) {
 
         globalInterfaceStr += """
     %s(*%sRequest) (*%s, error)
-""" % (apiName, apiName, apiName)
+""" % (apiName, apiName, responseStructName)
 
         globalImplementStr += """
 
-func (s *ShopeeClient) %s(req *%sRequest) (resp *%s, err error) {
+func (s *ShopeeClient) %s(req *%sRequest) (resp %s, err error) {
 	b, err := s.post("%s", req)
 	if err != nil {
 		return
@@ -454,10 +475,10 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp *%s, err error) {
 		return
 	}
 
-	resp = &wrappedResponse.Response
+	resp = wrappedResponse.Response
 	return
 }
-""" % (apiName, apiName, apiName, apiName, apiName)
+""" % (apiName, apiName, responseStructName, apiName, apiName)
 
     globalInterfaceStr += """
 }
