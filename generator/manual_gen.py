@@ -496,7 +496,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp %s, err error) {
 	resp = %swrappedResponse.Response
 	return
 }
-""" % (apiName, apiName, responseStructName, apiName, toSingleSemantic(apiName), withPtrStr)
+""" % (apiName, apiName, responseStructName, apiName, apiName, withPtrStr)
 
     globalInterfaceStr += """
 }

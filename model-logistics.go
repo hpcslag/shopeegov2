@@ -623,7 +623,7 @@ type LogisticsGetShippingDocumentInfoShippingDocumentInfo struct {
 	ManufacturersWebsite string `json:"manufacturers_website,omitempty"`
 	// is_lm_dg_bool is Use this field to indicate order contains dangerous goods or not.
 	IsLmDgBool string `json:"is_lm_dg_bool,omitempty"`
-	// preferred_delivery_option is Use this field to indicate delivery address is residential or office address.
+	// preferred_delivery_option is Use this field to indicate delivery address is residential or office address. if "preferred_delivery_option":2, it's Home,  ”preferred_delivery_option“:1, it's Office
 	PreferredDeliveryOption string `json:"preferred_delivery_option,omitempty"`
 	// return_sort_code is The sort code for 3PL doing RTS.
 	ReturnSortCode LogisticsGetShippingDocumentInfoShippingDocumentInfoReturnSortCode `json:"return_sort_code"`

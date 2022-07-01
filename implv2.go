@@ -1,5 +1,9 @@
-
 package shopeego
+
+import (
+	"errors"
+	"log"
+)
 
 // 統一的 API 回應介面
 type V2UnityResponse struct {
@@ -13,7 +17,6 @@ type V2UnityResponse struct {
 	Warning string `json:"warning,omitempty"`
 }
 
-
 func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp *ProductGetCategory, err error) {
 	b, err := s.post("ProductGetCategory", req)
 	if err != nil {
@@ -26,7 +29,7 @@ func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -39,7 +42,6 @@ func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetAttributes(req *ProductGetAttributesRequest) (resp *ProductGetAttributes, err error) {
 	b, err := s.post("ProductGetAttributes", req)
@@ -47,13 +49,13 @@ func (s *ShopeeClient) ProductGetAttributes(req *ProductGetAttributesRequest) (r
 		return
 	}
 
-	var wrappedResponse *ProductGetAttributeResponse
+	var wrappedResponse *ProductGetAttributesResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -66,7 +68,6 @@ func (s *ShopeeClient) ProductGetAttributes(req *ProductGetAttributesRequest) (r
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetBrandList(req *ProductGetBrandListRequest) (resp *ProductGetBrandList, err error) {
 	b, err := s.post("ProductGetBrandList", req)
@@ -74,13 +75,13 @@ func (s *ShopeeClient) ProductGetBrandList(req *ProductGetBrandListRequest) (res
 		return
 	}
 
-	var wrappedResponse *ProductGetBrandResponse
+	var wrappedResponse *ProductGetBrandListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -93,7 +94,6 @@ func (s *ShopeeClient) ProductGetBrandList(req *ProductGetBrandListRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetDtsLimit(req *ProductGetDtsLimitRequest) (resp *ProductGetDtsLimit, err error) {
 	b, err := s.post("ProductGetDtsLimit", req)
@@ -107,7 +107,7 @@ func (s *ShopeeClient) ProductGetDtsLimit(req *ProductGetDtsLimitRequest) (resp 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -120,7 +120,6 @@ func (s *ShopeeClient) ProductGetDtsLimit(req *ProductGetDtsLimitRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemLimit(req *ProductGetItemLimitRequest) (resp *ProductGetItemLimit, err error) {
 	b, err := s.post("ProductGetItemLimit", req)
@@ -134,7 +133,7 @@ func (s *ShopeeClient) ProductGetItemLimit(req *ProductGetItemLimitRequest) (res
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -147,7 +146,6 @@ func (s *ShopeeClient) ProductGetItemLimit(req *ProductGetItemLimitRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemList(req *ProductGetItemListRequest) (resp *ProductGetItemList, err error) {
 	b, err := s.post("ProductGetItemList", req)
@@ -155,13 +153,13 @@ func (s *ShopeeClient) ProductGetItemList(req *ProductGetItemListRequest) (resp 
 		return
 	}
 
-	var wrappedResponse *ProductGetItemResponse
+	var wrappedResponse *ProductGetItemListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -174,7 +172,6 @@ func (s *ShopeeClient) ProductGetItemList(req *ProductGetItemListRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemBaseInfo(req *ProductGetItemBaseInfoRequest) (resp *ProductGetItemBaseInfo, err error) {
 	b, err := s.post("ProductGetItemBaseInfo", req)
@@ -188,7 +185,7 @@ func (s *ShopeeClient) ProductGetItemBaseInfo(req *ProductGetItemBaseInfoRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -201,7 +198,6 @@ func (s *ShopeeClient) ProductGetItemBaseInfo(req *ProductGetItemBaseInfoRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemExtraInfo(req *ProductGetItemExtraInfoRequest) (resp *ProductGetItemExtraInfo, err error) {
 	b, err := s.post("ProductGetItemExtraInfo", req)
@@ -215,7 +211,7 @@ func (s *ShopeeClient) ProductGetItemExtraInfo(req *ProductGetItemExtraInfoReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -228,7 +224,6 @@ func (s *ShopeeClient) ProductGetItemExtraInfo(req *ProductGetItemExtraInfoReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductAddItem(req *ProductAddItemRequest) (resp *ProductAddItem, err error) {
 	b, err := s.post("ProductAddItem", req)
@@ -242,7 +237,7 @@ func (s *ShopeeClient) ProductAddItem(req *ProductAddItemRequest) (resp *Product
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -255,7 +250,6 @@ func (s *ShopeeClient) ProductAddItem(req *ProductAddItemRequest) (resp *Product
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateItem(req *ProductUpdateItemRequest) (resp *ProductUpdateItem, err error) {
 	b, err := s.post("ProductUpdateItem", req)
@@ -269,7 +263,7 @@ func (s *ShopeeClient) ProductUpdateItem(req *ProductUpdateItemRequest) (resp *P
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -282,7 +276,6 @@ func (s *ShopeeClient) ProductUpdateItem(req *ProductUpdateItemRequest) (resp *P
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductDeleteItem(req *ProductDeleteItemRequest) (err error) {
 	b, err := s.post("ProductDeleteItem", req)
@@ -296,7 +289,7 @@ func (s *ShopeeClient) ProductDeleteItem(req *ProductDeleteItemRequest) (err err
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -308,7 +301,6 @@ func (s *ShopeeClient) ProductDeleteItem(req *ProductDeleteItemRequest) (err err
 
 	return
 }
-
 
 func (s *ShopeeClient) ProductInitTierVariation(req *ProductInitTierVariationRequest) (resp *ProductInitTierVariation, err error) {
 	b, err := s.post("ProductInitTierVariation", req)
@@ -322,7 +314,7 @@ func (s *ShopeeClient) ProductInitTierVariation(req *ProductInitTierVariationReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -335,7 +327,6 @@ func (s *ShopeeClient) ProductInitTierVariation(req *ProductInitTierVariationReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateTierVariation(req *ProductUpdateTierVariationRequest) (err error) {
 	b, err := s.post("ProductUpdateTierVariation", req)
@@ -349,7 +340,7 @@ func (s *ShopeeClient) ProductUpdateTierVariation(req *ProductUpdateTierVariatio
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -362,20 +353,19 @@ func (s *ShopeeClient) ProductUpdateTierVariation(req *ProductUpdateTierVariatio
 	return
 }
 
-
 func (s *ShopeeClient) ProductGetModelList(req *ProductGetModelListRequest) (resp *ProductGetModelList, err error) {
 	b, err := s.post("ProductGetModelList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *ProductGetModelResponse
+	var wrappedResponse *ProductGetModelListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -388,7 +378,6 @@ func (s *ShopeeClient) ProductGetModelList(req *ProductGetModelListRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductAddModel(req *ProductAddModelRequest) (resp *ProductAddModel, err error) {
 	b, err := s.post("ProductAddModel", req)
@@ -402,7 +391,7 @@ func (s *ShopeeClient) ProductAddModel(req *ProductAddModelRequest) (resp *Produ
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -415,7 +404,6 @@ func (s *ShopeeClient) ProductAddModel(req *ProductAddModelRequest) (resp *Produ
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateModel(req *ProductUpdateModelRequest) (err error) {
 	b, err := s.post("ProductUpdateModel", req)
@@ -429,7 +417,7 @@ func (s *ShopeeClient) ProductUpdateModel(req *ProductUpdateModelRequest) (err e
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -441,7 +429,6 @@ func (s *ShopeeClient) ProductUpdateModel(req *ProductUpdateModelRequest) (err e
 
 	return
 }
-
 
 func (s *ShopeeClient) ProductDeleteModel(req *ProductDeleteModelRequest) (err error) {
 	b, err := s.post("ProductDeleteModel", req)
@@ -455,7 +442,7 @@ func (s *ShopeeClient) ProductDeleteModel(req *ProductDeleteModelRequest) (err e
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -467,7 +454,6 @@ func (s *ShopeeClient) ProductDeleteModel(req *ProductDeleteModelRequest) (err e
 
 	return
 }
-
 
 func (s *ShopeeClient) ProductSupportSizeChart(req *ProductSupportSizeChartRequest) (resp *ProductSupportSizeChart, err error) {
 	b, err := s.post("ProductSupportSizeChart", req)
@@ -481,7 +467,7 @@ func (s *ShopeeClient) ProductSupportSizeChart(req *ProductSupportSizeChartReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -494,7 +480,6 @@ func (s *ShopeeClient) ProductSupportSizeChart(req *ProductSupportSizeChartReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateSizeChart(req *ProductUpdateSizeChartRequest) (err error) {
 	b, err := s.post("ProductUpdateSizeChart", req)
@@ -508,7 +493,7 @@ func (s *ShopeeClient) ProductUpdateSizeChart(req *ProductUpdateSizeChartRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -520,7 +505,6 @@ func (s *ShopeeClient) ProductUpdateSizeChart(req *ProductUpdateSizeChartRequest
 
 	return
 }
-
 
 func (s *ShopeeClient) ProductUnlistItem(req *ProductUnlistItemRequest) (resp *ProductUnlistItem, err error) {
 	b, err := s.post("ProductUnlistItem", req)
@@ -534,7 +518,7 @@ func (s *ShopeeClient) ProductUnlistItem(req *ProductUnlistItemRequest) (resp *P
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -547,7 +531,6 @@ func (s *ShopeeClient) ProductUnlistItem(req *ProductUnlistItemRequest) (resp *P
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdatePrice(req *ProductUpdatePriceRequest) (resp *ProductUpdatePrice, err error) {
 	b, err := s.post("ProductUpdatePrice", req)
@@ -561,7 +544,7 @@ func (s *ShopeeClient) ProductUpdatePrice(req *ProductUpdatePriceRequest) (resp 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -574,7 +557,6 @@ func (s *ShopeeClient) ProductUpdatePrice(req *ProductUpdatePriceRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateStock(req *ProductUpdateStockRequest) (resp *ProductUpdateStock, err error) {
 	b, err := s.post("ProductUpdateStock", req)
@@ -588,7 +570,7 @@ func (s *ShopeeClient) ProductUpdateStock(req *ProductUpdateStockRequest) (resp 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -601,7 +583,6 @@ func (s *ShopeeClient) ProductUpdateStock(req *ProductUpdateStockRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductBoostItem(req *ProductBoostItemRequest) (resp *ProductBoostItem, err error) {
 	b, err := s.post("ProductBoostItem", req)
@@ -615,7 +596,7 @@ func (s *ShopeeClient) ProductBoostItem(req *ProductBoostItemRequest) (resp *Pro
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -628,7 +609,6 @@ func (s *ShopeeClient) ProductBoostItem(req *ProductBoostItemRequest) (resp *Pro
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetBoostedList(req *ProductGetBoostedListRequest) (resp *ProductGetBoostedList, err error) {
 	b, err := s.post("ProductGetBoostedList", req)
@@ -636,13 +616,13 @@ func (s *ShopeeClient) ProductGetBoostedList(req *ProductGetBoostedListRequest) 
 		return
 	}
 
-	var wrappedResponse *ProductGetBoostedResponse
+	var wrappedResponse *ProductGetBoostedListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -655,7 +635,6 @@ func (s *ShopeeClient) ProductGetBoostedList(req *ProductGetBoostedListRequest) 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetItemPromotion(req *ProductGetItemPromotionRequest) (resp *ProductGetItemPromotion, err error) {
 	b, err := s.post("ProductGetItemPromotion", req)
@@ -669,7 +648,7 @@ func (s *ShopeeClient) ProductGetItemPromotion(req *ProductGetItemPromotionReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -682,7 +661,6 @@ func (s *ShopeeClient) ProductGetItemPromotion(req *ProductGetItemPromotionReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductUpdateSipItemPrice(req *ProductUpdateSipItemPriceRequest) (err error) {
 	b, err := s.post("ProductUpdateSipItemPrice", req)
@@ -696,7 +674,7 @@ func (s *ShopeeClient) ProductUpdateSipItemPrice(req *ProductUpdateSipItemPriceR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -708,7 +686,6 @@ func (s *ShopeeClient) ProductUpdateSipItemPrice(req *ProductUpdateSipItemPriceR
 
 	return
 }
-
 
 func (s *ShopeeClient) ProductSearchItem(req *ProductSearchItemRequest) (resp *ProductSearchItem, err error) {
 	b, err := s.post("ProductSearchItem", req)
@@ -722,7 +699,7 @@ func (s *ShopeeClient) ProductSearchItem(req *ProductSearchItemRequest) (resp *P
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -735,7 +712,6 @@ func (s *ShopeeClient) ProductSearchItem(req *ProductSearchItemRequest) (resp *P
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetComment(req *ProductGetCommentRequest) (resp *ProductGetComment, err error) {
 	b, err := s.post("ProductGetComment", req)
@@ -749,7 +725,7 @@ func (s *ShopeeClient) ProductGetComment(req *ProductGetCommentRequest) (resp *P
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -762,7 +738,6 @@ func (s *ShopeeClient) ProductGetComment(req *ProductGetCommentRequest) (resp *P
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductReplyComment(req *ProductReplyCommentRequest) (resp *ProductReplyComment, err error) {
 	b, err := s.post("ProductReplyComment", req)
@@ -776,7 +751,7 @@ func (s *ShopeeClient) ProductReplyComment(req *ProductReplyCommentRequest) (res
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -789,7 +764,6 @@ func (s *ShopeeClient) ProductReplyComment(req *ProductReplyCommentRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductCategoryRecommend(req *ProductCategoryRecommendRequest) (resp *ProductCategoryRecommend, err error) {
 	b, err := s.post("ProductCategoryRecommend", req)
@@ -803,7 +777,7 @@ func (s *ShopeeClient) ProductCategoryRecommend(req *ProductCategoryRecommendReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -816,7 +790,6 @@ func (s *ShopeeClient) ProductCategoryRecommend(req *ProductCategoryRecommendReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductRegisterBrand(req *ProductRegisterBrandRequest) (resp *ProductRegisterBrand, err error) {
 	b, err := s.post("ProductRegisterBrand", req)
@@ -830,7 +803,7 @@ func (s *ShopeeClient) ProductRegisterBrand(req *ProductRegisterBrandRequest) (r
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -843,7 +816,6 @@ func (s *ShopeeClient) ProductRegisterBrand(req *ProductRegisterBrandRequest) (r
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ProductGetRecommendAttribute(req *ProductGetRecommendAttributeRequest) (resp *ProductGetRecommendAttribute, err error) {
 	b, err := s.post("ProductGetRecommendAttribute", req)
@@ -857,7 +829,7 @@ func (s *ShopeeClient) ProductGetRecommendAttribute(req *ProductGetRecommendAttr
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -870,7 +842,6 @@ func (s *ShopeeClient) ProductGetRecommendAttribute(req *ProductGetRecommendAttr
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetCategory(req *GlobalProductGetCategoryRequest) (resp *GlobalProductGetCategory, err error) {
 	b, err := s.post("GlobalProductGetCategory", req)
@@ -884,7 +855,7 @@ func (s *ShopeeClient) GlobalProductGetCategory(req *GlobalProductGetCategoryReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -897,7 +868,6 @@ func (s *ShopeeClient) GlobalProductGetCategory(req *GlobalProductGetCategoryReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetAttributes(req *GlobalProductGetAttributesRequest) (resp *GlobalProductGetAttributes, err error) {
 	b, err := s.post("GlobalProductGetAttributes", req)
@@ -905,13 +875,13 @@ func (s *ShopeeClient) GlobalProductGetAttributes(req *GlobalProductGetAttribute
 		return
 	}
 
-	var wrappedResponse *GlobalProductGetAttributeResponse
+	var wrappedResponse *GlobalProductGetAttributesResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -924,7 +894,6 @@ func (s *ShopeeClient) GlobalProductGetAttributes(req *GlobalProductGetAttribute
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetBrandList(req *GlobalProductGetBrandListRequest) (resp *GlobalProductGetBrandList, err error) {
 	b, err := s.post("GlobalProductGetBrandList", req)
@@ -932,13 +901,13 @@ func (s *ShopeeClient) GlobalProductGetBrandList(req *GlobalProductGetBrandListR
 		return
 	}
 
-	var wrappedResponse *GlobalProductGetBrandResponse
+	var wrappedResponse *GlobalProductGetBrandListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -951,7 +920,6 @@ func (s *ShopeeClient) GlobalProductGetBrandList(req *GlobalProductGetBrandListR
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetGlobalItemLimit(req *GlobalProductGetGlobalItemLimitRequest) (resp *GlobalProductGetGlobalItemLimit, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemLimit", req)
@@ -965,7 +933,7 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemLimit(req *GlobalProductGetGlob
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -978,7 +946,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemLimit(req *GlobalProductGetGlob
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetDtsLimit(req *GlobalProductGetDtsLimitRequest) (resp *GlobalProductGetDtsLimit, err error) {
 	b, err := s.post("GlobalProductGetDtsLimit", req)
@@ -992,7 +959,7 @@ func (s *ShopeeClient) GlobalProductGetDtsLimit(req *GlobalProductGetDtsLimitReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1005,7 +972,6 @@ func (s *ShopeeClient) GlobalProductGetDtsLimit(req *GlobalProductGetDtsLimitReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetGlobalItemList(req *GlobalProductGetGlobalItemListRequest) (resp *GlobalProductGetGlobalItemList, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemList", req)
@@ -1013,13 +979,13 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemList(req *GlobalProductGetGloba
 		return
 	}
 
-	var wrappedResponse *GlobalProductGetGlobalItemResponse
+	var wrappedResponse *GlobalProductGetGlobalItemListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1032,7 +998,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemList(req *GlobalProductGetGloba
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetGlobalItemInfo(req *GlobalProductGetGlobalItemInfoRequest) (resp *GlobalProductGetGlobalItemInfo, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemInfo", req)
@@ -1046,7 +1011,7 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemInfo(req *GlobalProductGetGloba
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1059,7 +1024,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemInfo(req *GlobalProductGetGloba
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductAddGlobalItem(req *GlobalProductAddGlobalItemRequest) (resp *GlobalProductAddGlobalItem, err error) {
 	b, err := s.post("GlobalProductAddGlobalItem", req)
@@ -1073,7 +1037,7 @@ func (s *ShopeeClient) GlobalProductAddGlobalItem(req *GlobalProductAddGlobalIte
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1086,7 +1050,6 @@ func (s *ShopeeClient) GlobalProductAddGlobalItem(req *GlobalProductAddGlobalIte
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdateGlobalItem(req *GlobalProductUpdateGlobalItemRequest) (resp *GlobalProductUpdateGlobalItem, err error) {
 	b, err := s.post("GlobalProductUpdateGlobalItem", req)
@@ -1100,7 +1063,7 @@ func (s *ShopeeClient) GlobalProductUpdateGlobalItem(req *GlobalProductUpdateGlo
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1113,7 +1076,6 @@ func (s *ShopeeClient) GlobalProductUpdateGlobalItem(req *GlobalProductUpdateGlo
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductDeleteGlobalItem(req *GlobalProductDeleteGlobalItemRequest) (resp *GlobalProductDeleteGlobalItem, err error) {
 	b, err := s.post("GlobalProductDeleteGlobalItem", req)
@@ -1127,7 +1089,7 @@ func (s *ShopeeClient) GlobalProductDeleteGlobalItem(req *GlobalProductDeleteGlo
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1140,7 +1102,6 @@ func (s *ShopeeClient) GlobalProductDeleteGlobalItem(req *GlobalProductDeleteGlo
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductInitTierVariation(req *GlobalProductInitTierVariationRequest) (err error) {
 	b, err := s.post("GlobalProductInitTierVariation", req)
@@ -1154,7 +1115,7 @@ func (s *ShopeeClient) GlobalProductInitTierVariation(req *GlobalProductInitTier
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1166,7 +1127,6 @@ func (s *ShopeeClient) GlobalProductInitTierVariation(req *GlobalProductInitTier
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdateTierVariation(req *GlobalProductUpdateTierVariationRequest) (err error) {
 	b, err := s.post("GlobalProductUpdateTierVariation", req)
@@ -1180,7 +1140,7 @@ func (s *ShopeeClient) GlobalProductUpdateTierVariation(req *GlobalProductUpdate
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1192,7 +1152,6 @@ func (s *ShopeeClient) GlobalProductUpdateTierVariation(req *GlobalProductUpdate
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductAddGlobalModel(req *GlobalProductAddGlobalModelRequest) (err error) {
 	b, err := s.post("GlobalProductAddGlobalModel", req)
@@ -1206,7 +1165,7 @@ func (s *ShopeeClient) GlobalProductAddGlobalModel(req *GlobalProductAddGlobalMo
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1218,7 +1177,6 @@ func (s *ShopeeClient) GlobalProductAddGlobalModel(req *GlobalProductAddGlobalMo
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdateGlobalModel(req *GlobalProductUpdateGlobalModelRequest) (err error) {
 	b, err := s.post("GlobalProductUpdateGlobalModel", req)
@@ -1232,7 +1190,7 @@ func (s *ShopeeClient) GlobalProductUpdateGlobalModel(req *GlobalProductUpdateGl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1244,7 +1202,6 @@ func (s *ShopeeClient) GlobalProductUpdateGlobalModel(req *GlobalProductUpdateGl
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductDeleteGlobalModel(req *GlobalProductDeleteGlobalModelRequest) (resp *GlobalProductDeleteGlobalModel, err error) {
 	b, err := s.post("GlobalProductDeleteGlobalModel", req)
@@ -1258,7 +1215,7 @@ func (s *ShopeeClient) GlobalProductDeleteGlobalModel(req *GlobalProductDeleteGl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1271,7 +1228,6 @@ func (s *ShopeeClient) GlobalProductDeleteGlobalModel(req *GlobalProductDeleteGl
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetGlobalModelList(req *GlobalProductGetGlobalModelListRequest) (resp *GlobalProductGetGlobalModelList, err error) {
 	b, err := s.post("GlobalProductGetGlobalModelList", req)
@@ -1279,13 +1235,13 @@ func (s *ShopeeClient) GlobalProductGetGlobalModelList(req *GlobalProductGetGlob
 		return
 	}
 
-	var wrappedResponse *GlobalProductGetGlobalModelResponse
+	var wrappedResponse *GlobalProductGetGlobalModelListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1298,7 +1254,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalModelList(req *GlobalProductGetGlob
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductSupportSizeChart(req *GlobalProductSupportSizeChartRequest) (resp *GlobalProductSupportSizeChart, err error) {
 	b, err := s.post("GlobalProductSupportSizeChart", req)
@@ -1312,7 +1267,7 @@ func (s *ShopeeClient) GlobalProductSupportSizeChart(req *GlobalProductSupportSi
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1325,7 +1280,6 @@ func (s *ShopeeClient) GlobalProductSupportSizeChart(req *GlobalProductSupportSi
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdateSizeChart(req *GlobalProductUpdateSizeChartRequest) (err error) {
 	b, err := s.post("GlobalProductUpdateSizeChart", req)
@@ -1339,7 +1293,7 @@ func (s *ShopeeClient) GlobalProductUpdateSizeChart(req *GlobalProductUpdateSize
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1351,7 +1305,6 @@ func (s *ShopeeClient) GlobalProductUpdateSizeChart(req *GlobalProductUpdateSize
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductCreatePublishTask(req *GlobalProductCreatePublishTaskRequest) (resp *GlobalProductCreatePublishTask, err error) {
 	b, err := s.post("GlobalProductCreatePublishTask", req)
@@ -1365,7 +1318,7 @@ func (s *ShopeeClient) GlobalProductCreatePublishTask(req *GlobalProductCreatePu
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1378,7 +1331,6 @@ func (s *ShopeeClient) GlobalProductCreatePublishTask(req *GlobalProductCreatePu
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetPublishableShop(req *GlobalProductGetPublishableShopRequest) (resp *GlobalProductGetPublishableShop, err error) {
 	b, err := s.post("GlobalProductGetPublishableShop", req)
@@ -1392,7 +1344,7 @@ func (s *ShopeeClient) GlobalProductGetPublishableShop(req *GlobalProductGetPubl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1405,7 +1357,6 @@ func (s *ShopeeClient) GlobalProductGetPublishableShop(req *GlobalProductGetPubl
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetPublishTaskResult(req *GlobalProductGetPublishTaskResultRequest) (resp *GlobalProductGetPublishTaskResult, err error) {
 	b, err := s.post("GlobalProductGetPublishTaskResult", req)
@@ -1419,7 +1370,7 @@ func (s *ShopeeClient) GlobalProductGetPublishTaskResult(req *GlobalProductGetPu
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1432,7 +1383,6 @@ func (s *ShopeeClient) GlobalProductGetPublishTaskResult(req *GlobalProductGetPu
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetPublishedList(req *GlobalProductGetPublishedListRequest) (resp *GlobalProductGetPublishedList, err error) {
 	b, err := s.post("GlobalProductGetPublishedList", req)
@@ -1440,13 +1390,13 @@ func (s *ShopeeClient) GlobalProductGetPublishedList(req *GlobalProductGetPublis
 		return
 	}
 
-	var wrappedResponse *GlobalProductGetPublishedResponse
+	var wrappedResponse *GlobalProductGetPublishedListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1459,7 +1409,6 @@ func (s *ShopeeClient) GlobalProductGetPublishedList(req *GlobalProductGetPublis
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdatePrice(req *GlobalProductUpdatePriceRequest) (err error) {
 	b, err := s.post("GlobalProductUpdatePrice", req)
@@ -1473,7 +1422,7 @@ func (s *ShopeeClient) GlobalProductUpdatePrice(req *GlobalProductUpdatePriceReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1485,7 +1434,6 @@ func (s *ShopeeClient) GlobalProductUpdatePrice(req *GlobalProductUpdatePriceReq
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductUpdateStock(req *GlobalProductUpdateStockRequest) (err error) {
 	b, err := s.post("GlobalProductUpdateStock", req)
@@ -1499,7 +1447,7 @@ func (s *ShopeeClient) GlobalProductUpdateStock(req *GlobalProductUpdateStockReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1511,7 +1459,6 @@ func (s *ShopeeClient) GlobalProductUpdateStock(req *GlobalProductUpdateStockReq
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductSetSyncField(req *GlobalProductSetSyncFieldRequest) (err error) {
 	b, err := s.post("GlobalProductSetSyncField", req)
@@ -1525,7 +1472,7 @@ func (s *ShopeeClient) GlobalProductSetSyncField(req *GlobalProductSetSyncFieldR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1537,7 +1484,6 @@ func (s *ShopeeClient) GlobalProductSetSyncField(req *GlobalProductSetSyncFieldR
 
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetGlobalItemID(req *GlobalProductGetGlobalItemIDRequest) (resp *GlobalProductGetGlobalItemID, err error) {
 	b, err := s.post("GlobalProductGetGlobalItemID", req)
@@ -1551,7 +1497,7 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemID(req *GlobalProductGetGlobalI
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1564,7 +1510,6 @@ func (s *ShopeeClient) GlobalProductGetGlobalItemID(req *GlobalProductGetGlobalI
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductCategoryRecommend(req *GlobalProductCategoryRecommendRequest) (resp *GlobalProductCategoryRecommend, err error) {
 	b, err := s.post("GlobalProductCategoryRecommend", req)
@@ -1578,7 +1523,7 @@ func (s *ShopeeClient) GlobalProductCategoryRecommend(req *GlobalProductCategory
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1591,7 +1536,6 @@ func (s *ShopeeClient) GlobalProductCategoryRecommend(req *GlobalProductCategory
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) GlobalProductGetRecommendAttribute(req *GlobalProductGetRecommendAttributeRequest) (resp *GlobalProductGetRecommendAttribute, err error) {
 	b, err := s.post("GlobalProductGetRecommendAttribute", req)
@@ -1605,7 +1549,7 @@ func (s *ShopeeClient) GlobalProductGetRecommendAttribute(req *GlobalProductGetR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1618,7 +1562,6 @@ func (s *ShopeeClient) GlobalProductGetRecommendAttribute(req *GlobalProductGetR
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceInitVideoUpload(req *MediaSpaceInitVideoUploadRequest) (resp *MediaSpaceInitVideoUpload, err error) {
 	b, err := s.post("MediaSpaceInitVideoUpload", req)
@@ -1632,7 +1575,7 @@ func (s *ShopeeClient) MediaSpaceInitVideoUpload(req *MediaSpaceInitVideoUploadR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1645,7 +1588,6 @@ func (s *ShopeeClient) MediaSpaceInitVideoUpload(req *MediaSpaceInitVideoUploadR
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceUploadVideoPart(req *MediaSpaceUploadVideoPartRequest) (err error) {
 	b, err := s.post("MediaSpaceUploadVideoPart", req)
@@ -1659,7 +1601,7 @@ func (s *ShopeeClient) MediaSpaceUploadVideoPart(req *MediaSpaceUploadVideoPartR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1671,7 +1613,6 @@ func (s *ShopeeClient) MediaSpaceUploadVideoPart(req *MediaSpaceUploadVideoPartR
 
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceCompleteVideoUpload(req *MediaSpaceCompleteVideoUploadRequest) (err error) {
 	b, err := s.post("MediaSpaceCompleteVideoUpload", req)
@@ -1685,7 +1626,7 @@ func (s *ShopeeClient) MediaSpaceCompleteVideoUpload(req *MediaSpaceCompleteVide
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1697,7 +1638,6 @@ func (s *ShopeeClient) MediaSpaceCompleteVideoUpload(req *MediaSpaceCompleteVide
 
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceGetVideoUploadResult(req *MediaSpaceGetVideoUploadResultRequest) (resp *MediaSpaceGetVideoUploadResult, err error) {
 	b, err := s.post("MediaSpaceGetVideoUploadResult", req)
@@ -1711,7 +1651,7 @@ func (s *ShopeeClient) MediaSpaceGetVideoUploadResult(req *MediaSpaceGetVideoUpl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1724,7 +1664,6 @@ func (s *ShopeeClient) MediaSpaceGetVideoUploadResult(req *MediaSpaceGetVideoUpl
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceCancelVideoUpload(req *MediaSpaceCancelVideoUploadRequest) (err error) {
 	b, err := s.post("MediaSpaceCancelVideoUpload", req)
@@ -1738,7 +1677,7 @@ func (s *ShopeeClient) MediaSpaceCancelVideoUpload(req *MediaSpaceCancelVideoUpl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1750,7 +1689,6 @@ func (s *ShopeeClient) MediaSpaceCancelVideoUpload(req *MediaSpaceCancelVideoUpl
 
 	return
 }
-
 
 func (s *ShopeeClient) MediaSpaceUploadImage(req *MediaSpaceUploadImageRequest) (resp *MediaSpaceUploadImage, err error) {
 	b, err := s.post("MediaSpaceUploadImage", req)
@@ -1764,7 +1702,7 @@ func (s *ShopeeClient) MediaSpaceUploadImage(req *MediaSpaceUploadImageRequest) 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1777,7 +1715,6 @@ func (s *ShopeeClient) MediaSpaceUploadImage(req *MediaSpaceUploadImageRequest) 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopGetShopInfo(req *ShopGetShopInfoRequest) (err error) {
 	b, err := s.post("ShopGetShopInfo", req)
@@ -1791,7 +1728,7 @@ func (s *ShopeeClient) ShopGetShopInfo(req *ShopGetShopInfoRequest) (err error) 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1803,7 +1740,6 @@ func (s *ShopeeClient) ShopGetShopInfo(req *ShopGetShopInfoRequest) (err error) 
 
 	return
 }
-
 
 func (s *ShopeeClient) ShopGetProfile(req *ShopGetProfileRequest) (resp *ShopGetProfile, err error) {
 	b, err := s.post("ShopGetProfile", req)
@@ -1817,7 +1753,7 @@ func (s *ShopeeClient) ShopGetProfile(req *ShopGetProfileRequest) (resp *ShopGet
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1830,7 +1766,6 @@ func (s *ShopeeClient) ShopGetProfile(req *ShopGetProfileRequest) (resp *ShopGet
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopUpdateProfile(req *ShopUpdateProfileRequest) (resp *ShopUpdateProfile, err error) {
 	b, err := s.post("ShopUpdateProfile", req)
@@ -1844,7 +1779,7 @@ func (s *ShopeeClient) ShopUpdateProfile(req *ShopUpdateProfileRequest) (resp *S
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1857,7 +1792,6 @@ func (s *ShopeeClient) ShopUpdateProfile(req *ShopUpdateProfileRequest) (resp *S
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest) (resp []ShopGetWarehouseDetail, err error) {
 	b, err := s.post("ShopGetWarehouseDetail", req)
@@ -1871,7 +1805,7 @@ func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1884,7 +1818,6 @@ func (s *ShopeeClient) ShopGetWarehouseDetail(req *ShopGetWarehouseDetailRequest
 	resp = wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) MerchantGetMerchantInfo(req *MerchantGetMerchantInfoRequest) (err error) {
 	b, err := s.post("MerchantGetMerchantInfo", req)
@@ -1898,7 +1831,7 @@ func (s *ShopeeClient) MerchantGetMerchantInfo(req *MerchantGetMerchantInfoReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1910,7 +1843,6 @@ func (s *ShopeeClient) MerchantGetMerchantInfo(req *MerchantGetMerchantInfoReque
 
 	return
 }
-
 
 func (s *ShopeeClient) MerchantGetShopListByMerchant(req *MerchantGetShopListByMerchantRequest) (err error) {
 	b, err := s.post("MerchantGetShopListByMerchant", req)
@@ -1924,7 +1856,7 @@ func (s *ShopeeClient) MerchantGetShopListByMerchant(req *MerchantGetShopListByM
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1936,7 +1868,6 @@ func (s *ShopeeClient) MerchantGetShopListByMerchant(req *MerchantGetShopListByM
 
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetOrderList(req *OrderGetOrderListRequest) (resp *OrderGetOrderList, err error) {
 	b, err := s.post("OrderGetOrderList", req)
@@ -1944,13 +1875,13 @@ func (s *ShopeeClient) OrderGetOrderList(req *OrderGetOrderListRequest) (resp *O
 		return
 	}
 
-	var wrappedResponse *OrderGetOrderResponse
+	var wrappedResponse *OrderGetOrderListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1963,7 +1894,6 @@ func (s *ShopeeClient) OrderGetOrderList(req *OrderGetOrderListRequest) (resp *O
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetShipmentList(req *OrderGetShipmentListRequest) (resp *OrderGetShipmentList, err error) {
 	b, err := s.post("OrderGetShipmentList", req)
@@ -1971,13 +1901,13 @@ func (s *ShopeeClient) OrderGetShipmentList(req *OrderGetShipmentListRequest) (r
 		return
 	}
 
-	var wrappedResponse *OrderGetShipmentResponse
+	var wrappedResponse *OrderGetShipmentListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -1990,7 +1920,6 @@ func (s *ShopeeClient) OrderGetShipmentList(req *OrderGetShipmentListRequest) (r
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetOrderDetail(req *OrderGetOrderDetailRequest) (resp *OrderGetOrderDetail, err error) {
 	b, err := s.post("OrderGetOrderDetail", req)
@@ -2004,7 +1933,7 @@ func (s *ShopeeClient) OrderGetOrderDetail(req *OrderGetOrderDetailRequest) (res
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2017,7 +1946,6 @@ func (s *ShopeeClient) OrderGetOrderDetail(req *OrderGetOrderDetailRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderSplitOrder(req *OrderSplitOrderRequest) (resp *OrderSplitOrder, err error) {
 	b, err := s.post("OrderSplitOrder", req)
@@ -2031,7 +1959,7 @@ func (s *ShopeeClient) OrderSplitOrder(req *OrderSplitOrderRequest) (resp *Order
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2044,7 +1972,6 @@ func (s *ShopeeClient) OrderSplitOrder(req *OrderSplitOrderRequest) (resp *Order
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderUnsplitOrder(req *OrderUnsplitOrderRequest) (err error) {
 	b, err := s.post("OrderUnsplitOrder", req)
@@ -2058,7 +1985,7 @@ func (s *ShopeeClient) OrderUnsplitOrder(req *OrderUnsplitOrderRequest) (err err
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2070,7 +1997,6 @@ func (s *ShopeeClient) OrderUnsplitOrder(req *OrderUnsplitOrderRequest) (err err
 
 	return
 }
-
 
 func (s *ShopeeClient) OrderCancelOrder(req *OrderCancelOrderRequest) (resp *OrderCancelOrder, err error) {
 	b, err := s.post("OrderCancelOrder", req)
@@ -2084,7 +2010,7 @@ func (s *ShopeeClient) OrderCancelOrder(req *OrderCancelOrderRequest) (resp *Ord
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2097,7 +2023,6 @@ func (s *ShopeeClient) OrderCancelOrder(req *OrderCancelOrderRequest) (resp *Ord
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderHandleBuyerCancellation(req *OrderHandleBuyerCancellationRequest) (resp *OrderHandleBuyerCancellation, err error) {
 	b, err := s.post("OrderHandleBuyerCancellation", req)
@@ -2111,7 +2036,7 @@ func (s *ShopeeClient) OrderHandleBuyerCancellation(req *OrderHandleBuyerCancell
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2124,7 +2049,6 @@ func (s *ShopeeClient) OrderHandleBuyerCancellation(req *OrderHandleBuyerCancell
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderSetNote(req *OrderSetNoteRequest) (err error) {
 	b, err := s.post("OrderSetNote", req)
@@ -2138,7 +2062,7 @@ func (s *ShopeeClient) OrderSetNote(req *OrderSetNoteRequest) (err error) {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2150,7 +2074,6 @@ func (s *ShopeeClient) OrderSetNote(req *OrderSetNoteRequest) (err error) {
 
 	return
 }
-
 
 func (s *ShopeeClient) OrderAddInvoiceData(req *OrderAddInvoiceDataRequest) (err error) {
 	b, err := s.post("OrderAddInvoiceData", req)
@@ -2164,7 +2087,7 @@ func (s *ShopeeClient) OrderAddInvoiceData(req *OrderAddInvoiceDataRequest) (err
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2177,20 +2100,19 @@ func (s *ShopeeClient) OrderAddInvoiceData(req *OrderAddInvoiceDataRequest) (err
 	return
 }
 
-
 func (s *ShopeeClient) OrderGetPendingBuyerInvoiceOrderList(req *OrderGetPendingBuyerInvoiceOrderListRequest) (resp *OrderGetPendingBuyerInvoiceOrderList, err error) {
 	b, err := s.post("OrderGetPendingBuyerInvoiceOrderList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *OrderGetPendingBuyerInvoiceOrderResponse
+	var wrappedResponse *OrderGetPendingBuyerInvoiceOrderListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2203,7 +2125,6 @@ func (s *ShopeeClient) OrderGetPendingBuyerInvoiceOrderList(req *OrderGetPending
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) OrderUploadInvoiceDoc(req *OrderUploadInvoiceDocRequest) (err error) {
 	b, err := s.post("OrderUploadInvoiceDoc", req)
@@ -2217,7 +2138,7 @@ func (s *ShopeeClient) OrderUploadInvoiceDoc(req *OrderUploadInvoiceDocRequest) 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2229,7 +2150,6 @@ func (s *ShopeeClient) OrderUploadInvoiceDoc(req *OrderUploadInvoiceDocRequest) 
 
 	return
 }
-
 
 func (s *ShopeeClient) OrderDownloadInvoiceDoc(req *OrderDownloadInvoiceDocRequest) (err error) {
 	b, err := s.post("OrderDownloadInvoiceDoc", req)
@@ -2243,7 +2163,7 @@ func (s *ShopeeClient) OrderDownloadInvoiceDoc(req *OrderDownloadInvoiceDocReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2255,7 +2175,6 @@ func (s *ShopeeClient) OrderDownloadInvoiceDoc(req *OrderDownloadInvoiceDocReque
 
 	return
 }
-
 
 func (s *ShopeeClient) OrderGetBuyerInvoiceInfo(req *OrderGetBuyerInvoiceInfoRequest) (err error) {
 	b, err := s.post("OrderGetBuyerInvoiceInfo", req)
@@ -2269,7 +2188,7 @@ func (s *ShopeeClient) OrderGetBuyerInvoiceInfo(req *OrderGetBuyerInvoiceInfoReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2281,7 +2200,6 @@ func (s *ShopeeClient) OrderGetBuyerInvoiceInfo(req *OrderGetBuyerInvoiceInfoReq
 
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetShippingParameter(req *LogisticsGetShippingParameterRequest) (resp *LogisticsGetShippingParameter, err error) {
 	b, err := s.post("LogisticsGetShippingParameter", req)
@@ -2295,7 +2213,7 @@ func (s *ShopeeClient) LogisticsGetShippingParameter(req *LogisticsGetShippingPa
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2308,7 +2226,6 @@ func (s *ShopeeClient) LogisticsGetShippingParameter(req *LogisticsGetShippingPa
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetTrackingNumber(req *LogisticsGetTrackingNumberRequest) (resp *LogisticsGetTrackingNumber, err error) {
 	b, err := s.post("LogisticsGetTrackingNumber", req)
@@ -2322,7 +2239,7 @@ func (s *ShopeeClient) LogisticsGetTrackingNumber(req *LogisticsGetTrackingNumbe
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2335,7 +2252,6 @@ func (s *ShopeeClient) LogisticsGetTrackingNumber(req *LogisticsGetTrackingNumbe
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsShipOrder(req *LogisticsShipOrderRequest) (err error) {
 	b, err := s.post("LogisticsShipOrder", req)
@@ -2349,7 +2265,7 @@ func (s *ShopeeClient) LogisticsShipOrder(req *LogisticsShipOrderRequest) (err e
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2361,7 +2277,6 @@ func (s *ShopeeClient) LogisticsShipOrder(req *LogisticsShipOrderRequest) (err e
 
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsUpdateShippingOrder(req *LogisticsUpdateShippingOrderRequest) (err error) {
 	b, err := s.post("LogisticsUpdateShippingOrder", req)
@@ -2375,7 +2290,7 @@ func (s *ShopeeClient) LogisticsUpdateShippingOrder(req *LogisticsUpdateShipping
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2387,7 +2302,6 @@ func (s *ShopeeClient) LogisticsUpdateShippingOrder(req *LogisticsUpdateShipping
 
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetShippingDocumentParameter(req *LogisticsGetShippingDocumentParameterRequest) (resp *LogisticsGetShippingDocumentParameter, err error) {
 	b, err := s.post("LogisticsGetShippingDocumentParameter", req)
@@ -2401,7 +2315,7 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentParameter(req *LogisticsGetSh
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2414,7 +2328,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentParameter(req *LogisticsGetSh
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsCreateShippingDocument(req *LogisticsCreateShippingDocumentRequest) (resp *LogisticsCreateShippingDocument, err error) {
 	b, err := s.post("LogisticsCreateShippingDocument", req)
@@ -2428,7 +2341,7 @@ func (s *ShopeeClient) LogisticsCreateShippingDocument(req *LogisticsCreateShipp
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2441,7 +2354,6 @@ func (s *ShopeeClient) LogisticsCreateShippingDocument(req *LogisticsCreateShipp
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetShippingDocumentResult(req *LogisticsGetShippingDocumentResultRequest) (resp *LogisticsGetShippingDocumentResult, err error) {
 	b, err := s.post("LogisticsGetShippingDocumentResult", req)
@@ -2455,7 +2367,7 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentResult(req *LogisticsGetShipp
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2468,7 +2380,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentResult(req *LogisticsGetShipp
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsDownloadShippingDocument(req *LogisticsDownloadShippingDocumentRequest) (err error) {
 	b, err := s.post("LogisticsDownloadShippingDocument", req)
@@ -2482,7 +2393,7 @@ func (s *ShopeeClient) LogisticsDownloadShippingDocument(req *LogisticsDownloadS
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2494,7 +2405,6 @@ func (s *ShopeeClient) LogisticsDownloadShippingDocument(req *LogisticsDownloadS
 
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetShippingDocumentInfo(req *LogisticsGetShippingDocumentInfoRequest) (resp *LogisticsGetShippingDocumentInfo, err error) {
 	b, err := s.post("LogisticsGetShippingDocumentInfo", req)
@@ -2508,7 +2418,7 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentInfo(req *LogisticsGetShippin
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2521,7 +2431,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentInfo(req *LogisticsGetShippin
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetTrackingInfo(req *LogisticsGetTrackingInfoRequest) (resp *LogisticsGetTrackingInfo, err error) {
 	b, err := s.post("LogisticsGetTrackingInfo", req)
@@ -2535,7 +2444,7 @@ func (s *ShopeeClient) LogisticsGetTrackingInfo(req *LogisticsGetTrackingInfoReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2548,7 +2457,6 @@ func (s *ShopeeClient) LogisticsGetTrackingInfo(req *LogisticsGetTrackingInfoReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsGetAddressList(req *LogisticsGetAddressListRequest) (resp *LogisticsGetAddressList, err error) {
 	b, err := s.post("LogisticsGetAddressList", req)
@@ -2556,13 +2464,13 @@ func (s *ShopeeClient) LogisticsGetAddressList(req *LogisticsGetAddressListReque
 		return
 	}
 
-	var wrappedResponse *LogisticsGetAddressResponse
+	var wrappedResponse *LogisticsGetAddressListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2575,7 +2483,6 @@ func (s *ShopeeClient) LogisticsGetAddressList(req *LogisticsGetAddressListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsSetAddressConfig(req *LogisticsSetAddressConfigRequest) (err error) {
 	b, err := s.post("LogisticsSetAddressConfig", req)
@@ -2589,7 +2496,7 @@ func (s *ShopeeClient) LogisticsSetAddressConfig(req *LogisticsSetAddressConfigR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2601,7 +2508,6 @@ func (s *ShopeeClient) LogisticsSetAddressConfig(req *LogisticsSetAddressConfigR
 
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsDeleteAddress(req *LogisticsDeleteAddressRequest) (err error) {
 	b, err := s.post("LogisticsDeleteAddress", req)
@@ -2615,7 +2521,7 @@ func (s *ShopeeClient) LogisticsDeleteAddress(req *LogisticsDeleteAddressRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2628,20 +2534,19 @@ func (s *ShopeeClient) LogisticsDeleteAddress(req *LogisticsDeleteAddressRequest
 	return
 }
 
-
 func (s *ShopeeClient) LogisticsGetChannelList(req *LogisticsGetChannelListRequest) (resp *LogisticsGetChannelList, err error) {
 	b, err := s.post("LogisticsGetChannelList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *LogisticsGetChannelResponse
+	var wrappedResponse *LogisticsGetChannelListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2654,7 +2559,6 @@ func (s *ShopeeClient) LogisticsGetChannelList(req *LogisticsGetChannelListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsUpdateChannel(req *LogisticsUpdateChannelRequest) (resp *LogisticsUpdateChannel, err error) {
 	b, err := s.post("LogisticsUpdateChannel", req)
@@ -2668,7 +2572,7 @@ func (s *ShopeeClient) LogisticsUpdateChannel(req *LogisticsUpdateChannelRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2681,7 +2585,6 @@ func (s *ShopeeClient) LogisticsUpdateChannel(req *LogisticsUpdateChannelRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) LogisticsBatchShipOrder(req *LogisticsBatchShipOrderRequest) (resp *LogisticsBatchShipOrder, err error) {
 	b, err := s.post("LogisticsBatchShipOrder", req)
@@ -2695,7 +2598,7 @@ func (s *ShopeeClient) LogisticsBatchShipOrder(req *LogisticsBatchShipOrderReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2708,7 +2611,6 @@ func (s *ShopeeClient) LogisticsBatchShipOrder(req *LogisticsBatchShipOrderReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetUnbindOrderList(req *FirstMileGetUnbindOrderListRequest) (resp *FirstMileGetUnbindOrderList, err error) {
 	b, err := s.post("FirstMileGetUnbindOrderList", req)
@@ -2716,13 +2618,13 @@ func (s *ShopeeClient) FirstMileGetUnbindOrderList(req *FirstMileGetUnbindOrderL
 		return
 	}
 
-	var wrappedResponse *FirstMileGetUnbindOrderResponse
+	var wrappedResponse *FirstMileGetUnbindOrderListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2735,7 +2637,6 @@ func (s *ShopeeClient) FirstMileGetUnbindOrderList(req *FirstMileGetUnbindOrderL
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetDetail(req *FirstMileGetDetailRequest) (resp *FirstMileGetDetail, err error) {
 	b, err := s.post("FirstMileGetDetail", req)
@@ -2749,7 +2650,7 @@ func (s *ShopeeClient) FirstMileGetDetail(req *FirstMileGetDetailRequest) (resp 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2762,7 +2663,6 @@ func (s *ShopeeClient) FirstMileGetDetail(req *FirstMileGetDetailRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGenerateFirstMileTrackingNumber(req *FirstMileGenerateFirstMileTrackingNumberRequest) (resp *FirstMileGenerateFirstMileTrackingNumber, err error) {
 	b, err := s.post("FirstMileGenerateFirstMileTrackingNumber", req)
@@ -2776,7 +2676,7 @@ func (s *ShopeeClient) FirstMileGenerateFirstMileTrackingNumber(req *FirstMileGe
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2789,7 +2689,6 @@ func (s *ShopeeClient) FirstMileGenerateFirstMileTrackingNumber(req *FirstMileGe
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileBindFirstMileTrackingNumber(req *FirstMileBindFirstMileTrackingNumberRequest) (resp *FirstMileBindFirstMileTrackingNumber, err error) {
 	b, err := s.post("FirstMileBindFirstMileTrackingNumber", req)
@@ -2803,7 +2702,7 @@ func (s *ShopeeClient) FirstMileBindFirstMileTrackingNumber(req *FirstMileBindFi
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2816,7 +2715,6 @@ func (s *ShopeeClient) FirstMileBindFirstMileTrackingNumber(req *FirstMileBindFi
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileUnbindFirstMileTrackingNumber(req *FirstMileUnbindFirstMileTrackingNumberRequest) (resp *FirstMileUnbindFirstMileTrackingNumber, err error) {
 	b, err := s.post("FirstMileUnbindFirstMileTrackingNumber", req)
@@ -2830,7 +2728,7 @@ func (s *ShopeeClient) FirstMileUnbindFirstMileTrackingNumber(req *FirstMileUnbi
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2843,7 +2741,6 @@ func (s *ShopeeClient) FirstMileUnbindFirstMileTrackingNumber(req *FirstMileUnbi
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetTrackingNumberList(req *FirstMileGetTrackingNumberListRequest) (resp *FirstMileGetTrackingNumberList, err error) {
 	b, err := s.post("FirstMileGetTrackingNumberList", req)
@@ -2851,13 +2748,13 @@ func (s *ShopeeClient) FirstMileGetTrackingNumberList(req *FirstMileGetTrackingN
 		return
 	}
 
-	var wrappedResponse *FirstMileGetTrackingNumberResponse
+	var wrappedResponse *FirstMileGetTrackingNumberListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2870,7 +2767,6 @@ func (s *ShopeeClient) FirstMileGetTrackingNumberList(req *FirstMileGetTrackingN
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FirstMileGetWaybill(req *FirstMileGetWaybillRequest) (err error) {
 	b, err := s.post("FirstMileGetWaybill", req)
@@ -2884,7 +2780,7 @@ func (s *ShopeeClient) FirstMileGetWaybill(req *FirstMileGetWaybillRequest) (err
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2897,20 +2793,19 @@ func (s *ShopeeClient) FirstMileGetWaybill(req *FirstMileGetWaybillRequest) (err
 	return
 }
 
-
 func (s *ShopeeClient) FirstMileGetChannelList(req *FirstMileGetChannelListRequest) (resp *FirstMileGetChannelList, err error) {
 	b, err := s.post("FirstMileGetChannelList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *FirstMileGetChannelResponse
+	var wrappedResponse *FirstMileGetChannelListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2923,7 +2818,6 @@ func (s *ShopeeClient) FirstMileGetChannelList(req *FirstMileGetChannelListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetEscrowDetail(req *PaymentGetEscrowDetailRequest) (resp *PaymentGetEscrowDetail, err error) {
 	b, err := s.post("PaymentGetEscrowDetail", req)
@@ -2937,7 +2831,7 @@ func (s *ShopeeClient) PaymentGetEscrowDetail(req *PaymentGetEscrowDetailRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2950,7 +2844,6 @@ func (s *ShopeeClient) PaymentGetEscrowDetail(req *PaymentGetEscrowDetailRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentSetShopInstallmentStatus(req *PaymentSetShopInstallmentStatusRequest) (resp *PaymentSetShopInstallmentStatus, err error) {
 	b, err := s.post("PaymentSetShopInstallmentStatus", req)
@@ -2958,13 +2851,13 @@ func (s *ShopeeClient) PaymentSetShopInstallmentStatus(req *PaymentSetShopInstal
 		return
 	}
 
-	var wrappedResponse *PaymentSetShopInstallmentStatuResponse
+	var wrappedResponse *PaymentSetShopInstallmentStatusResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -2977,7 +2870,6 @@ func (s *ShopeeClient) PaymentSetShopInstallmentStatus(req *PaymentSetShopInstal
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetShopInstallmentStatus(req *PaymentGetShopInstallmentStatusRequest) (resp *PaymentGetShopInstallmentStatus, err error) {
 	b, err := s.post("PaymentGetShopInstallmentStatus", req)
@@ -2985,13 +2877,13 @@ func (s *ShopeeClient) PaymentGetShopInstallmentStatus(req *PaymentGetShopInstal
 		return
 	}
 
-	var wrappedResponse *PaymentGetShopInstallmentStatuResponse
+	var wrappedResponse *PaymentGetShopInstallmentStatusResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3004,7 +2896,6 @@ func (s *ShopeeClient) PaymentGetShopInstallmentStatus(req *PaymentGetShopInstal
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetPayoutDetail(req *PaymentGetPayoutDetailRequest) (resp *PaymentGetPayoutDetail, err error) {
 	b, err := s.post("PaymentGetPayoutDetail", req)
@@ -3018,7 +2909,7 @@ func (s *ShopeeClient) PaymentGetPayoutDetail(req *PaymentGetPayoutDetailRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3031,7 +2922,6 @@ func (s *ShopeeClient) PaymentGetPayoutDetail(req *PaymentGetPayoutDetailRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentSetItemInstallmentStatus(req *PaymentSetItemInstallmentStatusRequest) (resp *PaymentSetItemInstallmentStatus, err error) {
 	b, err := s.post("PaymentSetItemInstallmentStatus", req)
@@ -3039,13 +2929,13 @@ func (s *ShopeeClient) PaymentSetItemInstallmentStatus(req *PaymentSetItemInstal
 		return
 	}
 
-	var wrappedResponse *PaymentSetItemInstallmentStatuResponse
+	var wrappedResponse *PaymentSetItemInstallmentStatusResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3058,7 +2948,6 @@ func (s *ShopeeClient) PaymentSetItemInstallmentStatus(req *PaymentSetItemInstal
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetItemInstallmentStatus(req *PaymentGetItemInstallmentStatusRequest) (resp *PaymentGetItemInstallmentStatus, err error) {
 	b, err := s.post("PaymentGetItemInstallmentStatus", req)
@@ -3066,13 +2955,13 @@ func (s *ShopeeClient) PaymentGetItemInstallmentStatus(req *PaymentGetItemInstal
 		return
 	}
 
-	var wrappedResponse *PaymentGetItemInstallmentStatuResponse
+	var wrappedResponse *PaymentGetItemInstallmentStatusResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3086,20 +2975,19 @@ func (s *ShopeeClient) PaymentGetItemInstallmentStatus(req *PaymentGetItemInstal
 	return
 }
 
-
 func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodListRequest) (resp []PaymentGetPaymentMethodList, err error) {
 	b, err := s.post("PaymentGetPaymentMethodList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *PaymentGetPaymentMethodResponse
+	var wrappedResponse *PaymentGetPaymentMethodListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3113,20 +3001,19 @@ func (s *ShopeeClient) PaymentGetPaymentMethodList(req *PaymentGetPaymentMethodL
 	return
 }
 
-
 func (s *ShopeeClient) PaymentGetWalletTransactionList(req *PaymentGetWalletTransactionListRequest) (resp *PaymentGetWalletTransactionList, err error) {
 	b, err := s.post("PaymentGetWalletTransactionList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *PaymentGetWalletTransactionResponse
+	var wrappedResponse *PaymentGetWalletTransactionListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3139,7 +3026,6 @@ func (s *ShopeeClient) PaymentGetWalletTransactionList(req *PaymentGetWalletTran
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) PaymentGetEscrowList(req *PaymentGetEscrowListRequest) (resp *PaymentGetEscrowList, err error) {
 	b, err := s.post("PaymentGetEscrowList", req)
@@ -3147,13 +3033,13 @@ func (s *ShopeeClient) PaymentGetEscrowList(req *PaymentGetEscrowListRequest) (r
 		return
 	}
 
-	var wrappedResponse *PaymentGetEscrowResponse
+	var wrappedResponse *PaymentGetEscrowListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3166,7 +3052,6 @@ func (s *ShopeeClient) PaymentGetEscrowList(req *PaymentGetEscrowListRequest) (r
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountAddDiscount(req *DiscountAddDiscountRequest) (resp *DiscountAddDiscount, err error) {
 	b, err := s.post("DiscountAddDiscount", req)
@@ -3180,7 +3065,7 @@ func (s *ShopeeClient) DiscountAddDiscount(req *DiscountAddDiscountRequest) (res
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3193,7 +3078,6 @@ func (s *ShopeeClient) DiscountAddDiscount(req *DiscountAddDiscountRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountAddDiscountItem(req *DiscountAddDiscountItemRequest) (resp *DiscountAddDiscountItem, err error) {
 	b, err := s.post("DiscountAddDiscountItem", req)
@@ -3207,7 +3091,7 @@ func (s *ShopeeClient) DiscountAddDiscountItem(req *DiscountAddDiscountItemReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3220,7 +3104,6 @@ func (s *ShopeeClient) DiscountAddDiscountItem(req *DiscountAddDiscountItemReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountDeleteDiscount(req *DiscountDeleteDiscountRequest) (resp *DiscountDeleteDiscount, err error) {
 	b, err := s.post("DiscountDeleteDiscount", req)
@@ -3234,7 +3117,7 @@ func (s *ShopeeClient) DiscountDeleteDiscount(req *DiscountDeleteDiscountRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3247,7 +3130,6 @@ func (s *ShopeeClient) DiscountDeleteDiscount(req *DiscountDeleteDiscountRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountDeleteDiscountItem(req *DiscountDeleteDiscountItemRequest) (resp *DiscountDeleteDiscountItem, err error) {
 	b, err := s.post("DiscountDeleteDiscountItem", req)
@@ -3261,7 +3143,7 @@ func (s *ShopeeClient) DiscountDeleteDiscountItem(req *DiscountDeleteDiscountIte
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3274,7 +3156,6 @@ func (s *ShopeeClient) DiscountDeleteDiscountItem(req *DiscountDeleteDiscountIte
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountGetDiscount(req *DiscountGetDiscountRequest) (resp *DiscountGetDiscount, err error) {
 	b, err := s.post("DiscountGetDiscount", req)
@@ -3288,7 +3169,7 @@ func (s *ShopeeClient) DiscountGetDiscount(req *DiscountGetDiscountRequest) (res
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3301,7 +3182,6 @@ func (s *ShopeeClient) DiscountGetDiscount(req *DiscountGetDiscountRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountGetDiscountList(req *DiscountGetDiscountListRequest) (resp *DiscountGetDiscountList, err error) {
 	b, err := s.post("DiscountGetDiscountList", req)
@@ -3309,13 +3189,13 @@ func (s *ShopeeClient) DiscountGetDiscountList(req *DiscountGetDiscountListReque
 		return
 	}
 
-	var wrappedResponse *DiscountGetDiscountResponse
+	var wrappedResponse *DiscountGetDiscountListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3328,7 +3208,6 @@ func (s *ShopeeClient) DiscountGetDiscountList(req *DiscountGetDiscountListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountUpdateDiscount(req *DiscountUpdateDiscountRequest) (resp *DiscountUpdateDiscount, err error) {
 	b, err := s.post("DiscountUpdateDiscount", req)
@@ -3342,7 +3221,7 @@ func (s *ShopeeClient) DiscountUpdateDiscount(req *DiscountUpdateDiscountRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3355,7 +3234,6 @@ func (s *ShopeeClient) DiscountUpdateDiscount(req *DiscountUpdateDiscountRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountUpdateDiscountItem(req *DiscountUpdateDiscountItemRequest) (resp *DiscountUpdateDiscountItem, err error) {
 	b, err := s.post("DiscountUpdateDiscountItem", req)
@@ -3369,7 +3247,7 @@ func (s *ShopeeClient) DiscountUpdateDiscountItem(req *DiscountUpdateDiscountIte
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3382,7 +3260,6 @@ func (s *ShopeeClient) DiscountUpdateDiscountItem(req *DiscountUpdateDiscountIte
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) DiscountEndDiscount(req *DiscountEndDiscountRequest) (resp *DiscountEndDiscount, err error) {
 	b, err := s.post("DiscountEndDiscount", req)
@@ -3396,7 +3273,7 @@ func (s *ShopeeClient) DiscountEndDiscount(req *DiscountEndDiscountRequest) (res
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3409,7 +3286,6 @@ func (s *ShopeeClient) DiscountEndDiscount(req *DiscountEndDiscountRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealAddBundleDeal(req *BundleDealAddBundleDealRequest) (resp *BundleDealAddBundleDeal, err error) {
 	b, err := s.post("BundleDealAddBundleDeal", req)
@@ -3423,7 +3299,7 @@ func (s *ShopeeClient) BundleDealAddBundleDeal(req *BundleDealAddBundleDealReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3436,7 +3312,6 @@ func (s *ShopeeClient) BundleDealAddBundleDeal(req *BundleDealAddBundleDealReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealAddBundleDealItem(req *BundleDealAddBundleDealItemRequest) (resp *BundleDealAddBundleDealItem, err error) {
 	b, err := s.post("BundleDealAddBundleDealItem", req)
@@ -3450,7 +3325,7 @@ func (s *ShopeeClient) BundleDealAddBundleDealItem(req *BundleDealAddBundleDealI
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3463,7 +3338,6 @@ func (s *ShopeeClient) BundleDealAddBundleDealItem(req *BundleDealAddBundleDealI
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealGetBundleDealList(req *BundleDealGetBundleDealListRequest) (resp *BundleDealGetBundleDealList, err error) {
 	b, err := s.post("BundleDealGetBundleDealList", req)
@@ -3471,13 +3345,13 @@ func (s *ShopeeClient) BundleDealGetBundleDealList(req *BundleDealGetBundleDealL
 		return
 	}
 
-	var wrappedResponse *BundleDealGetBundleDealResponse
+	var wrappedResponse *BundleDealGetBundleDealListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3490,7 +3364,6 @@ func (s *ShopeeClient) BundleDealGetBundleDealList(req *BundleDealGetBundleDealL
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealGetBundleDeal(req *BundleDealGetBundleDealRequest) (resp *BundleDealGetBundleDeal, err error) {
 	b, err := s.post("BundleDealGetBundleDeal", req)
@@ -3504,7 +3377,7 @@ func (s *ShopeeClient) BundleDealGetBundleDeal(req *BundleDealGetBundleDealReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3517,7 +3390,6 @@ func (s *ShopeeClient) BundleDealGetBundleDeal(req *BundleDealGetBundleDealReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealGetBundleDealItem(req *BundleDealGetBundleDealItemRequest) (resp *BundleDealGetBundleDealItem, err error) {
 	b, err := s.post("BundleDealGetBundleDealItem", req)
@@ -3531,7 +3403,7 @@ func (s *ShopeeClient) BundleDealGetBundleDealItem(req *BundleDealGetBundleDealI
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3544,7 +3416,6 @@ func (s *ShopeeClient) BundleDealGetBundleDealItem(req *BundleDealGetBundleDealI
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealUpdateBundleDeal(req *BundleDealUpdateBundleDealRequest) (resp *BundleDealUpdateBundleDeal, err error) {
 	b, err := s.post("BundleDealUpdateBundleDeal", req)
@@ -3558,7 +3429,7 @@ func (s *ShopeeClient) BundleDealUpdateBundleDeal(req *BundleDealUpdateBundleDea
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3571,7 +3442,6 @@ func (s *ShopeeClient) BundleDealUpdateBundleDeal(req *BundleDealUpdateBundleDea
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealUpdateBundleDealItem(req *BundleDealUpdateBundleDealItemRequest) (resp *BundleDealUpdateBundleDealItem, err error) {
 	b, err := s.post("BundleDealUpdateBundleDealItem", req)
@@ -3585,7 +3455,7 @@ func (s *ShopeeClient) BundleDealUpdateBundleDealItem(req *BundleDealUpdateBundl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3598,7 +3468,6 @@ func (s *ShopeeClient) BundleDealUpdateBundleDealItem(req *BundleDealUpdateBundl
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealEndBundleDeal(req *BundleDealEndBundleDealRequest) (resp *BundleDealEndBundleDeal, err error) {
 	b, err := s.post("BundleDealEndBundleDeal", req)
@@ -3612,7 +3481,7 @@ func (s *ShopeeClient) BundleDealEndBundleDeal(req *BundleDealEndBundleDealReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3625,7 +3494,6 @@ func (s *ShopeeClient) BundleDealEndBundleDeal(req *BundleDealEndBundleDealReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealDeleteBundleDeal(req *BundleDealDeleteBundleDealRequest) (resp *BundleDealDeleteBundleDeal, err error) {
 	b, err := s.post("BundleDealDeleteBundleDeal", req)
@@ -3639,7 +3507,7 @@ func (s *ShopeeClient) BundleDealDeleteBundleDeal(req *BundleDealDeleteBundleDea
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3652,7 +3520,6 @@ func (s *ShopeeClient) BundleDealDeleteBundleDeal(req *BundleDealDeleteBundleDea
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) BundleDealDeleteBundleDealItem(req *BundleDealDeleteBundleDealItemRequest) (resp *BundleDealDeleteBundleDealItem, err error) {
 	b, err := s.post("BundleDealDeleteBundleDealItem", req)
@@ -3666,7 +3533,7 @@ func (s *ShopeeClient) BundleDealDeleteBundleDealItem(req *BundleDealDeleteBundl
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3679,7 +3546,6 @@ func (s *ShopeeClient) BundleDealDeleteBundleDealItem(req *BundleDealDeleteBundl
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealAddAddOnDeal(req *AddOnDealAddAddOnDealRequest) (resp *AddOnDealAddAddOnDeal, err error) {
 	b, err := s.post("AddOnDealAddAddOnDeal", req)
@@ -3693,7 +3559,7 @@ func (s *ShopeeClient) AddOnDealAddAddOnDeal(req *AddOnDealAddAddOnDealRequest) 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3706,7 +3572,6 @@ func (s *ShopeeClient) AddOnDealAddAddOnDeal(req *AddOnDealAddAddOnDealRequest) 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealAddAddOnDealMainItem(req *AddOnDealAddAddOnDealMainItemRequest) (resp *AddOnDealAddAddOnDealMainItem, err error) {
 	b, err := s.post("AddOnDealAddAddOnDealMainItem", req)
@@ -3720,7 +3585,7 @@ func (s *ShopeeClient) AddOnDealAddAddOnDealMainItem(req *AddOnDealAddAddOnDealM
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3733,7 +3598,6 @@ func (s *ShopeeClient) AddOnDealAddAddOnDealMainItem(req *AddOnDealAddAddOnDealM
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealAddAddOnDealSubItem(req *AddOnDealAddAddOnDealSubItemRequest) (resp *AddOnDealAddAddOnDealSubItem, err error) {
 	b, err := s.post("AddOnDealAddAddOnDealSubItem", req)
@@ -3747,7 +3611,7 @@ func (s *ShopeeClient) AddOnDealAddAddOnDealSubItem(req *AddOnDealAddAddOnDealSu
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3760,7 +3624,6 @@ func (s *ShopeeClient) AddOnDealAddAddOnDealSubItem(req *AddOnDealAddAddOnDealSu
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealDeleteAddOnDeal(req *AddOnDealDeleteAddOnDealRequest) (resp *AddOnDealDeleteAddOnDeal, err error) {
 	b, err := s.post("AddOnDealDeleteAddOnDeal", req)
@@ -3774,7 +3637,7 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDeal(req *AddOnDealDeleteAddOnDealReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3787,7 +3650,6 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDeal(req *AddOnDealDeleteAddOnDealReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealDeleteAddOnDealMainItem(req *AddOnDealDeleteAddOnDealMainItemRequest) (resp *AddOnDealDeleteAddOnDealMainItem, err error) {
 	b, err := s.post("AddOnDealDeleteAddOnDealMainItem", req)
@@ -3801,7 +3663,7 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDealMainItem(req *AddOnDealDeleteAddO
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3814,7 +3676,6 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDealMainItem(req *AddOnDealDeleteAddO
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealDeleteAddOnDealSubItem(req *AddOnDealDeleteAddOnDealSubItemRequest) (resp *AddOnDealDeleteAddOnDealSubItem, err error) {
 	b, err := s.post("AddOnDealDeleteAddOnDealSubItem", req)
@@ -3828,7 +3689,7 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDealSubItem(req *AddOnDealDeleteAddOn
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3841,7 +3702,6 @@ func (s *ShopeeClient) AddOnDealDeleteAddOnDealSubItem(req *AddOnDealDeleteAddOn
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealGetAddOnDealList(req *AddOnDealGetAddOnDealListRequest) (resp *AddOnDealGetAddOnDealList, err error) {
 	b, err := s.post("AddOnDealGetAddOnDealList", req)
@@ -3849,13 +3709,13 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealList(req *AddOnDealGetAddOnDealListR
 		return
 	}
 
-	var wrappedResponse *AddOnDealGetAddOnDealResponse
+	var wrappedResponse *AddOnDealGetAddOnDealListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3868,7 +3728,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealList(req *AddOnDealGetAddOnDealListR
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealGetAddOnDeal(req *AddOnDealGetAddOnDealRequest) (resp *AddOnDealGetAddOnDeal, err error) {
 	b, err := s.post("AddOnDealGetAddOnDeal", req)
@@ -3882,7 +3741,7 @@ func (s *ShopeeClient) AddOnDealGetAddOnDeal(req *AddOnDealGetAddOnDealRequest) 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3895,7 +3754,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDeal(req *AddOnDealGetAddOnDealRequest) 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealGetAddOnDealMainItem(req *AddOnDealGetAddOnDealMainItemRequest) (resp *AddOnDealGetAddOnDealMainItem, err error) {
 	b, err := s.post("AddOnDealGetAddOnDealMainItem", req)
@@ -3909,7 +3767,7 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealMainItem(req *AddOnDealGetAddOnDealM
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3922,7 +3780,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealMainItem(req *AddOnDealGetAddOnDealM
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealGetAddOnDealSubItem(req *AddOnDealGetAddOnDealSubItemRequest) (resp *AddOnDealGetAddOnDealSubItem, err error) {
 	b, err := s.post("AddOnDealGetAddOnDealSubItem", req)
@@ -3936,7 +3793,7 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealSubItem(req *AddOnDealGetAddOnDealSu
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3949,7 +3806,6 @@ func (s *ShopeeClient) AddOnDealGetAddOnDealSubItem(req *AddOnDealGetAddOnDealSu
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealUpdateAddOnDeal(req *AddOnDealUpdateAddOnDealRequest) (resp *AddOnDealUpdateAddOnDeal, err error) {
 	b, err := s.post("AddOnDealUpdateAddOnDeal", req)
@@ -3963,7 +3819,7 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDeal(req *AddOnDealUpdateAddOnDealReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -3976,7 +3832,6 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDeal(req *AddOnDealUpdateAddOnDealReq
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealUpdateAddOnDealMainItem(req *AddOnDealUpdateAddOnDealMainItemRequest) (resp *AddOnDealUpdateAddOnDealMainItem, err error) {
 	b, err := s.post("AddOnDealUpdateAddOnDealMainItem", req)
@@ -3990,7 +3845,7 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDealMainItem(req *AddOnDealUpdateAddO
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4003,7 +3858,6 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDealMainItem(req *AddOnDealUpdateAddO
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealUpdateAddOnDealSubItem(req *AddOnDealUpdateAddOnDealSubItemRequest) (resp *AddOnDealUpdateAddOnDealSubItem, err error) {
 	b, err := s.post("AddOnDealUpdateAddOnDealSubItem", req)
@@ -4017,7 +3871,7 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDealSubItem(req *AddOnDealUpdateAddOn
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4030,7 +3884,6 @@ func (s *ShopeeClient) AddOnDealUpdateAddOnDealSubItem(req *AddOnDealUpdateAddOn
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AddOnDealEndAddOnDeal(req *AddOnDealEndAddOnDealRequest) (resp *AddOnDealEndAddOnDeal, err error) {
 	b, err := s.post("AddOnDealEndAddOnDeal", req)
@@ -4044,7 +3897,7 @@ func (s *ShopeeClient) AddOnDealEndAddOnDeal(req *AddOnDealEndAddOnDealRequest) 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4057,7 +3910,6 @@ func (s *ShopeeClient) AddOnDealEndAddOnDeal(req *AddOnDealEndAddOnDealRequest) 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) VoucherAddVoucher(req *VoucherAddVoucherRequest) (resp *VoucherAddVoucher, err error) {
 	b, err := s.post("VoucherAddVoucher", req)
@@ -4071,7 +3923,7 @@ func (s *ShopeeClient) VoucherAddVoucher(req *VoucherAddVoucherRequest) (resp *V
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4084,7 +3936,6 @@ func (s *ShopeeClient) VoucherAddVoucher(req *VoucherAddVoucherRequest) (resp *V
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) VoucherDeleteVoucher(req *VoucherDeleteVoucherRequest) (resp *VoucherDeleteVoucher, err error) {
 	b, err := s.post("VoucherDeleteVoucher", req)
@@ -4098,7 +3949,7 @@ func (s *ShopeeClient) VoucherDeleteVoucher(req *VoucherDeleteVoucherRequest) (r
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4111,7 +3962,6 @@ func (s *ShopeeClient) VoucherDeleteVoucher(req *VoucherDeleteVoucherRequest) (r
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) VoucherEndVoucher(req *VoucherEndVoucherRequest) (resp *VoucherEndVoucher, err error) {
 	b, err := s.post("VoucherEndVoucher", req)
@@ -4125,7 +3975,7 @@ func (s *ShopeeClient) VoucherEndVoucher(req *VoucherEndVoucherRequest) (resp *V
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4138,7 +3988,6 @@ func (s *ShopeeClient) VoucherEndVoucher(req *VoucherEndVoucherRequest) (resp *V
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) VoucherUpdateVoucher(req *VoucherUpdateVoucherRequest) (resp *VoucherUpdateVoucher, err error) {
 	b, err := s.post("VoucherUpdateVoucher", req)
@@ -4152,7 +4001,7 @@ func (s *ShopeeClient) VoucherUpdateVoucher(req *VoucherUpdateVoucherRequest) (r
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4165,7 +4014,6 @@ func (s *ShopeeClient) VoucherUpdateVoucher(req *VoucherUpdateVoucherRequest) (r
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) VoucherGetVoucher(req *VoucherGetVoucherRequest) (resp *VoucherGetVoucher, err error) {
 	b, err := s.post("VoucherGetVoucher", req)
@@ -4179,7 +4027,7 @@ func (s *ShopeeClient) VoucherGetVoucher(req *VoucherGetVoucherRequest) (resp *V
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4192,7 +4040,6 @@ func (s *ShopeeClient) VoucherGetVoucher(req *VoucherGetVoucherRequest) (resp *V
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) VoucherGetVoucherList(req *VoucherGetVoucherListRequest) (resp *VoucherGetVoucherList, err error) {
 	b, err := s.post("VoucherGetVoucherList", req)
@@ -4200,13 +4047,13 @@ func (s *ShopeeClient) VoucherGetVoucherList(req *VoucherGetVoucherListRequest) 
 		return
 	}
 
-	var wrappedResponse *VoucherGetVoucherResponse
+	var wrappedResponse *VoucherGetVoucherListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4219,7 +4066,6 @@ func (s *ShopeeClient) VoucherGetVoucherList(req *VoucherGetVoucherListRequest) 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeAddFollowPrize(req *FollowPrizeAddFollowPrizeRequest) (resp *FollowPrizeAddFollowPrize, err error) {
 	b, err := s.post("FollowPrizeAddFollowPrize", req)
@@ -4233,7 +4079,7 @@ func (s *ShopeeClient) FollowPrizeAddFollowPrize(req *FollowPrizeAddFollowPrizeR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4246,7 +4092,6 @@ func (s *ShopeeClient) FollowPrizeAddFollowPrize(req *FollowPrizeAddFollowPrizeR
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeDeleteFollowPrize(req *FollowPrizeDeleteFollowPrizeRequest) (resp *FollowPrizeDeleteFollowPrize, err error) {
 	b, err := s.post("FollowPrizeDeleteFollowPrize", req)
@@ -4260,7 +4105,7 @@ func (s *ShopeeClient) FollowPrizeDeleteFollowPrize(req *FollowPrizeDeleteFollow
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4273,7 +4118,6 @@ func (s *ShopeeClient) FollowPrizeDeleteFollowPrize(req *FollowPrizeDeleteFollow
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeEndFollowPrize(req *FollowPrizeEndFollowPrizeRequest) (resp *FollowPrizeEndFollowPrize, err error) {
 	b, err := s.post("FollowPrizeEndFollowPrize", req)
@@ -4287,7 +4131,7 @@ func (s *ShopeeClient) FollowPrizeEndFollowPrize(req *FollowPrizeEndFollowPrizeR
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4300,7 +4144,6 @@ func (s *ShopeeClient) FollowPrizeEndFollowPrize(req *FollowPrizeEndFollowPrizeR
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeUpdateFollowPrize(req *FollowPrizeUpdateFollowPrizeRequest) (resp *FollowPrizeUpdateFollowPrize, err error) {
 	b, err := s.post("FollowPrizeUpdateFollowPrize", req)
@@ -4314,7 +4157,7 @@ func (s *ShopeeClient) FollowPrizeUpdateFollowPrize(req *FollowPrizeUpdateFollow
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4327,7 +4170,6 @@ func (s *ShopeeClient) FollowPrizeUpdateFollowPrize(req *FollowPrizeUpdateFollow
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeGetFollowPrizeDetail(req *FollowPrizeGetFollowPrizeDetailRequest) (resp *FollowPrizeGetFollowPrizeDetail, err error) {
 	b, err := s.post("FollowPrizeGetFollowPrizeDetail", req)
@@ -4341,7 +4183,7 @@ func (s *ShopeeClient) FollowPrizeGetFollowPrizeDetail(req *FollowPrizeGetFollow
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4354,7 +4196,6 @@ func (s *ShopeeClient) FollowPrizeGetFollowPrizeDetail(req *FollowPrizeGetFollow
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) FollowPrizeGetFollowPrizeList(req *FollowPrizeGetFollowPrizeListRequest) (resp *FollowPrizeGetFollowPrizeList, err error) {
 	b, err := s.post("FollowPrizeGetFollowPrizeList", req)
@@ -4362,13 +4203,13 @@ func (s *ShopeeClient) FollowPrizeGetFollowPrizeList(req *FollowPrizeGetFollowPr
 		return
 	}
 
-	var wrappedResponse *FollowPrizeGetFollowPrizeResponse
+	var wrappedResponse *FollowPrizeGetFollowPrizeListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4381,7 +4222,6 @@ func (s *ShopeeClient) FollowPrizeGetFollowPrizeList(req *FollowPrizeGetFollowPr
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) TopPicksGetTopPicksList(req *TopPicksGetTopPicksListRequest) (resp *TopPicksGetTopPicksList, err error) {
 	b, err := s.post("TopPicksGetTopPicksList", req)
@@ -4389,13 +4229,13 @@ func (s *ShopeeClient) TopPicksGetTopPicksList(req *TopPicksGetTopPicksListReque
 		return
 	}
 
-	var wrappedResponse *TopPicksGetTopPicksResponse
+	var wrappedResponse *TopPicksGetTopPicksListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4408,7 +4248,6 @@ func (s *ShopeeClient) TopPicksGetTopPicksList(req *TopPicksGetTopPicksListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) TopPicksAddTopPicks(req *TopPicksAddTopPicksRequest) (resp *TopPicksAddTopPicks, err error) {
 	b, err := s.post("TopPicksAddTopPicks", req)
@@ -4416,13 +4255,13 @@ func (s *ShopeeClient) TopPicksAddTopPicks(req *TopPicksAddTopPicksRequest) (res
 		return
 	}
 
-	var wrappedResponse *TopPicksAddTopPickResponse
+	var wrappedResponse *TopPicksAddTopPicksResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4435,7 +4274,6 @@ func (s *ShopeeClient) TopPicksAddTopPicks(req *TopPicksAddTopPicksRequest) (res
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) TopPicksUpdateTopPicks(req *TopPicksUpdateTopPicksRequest) (resp *TopPicksUpdateTopPicks, err error) {
 	b, err := s.post("TopPicksUpdateTopPicks", req)
@@ -4443,13 +4281,13 @@ func (s *ShopeeClient) TopPicksUpdateTopPicks(req *TopPicksUpdateTopPicksRequest
 		return
 	}
 
-	var wrappedResponse *TopPicksUpdateTopPickResponse
+	var wrappedResponse *TopPicksUpdateTopPicksResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4462,7 +4300,6 @@ func (s *ShopeeClient) TopPicksUpdateTopPicks(req *TopPicksUpdateTopPicksRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) TopPicksDeleteTopPicks(req *TopPicksDeleteTopPicksRequest) (resp *TopPicksDeleteTopPicks, err error) {
 	b, err := s.post("TopPicksDeleteTopPicks", req)
@@ -4470,13 +4307,13 @@ func (s *ShopeeClient) TopPicksDeleteTopPicks(req *TopPicksDeleteTopPicksRequest
 		return
 	}
 
-	var wrappedResponse *TopPicksDeleteTopPickResponse
+	var wrappedResponse *TopPicksDeleteTopPicksResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4489,7 +4326,6 @@ func (s *ShopeeClient) TopPicksDeleteTopPicks(req *TopPicksDeleteTopPicksRequest
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryAddShopCategory(req *ShopCategoryAddShopCategoryRequest) (resp *ShopCategoryAddShopCategory, err error) {
 	b, err := s.post("ShopCategoryAddShopCategory", req)
@@ -4503,7 +4339,7 @@ func (s *ShopeeClient) ShopCategoryAddShopCategory(req *ShopCategoryAddShopCateg
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4516,7 +4352,6 @@ func (s *ShopeeClient) ShopCategoryAddShopCategory(req *ShopCategoryAddShopCateg
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryGetShopCategoryList(req *ShopCategoryGetShopCategoryListRequest) (resp *ShopCategoryGetShopCategoryList, err error) {
 	b, err := s.post("ShopCategoryGetShopCategoryList", req)
@@ -4524,13 +4359,13 @@ func (s *ShopeeClient) ShopCategoryGetShopCategoryList(req *ShopCategoryGetShopC
 		return
 	}
 
-	var wrappedResponse *ShopCategoryGetShopCategoryResponse
+	var wrappedResponse *ShopCategoryGetShopCategoryListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4543,7 +4378,6 @@ func (s *ShopeeClient) ShopCategoryGetShopCategoryList(req *ShopCategoryGetShopC
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryDeleteShopCategory(req *ShopCategoryDeleteShopCategoryRequest) (resp *ShopCategoryDeleteShopCategory, err error) {
 	b, err := s.post("ShopCategoryDeleteShopCategory", req)
@@ -4557,7 +4391,7 @@ func (s *ShopeeClient) ShopCategoryDeleteShopCategory(req *ShopCategoryDeleteSho
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4570,7 +4404,6 @@ func (s *ShopeeClient) ShopCategoryDeleteShopCategory(req *ShopCategoryDeleteSho
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryUpdateShopCategory(req *ShopCategoryUpdateShopCategoryRequest) (resp *ShopCategoryUpdateShopCategory, err error) {
 	b, err := s.post("ShopCategoryUpdateShopCategory", req)
@@ -4584,7 +4417,7 @@ func (s *ShopeeClient) ShopCategoryUpdateShopCategory(req *ShopCategoryUpdateSho
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4597,7 +4430,6 @@ func (s *ShopeeClient) ShopCategoryUpdateShopCategory(req *ShopCategoryUpdateSho
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryAddItemList(req *ShopCategoryAddItemListRequest) (resp *ShopCategoryAddItemList, err error) {
 	b, err := s.post("ShopCategoryAddItemList", req)
@@ -4605,13 +4437,13 @@ func (s *ShopeeClient) ShopCategoryAddItemList(req *ShopCategoryAddItemListReque
 		return
 	}
 
-	var wrappedResponse *ShopCategoryAddItemResponse
+	var wrappedResponse *ShopCategoryAddItemListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4624,7 +4456,6 @@ func (s *ShopeeClient) ShopCategoryAddItemList(req *ShopCategoryAddItemListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryGetItemList(req *ShopCategoryGetItemListRequest) (resp *ShopCategoryGetItemList, err error) {
 	b, err := s.post("ShopCategoryGetItemList", req)
@@ -4632,13 +4463,13 @@ func (s *ShopeeClient) ShopCategoryGetItemList(req *ShopCategoryGetItemListReque
 		return
 	}
 
-	var wrappedResponse *ShopCategoryGetItemResponse
+	var wrappedResponse *ShopCategoryGetItemListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4651,7 +4482,6 @@ func (s *ShopeeClient) ShopCategoryGetItemList(req *ShopCategoryGetItemListReque
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ShopCategoryDeleteItemList(req *ShopCategoryDeleteItemListRequest) (resp *ShopCategoryDeleteItemList, err error) {
 	b, err := s.post("ShopCategoryDeleteItemList", req)
@@ -4659,13 +4489,13 @@ func (s *ShopeeClient) ShopCategoryDeleteItemList(req *ShopCategoryDeleteItemLis
 		return
 	}
 
-	var wrappedResponse *ShopCategoryDeleteItemResponse
+	var wrappedResponse *ShopCategoryDeleteItemListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4678,7 +4508,6 @@ func (s *ShopeeClient) ShopCategoryDeleteItemList(req *ShopCategoryDeleteItemLis
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsGetReturnDetail(req *ReturnsGetReturnDetailRequest) (resp *ReturnsGetReturnDetail, err error) {
 	b, err := s.post("ReturnsGetReturnDetail", req)
@@ -4692,7 +4521,7 @@ func (s *ShopeeClient) ReturnsGetReturnDetail(req *ReturnsGetReturnDetailRequest
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4706,20 +4535,19 @@ func (s *ShopeeClient) ReturnsGetReturnDetail(req *ReturnsGetReturnDetailRequest
 	return
 }
 
-
 func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (resp []ReturnsGetReturnList, err error) {
 	b, err := s.post("ReturnsGetReturnList", req)
 	if err != nil {
 		return
 	}
 
-	var wrappedResponse *ReturnsGetReturnResponse
+	var wrappedResponse *ReturnsGetReturnListResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4733,7 +4561,6 @@ func (s *ShopeeClient) ReturnsGetReturnList(req *ReturnsGetReturnListRequest) (r
 	return
 }
 
-
 func (s *ShopeeClient) ReturnsConfirm(req *ReturnsConfirmRequest) (resp *ReturnsConfirm, err error) {
 	b, err := s.post("ReturnsConfirm", req)
 	if err != nil {
@@ -4746,7 +4573,7 @@ func (s *ShopeeClient) ReturnsConfirm(req *ReturnsConfirmRequest) (resp *Returns
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4759,7 +4586,6 @@ func (s *ShopeeClient) ReturnsConfirm(req *ReturnsConfirmRequest) (resp *Returns
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsDispute(req *ReturnsDisputeRequest) (resp *ReturnsDispute, err error) {
 	b, err := s.post("ReturnsDispute", req)
@@ -4773,7 +4599,7 @@ func (s *ShopeeClient) ReturnsDispute(req *ReturnsDisputeRequest) (resp *Returns
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4786,7 +4612,6 @@ func (s *ShopeeClient) ReturnsDispute(req *ReturnsDisputeRequest) (resp *Returns
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsGetAvailableSolutions(req *ReturnsGetAvailableSolutionsRequest) (resp *ReturnsGetAvailableSolutions, err error) {
 	b, err := s.post("ReturnsGetAvailableSolutions", req)
@@ -4794,13 +4619,13 @@ func (s *ShopeeClient) ReturnsGetAvailableSolutions(req *ReturnsGetAvailableSolu
 		return
 	}
 
-	var wrappedResponse *ReturnsGetAvailableSolutionResponse
+	var wrappedResponse *ReturnsGetAvailableSolutionsResponse
 	err = json.Unmarshal(b, &wrappedResponse)
 	if err != nil {
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4813,7 +4638,6 @@ func (s *ShopeeClient) ReturnsGetAvailableSolutions(req *ReturnsGetAvailableSolu
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsOffer(req *ReturnsOfferRequest) (resp *ReturnsOffer, err error) {
 	b, err := s.post("ReturnsOffer", req)
@@ -4827,7 +4651,7 @@ func (s *ShopeeClient) ReturnsOffer(req *ReturnsOfferRequest) (resp *ReturnsOffe
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4840,7 +4664,6 @@ func (s *ShopeeClient) ReturnsOffer(req *ReturnsOfferRequest) (resp *ReturnsOffe
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) ReturnsAcceptOffer(req *ReturnsAcceptOfferRequest) (resp *ReturnsAcceptOffer, err error) {
 	b, err := s.post("ReturnsAcceptOffer", req)
@@ -4854,7 +4677,7 @@ func (s *ShopeeClient) ReturnsAcceptOffer(req *ReturnsAcceptOfferRequest) (resp 
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4867,7 +4690,6 @@ func (s *ShopeeClient) ReturnsAcceptOffer(req *ReturnsAcceptOfferRequest) (resp 
 	resp = &wrappedResponse.Response
 	return
 }
-
 
 func (s *ShopeeClient) AccountHealthShopPerformance(req *AccountHealthShopPerformanceRequest) (err error) {
 	b, err := s.post("AccountHealthShopPerformance", req)
@@ -4881,7 +4703,7 @@ func (s *ShopeeClient) AccountHealthShopPerformance(req *AccountHealthShopPerfor
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4893,7 +4715,6 @@ func (s *ShopeeClient) AccountHealthShopPerformance(req *AccountHealthShopPerfor
 
 	return
 }
-
 
 func (s *ShopeeClient) AccountHealthShopPenalty(req *AccountHealthShopPenaltyRequest) (err error) {
 	b, err := s.post("AccountHealthShopPenalty", req)
@@ -4907,7 +4728,7 @@ func (s *ShopeeClient) AccountHealthShopPenalty(req *AccountHealthShopPenaltyReq
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4919,7 +4740,6 @@ func (s *ShopeeClient) AccountHealthShopPenalty(req *AccountHealthShopPenaltyReq
 
 	return
 }
-
 
 func (s *ShopeeClient) PublicGetShopsByPartner(req *PublicGetShopsByPartnerRequest) (err error) {
 	b, err := s.post("PublicGetShopsByPartner", req)
@@ -4933,7 +4753,7 @@ func (s *ShopeeClient) PublicGetShopsByPartner(req *PublicGetShopsByPartnerReque
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4945,7 +4765,6 @@ func (s *ShopeeClient) PublicGetShopsByPartner(req *PublicGetShopsByPartnerReque
 
 	return
 }
-
 
 func (s *ShopeeClient) PublicGetMerchantsByPartner(req *PublicGetMerchantsByPartnerRequest) (err error) {
 	b, err := s.post("PublicGetMerchantsByPartner", req)
@@ -4959,7 +4778,7 @@ func (s *ShopeeClient) PublicGetMerchantsByPartner(req *PublicGetMerchantsByPart
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4971,7 +4790,6 @@ func (s *ShopeeClient) PublicGetMerchantsByPartner(req *PublicGetMerchantsByPart
 
 	return
 }
-
 
 func (s *ShopeeClient) PublicGetTokenByResendCode(req *PublicGetTokenByResendCodeRequest) (err error) {
 	b, err := s.post("PublicGetTokenByResendCode", req)
@@ -4985,7 +4803,7 @@ func (s *ShopeeClient) PublicGetTokenByResendCode(req *PublicGetTokenByResendCod
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -4997,7 +4815,6 @@ func (s *ShopeeClient) PublicGetTokenByResendCode(req *PublicGetTokenByResendCod
 
 	return
 }
-
 
 func (s *ShopeeClient) PublicGetRefreshTokenByUpgradeCode(req *PublicGetRefreshTokenByUpgradeCodeRequest) (resp *PublicGetRefreshTokenByUpgradeCode, err error) {
 	b, err := s.post("PublicGetRefreshTokenByUpgradeCode", req)
@@ -5011,7 +4828,7 @@ func (s *ShopeeClient) PublicGetRefreshTokenByUpgradeCode(req *PublicGetRefreshT
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -5025,7 +4842,6 @@ func (s *ShopeeClient) PublicGetRefreshTokenByUpgradeCode(req *PublicGetRefreshT
 	return
 }
 
-
 func (s *ShopeeClient) PushGetPushConfig(req *PushGetPushConfigRequest) (err error) {
 	b, err := s.post("PushGetPushConfig", req)
 	if err != nil {
@@ -5038,7 +4854,7 @@ func (s *ShopeeClient) PushGetPushConfig(req *PushGetPushConfigRequest) (err err
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
@@ -5050,7 +4866,6 @@ func (s *ShopeeClient) PushGetPushConfig(req *PushGetPushConfigRequest) (err err
 
 	return
 }
-
 
 func (s *ShopeeClient) PushSetPushConfig(req *PushSetPushConfigRequest) (err error) {
 	b, err := s.post("PushSetPushConfig", req)
@@ -5064,7 +4879,7 @@ func (s *ShopeeClient) PushSetPushConfig(req *PushSetPushConfigRequest) (err err
 		return
 	}
 
-    if wrappedResponse.Error != "" {
+	if wrappedResponse.Error != "" {
 		err = errors.New(wrappedResponse.Error)
 		return
 	}
