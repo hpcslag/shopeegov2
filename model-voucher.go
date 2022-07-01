@@ -244,7 +244,7 @@ VoucherPurpose int `json:"voucher_purpose,omitempty"`
 // discount_amount is The discount amount set for this particular voucher. Only when it is a fix amount voucher, api will return a value.
 DiscountAmount float64 `json:"discount_amount,omitempty"`
 // percentage is The discount percentage set for this particular voucher. Only when it is a discount percentage voucher or coins cashback voucher, api will return a value.
-Percentage float64 `json:"percentage,omitempty"`
+Percentage int `json:"percentage,omitempty"`
 // cmt_voucher_status is The voucher status in CMT. The available values are: 1:review, 2: approved, 3:reject. Only when this voucher is attending CMT campaign and not being rejected, api will return a value.
 CmtVoucherStatus int `json:"cmt_voucher_status,omitempty"`
 // display_start_time is The timing of when voucher is displayed on shop pages; so buyer is allowed to claim.

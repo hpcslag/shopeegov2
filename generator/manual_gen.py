@@ -5,6 +5,16 @@ import json
 def removeSpace(str):
     return str.replace(" ", "", -1)
 
+# detect this api is not responsable
+def detectNotResponsable(res_raw):
+    noResponse = False
+
+    for item in res_raw["response_params"]:
+        if item["name"] == "response":
+            noResponse = True
+    
+    return not noResponse
+
 def Snake2BigGolangCase(raw_str):
     # saving first and rest using split()
     init, *temp = raw_str.split('_')
@@ -191,7 +201,11 @@ if __name__ == "__main__":
             apiParams = json.loads(apiManual["params"])
 
             # add to global interface list:
-            globalInterface.append(apiName)
+            globalInterface.append({
+                "name": apiName,
+                "no_response": detectNotResponsable(apiParams)
+            })
+
             
             reqStr = ("""
 //=======================================================
@@ -366,9 +380,49 @@ type V2UnityResponse struct {
 """
 
     for item in globalInterface:
+        apiName = item["name"]
+        noResponse = item["no_response"]
+
+        if noResponse:
+            # not response
+            print("no response api")
+            globalInterfaceStr += """
+    %s(*%sRequest) error
+""" % (apiName, apiName)
+
+            globalImplementStr += """
+
+func (s *ShopeeClient) %s(req *%sRequest) (err error) {
+	b, err := s.post("%s", req)
+	if err != nil {
+		return
+	}
+
+	var wrappedResponse *%sResponse
+	err = json.Unmarshal(b, &wrappedResponse)
+	if err != nil {
+		return
+	}
+
+    if wrappedResponse.Error != "" {
+		err = errors.New(wrappedResponse.Error)
+		return
+	}
+
+	if wrappedResponse.Warning != "" {
+		log.Printf("[Warning From SHOPEE]" + wrappedResponse.Warning + "\\n")
+		return
+	}
+
+	return
+}
+""" % (apiName, apiName, apiName, apiName)
+            continue
+        
+
         globalInterfaceStr += """
     %s(*%sRequest) (*%s, error)
-""" % (item, item, item)
+""" % (apiName, apiName, apiName)
 
         globalImplementStr += """
 
@@ -397,7 +451,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp *%s, err error) {
 	resp = &wrappedResponse.Response
 	return
 }
-""" % (item, item, item, item, item)
+""" % (apiName, apiName, apiName, apiName, apiName)
 
     globalInterfaceStr += """
 }

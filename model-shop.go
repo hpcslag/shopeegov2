@@ -12,6 +12,19 @@ type ShopGetShopInfoResponse struct {
     V2UnityResponse
 
 }
+
+
+//=======================================================
+// Object Raw Type - ShopGetProfile
+//=======================================================
+type ShopGetProfile struct {
+// shop_logo is The Image URL of the shop logo.
+ShopLogo string `json:"shop_logo,omitempty"`
+// description is The content of the shop description.
+Description string `json:"description,omitempty"`
+// shop_name is The content of the shop name.
+ShopName string `json:"shop_name,omitempty"`
+}
 //=======================================================
 // ShopGetProfileRequest
 //=======================================================
@@ -25,7 +38,20 @@ type ShopGetProfileResponse struct {
     V2UnityResponse
 
     // response is The information about shop logo, shop name, shop description.
-    Response string `json:"response,omitempty"`
+    Response ShopGetProfile `json:"response,omitempty"`
+}
+
+
+//=======================================================
+// Object Raw Type - ShopUpdateProfile
+//=======================================================
+type ShopUpdateProfile struct {
+// shop_logo is The Image URL of the shop logo after updated.
+ShopLogo string `json:"shop_logo,omitempty"`
+// description is The content of the shop description after updated.
+Description string `json:"description,omitempty"`
+// shop_name is The content of the shop name after updated.
+ShopName string `json:"shop_name,omitempty"`
 }
 //=======================================================
 // ShopUpdateProfileRequest
@@ -46,7 +72,7 @@ type ShopUpdateProfileResponse struct {
     V2UnityResponse
 
     // response is If update successfully, the information is about shop logo, shop name, shop description.
-    Response string `json:"response,omitempty"`
+    Response ShopUpdateProfile `json:"response,omitempty"`
 }
 
 
