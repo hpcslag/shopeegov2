@@ -12,6 +12,9 @@ DiscountID int `json:"discount_id,omitempty"`
 // DiscountAddDiscountRequest
 //=======================================================
 type DiscountAddDiscountRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_name is Title of the discount.
     DiscountName string `json:"discount_name"`
     // start_time is The time when discount activity start.The start time must be 1 hour later than current time.
@@ -61,6 +64,9 @@ ErrorList []DiscountAddDiscountItemError `json:"error_list"`
 // DiscountAddDiscountItemRequest
 //=======================================================
 type DiscountAddDiscountItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_list is The items added in this discount promotion.
@@ -91,6 +97,9 @@ ModifyTime int `json:"modify_time,omitempty"`
 // DiscountDeleteDiscountRequest
 //=======================================================
 type DiscountDeleteDiscountRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
 }
@@ -134,6 +143,9 @@ ErrorList []DiscountDeleteDiscountItemError `json:"error_list"`
 // DiscountDeleteDiscountItemRequest
 //=======================================================
 type DiscountDeleteDiscountItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_id is Shopee's unique identifier for an item.
@@ -226,6 +238,9 @@ More bool `json:"more,omitempty"`
 // DiscountGetDiscountRequest
 //=======================================================
 type DiscountGetDiscountRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // page_no is Specifies the page number of data to return in the current call. Starting from 1. if data is more than one page, the page_no can be some entry to start next call.
@@ -277,6 +292,9 @@ More bool `json:"more,omitempty"`
 // DiscountGetDiscountListRequest
 //=======================================================
 type DiscountGetDiscountListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_status is The status filter for retriveing discount list. Available value: upcoming/ongoing/expired/all.
     DiscountStatus string `json:"discount_status"`
     // page_no is Specifies the starting entry of data to return in the current call. if data is more than one page, the offset can be some entry to start next call.
@@ -313,6 +331,9 @@ ModifyTime int `json:"modify_time,omitempty"`
 // DiscountUpdateDiscountRequest
 //=======================================================
 type DiscountUpdateDiscountRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // discount_name is Title of the discount.
@@ -364,6 +385,9 @@ ErrorList []DiscountUpdateDiscountItemError `json:"error_list"`
 // DiscountUpdateDiscountItemRequest
 //=======================================================
 type DiscountUpdateDiscountItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
     // item_list is The items selected to this discount. You can update at most 50 items per call.
@@ -394,6 +418,9 @@ ModifyTime int `json:"modify_time,omitempty"`
 // DiscountEndDiscountRequest
 //=======================================================
 type DiscountEndDiscountRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // discount_id is Shopee's unique identifier for a discount activity.
     DiscountID int `json:"discount_id"`
 }

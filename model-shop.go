@@ -3,6 +3,9 @@ package shopeego
 // ShopGetShopInfoRequest
 //=======================================================
 type ShopGetShopInfoRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // ShopGetShopInfoResponse
@@ -29,6 +32,9 @@ ShopName string `json:"shop_name,omitempty"`
 // ShopGetProfileRequest
 //=======================================================
 type ShopGetProfileRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // ShopGetProfileResponse
@@ -57,6 +63,9 @@ ShopName string `json:"shop_name,omitempty"`
 // ShopUpdateProfileRequest
 //=======================================================
 type ShopUpdateProfileRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_name is The new shop name
     ShopName string `json:"shop_name,omitempty"`
     // shop_logo is The new shop logo url. Recommend to use images 
@@ -109,6 +118,9 @@ HolidayModeState int `json:"holiday_mode_state,omitempty"`
 // ShopGetWarehouseDetailRequest
 //=======================================================
 type ShopGetWarehouseDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // ShopGetWarehouseDetailResponse

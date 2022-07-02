@@ -44,6 +44,9 @@ CollectionList []TopPicksGetTopPicksListCollection `json:"collection_list"`
 // TopPicksGetTopPicksListRequest
 //=======================================================
 type TopPicksGetTopPicksListRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // TopPicksGetTopPicksListResponse
@@ -100,6 +103,9 @@ CollectionList []TopPicksAddTopPicksCollection `json:"collection_list"`
 // TopPicksAddTopPicksRequest
 //=======================================================
 type TopPicksAddTopPicksRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // name is 
     Name string `json:"name"`
     // item_id_list is 
@@ -162,6 +168,9 @@ CollectionList []TopPicksUpdateTopPicksCollection `json:"collection_list"`
 // TopPicksUpdateTopPicksRequest
 //=======================================================
 type TopPicksUpdateTopPicksRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // top_picks_id is collection id
     TopPicksID int `json:"top_picks_id"`
     // name is collection name
@@ -194,6 +203,9 @@ TopPicksID int `json:"top_picks_id,omitempty"`
 // TopPicksDeleteTopPicksRequest
 //=======================================================
 type TopPicksDeleteTopPicksRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // top_picks_id is collection id
     TopPicksID int `json:"top_picks_id"`
 }

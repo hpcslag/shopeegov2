@@ -204,6 +204,9 @@ ReturnPickupAddress ReturnsGetReturnDetailReturnPickupAddres `json:"return_picku
 // ReturnsGetReturnDetailRequest
 //=======================================================
 type ReturnsGetReturnDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // return_sn is The serial number of return.
     ReturnSN string `json:"return_sn"`
 }
@@ -327,6 +330,9 @@ Return []ReturnsGetReturnListReturn `json:"return"`
 // ReturnsGetReturnListRequest
 //=======================================================
 type ReturnsGetReturnListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_no is Specifies the starting entry of data to return in the current call. Default is 0. if data is more than one page, the offset can be some entry to start next call.
     PageNo int `json:"page_no"`
     // page_size is if many items are available to retrieve, you may need to call GetReturnList multiple times to retrieve all the data. Each result set is returned as a page of entries. Default is 40. Use the Pagination filters to control the maximum number of entries (<= 100) to retrieve per page (i.e., per call), the offset number to start next call. This integer value is usUed to specify the maximum number of entries to return in a single ""page"" of data.
@@ -367,6 +373,9 @@ ReturnSN string `json:"return_sn,omitempty"`
 // ReturnsConfirmRequest
 //=======================================================
 type ReturnsConfirmRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // return_sn is The serial number of return.
     ReturnSN string `json:"return_sn"`
 }
@@ -393,6 +402,9 @@ ReturnSN string `json:"return_sn,omitempty"`
 // ReturnsDisputeRequest
 //=======================================================
 type ReturnsDisputeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // return_sn is The serial number of return.
     ReturnSN string `json:"return_sn"`
     // email is 
@@ -457,6 +469,9 @@ OfferRefund ReturnsGetAvailableSolutionsOfferRefund `json:"offer_refund"`
 // ReturnsGetAvailableSolutionsRequest
 //=======================================================
 type ReturnsGetAvailableSolutionsRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // return_sn is The serial number of return.
     ReturnSN string `json:"return_sn"`
 }
@@ -483,6 +498,9 @@ ReturnSN string `json:"return_sn,omitempty"`
 // ReturnsOfferRequest
 //=======================================================
 type ReturnsOfferRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // return_sn is The serial number of return.
     ReturnSN string `json:"return_sn"`
     // proposed_solution is The new solution to be offered. See "Data Definition - ReturnSolution"
@@ -513,6 +531,9 @@ ReturnSN string `json:"return_sn,omitempty"`
 // ReturnsAcceptOfferRequest
 //=======================================================
 type ReturnsAcceptOfferRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // return_sn is The serial number of return.
     ReturnSN string `json:"return_sn"`
 }

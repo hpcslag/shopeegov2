@@ -17,6 +17,13 @@ type V2UnityResponse struct {
 	Warning string `json:"warning,omitempty"`
 }
 
+// for building Authorization params
+type V2RequestAuthenticationParams struct {
+	PartnerID int `json:"partner_id"`
+	Timestamp int `json:"timestamp"`
+	ShopID    int `json:"shop_id"`
+}
+
 func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp *ProductGetCategory, err error) {
 	b, err := s.post("ProductGetCategory", req)
 	if err != nil {

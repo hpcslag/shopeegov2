@@ -12,6 +12,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealAddAddOnDealRequest
 //=======================================================
 type AddOnDealAddAddOnDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_name is Title of the add on deal
     AddOnDealName string `json:"add_on_deal_name"`
     // start_time is The time when add on deal activity start.
@@ -74,6 +77,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealAddAddOnDealMainItemRequest
 //=======================================================
 type AddOnDealAddAddOnDealMainItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // main_item_list is The main items added in this add on deal promotion.
@@ -138,6 +144,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealAddAddOnDealSubItemRequest
 //=======================================================
 type AddOnDealAddAddOnDealSubItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // sub_item_list is The sub items added in this add on deal promotion.
@@ -166,6 +175,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealDeleteAddOnDealRequest
 //=======================================================
 type AddOnDealDeleteAddOnDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for an add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
 }
@@ -194,6 +206,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealDeleteAddOnDealMainItemRequest
 //=======================================================
 type AddOnDealDeleteAddOnDealMainItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // main_item_list is  The main items added in this add on deal promotion.
@@ -239,6 +254,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealDeleteAddOnDealSubItemRequest
 //=======================================================
 type AddOnDealDeleteAddOnDealSubItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // sub_item_list is The sub items added in this add on deal promotion.
@@ -296,6 +314,9 @@ More bool `json:"more,omitempty"`
 // AddOnDealGetAddOnDealListRequest
 //=======================================================
 type AddOnDealGetAddOnDealListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // promotion_status is The Status of add on deal，default status is all
     PromotionStatus string `json:"promotion_status"`
     // page_no is The default page number is 1
@@ -344,6 +365,9 @@ Source int `json:"source,omitempty"`
 // AddOnDealGetAddOnDealRequest
 //=======================================================
 type AddOnDealGetAddOnDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for an add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
 }
@@ -383,6 +407,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealGetAddOnDealMainItemRequest
 //=======================================================
 type AddOnDealGetAddOnDealMainItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
 }
@@ -446,6 +473,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealGetAddOnDealSubItemRequest
 //=======================================================
 type AddOnDealGetAddOnDealSubItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
 }
@@ -486,6 +516,9 @@ AddOnDealName string `json:"add_on_deal_name,omitempty"`
 // AddOnDealUpdateAddOnDealRequest
 //=======================================================
 type AddOnDealUpdateAddOnDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for an add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // start_time is The time when bundle deal activity start.The start time must be 1 hour than current time.
@@ -537,6 +570,9 @@ MainItemList []AddOnDealUpdateAddOnDealMainItemMainItem `json:"main_item_list"`
 // AddOnDealUpdateAddOnDealMainItemRequest
 //=======================================================
 type AddOnDealUpdateAddOnDealMainItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // main_item_list is The main items added in this add on deal promotion.
@@ -586,6 +622,9 @@ SubItemList []AddOnDealUpdateAddOnDealSubItemSubItem `json:"sub_item_list"`
 // AddOnDealUpdateAddOnDealSubItemRequest
 //=======================================================
 type AddOnDealUpdateAddOnDealSubItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is Shopee's unique identifier for add on deal activity.
     AddOnDealID int `json:"add_on_deal_id"`
     // sub_item_list is The sub items added in this add on deal promotion.
@@ -614,6 +653,9 @@ AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // AddOnDealEndAddOnDealRequest
 //=======================================================
 type AddOnDealEndAddOnDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // add_on_deal_id is The identifier of the API request for error tracking
     AddOnDealID int `json:"add_on_deal_id"`
 }

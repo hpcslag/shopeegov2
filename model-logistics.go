@@ -116,6 +116,8 @@ type LogisticsGetShippingParameter struct {
 // LogisticsGetShippingParameterRequest
 //=======================================================
 type LogisticsGetShippingParameterRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn"`
 }
@@ -151,6 +153,8 @@ type LogisticsGetTrackingNumber struct {
 // LogisticsGetTrackingNumberRequest
 //=======================================================
 type LogisticsGetTrackingNumberRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn"`
 	// package_number is Shopee's unique identifier for the package under an order. You should't fill the field with empty string when there isn't a package number.
@@ -208,6 +212,8 @@ type NonIntegrated struct {
 // LogisticsShipOrderRequest
 //=======================================================
 type LogisticsShipOrderRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn"`
 	// package_number is Shopee's unique identifier for the package under an order. You should't fill the field with empty string when there is't a package number.
@@ -232,6 +238,8 @@ type LogisticsShipOrderResponse struct {
 // LogisticsUpdateShippingOrderRequest
 //=======================================================
 type LogisticsUpdateShippingOrderRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn"`
 	// package_number is Shopee's unique identifier for the package under an order. You should't fill the field with empty string when there is't a package number.
@@ -288,6 +296,8 @@ type LogisticsGetShippingDocumentParameter struct {
 // LogisticsGetShippingDocumentParameterRequest
 //=======================================================
 type LogisticsGetShippingDocumentParameterRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_list is The list of orders you want to get. limit [1,50]
 	OrderList []OrderList `json:"order_list"`
 }
@@ -329,6 +339,8 @@ type LogisticsCreateShippingDocument struct {
 // LogisticsCreateShippingDocumentRequest
 //=======================================================
 type LogisticsCreateShippingDocumentRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_list is The list of order you want to create shipping document. limit [1, 50]
 	OrderList []OrderList `json:"order_list"`
 }
@@ -372,6 +384,8 @@ type LogisticsGetShippingDocumentResult struct {
 // LogisticsGetShippingDocumentResultRequest
 //=======================================================
 type LogisticsGetShippingDocumentResultRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_list is The list of orders, limit [1,50]
 	OrderList []OrderList `json:"order_list"`
 }
@@ -391,6 +405,8 @@ type LogisticsGetShippingDocumentResultResponse struct {
 // LogisticsDownloadShippingDocumentRequest
 //=======================================================
 type LogisticsDownloadShippingDocumentRequest struct {
+	V2RequestAuthenticationParams
+
 	// shipping_document_type is The type of shipping document. Available values: NORMAL_AIR_WAYBILL,THERMAL_AIR_WAYBILL,NORMAL_JOB_AIR_WAYBILL,THERMAL_JOB_AIR_WAYBILL
 	ShippingDocumentType string `json:"shipping_document_type,omitempty"`
 	// order_list is The list of orders you need to download it's shipping document.
@@ -653,6 +669,8 @@ type LogisticsGetShippingDocumentInfo struct {
 // LogisticsGetShippingDocumentInfoRequest
 //=======================================================
 type LogisticsGetShippingDocumentInfoRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn"`
 	// package_number is Shopee's unique identifier for the package under an order. You shouldn't fill the field with empty string when there isn't a package number.
@@ -700,6 +718,8 @@ type LogisticsGetTrackingInfo struct {
 // LogisticsGetTrackingInfoRequest
 //=======================================================
 type LogisticsGetTrackingInfoRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_sn is Shopee's unique identifier for an order.
 	OrderSN string `json:"order_sn"`
 	// package_number is Shopee's unique identifier for the package under an order. You should't fill the field with empty string when there is't a package number.
@@ -755,6 +775,7 @@ type LogisticsGetAddressList struct {
 // LogisticsGetAddressListRequest
 //=======================================================
 type LogisticsGetAddressListRequest struct {
+	V2RequestAuthenticationParams
 }
 
 //=======================================================
@@ -782,6 +803,8 @@ type AddressTypeConfig struct {
 // LogisticsSetAddressConfigRequest
 //=======================================================
 type LogisticsSetAddressConfigRequest struct {
+	V2RequestAuthenticationParams
+
 	// show_pickup_address is Definite show pickup address or not.
 	ShowPickupAddress bool `json:"show_pickup_address,omitempty"`
 	// address_type_config is The config of your shop addres.
@@ -800,6 +823,8 @@ type LogisticsSetAddressConfigResponse struct {
 // LogisticsDeleteAddressRequest
 //=======================================================
 type LogisticsDeleteAddressRequest struct {
+	V2RequestAuthenticationParams
+
 	// address_id is The identity of address you want to delete.
 	AddressID int `json:"address_id"`
 }
@@ -904,6 +929,7 @@ type LogisticsGetChannelList struct {
 // LogisticsGetChannelListRequest
 //=======================================================
 type LogisticsGetChannelListRequest struct {
+	V2RequestAuthenticationParams
 }
 
 //=======================================================
@@ -963,6 +989,8 @@ type LogisticsUpdateChannel struct {
 // LogisticsUpdateChannelRequest
 //=======================================================
 type LogisticsUpdateChannelRequest struct {
+	V2RequestAuthenticationParams
+
 	// logistics_channel_id is The identity of logistic channel.
 	LogisticsChannelID int `json:"logistics_channel_id"`
 	// enabled is Whether to enable this logistic channel.
@@ -1010,6 +1038,8 @@ type LogisticsBatchShipOrder struct {
 // LogisticsBatchShipOrderRequest
 //=======================================================
 type LogisticsBatchShipOrderRequest struct {
+	V2RequestAuthenticationParams
+
 	// order_list is The list of order.
 	OrderList []OrderList `json:"order_list"`
 	// pickup is Required parameter ONLY if GetParameterForInit returns "pickup" or if GetLogisticsInfo returns "pickup" under "info_needed" for the same order. Developer should still include "pickup" field in the call even if "pickup" has empty value.

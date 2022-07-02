@@ -240,7 +240,10 @@ if __name__ == "__main__":
 //=======================================================
 // %sRequest
 //=======================================================
-type %sRequest struct {""" % (apiName, apiName))
+type %sRequest struct {
+    V2RequestAuthenticationParams
+    
+""" % (apiName, apiName))
 
             for reqItem in apiParams["request_params"]:
                 # doc bug: remove all space
@@ -413,6 +416,14 @@ type V2UnityResponse struct {
 	// Warning message.
 	Warning string `json:"warning,omitempty"`
 }
+
+// for building Authorization params
+type V2RequestAuthenticationParams struct {
+	PartnerID int `json:"partner_id"`
+	Timestamp int `json:"timestamp"`
+	ShopID    int `json:"shop_id"`
+}
+
 """
 
     for item in globalInterface:

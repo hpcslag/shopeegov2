@@ -160,6 +160,9 @@ OrderIncome PaymentGetEscrowDetailOrderIncome `json:"order_income"`
 // PaymentGetEscrowDetailRequest
 //=======================================================
 type PaymentGetEscrowDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
 }
@@ -186,6 +189,9 @@ InstallmentStatus int `json:"installment_status,omitempty"`
 // PaymentSetShopInstallmentStatusRequest
 //=======================================================
 type PaymentSetShopInstallmentStatusRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // installment_status is 
     InstallmentStatus int `json:"installment_status"`
 }
@@ -212,6 +218,9 @@ InstallmentStatus int `json:"installment_status,omitempty"`
 // PaymentGetShopInstallmentStatusRequest
 //=======================================================
 type PaymentGetShopInstallmentStatusRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // PaymentGetShopInstallmentStatusResponse
@@ -306,6 +315,9 @@ PayoutList []PaymentGetPayoutDetailPayout `json:"payout_list"`
 // PaymentGetPayoutDetailRequest
 //=======================================================
 type PaymentGetPayoutDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_size is Number of pages returned  max:100
     PageSize int `json:"page_size"`
     // page_no is The page number  min:1  default:1
@@ -362,6 +374,9 @@ ItemPlanAhoraList []PaymentSetItemInstallmentStatusItemPlanAhora `json:"item_pla
 // PaymentSetItemInstallmentStatusRequest
 //=======================================================
 type PaymentSetItemInstallmentStatusRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id_list is The id array of the item, Max :100
     ItemIdList []int `json:"item_id_list"`
     // tenure_list is Staged array, TH must be [3,6,10], [] means closed
@@ -416,6 +431,9 @@ ItemPlanAhoraList []PaymentGetItemInstallmentStatusItemPlanAhora `json:"item_pla
 // PaymentGetItemInstallmentStatusRequest
 //=======================================================
 type PaymentGetItemInstallmentStatusRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id_list is Item id array, Max :100
     ItemIdList []int `json:"item_id_list"`
 }
@@ -444,6 +462,9 @@ Region string `json:"region,omitempty"`
 // PaymentGetPaymentMethodListRequest
 //=======================================================
 type PaymentGetPaymentMethodListRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // PaymentGetPaymentMethodListResponse
@@ -520,6 +541,9 @@ More bool `json:"more,omitempty"`
 // PaymentGetWalletTransactionListRequest
 //=======================================================
 type PaymentGetWalletTransactionListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_no is Specifies the starting entry of data to return in the current call. Default is 0. if data is more than one page, the offset can be some entry to start next call.
     PageNo int `json:"page_no"`
     // page_size is If many transactions are available to retrieve, you may need to call GetTransactionList multiple times to retrieve all the data. Each result set is returned as a page of entries. Default is 40. Use the Pagination filters to control the maximum number of entries (<= 100) to retrieve per page (i.e., per call), the offset number to start next call. This integer value is usUed to specify the maximum number of entries to return in a single ""page"" of data.
@@ -571,6 +595,9 @@ More bool `json:"more,omitempty"`
 // PaymentGetEscrowListRequest
 //=======================================================
 type PaymentGetEscrowListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // release_time_from is Query start time
     ReleaseTimeFrom int `json:"release_time_from"`
     // release_time_to is Query end time

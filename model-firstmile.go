@@ -29,6 +29,9 @@ NextCursor string `json:"next_cursor,omitempty"`
 // FirstMileGetUnbindOrderListRequest
 //=======================================================
 type FirstMileGetUnbindOrderListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // cursor is Specifies the starting entry of data to return in the current call. Default is "". If data is more than one page, the offset can be some entry to start next call.
     Cursor string `json:"cursor,omitempty"`
     // page_size is Each result set is returned as a page of entries. Use the "page_size" filters to control the maximum number of entries to retrieve per page (i.e., per call). This integer value is used to specify the maximum number of entries to return in a single "page" of data. limit [1, 100]
@@ -90,6 +93,9 @@ NextCursor string `json:"next_cursor,omitempty"`
 // FirstMileGetDetailRequest
 //=======================================================
 type FirstMileGetDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // first_mile_tracking_number is The first mile tracking number.
     FirstMileTrackingNumber string `json:"first_mile_tracking_number"`
     // cursor is Specifies the starting entry of data to return in the current call. Default is "". If data is more than one page, the offset can be some entry to start next call.
@@ -135,6 +141,9 @@ FirstMileTrackingNumberList []string `json:"first_mile_tracking_number_list,omit
 // FirstMileGenerateFirstMileTrackingNumberRequest
 //=======================================================
 type FirstMileGenerateFirstMileTrackingNumberRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // declare_date is This field is used for seller to specify the declare time.
     DeclareDate string `json:"declare_date"`
     // quantity is The number of first-mile tracking numbers generated. Up to 20 first-mile tracking numbers can be generated for one declaration day.
@@ -182,6 +191,9 @@ OrderList []FirstMileBindFirstMileTrackingNumberOrder `json:"order_list"`
 // FirstMileBindFirstMileTrackingNumberRequest
 //=======================================================
 type FirstMileBindFirstMileTrackingNumberRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // first_mile_tracking_number is The first-mile tracking number.
     FirstMileTrackingNumber string `json:"first_mile_tracking_number"`
     // shipment_method is <p>The shipment method for bound orders, should be pickup, dropoff or self-deliver.</p>
@@ -243,6 +255,9 @@ OrderList []FirstMileUnbindFirstMileTrackingNumberOrder `json:"order_list"`
 // FirstMileUnbindFirstMileTrackingNumberRequest
 //=======================================================
 type FirstMileUnbindFirstMileTrackingNumberRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // first_mile_tracking_number is The identifier for an API request for error tracking.
     FirstMileTrackingNumber string `json:"first_mile_tracking_number"`
     // order_list is The list of order info you want to unbind from the given first mile tracking number.
@@ -288,6 +303,9 @@ NextCursor string `json:"next_cursor,omitempty"`
 // FirstMileGetTrackingNumberListRequest
 //=======================================================
 type FirstMileGetTrackingNumberListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // from_date is The start time of declare_date.
     FromDate string `json:"from_date"`
     // to_date is The end time of declare_date.
@@ -311,6 +329,9 @@ type FirstMileGetTrackingNumberListResponse struct {
 // FirstMileGetWaybillRequest
 //=======================================================
 type FirstMileGetWaybillRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // first_mile_tracking_number_list is The first mile tracking number that you want to print waybill.limit [1, 50]
     FirstMileTrackingNumberList []string `json:"first_mile_tracking_number_list"`
 }
@@ -348,6 +369,9 @@ LogisticsChannelList []FirstMileGetChannelListLogisticsChannel `json:"logistics_
 // FirstMileGetChannelListRequest
 //=======================================================
 type FirstMileGetChannelListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // region is Use this field to specify the region you want to ship parcel. Available value: CN
     Region string `json:"region"`
 }

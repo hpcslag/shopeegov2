@@ -29,6 +29,9 @@ CategoryList []ProductGetCategoryCategory `json:"category_list"`
 // ProductGetCategoryRequest
 //=======================================================
 type ProductGetCategoryRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // language is <p>If language is not uploaded, the default language=en, the following are the languages supported by different markets SG: en ; MY: en / ms-my / zh-hans ; TH: en / th ; VN: en / vi ; PH: en ; TW: en / zh-hant ; ID: en / id ;  BR: en / pt-br ;  MX: en / es-mx ; PL: pl ; CO: en/es-CO ; CL: en/es-CL ; FR: en/fr ; ES: en/es-ES ; AR:en / es-ar Note: For markets that have already launched global tree, Crossboard shop only support returning en and zh-hans language data</p>
     Language string `json:"language,omitempty"`
 }
@@ -121,6 +124,9 @@ AttributeList []ProductGetAttributesAttribute `json:"attribute_list"`
 // ProductGetAttributesRequest
 //=======================================================
 type ProductGetAttributesRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // language is <p>If language is not uploaded, the default language=en, the following are the languages supported by different markets SG: en ; MY: en / ms-my / zh-hans ; TH: en / th ; VN: en / vi ; PH: en ; TW: en / zh-hant ; ID: en / id ;  BR: en / pt-br ;  MX: en / es-mx ; PL: pl ; CO: en/es-CO ; CL: en/es-CL ; FR: en/fr ; ES: en/es-ES ; AR: en / es-ar . Note: For markets that have already launched global tree, Crossboard shop only support returning en and zh-hans language data</p>
     Language string `json:"language,omitempty"`
     // category_id is ID of category.
@@ -170,6 +176,9 @@ InputType string `json:"input_type,omitempty"`
 // ProductGetBrandListRequest
 //=======================================================
 type ProductGetBrandListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // offset is Specifies the starting entry of data to return in the current call. Default is 0. If data is more than one page,this field needs to be replaced with "next_offset" to request,and the offset can be some entry to start next call.
     Offset int `json:"offset,omitempty"`
     // page_size is the size of one page.Max=100
@@ -217,6 +226,9 @@ NonPreOrderDaysToShip int `json:"non_pre_order_days_to_ship,omitempty"`
 // ProductGetDtsLimitRequest
 //=======================================================
 type ProductGetDtsLimitRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // category_id is Shopee's unique identifier for an category.
     CategoryID int `json:"category_id"`
 }
@@ -381,6 +393,9 @@ ExtendedDescriptionLimit ProductGetItemLimitExtendedDescriptionLimit `json:"exte
 // ProductGetItemLimitRequest
 //=======================================================
 type ProductGetItemLimitRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // ProductGetItemLimitResponse
@@ -424,6 +439,9 @@ NextOffset int `json:"next_offset,omitempty"`
 // ProductGetItemListRequest
 //=======================================================
 type ProductGetItemListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // offset is Specifies the starting entry of data to return in the current call. Default is 0. if data is more than one page, the offset can be some entry to start next call.
     Offset int `json:"offset"`
     // page_size is the size of one page.Max=100
@@ -814,6 +832,9 @@ DescriptionType string `json:"description_type,omitempty"`
 // ProductGetItemBaseInfoRequest
 //=======================================================
 type ProductGetItemBaseInfoRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id_list is item_id list; limit [0,50]
     ItemIdList []int `json:"item_id_list"`
     // need_tax_info is if true will response tax_info
@@ -863,6 +884,9 @@ ItemList []ProductGetItemExtraInfoItem `json:"item_list"`
 // ProductGetItemExtraInfoRequest
 //=======================================================
 type ProductGetItemExtraInfoRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id_list is  item_id list, limit [0,50]
     ItemIdList []int `json:"item_id_list"`
 }
@@ -1325,6 +1349,9 @@ SellerStock []ProductAddItemSellerStock `json:"seller_stock"`
 // ProductAddItemRequest
 //=======================================================
 type ProductAddItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // original_price is <p>Item price</p><p><b><font color="#c24f4a">For CO local VAT responsible seller：</font></b>Please remember the price you set in here must be VAT inclusive. If you have any doubts on how to calculate VAT for your product please refer to the Seller Education Hub（https://seller.shopee.com.co/edu/article/13565）<br /></p><p><b><font color="#c24f4a">For&nbsp;SG/MY/BR/MX/PL/ES/AR seller:&nbsp;</font></b><span style="font-size:14px;"></span><span style="font-size:14px;">Sellers can set the price with two decimal place,&nbsp;</span><span style="font-size:14px;">other regions can only set the price as an integer.</span></p>
     OriginalPrice float64 `json:"original_price"`
     // description is if description_type is normal , Description information should be set by this field.
@@ -1541,6 +1568,9 @@ DescriptionType string `json:"description_type,omitempty"`
 // ProductUpdateItemRequest
 //=======================================================
 type ProductUpdateItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // description is Description of item.
     Description string `json:"description,omitempty"`
     // weight is Weight of item.
@@ -1598,6 +1628,9 @@ type ProductUpdateItemResponse struct {
 // ProductDeleteItemRequest
 //=======================================================
 type ProductDeleteItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is The identity of product item.
     ItemID int `json:"item_id"`
 }
@@ -1766,6 +1799,9 @@ Model []ProductInitTierVariationModel `json:"model"`
 // ProductInitTierVariationRequest
 //=======================================================
 type ProductInitTierVariationRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
@@ -1787,6 +1823,9 @@ type ProductInitTierVariationResponse struct {
 // ProductUpdateTierVariationRequest
 //=======================================================
 type ProductUpdateTierVariationRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
@@ -1964,6 +2003,9 @@ Model []ProductGetModelListModel `json:"model"`
 // ProductGetModelListRequest
 //=======================================================
 type ProductGetModelListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is The ID of the item
     ItemID int `json:"item_id"`
 }
@@ -2068,6 +2110,9 @@ Model []ProductAddModelModel `json:"model"`
 // ProductAddModelRequest
 //=======================================================
 type ProductAddModelRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // model_list is Model list
@@ -2087,6 +2132,9 @@ type ProductAddModelResponse struct {
 // ProductUpdateModelRequest
 //=======================================================
 type ProductUpdateModelRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // model is Length should be between 1 to 50
@@ -2104,6 +2152,9 @@ type ProductUpdateModelResponse struct {
 // ProductDeleteModelRequest
 //=======================================================
 type ProductDeleteModelRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // model_id is ID of model.
@@ -2130,6 +2181,9 @@ SupportSizeChart bool `json:"support_size_chart,omitempty"`
 // ProductSupportSizeChartRequest
 //=======================================================
 type ProductSupportSizeChartRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // category_id is Category ID
     CategoryID int `json:"category_id"`
 }
@@ -2147,6 +2201,9 @@ type ProductSupportSizeChartResponse struct {
 // ProductUpdateSizeChartRequest
 //=======================================================
 type ProductUpdateSizeChartRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item
     ItemID int `json:"item_id"`
     // size_chart is ID of size chart image
@@ -2208,6 +2265,9 @@ SuccessList []ProductUnlistItemSuccess `json:"success_list"`
 // ProductUnlistItemRequest
 //=======================================================
 type ProductUnlistItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_list is Length should be between 1 to 50.
     ItemList []ItemList `json:"item_list"`
 }
@@ -2269,6 +2329,9 @@ SuccessList []ProductUpdatePriceSuccess `json:"success_list"`
 // ProductUpdatePriceRequest
 //=======================================================
 type ProductUpdatePriceRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // price_list is Length should be between 1 to 50.
@@ -2349,6 +2412,9 @@ SuccessList []ProductUpdateStockSuccess `json:"success_list"`
 // ProductUpdateStockRequest
 //=======================================================
 type ProductUpdateStockRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // stock_list is Length should be between 1 to 50.
@@ -2399,6 +2465,9 @@ SuccessList ProductBoostItemSuccess `json:"success_list"`
 // ProductBoostItemRequest
 //=======================================================
 type ProductBoostItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id_list is Shopee's unique identifier for an item, limit:[1,5]
     ItemIdList []int `json:"item_id_list"`
 }
@@ -2436,6 +2505,9 @@ ItemList []ProductGetBoostedListItem `json:"item_list"`
 // ProductGetBoostedListRequest
 //=======================================================
 type ProductGetBoostedListRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // ProductGetBoostedListResponse
@@ -2542,6 +2614,9 @@ FailureList []ProductGetItemPromotionFailure `json:"failure_list"`
 // ProductGetItemPromotionRequest
 //=======================================================
 type ProductGetItemPromotionRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id_list is Item ID list, can send 1 to 50 items.
     ItemIdList []int `json:"item_id_list"`
 }
@@ -2570,6 +2645,9 @@ SipItemPrice float64 `json:"sip_item_price,omitempty"`
 // ProductUpdateSipItemPriceRequest
 //=======================================================
 type ProductUpdateSipItemPriceRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is ID of item.
     ItemID int `json:"item_id"`
     // sip_item_price is 
@@ -2600,6 +2678,9 @@ NextOffset string `json:"next_offset,omitempty"`
 // ProductSearchItemRequest
 //=======================================================
 type ProductSearchItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // offset is Specifies the starting entry of data to return in the current call. Default is empty. if data is more than one page, the offset can be some entry to start next call.
     Offset string `json:"offset,omitempty"`
     // page_size is the size of one page.
@@ -2676,6 +2757,9 @@ NextCursor string `json:"next_cursor,omitempty"`
 // ProductGetCommentRequest
 //=======================================================
 type ProductGetCommentRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_id is The identity of product item.
     ItemID int `json:"item_id,omitempty"`
     // comment_id is The identity of comment.
@@ -2732,6 +2816,9 @@ ResultList []ProductReplyCommentResult `json:"result_list"`
 // ProductReplyCommentRequest
 //=======================================================
 type ProductReplyCommentRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // comment_list is The list of comment. The limit is between 1 and 100.
     CommentList []CommentList `json:"comment_list"`
 }
@@ -2758,6 +2845,9 @@ CategoryID []int `json:"category_id,omitempty"`
 // ProductCategoryRecommendRequest
 //=======================================================
 type ProductCategoryRecommendRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_name is name of item
     ItemName string `json:"item_name"`
 }
@@ -2795,6 +2885,9 @@ OriginalBrandName string `json:"original_brand_name,omitempty"`
 // ProductRegisterBrandRequest
 //=======================================================
 type ProductRegisterBrandRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // original_brand_name is Brand name, length<=254.
     OriginalBrandName string `json:"original_brand_name"`
     // category_list is Category_id list for this brand, please input category in L1 or L2. Max input num of category_id is 50.
@@ -2857,6 +2950,9 @@ AttributeList []ProductGetRecommendAttributeAttribute `json:"attribute_list"`
 // ProductGetRecommendAttributeRequest
 //=======================================================
 type ProductGetRecommendAttributeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // item_name is name of item
     ItemName string `json:"item_name"`
     // cover_image_id is Cover image id of item

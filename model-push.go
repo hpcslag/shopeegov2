@@ -3,6 +3,9 @@ package shopeego
 // PushGetPushConfigRequest
 //=======================================================
 type PushGetPushConfigRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // PushGetPushConfigResponse
@@ -47,6 +50,9 @@ ShopAuthorizationPush int `json:"shop_authorization_push,omitempty"`
 // PushSetPushConfigRequest
 //=======================================================
 type PushSetPushConfigRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // callback_url is The callback url of push mechanism.
     CallbackUrl string `json:"callback_url,omitempty"`
     // push_config is Detail configuration of push mechanism.

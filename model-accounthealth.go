@@ -3,6 +3,9 @@ package shopeego
 // AccountHealthShopPerformanceRequest
 //=======================================================
 type AccountHealthShopPerformanceRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // AccountHealthShopPerformanceResponse
@@ -16,6 +19,9 @@ type AccountHealthShopPerformanceResponse struct {
 // AccountHealthShopPenaltyRequest
 //=======================================================
 type AccountHealthShopPenaltyRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // AccountHealthShopPenaltyResponse

@@ -12,6 +12,9 @@ BundleDealID int `json:"bundle_deal_id,omitempty"`
 // BundleDealAddBundleDealRequest
 //=======================================================
 type BundleDealAddBundleDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
     RuleType int `json:"rule_type"`
     // discount_value is The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
@@ -69,6 +72,9 @@ SuccessList []map[string]interface{} `json:"success_list,omitempty"`
 // BundleDealAddBundleDealItemRequest
 //=======================================================
 type BundleDealAddBundleDealItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
     // item_list is The items added in this bundle deal promotion.
@@ -135,6 +141,9 @@ More bool `json:"more,omitempty"`
 // BundleDealGetBundleDealListRequest
 //=======================================================
 type BundleDealGetBundleDealListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_size is Data paging, representing the data size of each page, the maximum is 1000, the default is 20
     PageSize int `json:"page_size,omitempty"`
     // time_status is The Status of bundle deal，all=1；upcoming=2；ongoing=3，expired=4 , the default is 1
@@ -192,6 +201,9 @@ PurchaseLimit int `json:"purchase_limit,omitempty"`
 // BundleDealGetBundleDealRequest
 //=======================================================
 type BundleDealGetBundleDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
 }
@@ -231,6 +243,9 @@ TotalCount int `json:"total_count,omitempty"`
 // BundleDealGetBundleDealItemRequest
 //=======================================================
 type BundleDealGetBundleDealItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
 }
@@ -284,6 +299,9 @@ PurchaseLimit int `json:"purchase_limit,omitempty"`
 // BundleDealUpdateBundleDealRequest
 //=======================================================
 type BundleDealUpdateBundleDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
     RuleType int `json:"rule_type,omitempty"`
     // discount_value is  The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
@@ -343,6 +361,9 @@ SuccessList []map[string]interface{} `json:"success_list,omitempty"`
 // BundleDealUpdateBundleDealItemRequest
 //=======================================================
 type BundleDealUpdateBundleDealItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
     // item_list is The items added in this bundle deal promotion.
@@ -371,6 +392,9 @@ BundleDealID int `json:"bundle_deal_id,omitempty"`
 // BundleDealEndBundleDealRequest
 //=======================================================
 type BundleDealEndBundleDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
 }
@@ -397,6 +421,9 @@ BundleDealID int `json:"bundle_deal_id,omitempty"`
 // BundleDealDeleteBundleDealRequest
 //=======================================================
 type BundleDealDeleteBundleDealRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
 }
@@ -438,6 +465,9 @@ SuccessList []map[string]interface{} `json:"success_list,omitempty"`
 // BundleDealDeleteBundleDealItemRequest
 //=======================================================
 type BundleDealDeleteBundleDealItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // bundle_deal_id is Shopee's unique identifier for a bundle deal activity.
     BundleDealID int `json:"bundle_deal_id"`
     // item_list is The items deleted in this bundle deal promotion.

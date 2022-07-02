@@ -29,6 +29,9 @@ CategoryList []GlobalProductGetCategoryCategory `json:"category_list"`
 // GlobalProductGetCategoryRequest
 //=======================================================
 type GlobalProductGetCategoryRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // language is Display language. Language should be one of "zh-hans", "zh-hant", "ms-my", "en-my", "en", "id", "vi", "th", "pt-br".
     Language string `json:"language,omitempty"`
 }
@@ -123,6 +126,9 @@ AttributeList []GlobalProductGetAttributesAttribute `json:"attribute_list"`
 // GlobalProductGetAttributesRequest
 //=======================================================
 type GlobalProductGetAttributesRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // language is Language for display name zh-hans   zh-hant  ms-my   en-my   en   id   vi   th    pt-br.
     Language string `json:"language,omitempty"`
     // category_id is ID of category.
@@ -174,6 +180,9 @@ InputType string `json:"input_type,omitempty"`
 // GlobalProductGetBrandListRequest
 //=======================================================
 type GlobalProductGetBrandListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // offset is Specifies the starting entry of data to return in the current call. Default is 0. if data is more than one page, the offset can be some entry to start next call.
     Offset int `json:"offset"`
     // page_size is the size of one page.
@@ -322,6 +331,9 @@ ExtendedDescriptionLimit GlobalProductGetGlobalItemLimitExtendedDescriptionLimit
 // GlobalProductGetGlobalItemLimitRequest
 //=======================================================
 type GlobalProductGetGlobalItemLimitRequest struct {
+    V2RequestAuthenticationParams
+    
+
 }
 //=======================================================
 // GlobalProductGetGlobalItemLimitResponse
@@ -357,6 +369,9 @@ DaysToShipRangeList []GlobalProductGetDtsLimitDaysToShipRange `json:"days_to_shi
 // GlobalProductGetDtsLimitRequest
 //=======================================================
 type GlobalProductGetDtsLimitRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // category_id is Id of category.
     CategoryID int `json:"category_id"`
 }
@@ -400,6 +415,9 @@ Offset string `json:"offset,omitempty"`
 // GlobalProductGetGlobalItemListRequest
 //=======================================================
 type GlobalProductGetGlobalItemListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // offset is Specifies the starting entry of data to return in the current call. Default is null. if data is more than one page, the offset can be some entry to start next call.
     Offset string `json:"offset,omitempty"`
     // page_size is The size of one page. Limit is [1,50].
@@ -638,6 +656,9 @@ GlobalItemList []GlobalProductGetGlobalItemInfoGlobalItem `json:"global_item_lis
 // GlobalProductGetGlobalItemInfoRequest
 //=======================================================
 type GlobalProductGetGlobalItemInfoRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id_list is Global item id list. Length limit is [1,20].
     GlobalItemIdList []int `json:"global_item_id_list"`
 }
@@ -664,6 +685,9 @@ GlobalItemID int `json:"global_item_id,omitempty"`
 // GlobalProductAddGlobalItemRequest
 //=======================================================
 type GlobalProductAddGlobalItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // category_id is Category id of global item.
     CategoryID int `json:"category_id"`
     // global_item_name is Name of global item.
@@ -720,6 +744,9 @@ GlobalItemID int `json:"global_item_id,omitempty"`
 // GlobalProductUpdateGlobalItemRequest
 //=======================================================
 type GlobalProductUpdateGlobalItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is Id of global item.
     GlobalItemID int `json:"global_item_id"`
     // category_id is Category id of global item.
@@ -785,6 +812,9 @@ FailureDeleteItem []GlobalProductDeleteGlobalItemFailureDeleteItem `json:"failur
 // GlobalProductDeleteGlobalItemRequest
 //=======================================================
 type GlobalProductDeleteGlobalItemRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is The id of global item to delete.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -817,6 +847,9 @@ TierIndex []int `json:"tier_index,omitempty"`
 // GlobalProductInitTierVariationRequest
 //=======================================================
 type GlobalProductInitTierVariationRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // tier_variation is  Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
     TierVariation []TierVariation `json:"tier_variation"`
     // global_model is Model info list, model number at most 50
@@ -836,6 +869,9 @@ type GlobalProductInitTierVariationResponse struct {
 // GlobalProductUpdateTierVariationRequest
 //=======================================================
 type GlobalProductUpdateTierVariationRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // tier_variation is Tier variation info list.If you define a one-tier structure, the maximum number of options cannot exceed 50. If you define a two-tier structure, the number of options multiplied by the two tiers cannot exceed 50.
     TierVariation []TierVariation `json:"tier_variation"`
     // global_item_id is ID of global item.
@@ -853,6 +889,9 @@ type GlobalProductUpdateTierVariationResponse struct {
 // GlobalProductAddGlobalModelRequest
 //=======================================================
 type GlobalProductAddGlobalModelRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model is Global model setting list. Limit is  [1,50].
@@ -870,6 +909,9 @@ type GlobalProductAddGlobalModelResponse struct {
 // GlobalProductUpdateGlobalModelRequest
 //=======================================================
 type GlobalProductUpdateGlobalModelRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model is Sku setting for global model. Limit is [1,50].
@@ -911,6 +953,9 @@ Failures []GlobalProductDeleteGlobalModelFailure `json:"failures"`
 // GlobalProductDeleteGlobalModelRequest
 //=======================================================
 type GlobalProductDeleteGlobalModelRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is Shopee's unique identifier for an global item.
     GlobalItemID int `json:"global_item_id"`
     // global_model_id is Shopee's unique identifier for an global model.
@@ -1017,6 +1062,9 @@ GlobalModel []GlobalProductGetGlobalModelListGlobalModel `json:"global_model"`
 // GlobalProductGetGlobalModelListRequest
 //=======================================================
 type GlobalProductGetGlobalModelListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is The id of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -1043,6 +1091,9 @@ SupportSizeChart bool `json:"support_size_chart,omitempty"`
 // GlobalProductSupportSizeChartRequest
 //=======================================================
 type GlobalProductSupportSizeChartRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // category_id is Id of category.
     CategoryID int `json:"category_id"`
 }
@@ -1060,6 +1111,9 @@ type GlobalProductSupportSizeChartResponse struct {
 // GlobalProductUpdateSizeChartRequest
 //=======================================================
 type GlobalProductUpdateSizeChartRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is Id of global item.
     GlobalItemID int `json:"global_item_id"`
     // size_chart is Image id of size chart.
@@ -1234,6 +1288,9 @@ PublishTaskID int `json:"publish_task_id,omitempty"`
 // GlobalProductCreatePublishTaskRequest
 //=======================================================
 type GlobalProductCreatePublishTaskRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is Id of global item.
     GlobalItemID int `json:"global_item_id"`
     // shop_id is Id of shop to publish to.
@@ -1277,6 +1334,9 @@ PublishableShop []GlobalProductGetPublishableShopPublishableShop `json:"publisha
 // GlobalProductGetPublishableShopRequest
 //=======================================================
 type GlobalProductGetPublishableShopRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is Id of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -1329,6 +1389,9 @@ Failed GlobalProductGetPublishTaskResultFailed `json:"failed"`
 // GlobalProductGetPublishTaskResultRequest
 //=======================================================
 type GlobalProductGetPublishTaskResultRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // publish_task_id is Id of publish task.
     PublishTaskID int `json:"publish_task_id"`
 }
@@ -1370,6 +1433,9 @@ PublishedItem []GlobalProductGetPublishedListPublishedItem `json:"published_item
 // GlobalProductGetPublishedListRequest
 //=======================================================
 type GlobalProductGetPublishedListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is Id of global item.
     GlobalItemID int `json:"global_item_id"`
 }
@@ -1387,6 +1453,9 @@ type GlobalProductGetPublishedListResponse struct {
 // GlobalProductUpdatePriceRequest
 //=======================================================
 type GlobalProductUpdatePriceRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // price_list is Price setting for global model. Limit is [1,50].
@@ -1404,6 +1473,9 @@ type GlobalProductUpdatePriceResponse struct {
 // GlobalProductUpdateStockRequest
 //=======================================================
 type GlobalProductUpdateStockRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_id is ID of global item.
     GlobalItemID int `json:"global_item_id"`
     // stock_list is Stock setting for global model. Limit is [1,50].
@@ -1442,6 +1514,9 @@ DaysToShip bool `json:"days_to_ship,omitempty"`
 // GlobalProductSetSyncFieldRequest
 //=======================================================
 type GlobalProductSetSyncFieldRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_sync_list is Length limit is [1,50].
     ShopSyncList []ShopSyncList `json:"shop_sync_list"`
 }
@@ -1477,6 +1552,9 @@ ItemIdMap []GlobalProductGetGlobalItemIDItemIdMap `json:"item_id_map"`
 // GlobalProductGetGlobalItemIDRequest
 //=======================================================
 type GlobalProductGetGlobalItemIDRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_id is Id of shop.
     ShopID int `json:"shop_id"`
     // item_id_list is Item id list. Length limit is [1,20].
@@ -1505,6 +1583,9 @@ CategoryID []int `json:"category_id,omitempty"`
 // GlobalProductCategoryRecommendRequest
 //=======================================================
 type GlobalProductCategoryRecommendRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_name is name of item
     GlobalItemName string `json:"global_item_name"`
 }
@@ -1551,6 +1632,9 @@ AttributeList []GlobalProductGetRecommendAttributeAttribute `json:"attribute_lis
 // GlobalProductGetRecommendAttributeRequest
 //=======================================================
 type GlobalProductGetRecommendAttributeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // global_item_name is Name of item.
     GlobalItemName string `json:"global_item_name"`
     // category_id is ID of category.

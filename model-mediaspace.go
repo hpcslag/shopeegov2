@@ -12,6 +12,9 @@ VideoUploadID string `json:"video_upload_id,omitempty"`
 // MediaSpaceInitVideoUploadRequest
 //=======================================================
 type MediaSpaceInitVideoUploadRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // file_md5 is md5 of video file
     FileMd5 string `json:"file_md5"`
     // file_size is size of video file, in bytes, maximum is 30MB
@@ -31,6 +34,9 @@ type MediaSpaceInitVideoUploadResponse struct {
 // MediaSpaceUploadVideoPartRequest
 //=======================================================
 type MediaSpaceUploadVideoPartRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // video_upload_id is The video_upload_id in the response of initiate_video_upload
     VideoUploadID string `json:"video_upload_id"`
     // part_seq is Sequence of the current part, starts from 0
@@ -59,6 +65,9 @@ UploadCost int `json:"upload_cost,omitempty"`
 // MediaSpaceCompleteVideoUploadRequest
 //=======================================================
 type MediaSpaceCompleteVideoUploadRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // video_upload_id is The ID of this upload session, returned in init_video_upload.
     VideoUploadID string `json:"video_upload_id"`
     // part_seq_list is All uploaded sequence number.
@@ -126,6 +135,9 @@ Message string `json:"message,omitempty"`
 // MediaSpaceGetVideoUploadResultRequest
 //=======================================================
 type MediaSpaceGetVideoUploadResultRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // video_upload_id is 
     VideoUploadID string `json:"video_upload_id"`
 }
@@ -143,6 +155,9 @@ type MediaSpaceGetVideoUploadResultResponse struct {
 // MediaSpaceCancelVideoUploadRequest
 //=======================================================
 type MediaSpaceCancelVideoUploadRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // video_upload_id is The ID of this upload session, returned in init_video_upload.
     VideoUploadID string `json:"video_upload_id"`
 }
@@ -189,6 +204,9 @@ ImageInfo MediaSpaceUploadImageImageInfo `json:"image_info"`
 // MediaSpaceUploadImageRequest
 //=======================================================
 type MediaSpaceUploadImageRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // scene is The scene where the picture is used, The value range is normal or desc; normal: we will process the image as a square image, it is recommended to use when uploading item image; desc: we will not process the image, it is recommended to use when uploading the image of extend_description, if you do not upload this field, it will be normal.
     Scene string `json:"scene,omitempty"`
 }

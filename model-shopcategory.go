@@ -12,6 +12,9 @@ ShopCategoryID int `json:"shop_category_id,omitempty"`
 // ShopCategoryAddShopCategoryRequest
 //=======================================================
 type ShopCategoryAddShopCategoryRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // name is ShopCategory's name.
     Name string `json:"name"`
     // sort_weight is ShopCategory's sort weight. The maximum number should be 2147483546.
@@ -59,6 +62,9 @@ More bool `json:"more,omitempty"`
 // ShopCategoryGetShopCategoryListRequest
 //=======================================================
 type ShopCategoryGetShopCategoryListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_size is Specifies the starting entry of data to return in the current call. The parameter range of page_size should be [1, 2147483647]
     PageSize int `json:"page_size"`
     // page_no is Specifies the total returned data per entry. The parameter range of page_no should be [1, 100]
@@ -89,6 +95,9 @@ Msg string `json:"msg,omitempty"`
 // ShopCategoryDeleteShopCategoryRequest
 //=======================================================
 type ShopCategoryDeleteShopCategoryRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_category_id is ShopCategory's unique identifier.
     ShopCategoryID int `json:"shop_category_id"`
 }
@@ -121,6 +130,9 @@ Status string `json:"status,omitempty"`
 // ShopCategoryUpdateShopCategoryRequest
 //=======================================================
 type ShopCategoryUpdateShopCategoryRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_category_id is ShopCategory's unique identifier.
     ShopCategoryID int `json:"shop_category_id"`
     // name is ShopCategory's name.
@@ -170,6 +182,9 @@ CurrentCount int `json:"current_count,omitempty"`
 // ShopCategoryAddItemListRequest
 //=======================================================
 type ShopCategoryAddItemListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_category_id is ShopCategory's unique identifier.
     ShopCategoryID int `json:"shop_category_id"`
     // item_list is Shopee's unique identifiers list for an item. Max. 100 items to be deleted per request.
@@ -202,6 +217,9 @@ More bool `json:"more,omitempty"`
 // ShopCategoryGetItemListRequest
 //=======================================================
 type ShopCategoryGetItemListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_category_id is ShopCategory's unique identifier.
     ShopCategoryID int `json:"shop_category_id"`
     // page_size is Specifies the starting entry of data to return in the current call. Default is 1000. The input range of page_size is [0, 1000]
@@ -236,6 +254,9 @@ CurrentCount int `json:"current_count,omitempty"`
 // ShopCategoryDeleteItemListRequest
 //=======================================================
 type ShopCategoryDeleteItemListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // shop_category_id is The list of items need to be deleted. To note that the items which can be deleted successfully should be under this category.
     ShopCategoryID int `json:"shop_category_id"`
     // item_list is ShopCategory's unique identifier.

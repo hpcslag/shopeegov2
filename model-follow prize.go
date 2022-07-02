@@ -12,6 +12,9 @@ CampaginID int `json:"campagin_id,omitempty"`
 // FollowPrizeAddFollowPrizeRequest
 //=======================================================
 type FollowPrizeAddFollowPrizeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // follow_prize_name is <p>The name of the follow prize,The follow prize name length max limit is 20.<br /></p>
     FollowPrizeName string `json:"follow_prize_name"`
     // start_time is <p>The timing from when the follow prize is valid,the start time later than the current time.If the start time and end time passed in by the seller overlap with other upcoming/ongoing activities, it will prompt "Another Follow Prize voucher already exists during this time period, please set another period."<br /></p>
@@ -54,6 +57,9 @@ CampaginID int `json:"campagin_id,omitempty"`
 // FollowPrizeDeleteFollowPrizeRequest
 //=======================================================
 type FollowPrizeDeleteFollowPrizeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // campaign_id is <p>The unique identifier for the created follow prize.<br /></p>
     CampaignID int `json:"campaign_id"`
 }
@@ -80,6 +86,9 @@ CampaignID int `json:"campaign_id,omitempty"`
 // FollowPrizeEndFollowPrizeRequest
 //=======================================================
 type FollowPrizeEndFollowPrizeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // campaign_id is <p>The unique identifier for the created follow prize.<br /></p>
     CampaignID int `json:"campaign_id"`
 }
@@ -106,6 +115,9 @@ CampaginID int `json:"campagin_id,omitempty"`
 // FollowPrizeUpdateFollowPrizeRequest
 //=======================================================
 type FollowPrizeUpdateFollowPrizeRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // follow_prize_name is <p>The name of the follow prize,The follow prize name length max limit is 20.<br /></p>
     FollowPrizeName string `json:"follow_prize_name,omitempty"`
     // campaign_id is <p>The unique identifier for the created follow prize.<br /></p>
@@ -162,6 +174,9 @@ MaxPrice int `json:"max_price,omitempty"`
 // FollowPrizeGetFollowPrizeDetailRequest
 //=======================================================
 type FollowPrizeGetFollowPrizeDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // campaign_id is <p>The unique identifier for the created follow prize.<br /></p>
     CampaignID int `json:"campaign_id,omitempty"`
 }
@@ -211,6 +226,9 @@ FollowPrizeList FollowPrizeGetFollowPrizeListFollowPrize `json:"follow_prize_lis
 // FollowPrizeGetFollowPrizeListRequest
 //=======================================================
 type FollowPrizeGetFollowPrizeListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_no is <p>Specifies the page number of data to return in the current call. Default to be 1.<br /></p>
     PageNo int `json:"page_no,omitempty"`
     // page_size is <p>Use the 'page_size' filters to control the maximum number of entries to retrieve per page (i.e., per call). Default to be 20 and allowed input is from 1- 100.<br /></p>

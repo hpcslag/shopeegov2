@@ -12,6 +12,9 @@ VoucherID int `json:"voucher_id,omitempty"`
 // VoucherAddVoucherRequest
 //=======================================================
 type VoucherAddVoucherRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // voucher_name is The name of the voucher.
     VoucherName string `json:"voucher_name"`
     // voucher_code is The code of the voucher.
@@ -64,6 +67,9 @@ VoucherID int `json:"voucher_id,omitempty"`
 // VoucherDeleteVoucherRequest
 //=======================================================
 type VoucherDeleteVoucherRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // voucher_id is The unique identifier for the voucher you want to delete.
     VoucherID int `json:"voucher_id"`
 }
@@ -90,6 +96,9 @@ VoucherID int `json:"voucher_id,omitempty"`
 // VoucherEndVoucherRequest
 //=======================================================
 type VoucherEndVoucherRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // voucher_id is The unique identifier for the voucher you want to end now.
     VoucherID int `json:"voucher_id"`
 }
@@ -116,6 +125,9 @@ VoucherID int `json:"voucher_id,omitempty"`
 // VoucherUpdateVoucherRequest
 //=======================================================
 type VoucherUpdateVoucherRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // voucher_id is The unique identifier of the voucher which is going to be updated.
     VoucherID int `json:"voucher_id"`
     // voucher_name is The name of the voucher
@@ -200,6 +212,9 @@ DisplayStartTime int `json:"display_start_time,omitempty"`
 // VoucherGetVoucherRequest
 //=======================================================
 type VoucherGetVoucherRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // voucher_id is The unique identifier of a voucher used to query the voucher details.
     VoucherID int `json:"voucher_id"`
 }
@@ -265,6 +280,9 @@ VoucherList []VoucherGetVoucherListVoucher `json:"voucher_list"`
 // VoucherGetVoucherListRequest
 //=======================================================
 type VoucherGetVoucherListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // page_no is Specifies the page number of data to return in the current call. Default to be 1 and allowed input is from 1 - 5000.
     PageNo int `json:"page_no,omitempty"`
     // page_size is Use the 'page_size' filters to control the maximum number of entries to retrieve per page (i.e., per call). Default to be 20 and allowed input is from 1- 100.

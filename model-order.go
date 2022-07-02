@@ -27,6 +27,9 @@ NextCursor string `json:"next_cursor,omitempty"`
 // OrderGetOrderListRequest
 //=======================================================
 type OrderGetOrderListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // time_range_field is The kind of time_from and time_to. Available value: create_time, update_time.
     TimeRangeField string `json:"time_range_field"`
     // time_from is The time_from and time_to fields specify a date range for retrieving orders (based on the time_range_field). The time_from field is the starting date range. The maximum date range that may be specified with the time_from and time_to fields is 15 days. 
@@ -80,6 +83,9 @@ NextCursor string `json:"next_cursor,omitempty"`
 // OrderGetShipmentListRequest
 //=======================================================
 type OrderGetShipmentListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // cursor is Specifies the starting entry of data to return in the current call. Default is "". If data is more than one page, the offset can be some entry to start next call.
     Cursor string `json:"cursor,omitempty"`
     // page_size is Each result set is returned as a page of entries. Use the "page_size" filters to control the maximum number of entries to retrieve per page (i.e., per call). This integer value is used to specify the maximum number of entries to return in a single "page" of data.The limit of page_size if between 1 and 100.
@@ -321,6 +327,9 @@ OrderList []OrderGetOrderDetailOrder `json:"order_list"`
 // OrderGetOrderDetailRequest
 //=======================================================
 type OrderGetOrderDetailRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn_list is The set of order_sn. If there are multiple order_sn, you need to use English comma to connect them. limit [1,50]
     OrderSnList []string `json:"order_sn_list"`
     // response_optional_fields is <p>Indicate response fields you want to get. Please select from the below response parameters. If you input an object field, all the params under it will be included automatically in the response. If there are multiple response fields you want to get, you need to use English comma to connect them.  Available values: buyer_user_id,buyer_username,estimated_shipping_fee,recipient_address,actual_shipping_fee ,goods_to_declare,note,note_update_time,item_list,pay_time,dropshipper,dropshipper_phone,split_up,buyer_cancel_reason,cancel_by,cancel_reason,actual_shipping_fee_confirmed,buyer_cpf_id,fulfillment_flag,pickup_done_time,package_list,shipping_carrier,payment_method,total_amount,buyer_username,invoice_data, checkout_shipping_carrier, reverse_shipping_fee, order_chargeable_weight_gram etc.</p>
@@ -401,6 +410,9 @@ PackageList []OrderSplitOrderPackage `json:"package_list"`
 // OrderSplitOrderRequest
 //=======================================================
 type OrderSplitOrderRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
     // package_list is The list of packages that you want to split
@@ -420,6 +432,9 @@ type OrderSplitOrderResponse struct {
 // OrderUnsplitOrderRequest
 //=======================================================
 type OrderUnsplitOrderRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
 }
@@ -444,6 +459,9 @@ UpdateTime int `json:"update_time,omitempty"`
 // OrderCancelOrderRequest
 //=======================================================
 type OrderCancelOrderRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
     // cancel_reason is The reason seller want to cancel this order. Applicable values: OUT_OF_STOCK, CUSTOMER_REQUEST, UNDELIVERABLE_AREA, COD_NOT_SUPPORTED.
@@ -474,6 +492,9 @@ UpdateTime int `json:"update_time,omitempty"`
 // OrderHandleBuyerCancellationRequest
 //=======================================================
 type OrderHandleBuyerCancellationRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
     // operation is The operation you want to handle.Avaiable value: ACCEPT, REJECT
@@ -493,6 +514,9 @@ type OrderHandleBuyerCancellationResponse struct {
 // OrderSetNoteRequest
 //=======================================================
 type OrderSetNoteRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
     // note is The note seller add for reference.
@@ -531,6 +555,9 @@ TaxCode string `json:"tax_code,omitempty"`
 // OrderAddInvoiceDataRequest
 //=======================================================
 type OrderAddInvoiceDataRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.	
     OrderSN string `json:"order_sn"`
     // invoice_data is The invoice data of the order. pt: Nota Fiscal eletrônica (NF-e) do pedido.
@@ -570,6 +597,9 @@ OrderList []OrderGetPendingBuyerInvoiceOrderListOrder `json:"order_list"`
 // OrderGetPendingBuyerInvoiceOrderListRequest
 //=======================================================
 type OrderGetPendingBuyerInvoiceOrderListRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // cursor is Specifies the starting entry of data to return in the current call. Default is "". If data is more than one page, the offset can be some entry to start next call.
     Cursor string `json:"cursor,omitempty"`
     // page_size is Each result set is returned as a page of entries. Use the "page_size" filters to control the maximum number of entries to retrieve per page (i.e., per call). This integer value is used to specify the maximum number of entries to return in a single "page" of data.The limit of page_size if between 1 and 100.
@@ -589,6 +619,9 @@ type OrderGetPendingBuyerInvoiceOrderListResponse struct {
 // OrderUploadInvoiceDocRequest
 //=======================================================
 type OrderUploadInvoiceDocRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
     // file_type is <p>the type of invoice file. 1:pdf 2.jpeg 3.png.&nbsp;For CO only accepts 1:pdf</p>
@@ -606,6 +639,9 @@ type OrderUploadInvoiceDocResponse struct {
 // OrderDownloadInvoiceDocRequest
 //=======================================================
 type OrderDownloadInvoiceDocRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // order_sn is Shopee's unique identifier for an order.
     OrderSN string `json:"order_sn"`
 }
@@ -630,6 +666,9 @@ OrderSN string `json:"order_sn,omitempty"`
 // OrderGetBuyerInvoiceInfoRequest
 //=======================================================
 type OrderGetBuyerInvoiceInfoRequest struct {
+    V2RequestAuthenticationParams
+    
+
     // queries is 
     Queries []Queries `json:"queries"`
 }
