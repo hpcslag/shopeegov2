@@ -212,6 +212,62 @@ func (s *ShopeeClient) makeV2Query(url string, b []byte) string {
 }
 
 //
+func (s *ShopeeClient) get(method string, in interface{}) ([]byte, error) {
+	query, err := json.Marshal(in)
+	if err != nil {
+		return nil, err
+	}
+
+	// 把 json 轉 params
+	var queryMap map[string]interface{}
+	err = json.Unmarshal(query, &queryMap)
+	if err != nil {
+		return nil, err
+	}
+
+	url := s.getPath(method)
+
+	if len(queryMap) > 0 {
+		url = "?"
+		for key, value := range queryMap {
+			url += fmt.Sprintf("%+v=%+v&", key, value)
+		}
+	}
+
+	req, err := http.NewRequest("GET", url, nil)
+	req.Header.Add("Content-Type", "application/json")
+
+	switch s.Version {
+	// 如果是 V1 就在 Header 安插 Sign。
+	case ClientVersionV1:
+		req.Header.Add("Authorization", s.signV1(url, query))
+	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
+	case ClientVersionV2:
+		req.Header.Add("Authorization", s.signV2(url, query))
+	}
+
+	//Do request by native lib
+	client := &http.Client{}
+	res, err := client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	var errResp ResponseError
+	_ = json.Unmarshal(body, &errResp)
+	if errResp.ErrorType != "" {
+		return nil, errResp
+	}
+
+	return s.patchFloat(body), nil
+}
+
+//
 func (s *ShopeeClient) post(method string, in interface{}) ([]byte, error) {
 	body, err := json.Marshal(in)
 	if err != nil {

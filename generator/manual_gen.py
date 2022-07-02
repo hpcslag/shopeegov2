@@ -196,6 +196,14 @@ def TypeMappingGolangType(type_name):
     # if list
     return typeMapping[type_name]
 
+def detectMethod(apiManual):
+    if apiManual["method"] == 1:
+        return "post"
+    if apiManual["method"] == 2:
+        return "get"
+
+    return "unknow"
+
 if __name__ == "__main__":
     manualResp = requests.get("https://open.shopee.com/api/v1/doc/module/?version=2&SPC_CDS=423b402d-921f-401c-844b-98a3e724bf8a&SPC_CDS_VER=2")
     manual = manualResp.json()
@@ -232,7 +240,8 @@ if __name__ == "__main__":
             globalInterface.append({
                 "name": apiName,
                 "no_response": detectNotResponsable(apiParams),
-                "is_array": checkResponseIsArrayType(apiParams)
+                "is_array": checkResponseIsArrayType(apiParams),
+                "method": detectMethod(apiManual),
             })
 
             
@@ -430,6 +439,10 @@ type V2RequestAuthenticationParams struct {
         apiName = item["name"]
         noResponse = item["no_response"]
         isArray = item["is_array"]
+        method = item["method"]
+
+        if method == "unknow":
+            print("[WARN] unknow method")
         
         withPtrStr = ""
         responseStructName = apiName
@@ -449,7 +462,7 @@ type V2RequestAuthenticationParams struct {
             globalImplementStr += """
 
 func (s *ShopeeClient) %s(req *%sRequest) (err error) {
-	b, err := s.post("%s", req)
+	b, err := s.%s("%s", req)
 	if err != nil {
 		return
 	}
@@ -472,7 +485,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (err error) {
 
 	return
 }
-""" % (apiName, apiName, apiName, apiName)
+""" % (apiName, apiName, method, apiName, apiName)
             continue
         
 
@@ -483,7 +496,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (err error) {
         globalImplementStr += """
 
 func (s *ShopeeClient) %s(req *%sRequest) (resp %s, err error) {
-	b, err := s.post("%s", req)
+	b, err := s.%s("%s", req)
 	if err != nil {
 		return
 	}
@@ -507,7 +520,7 @@ func (s *ShopeeClient) %s(req *%sRequest) (resp %s, err error) {
 	resp = %swrappedResponse.Response
 	return
 }
-""" % (apiName, apiName, responseStructName, apiName, apiName, withPtrStr)
+""" % (apiName, apiName, responseStructName, method, apiName, apiName, withPtrStr)
 
     globalInterfaceStr += """
 }
