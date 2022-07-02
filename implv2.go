@@ -19,9 +19,10 @@ type V2UnityResponse struct {
 
 // for building Authorization params
 type V2RequestAuthenticationParams struct {
-	PartnerID int `json:"partner_id"`
-	Timestamp int `json:"timestamp"`
-	ShopID    int `json:"shop_id"`
+	AccessToken string `json:"access_token"`
+	PartnerID   int    `json:"partner_id"`
+	Timestamp   int    `json:"timestamp"`
+	ShopID      int    `json:"shop_id"`
 }
 
 func (s *ShopeeClient) ProductGetCategory(req *ProductGetCategoryRequest) (resp *ProductGetCategory, err error) {
