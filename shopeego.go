@@ -143,7 +143,7 @@ func (s *ShopeeClient) getPath(method string) string {
 	case ClientVersionV1:
 		return fmt.Sprintf("%sapi/v1/%s", host, availablePaths[method])
 	default:
-		return fmt.Sprintf("%s%s", host, availablePaths[method][1:]) // split first slash /api...
+		return fmt.Sprintf("%s%s", host, string(availablePaths[method])[1:]) // split first slash /api...
 	}
 }
 
@@ -225,16 +225,23 @@ func (s *ShopeeClient) get(method string, in interface{}) ([]byte, error) {
 		return nil, err
 	}
 
-	url := s.getPath(method)
+	url := s.getPath(method) + "?"
 
 	if len(queryMap) > 0 {
-		url = "?"
 		for key, value := range queryMap {
-			url += fmt.Sprintf("%+v=%+v&", key, value)
+			switch v := value.(type) {
+			case float64:
+				url += fmt.Sprintf("%+v=%+v&", key, int(v))
+			default:
+				url += fmt.Sprintf("%+v=%+v&", key, v)
+			}
 		}
 	}
 
 	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
 	req.Header.Add("Content-Type", "application/json")
 
 	switch s.Version {
@@ -243,7 +250,9 @@ func (s *ShopeeClient) get(method string, in interface{}) ([]byte, error) {
 		req.Header.Add("Authorization", s.signV1(url, query))
 	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
 	case ClientVersionV2:
-		req.Header.Add("Authorization", s.signV2(url, query))
+		sign := s.signV2(url, query)
+		req.Header.Add("Authorization", sign)
+		url += fmt.Sprintf("sign=%s", sign)
 	}
 
 	//Do request by native lib
