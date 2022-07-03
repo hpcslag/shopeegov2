@@ -1,22 +1,18 @@
 package shopeego
 
 import (
-	"io/fs"
 	"io/ioutil"
 )
 
 // these function replace original function
 func (s *ShopeeClient) LogisticsDownloadShippingDocument(saveFilePath string) func(req *LogisticsDownloadShippingDocumentRequest) (err error) {
 	return func(req *LogisticsDownloadShippingDocumentRequest) (err error) {
-
+		// invalid timestamp error because no calling V2RequestAuthenticationParams: p.GetRequestAuthorization(), from outside
 		b, err := s.postDownloadFile("LogisticsDownloadShippingDocument", req)
 		if err != nil {
 			return nil
 		}
-
-		err = ioutil.WriteFile(saveFilePath, b, fs.ModePerm|fs.ModeAppend)
-
-		return nil
+		return ioutil.WriteFile(saveFilePath, b, 0666)
 	}
 }
 
