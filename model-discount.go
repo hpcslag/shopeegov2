@@ -174,15 +174,15 @@ ModelName string `json:"model_name,omitempty"`
 // model_normal_stock is The current stock quantity of the variation.
 ModelNormalStock int `json:"model_normal_stock,omitempty"`
 // model_original_price is The original price before discount of the variation.
-ModelOriginalPrice float64 `json:"model_original_price,omitempty"`
+ModelOriginalPrice float64 `json:"model_original_price,omitempty,string"`
 // model_promotion_price is The discount price of the variation.
-ModelPromotionPrice float64 `json:"model_promotion_price,omitempty"`
+ModelPromotionPrice float64 `json:"model_promotion_price,omitempty,string"`
 // model_id is Shopee's unique identifier for a variation of an item.
 ModelID int `json:"model_id,omitempty"`
 // model_inflated_price_of_original_price is The original price after tax of item (Only for taxable Shop).
-ModelInflatedPriceOfOriginalPrice float64 `json:"model_inflated_price_of_original_price,omitempty"`
+ModelInflatedPriceOfOriginalPrice float64 `json:"model_inflated_price_of_original_price,omitempty,string"`
 // model_inflated_price_of_promotion_price is The discount price after tax of item (Only for taxable Shop).
-ModelInflatedPriceOfPromotionPrice float64 `json:"model_inflated_price_of_promotion_price,omitempty"`
+ModelInflatedPriceOfPromotionPrice float64 `json:"model_inflated_price_of_promotion_price,omitempty,string"`
 // model_promotion_stock is The reserved stock of the model. 
 ModelPromotionStock int `json:"model_promotion_stock,omitempty"`
 }
@@ -193,7 +193,7 @@ ModelPromotionStock int `json:"model_promotion_stock,omitempty"`
 //=======================================================
 type DiscountGetDiscountItem struct {
 // item_promotion_price is The discount price of the item. If there is variation, this value is 0.
-ItemPromotionPrice float64 `json:"item_promotion_price,omitempty"`
+ItemPromotionPrice float64 `json:"item_promotion_price,omitempty,string"`
 // item_name is Name of the item in local language.
 ItemName string `json:"item_name,omitempty"`
 // model_list is The models belong to this item.
@@ -203,13 +203,13 @@ ItemID int `json:"item_id,omitempty"`
 // purchase_limit is The max number of this product in the promotion price.
 PurchaseLimit int `json:"purchase_limit,omitempty"`
 // item_original_price is The original price before discount of the item. If there is variation, this value is 0.
-ItemOriginalPrice float64 `json:"item_original_price,omitempty"`
+ItemOriginalPrice float64 `json:"item_original_price,omitempty,string"`
 // normal_stock is The current stock quantity of the item. 
 NormalStock int `json:"normal_stock,omitempty"`
 // item_inflated_price_of_original_price is The original price after tax of model (Only for taxable Shop).
-ItemInflatedPriceOfOriginalPrice float64 `json:"item_inflated_price_of_original_price,omitempty"`
+ItemInflatedPriceOfOriginalPrice float64 `json:"item_inflated_price_of_original_price,omitempty,string"`
 // item_inflated_price_of_promotion_price is The discount price after tax of model (Only for taxable Shop).
-ItemInflatedPriceOfPromotionPrice float64 `json:"item_inflated_price_of_promotion_price,omitempty"`
+ItemInflatedPriceOfPromotionPrice float64 `json:"item_inflated_price_of_promotion_price,omitempty,string"`
 // item_promotion_stock is The reserved stock of the item. If the item has no variation, this param is necessary.
 ItemPromotionStock int `json:"item_promotion_stock,omitempty"`
 }

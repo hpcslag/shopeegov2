@@ -203,15 +203,15 @@ type FirstMileBindFirstMileTrackingNumberRequest struct {
     // logistics_channel_id is The identity of first-mile logistic channel
     LogisticsChannelID int `json:"logistics_channel_id"`
     // volume is The volume of the parcel.
-    Volume float64 `json:"volume,omitempty"`
+    Volume float64 `json:"volume,omitempty,string"`
     // weight is The weight of the parcel.
-    Weight float64 `json:"weight,omitempty"`
+    Weight float64 `json:"weight,omitempty,string"`
     // width is The width of the parcel.
-    Width float64 `json:"width,omitempty"`
+    Width float64 `json:"width,omitempty,string"`
     // length is The length of the parcel.
-    Length float64 `json:"length,omitempty"`
+    Length float64 `json:"length,omitempty,string"`
     // height is The height of the parcel.
-    Height float64 `json:"height,omitempty"`
+    Height float64 `json:"height,omitempty,string"`
     // order_list is The set of ordersn. You can specify up to 50 ordersns in this call.one fm_tn maximum number of total bind orders is 10000.
     OrderList []OrderList `json:"order_list"`
 }

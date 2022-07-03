@@ -27,7 +27,7 @@ Images []string `json:"images,omitempty"`
 // amount is Amount of this item.
 Amount int `json:"amount,omitempty"`
 // item_price is The price of item.
-ItemPrice float64 `json:"item_price,omitempty"`
+ItemPrice float64 `json:"item_price,omitempty,string"`
 // is_add_on_deal is To indicate if this item belongs to an addon deal.
 IsAddOnDeal bool `json:"is_add_on_deal,omitempty"`
 // is_main_item is To indicate if this item is main item or sub item. True means main item, false means sub item.
@@ -95,7 +95,7 @@ SellerCompensationStatus string `json:"seller_compensation_status,omitempty"`
 // seller_compensation_due_date is To indicate the deadline for requesting the compensation
 SellerCompensationDueDate int `json:"seller_compensation_due_date,omitempty"`
 // compensation_amount is To indicate the compensation amount that the agent decided
-CompensationAmount float64 `json:"compensation_amount,omitempty"`
+CompensationAmount float64 `json:"compensation_amount,omitempty,string"`
 }
 
 
@@ -108,7 +108,7 @@ NegotiationStatus string `json:"negotiation_status,omitempty"`
 // latest_solution is To indicate what is the offer solution. See "Data Definition - ReturnSolution"
 LatestSolution string `json:"latest_solution,omitempty"`
 // latest_offer_amount is To indicate the refund amount in the latest offer solution
-LatestOfferAmount float64 `json:"latest_offer_amount,omitempty"`
+LatestOfferAmount float64 `json:"latest_offer_amount,omitempty,string"`
 // latest_offer_creator is To indicate which party made the latest offer
 LatestOfferCreator string `json:"latest_offer_creator,omitempty"`
 // counter_limit is To indicate the remaining counter limit
@@ -156,7 +156,7 @@ TextReason string `json:"text_reason,omitempty"`
 // return_sn is The serial number of return.
 ReturnSN int `json:"return_sn,omitempty"`
 // refund_amount is Amount of the refund.
-RefundAmount float64 `json:"refund_amount,omitempty"`
+RefundAmount float64 `json:"refund_amount,omitempty,string"`
 // currency is Currency of the return.
 Currency string `json:"currency,omitempty"`
 // create_time is The time of return create.
@@ -176,7 +176,7 @@ DisputeTextReason []string `json:"dispute_text_reason,omitempty"`
 // needs_logistics is Items to be sent back to seller. Can be either integrated/non-integrated.
 NeedsLogistics bool `json:"needs_logistics,omitempty"`
 // amount_before_discount is Order price before discount.
-AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty"`
+AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty,string"`
 // user is 
 User ReturnsGetReturnDetailUser `json:"user"`
 // item is 
@@ -248,7 +248,7 @@ Images []string `json:"images,omitempty"`
 // amount is Amount of this item.
 Amount int `json:"amount,omitempty"`
 // item_price is The price of item.
-ItemPrice float64 `json:"item_price,omitempty"`
+ItemPrice float64 `json:"item_price,omitempty,string"`
 // is_add_on_deal is To indicate if this item belongs to an addon deal.
 IsAddOnDeal bool `json:"is_add_on_deal,omitempty"`
 // is_main_item is To indicate if this item is main item or sub item. True means main item, false means sub item.
@@ -277,7 +277,7 @@ TextReason string `json:"text_reason,omitempty"`
 // return_sn is The serial number of return.
 ReturnSN int `json:"return_sn,omitempty"`
 // refund_amount is Amount of the refund.
-RefundAmount float64 `json:"refund_amount,omitempty"`
+RefundAmount float64 `json:"refund_amount,omitempty,string"`
 // currency is Currency of the return.
 Currency string `json:"currency,omitempty"`
 // create_time is The time of return create.
@@ -297,7 +297,7 @@ DisputeTextReason []string `json:"dispute_text_reason,omitempty"`
 // needs_logistics is Items to be sent back to seller. Can be either integrated/non-integrated.
 NeedsLogistics bool `json:"needs_logistics,omitempty"`
 // amount_before_discount is Order price before discount.
-AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty"`
+AmountBeforeDiscount float64 `json:"amount_before_discount,omitempty,string"`
 // user is 
 User ReturnsGetReturnListReturnUser `json:"user"`
 // item is 
@@ -437,7 +437,7 @@ Eligibility bool `json:"eligibility,omitempty"`
 // refund_amount_adjustable is To indicate whether refund is adjustable for ReturnRefund solution
 RefundAmountAdjustable bool `json:"refund_amount_adjustable,omitempty"`
 // max_refund_amount is The max refund amount for ReturnRefund solution 
-MaxRefundAmount float64 `json:"max_refund_amount,omitempty"`
+MaxRefundAmount float64 `json:"max_refund_amount,omitempty,string"`
 }
 
 
@@ -450,7 +450,7 @@ Eligibility bool `json:"eligibility,omitempty"`
 // refund_amount_adjustable is To indicate whether refund is adjustable for Refund solution
 RefundAmountAdjustable bool `json:"refund_amount_adjustable,omitempty"`
 // max_refund_amount is The max refund amount for ReturnRefund solution 
-MaxRefundAmount float64 `json:"max_refund_amount,omitempty"`
+MaxRefundAmount float64 `json:"max_refund_amount,omitempty,string"`
 }
 
 
@@ -506,7 +506,7 @@ type ReturnsOfferRequest struct {
     // proposed_solution is The new solution to be offered. See "Data Definition - ReturnSolution"
     ProposedSolution string `json:"proposed_solution"`
     // proposed_adjusted_refund_amount is The new refund amount to be offered
-    ProposedAdjustedRefundAmount float64 `json:"proposed_adjusted_refund_amount,omitempty"`
+    ProposedAdjustedRefundAmount float64 `json:"proposed_adjusted_refund_amount,omitempty,string"`
 }
 //=======================================================
 // ReturnsOfferResponse

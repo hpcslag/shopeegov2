@@ -18,19 +18,19 @@ ModelName string `json:"model_name,omitempty"`
 // model_sku is A model SKU (stock keeping unit) is an identifier defined by a seller. It is only intended for the seller's use. Many sellers assign a SKU to an item of a specific type, size, and color, which are variations of one item in Shopee Listings.
 ModelSku string `json:"model_sku,omitempty"`
 // original_price is The original price of the item before ANY promotion/discount in the listing currency. It returns the subtotal of that specific item if quantity exceeds 1.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // discounted_price is The after-discount price of the item in the listing currency. It returns the subtotal of that specific item if quantity exceeds 1. If there is no discount, this value will be the same as that of original_price. 
-DiscountedPrice float64 `json:"discounted_price,omitempty"`
+DiscountedPrice float64 `json:"discounted_price,omitempty,string"`
 // seller_discount is <p>The discount provided by seller for this item<br /></p>
-SellerDiscount float64 `json:"seller_discount,omitempty"`
+SellerDiscount float64 `json:"seller_discount,omitempty,string"`
 // shopee_discount is <p>The discount provided by Shopee for this item<br /></p>
-ShopeeDiscount float64 `json:"shopee_discount,omitempty"`
+ShopeeDiscount float64 `json:"shopee_discount,omitempty,string"`
 // discount_from_coin is  The offset of this item when the buyer consumed Shopee Coins upon checkout. In case of bundle deal item, this value will return 0. Due to technical restriction, this field will return incorrect value under bundle deal case if we don’t configure it to 0.
-DiscountFromCoin float64 `json:"discount_from_coin,omitempty"`
+DiscountFromCoin float64 `json:"discount_from_coin,omitempty,string"`
 // discount_from_voucher_shopee is The offset of this item when the buyer use Shopee voucher. In case of bundle deal item, this value will return 0. Due to technical restriction, this field will return incorrect value under bundle deal case if we don’t configure it to 0.
-DiscountFromVoucherShopee float64 `json:"discount_from_voucher_shopee,omitempty"`
+DiscountFromVoucherShopee float64 `json:"discount_from_voucher_shopee,omitempty,string"`
 // discount_from_voucher_seller is The offset of this item when the buyer use seller-specific voucher. In case of bundle deal item, this value will return 0. Due to technical restriction, this field will return incorrect value under bundle deal case if we don’t configure it to 0.
-DiscountFromVoucherSeller float64 `json:"discount_from_voucher_seller,omitempty"`
+DiscountFromVoucherSeller float64 `json:"discount_from_voucher_seller,omitempty,string"`
 // activity_type is The type of the item, default is "". If the item is a bundle item the value is "bundle_deal", and if a add on deal item, the value is "add_on_deal"
 ActivityType string `json:"activity_type,omitempty"`
 // activity_id is If bundle_deal the is id of bundle deal, if add_on_deal this is id of add on deal.
@@ -47,99 +47,99 @@ QuantityPurchased int `json:"quantity_purchased,omitempty"`
 //=======================================================
 type PaymentGetEscrowDetailOrderIncome struct {
 // escrow_amount is <p>The total amount that the seller is expected to receive for the order and will change before order completed.&nbsp;</p><p>For non cb sip affiliate shop: escrow_amount=buyer_total_amount+shopee_discount+voucher_from_shopee+coins+payment_promotion-buyer_transaction_fee-cross_border_tax-commission_fee-service_fee-seller_transaction_fee-seller_coin_cash_back-escrow_tax-final_product_vat_tax-drc_adjustable_refund+final_shipping_fee(could be postitive/negtive).&nbsp;</p><p>For cb sip affiliate shop:&nbsp;</p><p>escrow_amount=sum of all Asku's settlement price - service_fee - commission_fee -seller_return_refund - drc_adjustable_refund.</p>
-EscrowAmount float64 `json:"escrow_amount,omitempty"`
+EscrowAmount float64 `json:"escrow_amount,omitempty,string"`
 // buyer_total_amount is The total amount that paid by buyer.
-BuyerTotalAmount float64 `json:"buyer_total_amount,omitempty"`
+BuyerTotalAmount float64 `json:"buyer_total_amount,omitempty,string"`
 // original_price is The original price of the item before ANY promotion/discount in the listing currency. It returns the subtotal of that specific item if quantity exceeds 1.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // seller_discount is Final sum of each item seller discount of a specific order. (Only display for non cb sip affiliate shop. )
-SellerDiscount float64 `json:"seller_discount,omitempty"`
+SellerDiscount float64 `json:"seller_discount,omitempty,string"`
 // shopee_discount is Final sum of each item Shopee discount of a specific order. This amount will rebate to seller. (Only display for non cb sip affiliate order. )
-ShopeeDiscount float64 `json:"shopee_discount,omitempty"`
+ShopeeDiscount float64 `json:"shopee_discount,omitempty,string"`
 // voucher_from_seller is Final value of voucher provided by Seller for the order. (Only display for non cb sip affiliate shop. )
-VoucherFromSeller float64 `json:"voucher_from_seller,omitempty"`
+VoucherFromSeller float64 `json:"voucher_from_seller,omitempty,string"`
 // voucher_from_shopee is Final value of voucher provided by Shopee for the order. (Only display for non cb sip affiliate shop. )
-VoucherFromShopee float64 `json:"voucher_from_shopee,omitempty"`
+VoucherFromShopee float64 `json:"voucher_from_shopee,omitempty,string"`
 // coins is This value indicates the total amount offset when the buyer consumed Shopee Coins upon checkout. (Only display for non cb sip affiliate shop. )
-Coins float64 `json:"coins,omitempty"`
+Coins float64 `json:"coins,omitempty,string"`
 // buyer_paid_shipping_fee is The shipping fee paid by buyer. (Only display for non cb sip affiliate shop. )
-BuyerPaidShippingFee float64 `json:"buyer_paid_shipping_fee,omitempty"`
+BuyerPaidShippingFee float64 `json:"buyer_paid_shipping_fee,omitempty,string"`
 // buyer_transaction_fee is Tansaction fee paid by buyer for the order. (Only display for non cb sip affiliate shop. )
-BuyerTransactionFee float64 `json:"buyer_transaction_fee,omitempty"`
+BuyerTransactionFee float64 `json:"buyer_transaction_fee,omitempty,string"`
 // cross_border_tax is Amount incurred by Buyer for purchasing items outside of home country. Amount may change after Return Refund. (Only display for non cb sip affiliate shop. )
-CrossBorderTax float64 `json:"cross_border_tax,omitempty"`
+CrossBorderTax float64 `json:"cross_border_tax,omitempty,string"`
 // payment_promotion is The amount offset via payment promotion. (Only display for non cb sip affiliate shop. )
-PaymentPromotion float64 `json:"payment_promotion,omitempty"`
+PaymentPromotion float64 `json:"payment_promotion,omitempty,string"`
 // commission_fee is The commission fee charged by Shopee platform if applicable.
-CommissionFee float64 `json:"commission_fee,omitempty"`
+CommissionFee float64 `json:"commission_fee,omitempty,string"`
 // service_fee is Amount charged by Shopee to seller for additional services.
-ServiceFee float64 `json:"service_fee,omitempty"`
+ServiceFee float64 `json:"service_fee,omitempty,string"`
 // seller_transaction_fee is Tansaction fee paid by seller for the order. (Only display for non cb sip affiliate shop. )
-SellerTransactionFee float64 `json:"seller_transaction_fee,omitempty"`
+SellerTransactionFee float64 `json:"seller_transaction_fee,omitempty,string"`
 // seller_lost_compensation is Compensation to seller in case of lost parcel. (Only display for non cb sip affiliate shop. )
-SellerLostCompensation float64 `json:"seller_lost_compensation,omitempty"`
+SellerLostCompensation float64 `json:"seller_lost_compensation,omitempty,string"`
 // seller_coin_cash_back is Value of coins provided by Seller for purchasing with his or her store for the order. (Only display for non cb sip affiliate shop. )
-SellerCoinCashBack float64 `json:"seller_coin_cash_back,omitempty"`
+SellerCoinCashBack float64 `json:"seller_coin_cash_back,omitempty,string"`
 // escrow_tax is Cross-border tax imposed by the Indonesian government on sellers. (Only display for non cb sip affiliate shop. )
-EscrowTax float64 `json:"escrow_tax,omitempty"`
+EscrowTax float64 `json:"escrow_tax,omitempty,string"`
 // final_shipping_fee is Final adjusted amount that seller has to bear as part of escrow. This amount could be negative or positive. (Only display for non cb sip affiliate shop. )
-FinalShippingFee float64 `json:"final_shipping_fee,omitempty"`
+FinalShippingFee float64 `json:"final_shipping_fee,omitempty,string"`
 // actual_shipping_fee is The final shipping cost of order and it is positive. For Non-integrated logistics channel is 0. (Only display for non cb sip affiliate shop. )
-ActualShippingFee float64 `json:"actual_shipping_fee,omitempty"`
+ActualShippingFee float64 `json:"actual_shipping_fee,omitempty,string"`
 // order_chargeable_weight is <p>For CB shop, display weight used to calculate actual_shipping_fee for this order.<br /></p>
 OrderChargeableWeight int `json:"order_chargeable_weight,omitempty"`
 // shopee_shipping_rebate is The platform shipping subsidy to the seller. (Only display for non cb sip affiliate shop. )
-ShopeeShippingRebate float64 `json:"shopee_shipping_rebate,omitempty"`
+ShopeeShippingRebate float64 `json:"shopee_shipping_rebate,omitempty,string"`
 // shipping_fee_discount_from_3pl is The discount of shipping fee from 3PL. Currently only applicable to ID. (Only display for non cb sip affiliate shop. )
-ShippingFeeDiscountFrom3Pl float64 `json:"shipping_fee_discount_from_3pl,omitempty"`
+ShippingFeeDiscountFrom3Pl float64 `json:"shipping_fee_discount_from_3pl,omitempty,string"`
 // seller_shipping_discount is The shipping discount defined by seller. (Only display for non cb sip affiliate shop. )
-SellerShippingDiscount float64 `json:"seller_shipping_discount,omitempty"`
+SellerShippingDiscount float64 `json:"seller_shipping_discount,omitempty,string"`
 // estimated_shipping_fee is The estimated shipping fee is an estimation calculated by Shopee based on specific logistics courier's standard. (Only display for non cb sip affiliate shop. )
-EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty"`
+EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty,string"`
 // seller_voucher_code is The list of voucher code provided by seller. (Only display for non cb sip affiliate shop. )
 SellerVoucherCode []string `json:"seller_voucher_code,omitempty"`
 // drc_adjustable_refund is The adjustable refund amount from Shopee Dispute Resolution Center.
-DrcAdjustableRefund float64 `json:"drc_adjustable_refund,omitempty"`
+DrcAdjustableRefund float64 `json:"drc_adjustable_refund,omitempty,string"`
 // cost_of_goods_sold is Final amount paid by the buyer for the items in a specific order. (Only display for non cb sip affiliate shop. )
-CostOfGoodsSold float64 `json:"cost_of_goods_sold,omitempty"`
+CostOfGoodsSold float64 `json:"cost_of_goods_sold,omitempty,string"`
 // original_cost_of_goods_sold is Amount paid by the buyer for the items in a specific order. (Only display for non cb sip affiliate shop. )
-OriginalCostOfGoodsSold float64 `json:"original_cost_of_goods_sold,omitempty"`
+OriginalCostOfGoodsSold float64 `json:"original_cost_of_goods_sold,omitempty,string"`
 // original_shopee_discount is Sum of each item Shopee discount of a specific order. (Only display for non cb sip affiliate shop. )
-OriginalShopeeDiscount float64 `json:"original_shopee_discount,omitempty"`
+OriginalShopeeDiscount float64 `json:"original_shopee_discount,omitempty,string"`
 // seller_return_refund is Amount returned to Seller in the event of Partial Return.
-SellerReturnRefund float64 `json:"seller_return_refund,omitempty"`
+SellerReturnRefund float64 `json:"seller_return_refund,omitempty,string"`
 // items is This object contains the detailed breakdown for all the items in this order, including regular items(non-activity) and activity items.
 Items []PaymentGetEscrowDetailOrderIncomeItem `json:"items"`
 // escrow_amount_pri is The total amount in the prim currency that the seller is expected to receive for the order and will change before order completed . escrow_amount_pri=original_price_pri-seller_return_refund_pri-commission_fee_pri-service_fee_pri-drc_adjustable_refund_pri. (Only display for non cb sip order.)
-EscrowAmountPri float64 `json:"escrow_amount_pri,omitempty"`
+EscrowAmountPri float64 `json:"escrow_amount_pri,omitempty,string"`
 // buyer_total_amount_pri is The total amount that paid by buyer in the primary currency. (Only display for cb sip affiliate order. )
-BuyerTotalAmountPri float64 `json:"buyer_total_amount_pri,omitempty"`
+BuyerTotalAmountPri float64 `json:"buyer_total_amount_pri,omitempty,string"`
 // original_price_pri is The original price of the item before ANY promotion/discount in the primary currency. It returns the subtotal of that specific item if quantity exceeds 1. (Only display for non cb sip affiliate order. )
-OriginalPricePri float64 `json:"original_price_pri,omitempty"`
+OriginalPricePri float64 `json:"original_price_pri,omitempty,string"`
 // seller_return_refund_pri is Amount returned to Seller in the event of Partial Return in the primary currency. (Only display for cb sip affiliate shop. )
-SellerReturnRefundPri float64 `json:"seller_return_refund_pri,omitempty"`
+SellerReturnRefundPri float64 `json:"seller_return_refund_pri,omitempty,string"`
 // commission_fee_pri is The commission fee charged by Shopee platform if applicable in the primary currency. (Only display for cb sip affiliate shop. )
-CommissionFeePri float64 `json:"commission_fee_pri,omitempty"`
+CommissionFeePri float64 `json:"commission_fee_pri,omitempty,string"`
 // service_fee_pri is Amount charged by Shopee to seller for additional services in the primary currency. (Only display for cb sip affiliate shop. )
-ServiceFeePri float64 `json:"service_fee_pri,omitempty"`
+ServiceFeePri float64 `json:"service_fee_pri,omitempty,string"`
 // drc_adjustable_refund_pri is The adjustable refund amount from Shopee Dispute Resolution Center in the primary currency. (Only display for cb sip affiliate shop. )
-DrcAdjustableRefundPri float64 `json:"drc_adjustable_refund_pri,omitempty"`
+DrcAdjustableRefundPri float64 `json:"drc_adjustable_refund_pri,omitempty,string"`
 // pri_currency is The currency of the country where the shop that real seller operates. (Only display for cb sip affiliate shop. )
 PriCurrency string `json:"pri_currency,omitempty"`
 // aff_currency is The currency of the country where shop opened in. (Only display for cb sip affiliate shop. )
 AffCurrency string `json:"aff_currency,omitempty"`
 // exchange_rate is Exchange rate from primary shop currency to affiliate shop currency.
-ExchangeRate float64 `json:"exchange_rate,omitempty"`
+ExchangeRate float64 `json:"exchange_rate,omitempty,string"`
 // reverse_shipping_fee is Shopee charges the reverse shipping fee for the returned order.The value of this field will be non-negative.
-ReverseShippingFee float64 `json:"reverse_shipping_fee,omitempty"`
+ReverseShippingFee float64 `json:"reverse_shipping_fee,omitempty,string"`
 // final_product_protection is The total amount of product protection purchased during placing an order. (Only display for cb normal and cb sip primary shop)
-FinalProductProtection float64 `json:"final_product_protection,omitempty"`
+FinalProductProtection float64 `json:"final_product_protection,omitempty,string"`
 // credit_card_promotion is This value indicate the offset via credit card promotion.
-CreditCardPromotion float64 `json:"credit_card_promotion,omitempty"`
+CreditCardPromotion float64 `json:"credit_card_promotion,omitempty,string"`
 // credit_card_transaction_fee is This value indicate the credit card transaction fee.
-CreditCardTransactionFee float64 `json:"credit_card_transaction_fee,omitempty"`
+CreditCardTransactionFee float64 `json:"credit_card_transaction_fee,omitempty,string"`
 // final_product_vat_tax is Value-added Tax is required for online purchases based on EU Value-added Tax regulations . (Only display for non cb sip affiliate shop. )
-FinalProductVatTax float64 `json:"final_product_vat_tax,omitempty"`
+FinalProductVatTax float64 `json:"final_product_vat_tax,omitempty,string"`
 }
 
 
@@ -243,9 +243,9 @@ FromCurrency string `json:"from_currency,omitempty"`
 // payout_currency is The actual currency of payout.
 PayoutCurrency string `json:"payout_currency,omitempty"`
 // from_amount is The settlement amount.
-FromAmount float64 `json:"from_amount,omitempty"`
+FromAmount float64 `json:"from_amount,omitempty,string"`
 // payout_amount is The actual amount of payout.
-PayoutAmount float64 `json:"payout_amount,omitempty"`
+PayoutAmount float64 `json:"payout_amount,omitempty,string"`
 // exchange_rate is The exchange rate.
 ExchangeRate string `json:"exchange_rate,omitempty"`
 // payout_time is The time of payout.
@@ -262,7 +262,7 @@ PayeeID string `json:"payee_id,omitempty"`
 //=======================================================
 type PaymentGetPayoutDetailPayoutEscrow struct {
 // escrow_amount is The total amount that the seller is expected to receive for the order.
-EscrowAmount float64 `json:"escrow_amount,omitempty"`
+EscrowAmount float64 `json:"escrow_amount,omitempty,string"`
 // currency is The currency used for calculating escrow amount.
 Currency string `json:"currency,omitempty"`
 // order_sn is Shopee's unique identifier for an order.
@@ -275,7 +275,7 @@ OrderSN string `json:"order_sn,omitempty"`
 //=======================================================
 type PaymentGetPayoutDetailPayoutOfflineAdjustment struct {
 // adjustment_amount is The amount of offline adjustments.
-AdjustmentAmount float64 `json:"adjustment_amount,omitempty"`
+AdjustmentAmount float64 `json:"adjustment_amount,omitempty,string"`
 // module is The reason for offline adjustment.
 Module string `json:"module,omitempty"`
 // remark is The remark for the reason.
@@ -498,9 +498,9 @@ Status string `json:"status,omitempty"`
 // transaction_type is The type of transaction.
 TransactionType string `json:"transaction_type,omitempty"`
 // amount is The amount of transaction.
-Amount float64 `json:"amount,omitempty"`
+Amount float64 `json:"amount,omitempty,string"`
 // current_balance is The current balance of this account.
-CurrentBalance float64 `json:"current_balance,omitempty"`
+CurrentBalance float64 `json:"current_balance,omitempty,string"`
 // create_time is The create time of the transaction.
 CreateTime int `json:"create_time,omitempty"`
 // order_sn is Shopee's unique identifier for an order.
@@ -510,7 +510,7 @@ RefundSN string `json:"refund_sn,omitempty"`
 // withdrawal_type is The type of withdrawal.
 WithdrawalType string `json:"withdrawal_type,omitempty"`
 // transaction_fee is This field indicates the transaction fee.
-TransactionFee float64 `json:"transaction_fee,omitempty"`
+TransactionFee float64 `json:"transaction_fee,omitempty,string"`
 // description is The detailed description of TOPUP SUCCESS and TOPUP FAILED.
 Description string `json:"description,omitempty"`
 // buyer_name is The name of buyer.
@@ -576,7 +576,7 @@ type PaymentGetEscrowListEscrow struct {
 // order_sn is 
 OrderSN string `json:"order_sn,omitempty"`
 // payout_amount is The settlement amount
-PayoutAmount float64 `json:"payout_amount,omitempty"`
+PayoutAmount float64 `json:"payout_amount,omitempty,string"`
 // escrow_release_time is The release time
 EscrowReleaseTime int `json:"escrow_release_time,omitempty"`
 }

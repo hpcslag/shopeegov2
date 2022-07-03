@@ -112,7 +112,7 @@ type %s struct {""" % (structName, structName))
         
         # float convert to string
         toStrstr = ""
-        if item["type"] == "flaot":
+        if item["type"] == "float":
             toStrstr = ",string"
         
         if item["type"] == "file":
@@ -265,7 +265,7 @@ type %sRequest struct {
                 
                 # float convert to string
                 toStrstr = ""
-                if reqItem["type"] == "flaot":
+                if reqItem["type"] == "float":
                     toStrstr = ",string"
                 
                 if reqItem["type"] == "file":
@@ -334,7 +334,7 @@ type %sResponse struct {
 
                 # float convert to string
                 toStrstr = ""
-                if resItem["type"] == "flaot":
+                if resItem["type"] == "float":
                     toStrstr = ",string"
                 
                 if resItem["type"] == "file":

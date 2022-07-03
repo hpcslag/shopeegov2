@@ -156,13 +156,13 @@ ModelSku string `json:"model_sku,omitempty"`
 // model_quantity_purchased is The number of identical items purchased at the same time by the same buyer from one listing/item.	
 ModelQuantityPurchased int `json:"model_quantity_purchased,omitempty"`
 // model_original_price is The original price of the item in the listing currency.	
-ModelOriginalPrice float64 `json:"model_original_price,omitempty"`
+ModelOriginalPrice float64 `json:"model_original_price,omitempty,string"`
 // model_discounted_price is The after-discount price of the item in the listing currency. If there is no discount, this value will be same as that of model_original_price. In case of bundle deal item, this value will return 0 as by design bundle deal discount will not be breakdown to item/model level. Due to technical restriction, the value will return the price before bundle deal if we don't configure it to 0. Please call GetEscrowDetails if you want to calculate item-level discounted price for bundle deal item.	
-ModelDiscountedPrice float64 `json:"model_discounted_price,omitempty"`
+ModelDiscountedPrice float64 `json:"model_discounted_price,omitempty,string"`
 // wholesale is This value indicates whether buyer buy the order item in wholesale price.	
 Wholesale bool `json:"wholesale,omitempty"`
 // weight is The weight of the item	
-Weight float64 `json:"weight,omitempty"`
+Weight float64 `json:"weight,omitempty,string"`
 // add_on_deal is To indicate if this item belongs to an addon deal.	
 AddOnDeal bool `json:"add_on_deal,omitempty"`
 // main_item is To indicate if this item is main item or sub item. True means main item, false means sub item.	
@@ -225,9 +225,9 @@ AccessKey string `json:"access_key,omitempty"`
 // issue_date is The issue date of the invoice. The issue date should be later than the order pay date. pt: data de emissão da NF-e.
 IssueDate int `json:"issue_date,omitempty"`
 // total_value is The total value of the invoice. pt: valor total da NF-e (R$).
-TotalValue float64 `json:"total_value,omitempty"`
+TotalValue float64 `json:"total_value,omitempty,string"`
 // products_total_value is The products total value of the invoice. pt: valor total dos produtos (R$) da NF-e.
-ProductsTotalValue float64 `json:"products_total_value,omitempty"`
+ProductsTotalValue float64 `json:"products_total_value,omitempty,string"`
 // tax_code is The tax code for the invoice. The tax code should be 4 digits. pt: Código Fiscal de Operações e Prestações (CFOP) predominante na NF-e. 
 TaxCode string `json:"tax_code,omitempty"`
 }
@@ -246,7 +246,7 @@ Currency string `json:"currency,omitempty"`
 // cod is Return by default. This value indicates whether the order was a COD (cash on delivery) order.	
 Cod bool `json:"cod,omitempty"`
 // total_amount is The total amount paid by the buyer for the order. This amount includes the total sale price of items, shipping cost beared by buyer; and offset by Shopee promotions if applicable. This value will only return after the buyer has completed payment for the order.	
-TotalAmount float64 `json:"total_amount,omitempty"`
+TotalAmount float64 `json:"total_amount,omitempty,string"`
 // order_status is Return by default. Enumerated type that defines the current status of the order.	
 OrderStatus string `json:"order_status,omitempty"`
 // shipping_carrier is The logistics service provider that the buyer selected for the order to deliver items.	
@@ -254,7 +254,7 @@ ShippingCarrier string `json:"shipping_carrier,omitempty"`
 // payment_method is The payment method that the buyer selected to pay for the order.
 PaymentMethod string `json:"payment_method,omitempty"`
 // estimated_shipping_fee is The estimated shipping fee is an estimation calculated by Shopee based on specific logistics courier's standard.	
-EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty"`
+EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty,string"`
 // message_to_seller is Return by default. Message to seller.	
 MessageToSeller string `json:"message_to_seller,omitempty"`
 // create_time is Return by default. Timestamp that indicates the date and time that the order was created.	
@@ -272,7 +272,7 @@ BuyerUsername string `json:"buyer_username,omitempty"`
 // recipient_address is This object contains detailed breakdown for the recipient address.	
 RecipientAddress OrderGetOrderDetailOrderRecipientAddres `json:"recipient_address"`
 // actual_shipping_fee is The actual shipping fee of the order if available from external logistics partners.	
-ActualShippingFee float64 `json:"actual_shipping_fee,omitempty"`
+ActualShippingFee float64 `json:"actual_shipping_fee,omitempty,string"`
 // goods_to_declare is Only work for cross-border order.This value indicates whether the order contains goods that are required to declare at customs. "T" means true and it will mark as "T" on the shipping label; "F" means false and it will mark as "P" on the shipping label. This value is accurate ONLY AFTER the order trackingNo is generated, please capture this value AFTER your retrieve the trackingNo.	
 GoodsToDeclare bool `json:"goods_to_declare,omitempty"`
 // note is The note seller made for own reference.	
@@ -310,7 +310,7 @@ InvoiceData OrderGetOrderDetailOrderInvoiceData `json:"invoice_data"`
 // checkout_shipping_carrier is For non masking order, the logistics service provider that the buyer selected for the order to deliver items. For masking order, the logistics service type that the buyer selected for the order to deliver items.
 CheckoutShippingCarrier string `json:"checkout_shipping_carrier,omitempty"`
 // reverse_shipping_fee is Shopee charges the reverse shipping fee for the returned order.The value of this field will be non-negative.
-ReverseShippingFee float64 `json:"reverse_shipping_fee,omitempty"`
+ReverseShippingFee float64 `json:"reverse_shipping_fee,omitempty,string"`
 // order_chargeable_weight_gram is <p>For CB shop, display weight used to calculate actual_shipping_fee for this order.<br /></p>
 OrderChargeableWeightGram int `json:"order_chargeable_weight_gram,omitempty"`
 }
@@ -545,9 +545,9 @@ AccessKey string `json:"access_key,omitempty"`
 // issue_date is The issue date of the invoice. The issue date should be later than the order pay date. pt: data de emissão da NF-e.
 IssueDate int `json:"issue_date,omitempty"`
 // total_value is The total value of the invoice. pt: valor total da NF-e (R$).
-TotalValue float64 `json:"total_value,omitempty"`
+TotalValue float64 `json:"total_value,omitempty,string"`
 // products_total_value is The products total value of the invoice. pt: valor total dos produtos (R$) da NF-e.
-ProductsTotalValue float64 `json:"products_total_value,omitempty"`
+ProductsTotalValue float64 `json:"products_total_value,omitempty,string"`
 // tax_code is The tax code for the invoice. The tax code should be 4 digits. pt: Código Fiscal de Operações e Prestações (CFOP) predominante na NF-e. 
 TaxCode string `json:"tax_code,omitempty"`
 }

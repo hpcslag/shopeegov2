@@ -24,15 +24,15 @@ type FollowPrizeAddFollowPrizeRequest struct {
     // usage_quantity is <p>Please enter a value between 1 and 200000.</p>
     UsageQuantity int `json:"usage_quantity"`
     // min_spend is <p>The minimum spend required for using this follow prize.<br /></p>
-    MinSpend float64 `json:"min_spend"`
+    MinSpend float64 `json:"min_spend,string"`
     // reward_type is <p>The reward type of the follow prize.The available values are:1:discount---fix amount,2:discount---by percentage,3:coin cash back.<br /></p>
     RewardType int `json:"reward_type"`
     // discount_amount is <p>The discount amount set for this particular follow prize.Only fill in when you are creating a fix amount follow prize.<br /></p>
-    DiscountAmount float64 `json:"discount_amount,omitempty"`
+    DiscountAmount float64 `json:"discount_amount,omitempty,string"`
     // percentage is <p>The discount percentage set for this particular follow prize. Only fill in when you are creating a discount percentage follow prize or coins cashback follow prize.Discount percentage (reward_type ==2) or Percentage of coins cash back (reward_type==3).<br /></p>
     Percentage int `json:"percentage,omitempty"`
     // max_price is <p>The max amount of discount/value a user can enjoy by using this particular follow prize. Only fill in when you are creating a discount percentage follow prize or coins cashback follow prize.<br /></p>
-    MaxPrice float64 `json:"max_price,omitempty"`
+    MaxPrice float64 `json:"max_price,omitempty,string"`
 }
 //=======================================================
 // FollowPrizeAddFollowPrizeResponse

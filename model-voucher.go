@@ -30,13 +30,13 @@ type VoucherAddVoucherRequest struct {
     // usage_quantity is The number of times for this particular voucher could be used.
     UsageQuantity int `json:"usage_quantity"`
     // min_basket_price is The minimum spend required for using this voucher. 
-    MinBasketPrice float64 `json:"min_basket_price"`
+    MinBasketPrice float64 `json:"min_basket_price,string"`
     // discount_amount is The discount amount set for this particular voucher. Only fill in when you are creating a fix amount voucher.
-    DiscountAmount float64 `json:"discount_amount,omitempty"`
+    DiscountAmount float64 `json:"discount_amount,omitempty,string"`
     // percentage is The discount percentage set for this particular voucher. Only fill in when you are creating a discount percentage voucher or coins cashback voucher.
     Percentage int `json:"percentage,omitempty"`
     // max_price is The max amount of discount/value a user can enjoy by using this particular voucher. Only fill in when you are creating a discount percentage voucher or coins cashback voucher.
-    MaxPrice float64 `json:"max_price,omitempty"`
+    MaxPrice float64 `json:"max_price,omitempty,string"`
     // display_channel_list is The FE channel where the voucher will be displayed. The available values are: 1: display_all, 2: order page, 3: feed, 4: live streaming,   [] (empty - which is hidden).
     DisplayChannelList []int `json:"display_channel_list,omitempty"`
     // item_id_list is The list of items which is applicable for the voucher. Only fill in when you are creating a product type of voucher.
@@ -139,13 +139,13 @@ type VoucherUpdateVoucherRequest struct {
     // usage_quantity is The number of times for this particular voucher could be used.
     UsageQuantity int `json:"usage_quantity,omitempty"`
     // min_basket_price is The minimum spend required for using this voucher. 
-    MinBasketPrice float64 `json:"min_basket_price,omitempty"`
+    MinBasketPrice float64 `json:"min_basket_price,omitempty,string"`
     // discount_amount is The discount amount set for this particular voucher. Only fill in when you are updating a fix amount voucher.
-    DiscountAmount float64 `json:"discount_amount,omitempty"`
+    DiscountAmount float64 `json:"discount_amount,omitempty,string"`
     // percentage is The discount percentage set for this particular voucher. Only fill in when you are updating a discount percentage voucher or coins cashback voucher.
     Percentage int `json:"percentage,omitempty"`
     // max_price is The max amount of discount/value a user can enjoy by using this particular voucher. Only fill in when you are updating a discount percentage voucher or coins cashback voucher.
-    MaxPrice float64 `json:"max_price,omitempty"`
+    MaxPrice float64 `json:"max_price,omitempty,string"`
     // display_channel_list is The FE channel where the voucher will be displayed. The available values are: 1: display_all, 2: order page, 3: feed, 4: live streaming,   [] (empty - which is hidden).
     DisplayChannelList []int `json:"display_channel_list,omitempty"`
     // item_id_list is The list of items which is applicable for the voucher. Only fill in when you are updating a product type of voucher.
@@ -194,13 +194,13 @@ VoucherPurpose int `json:"voucher_purpose,omitempty"`
 // display_channel_list is The FE channel where the voucher will be displayed. The available values are: 1: display_all, 2: order page, 3: feed, 4: live streaming,   [] (empty - which is hidden).
 DisplayChannelList []int `json:"display_channel_list,omitempty"`
 // min_basket_price is The minimum spend required for using this voucher. 
-MinBasketPrice float64 `json:"min_basket_price,omitempty"`
+MinBasketPrice float64 `json:"min_basket_price,omitempty,string"`
 // percentage is The discount percentage set for this particular voucher. Only when it is a discount percentage voucher or coins cashback voucher, api will return a value.
 Percentage int `json:"percentage,omitempty"`
 // max_price is The max amount of discount/value a user can enjoy by using this particular voucher. Only when it is a discount percentage voucher or coins cashback voucher, api will return a value.
-MaxPrice float64 `json:"max_price,omitempty"`
+MaxPrice float64 `json:"max_price,omitempty,string"`
 // discount_amount is The discount amount set for this particular voucher. Only when it is a fix amount voucher, api will return a value.
-DiscountAmount float64 `json:"discount_amount,omitempty"`
+DiscountAmount float64 `json:"discount_amount,omitempty,string"`
 // cmt_voucher_status is The voucher status in CMT. The available values are: 1:review, 2: approved, 3:reject. Only when this voucher is attending CMT campaign and not being rejected, api will return a value.
 CmtVoucherStatus int `json:"cmt_voucher_status,omitempty"`
 // item_id_list is The list of items which is applicable for the voucher. Only return a value when it is a product type of voucher.
@@ -257,7 +257,7 @@ IsAdmin bool `json:"is_admin,omitempty"`
 // voucher_purpose is The use case for the voucher. The available values are: 0: normal; 1: welcome, 2: referral; 3: shop_follow; 4:shop_game, 5: free_gift, 6: membership
 VoucherPurpose int `json:"voucher_purpose,omitempty"`
 // discount_amount is The discount amount set for this particular voucher. Only when it is a fix amount voucher, api will return a value.
-DiscountAmount float64 `json:"discount_amount,omitempty"`
+DiscountAmount float64 `json:"discount_amount,omitempty,string"`
 // percentage is The discount percentage set for this particular voucher. Only when it is a discount percentage voucher or coins cashback voucher, api will return a value.
 Percentage int `json:"percentage,omitempty"`
 // cmt_voucher_status is The voucher status in CMT. The available values are: 1:review, 2: approved, 3:reject. Only when this voucher is attending CMT campaign and not being rejected, api will return a value.

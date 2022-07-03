@@ -1,5 +1,6 @@
 package shopeego
 
+
 //=======================================================
 // Object Raw Type - ProductGetCategoryCategory
 //=======================================================
@@ -248,9 +249,9 @@ type ProductGetDtsLimitResponse struct {
 //=======================================================
 type ProductGetItemLimitPriceLimit struct {
 // min_limit is Item price max limit.
-MinLimit float64 `json:"min_limit,omitempty"`
+MinLimit float64 `json:"min_limit,omitempty,string"`
 // max_limit is Item price min limit.
-MaxLimit float64 `json:"max_limit,omitempty"`
+MaxLimit float64 `json:"max_limit,omitempty,string"`
 }
 
 
@@ -357,9 +358,9 @@ DescriptionImageWidthMin int `json:"description_image_width_min,omitempty"`
 // description_image_height_min is length min limit for item extended description image hight 
 DescriptionImageHeightMin int `json:"description_image_height_min,omitempty"`
 // description_image_aspect_ratio_min is length min limit for item extended description image aspect  ( aspect_ratio= image width / image hight )
-DescriptionImageAspectRatioMin float64 `json:"description_image_aspect_ratio_min,omitempty"`
+DescriptionImageAspectRatioMin float64 `json:"description_image_aspect_ratio_min,omitempty,string"`
 // description_image_aspect_ratio_max is length max limit for item extended description image aspect ( aspect_ratio= image width / image hight )
-DescriptionImageAspectRatioMax float64 `json:"description_image_aspect_ratio_max,omitempty"`
+DescriptionImageAspectRatioMax float64 `json:"description_image_aspect_ratio_max,omitempty,string"`
 }
 
 
@@ -499,15 +500,15 @@ type ProductGetItemBaseInfoItemPriceInfo struct {
 // currency is The three-digit code representing the currency unit used for the item in Shopee Listings.
 Currency string `json:"currency,omitempty"`
 // original_price is The original price of the item in the listing currency.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // current_price is The current price of the item in the listing currency. If product under a onging promotion, current_price will be the promotion price
-CurrentPrice float64 `json:"current_price,omitempty"`
+CurrentPrice float64 `json:"current_price,omitempty,string"`
 // inflated_price_of_original_price is The After-tax original price of the item in the listing currency.
-InflatedPriceOfOriginalPrice float64 `json:"inflated_price_of_original_price,omitempty"`
+InflatedPriceOfOriginalPrice float64 `json:"inflated_price_of_original_price,omitempty,string"`
 // inflated_price_of_current_price is The After-tax current price of the item in the listing currency.
-InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty,string"`
 // sip_item_price is The price of the item in sip.If item is for CNSC primary shop, this field will not be returned
-SipItemPrice float64 `json:"sip_item_price,omitempty"`
+SipItemPrice float64 `json:"sip_item_price,omitempty,string"`
 // sip_item_price_source is  source of sip' price. ( auto or manual).If item is for CNSC SIP primary shop, this field will not be returned
 SipItemPriceSource string `json:"sip_item_price_source,omitempty"`
 }
@@ -565,13 +566,13 @@ LogisticName string `json:"logistic_name,omitempty"`
 // enabled is Related to shopee.logistics.GetLogistics result.logistics.enabled only affect current item.
 Enabled bool `json:"enabled,omitempty"`
 // shipping_fee is Only needed when logistics fee_type = CUSTOM_PRICE.
-ShippingFee float64 `json:"shipping_fee,omitempty"`
+ShippingFee float64 `json:"shipping_fee,omitempty,string"`
 // size_id is If specify logistic fee_type is SIZE_SELECTION size_id is required.
 SizeID int `json:"size_id,omitempty"`
 // is_free is when seller chooses this option, the shipping fee of this channel on item will be set to 0. Default value is False.
 IsFree bool `json:"is_free,omitempty"`
 // estimated_shipping_fee is Estimated shipping fee calculated by weight. Don't exist if channel is no-integrated.
-EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty"`
+EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty,string"`
 }
 
 
@@ -595,9 +596,9 @@ MinCount int `json:"min_count,omitempty"`
 // max_count is The max count of this tier wholesale.
 MaxCount int `json:"max_count,omitempty"`
 // unit_price is The current price of the wholesale in the listing currency.If item is in promotion, this price is useless.
-UnitPrice float64 `json:"unit_price,omitempty"`
+UnitPrice float64 `json:"unit_price,omitempty,string"`
 // inflated_price_of_unit_price is The After-tax Price of the wholesale show to buyer.
-InflatedPriceOfUnitPrice float64 `json:"inflated_price_of_unit_price,omitempty"`
+InflatedPriceOfUnitPrice float64 `json:"inflated_price_of_unit_price,omitempty,string"`
 }
 
 
@@ -866,7 +867,7 @@ Views int `json:"views,omitempty"`
 // likes is The collection number of item.
 Likes int `json:"likes,omitempty"`
 // rating_star is The rating star scores of this item.
-RatingStar float64 `json:"rating_star,omitempty"`
+RatingStar float64 `json:"rating_star,omitempty,string"`
 // comment_count is Count of comments for the item.
 CommentCount int `json:"comment_count,omitempty"`
 }
@@ -921,7 +922,7 @@ type LogisticInfo struct {
 // size_id is Size ID, If specify logistic fee_type is SIZE_SELECTION size_id is required.
 SizeID int `json:"size_id,omitempty"`
 // shipping_fee is Shipping fee, Only needed when logistics fee_type = CUSTOM_PRICE.
-ShippingFee float64 `json:"shipping_fee,omitempty"`
+ShippingFee float64 `json:"shipping_fee,omitempty,string"`
 // enabled is Whether channel is enabled for this item
 Enabled bool `json:"enabled,omitempty"`
 // logistic_id is ID of the channel
@@ -984,7 +985,7 @@ MinCount int `json:"min_count,omitempty"`
 // max_count is Maximum count of this tier
 MaxCount int `json:"max_count,omitempty"`
 // unit_price is <p>Unit price of this tier.</p><p><b><font color="#c24f4a">For&nbsp;SG/MY/BR/MX/PL/ES/AR seller</font></b>:&nbsp;Sellers can set the price with two decimal place,&nbsp;other regions can only set the price as an integer.<br /></p>
-UnitPrice float64 `json:"unit_price,omitempty"`
+UnitPrice float64 `json:"unit_price,omitempty,string"`
 }
 
 
@@ -1119,9 +1120,9 @@ ImageUrlList []string `json:"image_url_list,omitempty"`
 //=======================================================
 type ProductAddItemPriceInfo struct {
 // current_price is Current price of item
-CurrentPrice float64 `json:"current_price,omitempty"`
+CurrentPrice float64 `json:"current_price,omitempty,string"`
 // original_price is Original price of item
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -1132,7 +1133,7 @@ type ProductAddItemLogisticInfo struct {
 // size_id is Size ID
 SizeID int `json:"size_id,omitempty"`
 // shipping_fee is Shipping fee
-ShippingFee float64 `json:"shipping_fee,omitempty"`
+ShippingFee float64 `json:"shipping_fee,omitempty,string"`
 // enabled is Whether this channel is enabled for this item
 Enabled bool `json:"enabled,omitempty"`
 // logistic_id is Logistic channel ID
@@ -1214,7 +1215,7 @@ MinCount int `json:"min_count,omitempty"`
 // max_count is Maximum count of this tier
 MaxCount int `json:"max_count,omitempty"`
 // unit_price is Unit price of this tier
-UnitPrice float64 `json:"unit_price,omitempty"`
+UnitPrice float64 `json:"unit_price,omitempty,string"`
 }
 
 
@@ -1352,11 +1353,11 @@ type ProductAddItemRequest struct {
     
 
     // original_price is <p>Item price</p><p><b><font color="#c24f4a">For CO local VAT responsible seller：</font></b>Please remember the price you set in here must be VAT inclusive. If you have any doubts on how to calculate VAT for your product please refer to the Seller Education Hub（https://seller.shopee.com.co/edu/article/13565）<br /></p><p><b><font color="#c24f4a">For&nbsp;SG/MY/BR/MX/PL/ES/AR seller:&nbsp;</font></b><span style="font-size:14px;"></span><span style="font-size:14px;">Sellers can set the price with two decimal place,&nbsp;</span><span style="font-size:14px;">other regions can only set the price as an integer.</span></p>
-    OriginalPrice float64 `json:"original_price"`
+    OriginalPrice float64 `json:"original_price,string"`
     // description is if description_type is normal , Description information should be set by this field.
     Description string `json:"description"`
     // weight is Weight of item
-    Weight float64 `json:"weight,omitempty"`
+    Weight float64 `json:"weight,omitempty,string"`
     // item_name is Item name
     ItemName string `json:"item_name"`
     // item_status is Item status, could be UNLIST or NORMAL
@@ -1437,7 +1438,7 @@ ImageUrlList []string `json:"image_url_list,omitempty"`
 //=======================================================
 type ProductUpdateItemLogisticInfo struct {
 // estimated_shipping_fee is Estimated shipping fee.
-EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty"`
+EstimatedShippingFee float64 `json:"estimated_shipping_fee,omitempty,string"`
 // logistic_name is Name of logistics channel.
 LogisticName string `json:"logistic_name,omitempty"`
 // enabled is Whether this channel is enabled.
@@ -1533,7 +1534,7 @@ type ProductUpdateItem struct {
 // description is Item description.
 Description string `json:"description,omitempty"`
 // weight is Item weight.
-Weight float64 `json:"weight,omitempty"`
+Weight float64 `json:"weight,omitempty,string"`
 // pre_order is 
 PreOrder ProductUpdateItemPreOrder `json:"pre_order"`
 // item_name is Item name.
@@ -1573,7 +1574,7 @@ type ProductUpdateItemRequest struct {
     // description is Description of item.
     Description string `json:"description,omitempty"`
     // weight is Weight of item.
-    Weight float64 `json:"weight,omitempty"`
+    Weight float64 `json:"weight,omitempty,string"`
     // pre_order is Pre Order setting.
     PreOrder PreOrder `json:"pre_order,omitempty"`
     // item_name is Item name.
@@ -1694,7 +1695,7 @@ TierIndex []int `json:"tier_index,omitempty"`
 // normal_stock is Normal stock of this model
 NormalStock int `json:"normal_stock,omitempty"`
 // original_price is <p>Original price of this model.</p><p><b><font color="#c24f4a">For CO local VAT responsible seller：</font></b>Please remember the price you set in here must be VAT inclusive. If you have any doubts on how to calculate VAT for your product please refer to the Seller Education Hub（https://seller.shopee.com.co/edu/article/13565）<br /></p>
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // model_sku is Seller SKU of this model, model_sku length information needs to be no more than 100 characters.
 ModelSku string `json:"model_sku,omitempty"`
 // seller_stock is <p>new stock info（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
@@ -1749,7 +1750,7 @@ NormalStock int `json:"normal_stock,omitempty"`
 //=======================================================
 type ProductInitTierVariationModelPriceInfo struct {
 // original_price is Original price
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -1878,15 +1879,15 @@ Name string `json:"name,omitempty"`
 //=======================================================
 type ProductGetModelListModelPriceInfo struct {
 // current_price is Current price of item.
-CurrentPrice float64 `json:"current_price,omitempty"`
+CurrentPrice float64 `json:"current_price,omitempty,string"`
 // original_price is Original price of item.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // inflated_price_of_original_price is Original price of item after tax.
-InflatedPriceOfOriginalPrice float64 `json:"inflated_price_of_original_price,omitempty"`
+InflatedPriceOfOriginalPrice float64 `json:"inflated_price_of_original_price,omitempty,string"`
 // inflated_price_of_current_price is Current price of item after tax.
-InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty,string"`
 // sip_item_price is SIP item price.If item is for CNSC primary shop, this field will not be returned
-SipItemPrice float64 `json:"sip_item_price,omitempty"`
+SipItemPrice float64 `json:"sip_item_price,omitempty,string"`
 // sip_item_price_source is SIP item price source, could be manual or auto.If item is for CNSC primary shop, this field will not be returned
 SipItemPriceSource string `json:"sip_item_price_source,omitempty"`
 }
@@ -2040,7 +2041,7 @@ TierIndex []int `json:"tier_index,omitempty"`
 // normal_stock is Normal stock for model
 NormalStock int `json:"normal_stock,omitempty"`
 // original_price is Normal stock for price
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // model_sku is Seller sku, model_sku length information needs to be no more than 100 characters.
 ModelSku string `json:"model_sku,omitempty"`
 // seller_stock is <p>new stock info for model（Please notice that stock(including Seller Stock and Shopee Stock) should be larger than or equal to real-time reserved stock）<br /></p>
@@ -2064,7 +2065,7 @@ NormalStock int `json:"normal_stock,omitempty"`
 //=======================================================
 type ProductAddModelModelPriceInfo struct {
 // original_price is <p>Original Price.</p><p><font color="#c24f4a"><b>For CO local VAT responsible seller：</b></font>Please remember the price you set in here must be VAT inclusive. If you have any doubts on how to calculate VAT for your product please refer to the Seller Education Hub（https://seller.shopee.com.co/edu/article/13565）<br /></p>
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -2289,7 +2290,7 @@ type PriceList struct {
 // model_id is 0 for no model item.
 ModelID int `json:"model_id,omitempty"`
 // original_price is <p>Original price for this model.</p><p><b><font color="#c24f4a">For CO local VAT responsible seller：</font></b>Please remember the price you set in here must be VAT inclusive. If you have any doubts on how to calculate VAT for your product please refer to the Seller Education Hub（https://seller.shopee.com.co/edu/article/13565）<br /></p><p><b><font color="#c24f4a">For&nbsp;SG/MY/BR/MX/PL/ES/AR seller:&nbsp;</font></b>Sellers can set the price with two decimal place,&nbsp;other regions can only set the price as an integer.<br /></p>
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -2311,7 +2312,7 @@ type ProductUpdatePriceSuccess struct {
 // model_id is ID of model.
 ModelID int `json:"model_id,omitempty"`
 // original_price is Original price for model.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -2525,7 +2526,7 @@ type ProductGetBoostedListResponse struct {
 //=======================================================
 type ProductGetItemPromotionSuccessPromotionPromotionPriceInfo struct {
 // promotion_price is Promotion price.
-PromotionPrice float64 `json:"promotion_price,omitempty"`
+PromotionPrice float64 `json:"promotion_price,omitempty,string"`
 }
 
 
@@ -2638,7 +2639,7 @@ type SipItemPrice struct {
 // model_id is 0 for no model item.
 ModelID int `json:"model_id,omitempty"`
 // sip_item_price is SIP item price.
-SipItemPrice float64 `json:"sip_item_price,omitempty"`
+SipItemPrice float64 `json:"sip_item_price,omitempty,string"`
 }
 //=======================================================
 // ProductUpdateSipItemPriceRequest

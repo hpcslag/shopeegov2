@@ -18,9 +18,9 @@ type BundleDealAddBundleDealRequest struct {
     // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
     RuleType int `json:"rule_type"`
     // discount_value is The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
-    DiscountValue float64 `json:"discount_value"`
+    DiscountValue float64 `json:"discount_value,string"`
     // fix_price is The amount of the buyer needs to spend to purchase a bundle deal. Need to input it when the bundle deal rule type is 1
-    FixPrice float64 `json:"fix_price"`
+    FixPrice float64 `json:"fix_price,string"`
     // discount_percentage is The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
     DiscountPercentage int `json:"discount_percentage"`
     // min_amount is The quantity of items that need buyer to combine purchased
@@ -99,9 +99,9 @@ type BundleDealGetBundleDealListBundleDealBundleDealRule struct {
 // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
 RuleType int `json:"rule_type,omitempty"`
 // discount_value is The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
-DiscountValue float64 `json:"discount_value,omitempty"`
+DiscountValue float64 `json:"discount_value,omitempty,string"`
 // fix_price is The amount of the buyer needs to spend to purchase a bundle deal. Need to input it when the bundle deal rule type is 1
-FixPrice float64 `json:"fix_price,omitempty"`
+FixPrice float64 `json:"fix_price,omitempty,string"`
 // discount_percentage is The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
 DiscountPercentage int `json:"discount_percentage,omitempty"`
 // min_amount is The quantity of items that need buyer to combine purchased
@@ -170,9 +170,9 @@ type BundleDealGetBundleDealBundleDealRule struct {
 // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
 RuleType int `json:"rule_type,omitempty"`
 // discount_value is The deducted price when when buying a bundle deal.Need to input it when the bundle deal rule type is 3
-DiscountValue float64 `json:"discount_value,omitempty"`
+DiscountValue float64 `json:"discount_value,omitempty,string"`
 // fix_price is The amount of the buyer needs to spend to purchase a bundle deal. Need to input it when the bundle deal rule type is 1
-FixPrice float64 `json:"fix_price,omitempty"`
+FixPrice float64 `json:"fix_price,omitempty,string"`
 // discount_percentage is The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
 DiscountPercentage int `json:"discount_percentage,omitempty"`
 // min_amount is The quantity of items that need buyer to combine purchased
@@ -268,9 +268,9 @@ type BundleDealUpdateBundleDealBundleDealRule struct {
 // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
 RuleType int `json:"rule_type,omitempty"`
 // discount_value is The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
-DiscountValue float64 `json:"discount_value,omitempty"`
+DiscountValue float64 `json:"discount_value,omitempty,string"`
 // fix_price is The amount of the buyer needs to spend to purchase a bundle deal. Need to input it when the bundle deal rule type is 1
-FixPrice float64 `json:"fix_price,omitempty"`
+FixPrice float64 `json:"fix_price,omitempty,string"`
 // discount_percentage is  The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
 DiscountPercentage int `json:"discount_percentage,omitempty"`
 // min_amount is  The quantity of items that need buyer to combine purchased
@@ -305,9 +305,9 @@ type BundleDealUpdateBundleDealRequest struct {
     // rule_type is The bundle deal rule type：FIX_PRICE = 1 ；DISCOUNT_PERCENTAGE = 2； DISCOUNT_VALUE = 3
     RuleType int `json:"rule_type,omitempty"`
     // discount_value is  The deducted price when when buying a bundle deal. Need to input it when the bundle deal rule type is 3
-    DiscountValue float64 `json:"discount_value,omitempty"`
+    DiscountValue float64 `json:"discount_value,omitempty,string"`
     // fix_price is The amount of the buyer needs to spend to purchase a bundle deal.Need to input it when the bundle deal rule type is 1
-    FixPrice float64 `json:"fix_price,omitempty"`
+    FixPrice float64 `json:"fix_price,omitempty,string"`
     // discount_percentage is The discount that the buyer can get when buying a bundle deal. Need to input it when the bundle deal rule type is 2
     DiscountPercentage int `json:"discount_percentage,omitempty"`
     // min_amount is The quantity of items that need buyer to combine purchased

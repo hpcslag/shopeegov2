@@ -209,9 +209,9 @@ type GlobalProductGetBrandListResponse struct {
 //=======================================================
 type GlobalProductGetGlobalItemLimitPriceLimit struct {
 // min_limit is Global item price min limit.
-MinLimit float64 `json:"min_limit,omitempty"`
+MinLimit float64 `json:"min_limit,omitempty,string"`
 // max_limit is Global item price max limit.
-MaxLimit float64 `json:"max_limit,omitempty"`
+MaxLimit float64 `json:"max_limit,omitempty,string"`
 }
 
 
@@ -298,9 +298,9 @@ DescriptionImageWidthMin int `json:"description_image_width_min,omitempty"`
 // description_image_height_min is length min limit for item extended description image hight
 DescriptionImageHeightMin int `json:"description_image_height_min,omitempty"`
 // description_image_aspect_ratio_min is length min limit for item extended description image aspect (image width / image hight )
-DescriptionImageAspectRatioMin float64 `json:"description_image_aspect_ratio_min,omitempty"`
+DescriptionImageAspectRatioMin float64 `json:"description_image_aspect_ratio_min,omitempty,string"`
 // description_image_aspect_ratio_max is length max limit for item extended description image aspect (image width / image hight )
-DescriptionImageAspectRatioMax float64 `json:"description_image_aspect_ratio_max,omitempty"`
+DescriptionImageAspectRatioMax float64 `json:"description_image_aspect_ratio_max,omitempty,string"`
 }
 
 
@@ -323,7 +323,7 @@ TierVariationNameLengthLimit GlobalProductGetGlobalItemLimitTierVariationNameLen
 // tier_variation_option_length_limit is 
 TierVariationOptionLengthLimit GlobalProductGetGlobalItemLimitTierVariationOptionLengthLimit `json:"tier_variation_option_length_limit"`
 // text_length_multiplier is Length ratio of Chinese characters to English characters in parameter verification. len(text)=len(Chinese characters)*text_length_multiplier+len(English characters )
-TextLengthMultiplier float64 `json:"text_length_multiplier,omitempty"`
+TextLengthMultiplier float64 `json:"text_length_multiplier,omitempty,string"`
 // extended_description_limit is 
 ExtendedDescriptionLimit GlobalProductGetGlobalItemLimitExtendedDescriptionLimit `json:"extended_description_limit"`
 }
@@ -461,9 +461,9 @@ type GlobalProductGetGlobalItemInfoGlobalItemPriceInfo struct {
 // currency is The three-digit code representing the currency unit used for the item in Shopee Listings.
 Currency string `json:"currency,omitempty"`
 // original_price is The original price of the item in the listing currency.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // sip_item_price is SIP item price.
-SipItemPrice float64 `json:"sip_item_price,omitempty"`
+SipItemPrice float64 `json:"sip_item_price,omitempty,string"`
 // sip_item_price_source is source of sip' price. ( auto or manual).
 SipItemPriceSource string `json:"sip_item_price_source,omitempty"`
 }
@@ -619,7 +619,7 @@ PriceInfo []GlobalProductGetGlobalItemInfoGlobalItemPriceInfo `json:"price_info"
 // image is 
 Image GlobalProductGetGlobalItemInfoGlobalItemImage `json:"image"`
 // weight is The weight of this item.
-Weight float64 `json:"weight,omitempty"`
+Weight float64 `json:"weight,omitempty,string"`
 // dimension is 
 Dimension GlobalProductGetGlobalItemInfoGlobalItemDimension `json:"dimension"`
 // pre_order is 
@@ -699,11 +699,11 @@ type GlobalProductAddGlobalItemRequest struct {
     // image is Image information of global item.
     Image Image `json:"image,omitempty"`
     // original_price is Original price of global item.
-    OriginalPrice float64 `json:"original_price"`
+    OriginalPrice float64 `json:"original_price,string"`
     // normal_stock is Normal stock of global item.
     NormalStock int `json:"normal_stock"`
     // weight is Weight of global item.
-    Weight float64 `json:"weight"`
+    Weight float64 `json:"weight,string"`
     // dimension is Dimension information of global item.
     Dimension Dimension `json:"dimension,omitempty"`
     // pre_order is Preorder information of global item.
@@ -758,7 +758,7 @@ type GlobalProductUpdateGlobalItemRequest struct {
     // global_item_sku is Sku of global item.
     GlobalItemSku string `json:"global_item_sku,omitempty"`
     // weight is Weight of global item.
-    Weight float64 `json:"weight,omitempty"`
+    Weight float64 `json:"weight,omitempty,string"`
     // dimension is Dimension information of global item.
     Dimension Dimension `json:"dimension,omitempty"`
     // pre_order is Preorder information of global item.
@@ -835,7 +835,7 @@ type GlobalProductDeleteGlobalItemResponse struct {
 //=======================================================
 type GlobalModel struct {
 // original_price is Original price of global model.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // normal_stock is Normal stock of global model.
 NormalStock int `json:"normal_stock,omitempty"`
 // global_model_sku is Sku of global model. model_sku length information needs to be no more than 100 characters.
@@ -1011,7 +1011,7 @@ OptionList []GlobalProductGetGlobalModelListTierVariationOption `json:"option_li
 //=======================================================
 type GlobalProductGetGlobalModelListGlobalModelPriceInfo struct {
 // original_price is Original price of global model.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -1176,7 +1176,7 @@ type ItemModel struct {
 // tier_index is Tier index of model.
 TierIndex []int `json:"tier_index,omitempty"`
 // original_price is Original price of model.
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 }
 
 
@@ -1189,7 +1189,7 @@ LogisticID int `json:"logistic_id,omitempty"`
 // enabled is If this logistic channel is enabled.
 Enabled bool `json:"enabled,omitempty"`
 // shipping_fee is Shipping fee.
-ShippingFee float64 `json:"shipping_fee,omitempty"`
+ShippingFee float64 `json:"shipping_fee,omitempty,string"`
 // size_id is Size id.
 SizeID int `json:"size_id,omitempty"`
 // is_free is If this logistic channel is free.
@@ -1259,7 +1259,7 @@ Description string `json:"description,omitempty"`
 // item_status is Status of item.
 ItemStatus string `json:"item_status,omitempty"`
 // original_price is <p>Original price of item.</p><p><b><font color="#c24f4a">For&nbsp;SG/MY/BR/MX/PL/ES/AR seller:</font></b>&nbsp;Sellers can set the price with two decimal place,&nbsp;other regions can only set the price as an integer.<br /></p>
-OriginalPrice float64 `json:"original_price,omitempty"`
+OriginalPrice float64 `json:"original_price,omitempty,string"`
 // image is Image information of item.
 Image ItemImage `json:"image,omitempty"`
 // tier_variation is Tier variation information of item.

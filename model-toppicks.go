@@ -10,9 +10,9 @@ ItemName string `json:"item_name,omitempty"`
 // item_id is The id of item.
 ItemID int `json:"item_id,omitempty"`
 // current_price is The price before tax of item.
-CurrentPrice float64 `json:"current_price,omitempty"`
+CurrentPrice float64 `json:"current_price,omitempty,string"`
 // inflated_price_of_current_price is The price after tax of item.
-InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty,string"`
 // sales is The sales of  item.
 Sales int `json:"sales,omitempty"`
 }
@@ -69,9 +69,9 @@ ItemName string `json:"item_name,omitempty"`
 // item_id is The id of item.
 ItemID int `json:"item_id,omitempty"`
 // current_price is The price before tax of item.
-CurrentPrice float64 `json:"current_price,omitempty"`
+CurrentPrice float64 `json:"current_price,omitempty,string"`
 // inflated_price_of_current_price is The price after tax of item.
-InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty,string"`
 // sales is The sales of item.
 Sales int `json:"sales,omitempty"`
 }
@@ -134,9 +134,9 @@ ItemName string `json:"item_name,omitempty"`
 // item_id is The id of item.
 ItemID int `json:"item_id,omitempty"`
 // current_price is The price before tax of item.
-CurrentPrice float64 `json:"current_price,omitempty"`
+CurrentPrice float64 `json:"current_price,omitempty,string"`
 // inflated_price_of_current_price is The price after tax of item.
-InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty"`
+InflatedPriceOfCurrentPrice float64 `json:"inflated_price_of_current_price,omitempty,string"`
 // sales is The sales of item.
 Sales int `json:"sales,omitempty"`
 }

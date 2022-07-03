@@ -846,7 +846,7 @@ type LogisticsGetChannelListLogisticsChannelSize struct {
 	// name is The name of size.
 	Name string `json:"name,omitempty"`
 	// default_price is The pre-defined shipping fee for the specific size.
-	DefaultPrice float64 `json:"default_price,omitempty"`
+	DefaultPrice float64 `json:"default_price,omitempty,string"`
 }
 
 //=======================================================
@@ -854,9 +854,9 @@ type LogisticsGetChannelListLogisticsChannelSize struct {
 //=======================================================
 type LogisticsGetChannelListLogisticsChannelWeightLimit struct {
 	// item_max_weight is The max weight for an item on this logistic channel.If the value is 0 or null, that means there is no limit.
-	ItemMaxWeight float64 `json:"item_max_weight,omitempty"`
+	ItemMaxWeight float64 `json:"item_max_weight,omitempty,string"`
 	// item_min_weight is The min weight for an item on this logistic channel. If the value is 0 or null, that means there is no limit.
-	ItemMinWeight float64 `json:"item_min_weight,omitempty"`
+	ItemMinWeight float64 `json:"item_min_weight,omitempty,string"`
 }
 
 //=======================================================
@@ -864,15 +864,15 @@ type LogisticsGetChannelListLogisticsChannelWeightLimit struct {
 //=======================================================
 type LogisticsGetChannelListLogisticsChannelItemMaxDimension struct {
 	// height is The max height limit.
-	Height float64 `json:"height,omitempty"`
+	Height float64 `json:"height,omitempty,string"`
 	// width is The max width limit.
-	Width float64 `json:"width,omitempty"`
+	Width float64 `json:"width,omitempty,string"`
 	// length is The max length limit.
-	Length float64 `json:"length,omitempty"`
+	Length float64 `json:"length,omitempty,string"`
 	// unit is The unit for the limit.
 	Unit string `json:"unit,omitempty"`
 	// dimension_sum is The sum of the item's dimension
-	DimensionSum float64 `json:"dimension_sum,omitempty"`
+	DimensionSum float64 `json:"dimension_sum,omitempty,string"`
 }
 
 //=======================================================
@@ -880,9 +880,9 @@ type LogisticsGetChannelListLogisticsChannelItemMaxDimension struct {
 //=======================================================
 type LogisticsGetChannelListLogisticsChannelVolumeLimit struct {
 	// item_max_volume is The max volume for an item on this logistic channel.If the value is 0 or null, that means there is no limit for the item weight.
-	ItemMaxVolume float64 `json:"item_max_volume,omitempty"`
+	ItemMaxVolume float64 `json:"item_max_volume,omitempty,string"`
 	// item_min_volume is The min volume for an item on this logistic channel. If the value is 0 or null, that means there is no limit for the item weight.
-	ItemMinVolume float64 `json:"item_min_volume,omitempty"`
+	ItemMinVolume float64 `json:"item_min_volume,omitempty,string"`
 }
 
 //=======================================================

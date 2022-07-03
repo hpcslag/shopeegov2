@@ -24,7 +24,7 @@ type AddOnDealAddAddOnDealRequest struct {
     // promotion_type is The type of add on deal：add on discount =0；gift with mini spend=1
     PromotionType int `json:"promotion_type"`
     // purchase_min_spend is The minimum purchase amount that needs to be met to buy the gift with min.Spend
-    PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty"`
+    PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty,string"`
     // per_gift_num is Number of gifts that buyers can get
     PerGiftNum int `json:"per_gift_num,omitempty"`
     // promotion_purchase_limit is promotion_purchase_limit
@@ -108,7 +108,7 @@ ModelID int `json:"model_id,omitempty"`
 // status is The status of add on deal item：enable = 1；disable =2
 Status int `json:"status,omitempty"`
 // sub_item_input_price is Add-on discount price before tax
-SubItemInputPrice float64 `json:"sub_item_input_price,omitempty"`
+SubItemInputPrice float64 `json:"sub_item_input_price,omitempty,string"`
 // sub_item_limit is The purchase limit of sub item.
 SubItemLimit int `json:"sub_item_limit,omitempty"`
 }
@@ -285,7 +285,7 @@ EndTime int `json:"end_time,omitempty"`
 // promotion_type is The type of add on deal：add on discount =0；gift with mini spend=1
 PromotionType int `json:"promotion_type,omitempty"`
 // purchase_min_spend is The minimum purchase amount that needs to be met to buy the gift with min.Spend
-PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty"`
+PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty,string"`
 // add_on_deal_id is Shopee's unique identifier for an add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // per_gift_num is Number of gifts that buyers can get
@@ -347,7 +347,7 @@ EndTime int `json:"end_time,omitempty"`
 // promotion_type is The type of add on deal：add on discount =0；gift with mini spend=1
 PromotionType int `json:"promotion_type,omitempty"`
 // purchase_min_spend is The minimum purchase amount that needs to be met to buy the gift with min.Spend
-PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty"`
+PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty,string"`
 // add_on_deal_id is Shopee's unique identifier for an add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // per_gift_num is Number of gifts that buyers can get
@@ -430,7 +430,7 @@ type AddOnDealGetAddOnDealMainItemResponse struct {
 //=======================================================
 type AddOnDealGetAddOnDealSubItemSubItemPricePromoInputPrice struct {
 // promo_price is Add-on discount price after tax
-PromoPrice float64 `json:"promo_price,omitempty"`
+PromoPrice float64 `json:"promo_price,omitempty,string"`
 }
 
 
@@ -439,7 +439,7 @@ PromoPrice float64 `json:"promo_price,omitempty"`
 //=======================================================
 type AddOnDealGetAddOnDealSubItemSubItemPrice struct {
 // promo_input_price is Add-on discount price before tax
-PromoInputPrice AddOnDealGetAddOnDealSubItemSubItemPricePromoInputPrice `json:"promo_input_price"`
+PromoInputPrice AddOnDealGetAddOnDealSubItemSubItemPricePromoInputPrice `json:"promo_input_price,string"`
 }
 
 
@@ -502,7 +502,7 @@ EndTime int `json:"end_time,omitempty"`
 // promotion_type is The type of add on deal：add on discount =0；gift with mini spend=1
 PromotionType int `json:"promotion_type,omitempty"`
 // purchase_min_spend is The minimum purchase amount that needs to be met to buy the gift with min.Spend
-PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty"`
+PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty,string"`
 // add_on_deal_id is Shopee's unique identifier for an add on deal activity.
 AddOnDealID int `json:"add_on_deal_id,omitempty"`
 // per_gift_num is Number of gifts that buyers can get
@@ -526,7 +526,7 @@ type AddOnDealUpdateAddOnDealRequest struct {
     // end_time is The time when bundle deal activity end. The end time must be later than start time.
     EndTime int `json:"end_time,omitempty"`
     // purchase_min_spend is The minimum purchase amount that needs to be met to buy the gift with min.Spend
-    PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty"`
+    PurchaseMinSpend float64 `json:"purchase_min_spend,omitempty,string"`
     // per_gift_num is Number of gifts that buyers can get
     PerGiftNum int `json:"per_gift_num,omitempty"`
     // promotion_purchase_limit is Max. number of add-on products that a customer can purchase per order.
@@ -605,7 +605,7 @@ FailError string `json:"fail_error,omitempty"`
 // fail_message is 
 FailMessage string `json:"fail_message,omitempty"`
 // sub_item_input_price is The discounted price of sub item
-SubItemInputPrice float64 `json:"sub_item_input_price,omitempty"`
+SubItemInputPrice float64 `json:"sub_item_input_price,omitempty,string"`
 // sub_item_limit is The purchase limit of sub item.The purchase limit of each sub item. Only the add on discount can be set and the default limit of gift with mini.spend is 1
 SubItemLimit int `json:"sub_item_limit,omitempty"`
 }
