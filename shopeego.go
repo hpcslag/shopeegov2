@@ -163,6 +163,7 @@ func (s *ShopeeClient) signV2(url string, b []byte) string {
 	} else {
 		url = "/api/" + strings.TrimLeft(url, urlStandard)
 	}
+	// (順序是重要的) follow the orders https://open.shopee.com/documents/v2/%5B%E4%B8%AD%E6%96%87%E7%89%88%5D%20OpenAPI%202.0%20Overview?module=87&type=2
 	io.WriteString(h, fmt.Sprintf("%d%s%d%s%d", p.partnerID, url, p.timestamp, s.accessToken, p.shopID))
 	return fmt.Sprintf("%x", h.Sum(nil))
 }
@@ -225,35 +226,59 @@ func (s *ShopeeClient) get(method string, in interface{}) ([]byte, error) {
 		return nil, err
 	}
 
-	url := s.getPath(method) + "?"
+	// pureHostPath for get request
+	pureHostPath := s.getPath(method)
+
+	url := pureHostPath + "?"
 
 	if len(queryMap) > 0 {
 		for key, value := range queryMap {
 			switch v := value.(type) {
 			case float64:
 				url += fmt.Sprintf("%+v=%+v&", key, int(v))
+			case []interface{}:
+				if len(v) > 0 {
+					combine := ""
+					for index, item := range v {
+						switch itemValue := item.(type) {
+						case string:
+							combine += fmt.Sprintf("%+v", itemValue)
+						case float64:
+							combine += fmt.Sprintf("%+v", int(itemValue))
+						default:
+							combine += fmt.Sprintf("%+v", itemValue)
+						}
+						if index < len(v)-1 {
+							combine += ","
+						}
+					}
+					combine += ""
+					url += fmt.Sprintf("%+v=%+v&", key, combine)
+				}
 			default:
 				url += fmt.Sprintf("%+v=%+v&", key, v)
 			}
 		}
 	}
 
+	// sign for url
+	var sign string
+	switch s.Version {
+	// 如果是 V1 就在 Header 安插 Sign。
+	case ClientVersionV1:
+		sign = s.signV1(pureHostPath, query)
+	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
+	case ClientVersionV2:
+		sign = s.signV2(pureHostPath, query)
+	}
+	// add sign to url
+	url += fmt.Sprintf("sign=%s", sign)
+
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
 	}
 	req.Header.Add("Content-Type", "application/json")
-
-	switch s.Version {
-	// 如果是 V1 就在 Header 安插 Sign。
-	case ClientVersionV1:
-		req.Header.Add("Authorization", s.signV1(url, query))
-	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
-	case ClientVersionV2:
-		sign := s.signV2(url, query)
-		req.Header.Add("Authorization", sign)
-		url += fmt.Sprintf("sign=%s", sign)
-	}
 
 	//Do request by native lib
 	client := &http.Client{}
