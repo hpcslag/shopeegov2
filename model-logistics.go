@@ -318,16 +318,6 @@ type LogisticsCreateShippingDocument struct {
 }
 
 //=======================================================
-// LogisticsCreateShippingDocumentRequest
-//=======================================================
-type LogisticsCreateShippingDocumentRequest struct {
-	V2RequestAuthenticationParams
-
-	// order_list is The list of order you want to create shipping document. limit [1, 50]
-	OrderList []OrderList `json:"order_list"`
-}
-
-//=======================================================
 // LogisticsCreateShippingDocumentResponse
 //=======================================================
 type LogisticsCreateShippingDocumentResponse struct {

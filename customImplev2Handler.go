@@ -53,3 +53,24 @@ type LogisticsBatchShipOrderRequest struct {
 	// non_integrated is Optional parameter when GetParameterForInit returns "non-integrated" or GetLogisticsInfo returns "non-integrated" under "info_needed".
 	NonIntegrated *NonIntegrated `json:"non_integrated,omitempty"`
 }
+
+//=======================================================
+// LogisticsCreateShippingDocumentRequest
+//=======================================================
+type LogisticsCreateShippingDocumentRequest struct {
+	V2RequestAuthenticationParams
+
+	// order_list is The list of order you want to create shipping document. limit [1, 50]
+	OrderList []LogisticsCreateShippingDocumentOrderList `json:"order_list"`
+}
+
+type LogisticsCreateShippingDocumentOrderList struct {
+	// order_sn is Shopee's unique identifier for an order.
+	OrderSN string `json:"order_sn,omitempty"`
+	// package_number is Shopee's unique identifier for the package under an order. You should't fill the field with empty string when there is't a package number.
+	PackageNumber string `json:"package_number,omitempty"`
+	// The tracking number of order. Required except for the channel allow print before arrange shipment.
+	TrackingNumber string `json:"tracking_number,omitempty"`
+	// The type of shipping document. Available values: NORMAL_AIR_WAYBILL,THERMAL_AIR_WAYBILL,NORMAL_JOB_AIR_WAYBILL,THERMAL_JOB_AIR_WAYBILL
+	ShippingDocumentType string `json:"shipping_document_type,omitempty"`
+}
