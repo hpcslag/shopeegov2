@@ -1,384 +1,381 @@
-
 package shopeego
 
 type V2I interface {
+	ProductGetCategory(*ProductGetCategoryRequest) (*ProductGetCategory, error)
 
-    ProductGetCategory(*ProductGetCategoryRequest) (*ProductGetCategory, error)
+	ProductGetAttributes(*ProductGetAttributesRequest) (*ProductGetAttributes, error)
 
-    ProductGetAttributes(*ProductGetAttributesRequest) (*ProductGetAttributes, error)
+	ProductGetBrandList(*ProductGetBrandListRequest) (*ProductGetBrandList, error)
 
-    ProductGetBrandList(*ProductGetBrandListRequest) (*ProductGetBrandList, error)
+	ProductGetDtsLimit(*ProductGetDtsLimitRequest) (*ProductGetDtsLimit, error)
 
-    ProductGetDtsLimit(*ProductGetDtsLimitRequest) (*ProductGetDtsLimit, error)
+	ProductGetItemLimit(*ProductGetItemLimitRequest) (*ProductGetItemLimit, error)
 
-    ProductGetItemLimit(*ProductGetItemLimitRequest) (*ProductGetItemLimit, error)
+	ProductGetItemList(*ProductGetItemListRequest) (*ProductGetItemList, error)
 
-    ProductGetItemList(*ProductGetItemListRequest) (*ProductGetItemList, error)
+	ProductGetItemBaseInfo(*ProductGetItemBaseInfoRequest) (*ProductGetItemBaseInfo, error)
 
-    ProductGetItemBaseInfo(*ProductGetItemBaseInfoRequest) (*ProductGetItemBaseInfo, error)
+	ProductGetItemExtraInfo(*ProductGetItemExtraInfoRequest) (*ProductGetItemExtraInfo, error)
 
-    ProductGetItemExtraInfo(*ProductGetItemExtraInfoRequest) (*ProductGetItemExtraInfo, error)
+	ProductAddItem(*ProductAddItemRequest) (*ProductAddItem, error)
 
-    ProductAddItem(*ProductAddItemRequest) (*ProductAddItem, error)
+	ProductUpdateItem(*ProductUpdateItemRequest) (*ProductUpdateItem, error)
 
-    ProductUpdateItem(*ProductUpdateItemRequest) (*ProductUpdateItem, error)
+	ProductDeleteItem(*ProductDeleteItemRequest) error
 
-    ProductDeleteItem(*ProductDeleteItemRequest) error
+	ProductInitTierVariation(*ProductInitTierVariationRequest) (*ProductInitTierVariation, error)
 
-    ProductInitTierVariation(*ProductInitTierVariationRequest) (*ProductInitTierVariation, error)
+	ProductUpdateTierVariation(*ProductUpdateTierVariationRequest) error
 
-    ProductUpdateTierVariation(*ProductUpdateTierVariationRequest) error
+	ProductGetModelList(*ProductGetModelListRequest) (*ProductGetModelList, error)
 
-    ProductGetModelList(*ProductGetModelListRequest) (*ProductGetModelList, error)
+	ProductAddModel(*ProductAddModelRequest) (*ProductAddModel, error)
 
-    ProductAddModel(*ProductAddModelRequest) (*ProductAddModel, error)
+	ProductUpdateModel(*ProductUpdateModelRequest) error
 
-    ProductUpdateModel(*ProductUpdateModelRequest) error
+	ProductDeleteModel(*ProductDeleteModelRequest) error
 
-    ProductDeleteModel(*ProductDeleteModelRequest) error
+	ProductSupportSizeChart(*ProductSupportSizeChartRequest) (*ProductSupportSizeChart, error)
 
-    ProductSupportSizeChart(*ProductSupportSizeChartRequest) (*ProductSupportSizeChart, error)
+	ProductUpdateSizeChart(*ProductUpdateSizeChartRequest) error
 
-    ProductUpdateSizeChart(*ProductUpdateSizeChartRequest) error
+	ProductUnlistItem(*ProductUnlistItemRequest) (*ProductUnlistItem, error)
 
-    ProductUnlistItem(*ProductUnlistItemRequest) (*ProductUnlistItem, error)
+	ProductUpdatePrice(*ProductUpdatePriceRequest) (*ProductUpdatePrice, error)
 
-    ProductUpdatePrice(*ProductUpdatePriceRequest) (*ProductUpdatePrice, error)
+	ProductUpdateStock(*ProductUpdateStockRequest) (*ProductUpdateStock, error)
 
-    ProductUpdateStock(*ProductUpdateStockRequest) (*ProductUpdateStock, error)
+	ProductBoostItem(*ProductBoostItemRequest) (*ProductBoostItem, error)
 
-    ProductBoostItem(*ProductBoostItemRequest) (*ProductBoostItem, error)
+	ProductGetBoostedList(*ProductGetBoostedListRequest) (*ProductGetBoostedList, error)
 
-    ProductGetBoostedList(*ProductGetBoostedListRequest) (*ProductGetBoostedList, error)
+	ProductGetItemPromotion(*ProductGetItemPromotionRequest) (*ProductGetItemPromotion, error)
 
-    ProductGetItemPromotion(*ProductGetItemPromotionRequest) (*ProductGetItemPromotion, error)
+	ProductUpdateSipItemPrice(*ProductUpdateSipItemPriceRequest) error
 
-    ProductUpdateSipItemPrice(*ProductUpdateSipItemPriceRequest) error
+	ProductSearchItem(*ProductSearchItemRequest) (*ProductSearchItem, error)
 
-    ProductSearchItem(*ProductSearchItemRequest) (*ProductSearchItem, error)
+	ProductGetComment(*ProductGetCommentRequest) (*ProductGetComment, error)
 
-    ProductGetComment(*ProductGetCommentRequest) (*ProductGetComment, error)
+	ProductReplyComment(*ProductReplyCommentRequest) (*ProductReplyComment, error)
 
-    ProductReplyComment(*ProductReplyCommentRequest) (*ProductReplyComment, error)
+	ProductCategoryRecommend(*ProductCategoryRecommendRequest) (*ProductCategoryRecommend, error)
 
-    ProductCategoryRecommend(*ProductCategoryRecommendRequest) (*ProductCategoryRecommend, error)
+	ProductRegisterBrand(*ProductRegisterBrandRequest) (*ProductRegisterBrand, error)
 
-    ProductRegisterBrand(*ProductRegisterBrandRequest) (*ProductRegisterBrand, error)
+	ProductGetRecommendAttribute(*ProductGetRecommendAttributeRequest) (*ProductGetRecommendAttribute, error)
 
-    ProductGetRecommendAttribute(*ProductGetRecommendAttributeRequest) (*ProductGetRecommendAttribute, error)
+	GlobalProductGetCategory(*GlobalProductGetCategoryRequest) (*GlobalProductGetCategory, error)
 
-    GlobalProductGetCategory(*GlobalProductGetCategoryRequest) (*GlobalProductGetCategory, error)
+	GlobalProductGetAttributes(*GlobalProductGetAttributesRequest) (*GlobalProductGetAttributes, error)
 
-    GlobalProductGetAttributes(*GlobalProductGetAttributesRequest) (*GlobalProductGetAttributes, error)
+	GlobalProductGetBrandList(*GlobalProductGetBrandListRequest) (*GlobalProductGetBrandList, error)
 
-    GlobalProductGetBrandList(*GlobalProductGetBrandListRequest) (*GlobalProductGetBrandList, error)
+	GlobalProductGetGlobalItemLimit(*GlobalProductGetGlobalItemLimitRequest) (*GlobalProductGetGlobalItemLimit, error)
 
-    GlobalProductGetGlobalItemLimit(*GlobalProductGetGlobalItemLimitRequest) (*GlobalProductGetGlobalItemLimit, error)
+	GlobalProductGetDtsLimit(*GlobalProductGetDtsLimitRequest) (*GlobalProductGetDtsLimit, error)
 
-    GlobalProductGetDtsLimit(*GlobalProductGetDtsLimitRequest) (*GlobalProductGetDtsLimit, error)
+	GlobalProductGetGlobalItemList(*GlobalProductGetGlobalItemListRequest) (*GlobalProductGetGlobalItemList, error)
 
-    GlobalProductGetGlobalItemList(*GlobalProductGetGlobalItemListRequest) (*GlobalProductGetGlobalItemList, error)
+	GlobalProductGetGlobalItemInfo(*GlobalProductGetGlobalItemInfoRequest) (*GlobalProductGetGlobalItemInfo, error)
 
-    GlobalProductGetGlobalItemInfo(*GlobalProductGetGlobalItemInfoRequest) (*GlobalProductGetGlobalItemInfo, error)
+	GlobalProductAddGlobalItem(*GlobalProductAddGlobalItemRequest) (*GlobalProductAddGlobalItem, error)
 
-    GlobalProductAddGlobalItem(*GlobalProductAddGlobalItemRequest) (*GlobalProductAddGlobalItem, error)
+	GlobalProductUpdateGlobalItem(*GlobalProductUpdateGlobalItemRequest) (*GlobalProductUpdateGlobalItem, error)
 
-    GlobalProductUpdateGlobalItem(*GlobalProductUpdateGlobalItemRequest) (*GlobalProductUpdateGlobalItem, error)
+	GlobalProductDeleteGlobalItem(*GlobalProductDeleteGlobalItemRequest) (*GlobalProductDeleteGlobalItem, error)
 
-    GlobalProductDeleteGlobalItem(*GlobalProductDeleteGlobalItemRequest) (*GlobalProductDeleteGlobalItem, error)
+	GlobalProductInitTierVariation(*GlobalProductInitTierVariationRequest) error
 
-    GlobalProductInitTierVariation(*GlobalProductInitTierVariationRequest) error
+	GlobalProductUpdateTierVariation(*GlobalProductUpdateTierVariationRequest) error
 
-    GlobalProductUpdateTierVariation(*GlobalProductUpdateTierVariationRequest) error
+	GlobalProductAddGlobalModel(*GlobalProductAddGlobalModelRequest) error
 
-    GlobalProductAddGlobalModel(*GlobalProductAddGlobalModelRequest) error
+	GlobalProductUpdateGlobalModel(*GlobalProductUpdateGlobalModelRequest) error
 
-    GlobalProductUpdateGlobalModel(*GlobalProductUpdateGlobalModelRequest) error
+	GlobalProductDeleteGlobalModel(*GlobalProductDeleteGlobalModelRequest) (*GlobalProductDeleteGlobalModel, error)
 
-    GlobalProductDeleteGlobalModel(*GlobalProductDeleteGlobalModelRequest) (*GlobalProductDeleteGlobalModel, error)
+	GlobalProductGetGlobalModelList(*GlobalProductGetGlobalModelListRequest) (*GlobalProductGetGlobalModelList, error)
 
-    GlobalProductGetGlobalModelList(*GlobalProductGetGlobalModelListRequest) (*GlobalProductGetGlobalModelList, error)
+	GlobalProductSupportSizeChart(*GlobalProductSupportSizeChartRequest) (*GlobalProductSupportSizeChart, error)
 
-    GlobalProductSupportSizeChart(*GlobalProductSupportSizeChartRequest) (*GlobalProductSupportSizeChart, error)
+	GlobalProductUpdateSizeChart(*GlobalProductUpdateSizeChartRequest) error
 
-    GlobalProductUpdateSizeChart(*GlobalProductUpdateSizeChartRequest) error
+	GlobalProductCreatePublishTask(*GlobalProductCreatePublishTaskRequest) (*GlobalProductCreatePublishTask, error)
 
-    GlobalProductCreatePublishTask(*GlobalProductCreatePublishTaskRequest) (*GlobalProductCreatePublishTask, error)
+	GlobalProductGetPublishableShop(*GlobalProductGetPublishableShopRequest) (*GlobalProductGetPublishableShop, error)
 
-    GlobalProductGetPublishableShop(*GlobalProductGetPublishableShopRequest) (*GlobalProductGetPublishableShop, error)
+	GlobalProductGetPublishTaskResult(*GlobalProductGetPublishTaskResultRequest) (*GlobalProductGetPublishTaskResult, error)
 
-    GlobalProductGetPublishTaskResult(*GlobalProductGetPublishTaskResultRequest) (*GlobalProductGetPublishTaskResult, error)
+	GlobalProductGetPublishedList(*GlobalProductGetPublishedListRequest) (*GlobalProductGetPublishedList, error)
 
-    GlobalProductGetPublishedList(*GlobalProductGetPublishedListRequest) (*GlobalProductGetPublishedList, error)
+	GlobalProductUpdatePrice(*GlobalProductUpdatePriceRequest) error
 
-    GlobalProductUpdatePrice(*GlobalProductUpdatePriceRequest) error
+	GlobalProductUpdateStock(*GlobalProductUpdateStockRequest) error
 
-    GlobalProductUpdateStock(*GlobalProductUpdateStockRequest) error
+	GlobalProductSetSyncField(*GlobalProductSetSyncFieldRequest) error
 
-    GlobalProductSetSyncField(*GlobalProductSetSyncFieldRequest) error
+	GlobalProductGetGlobalItemID(*GlobalProductGetGlobalItemIDRequest) (*GlobalProductGetGlobalItemID, error)
 
-    GlobalProductGetGlobalItemID(*GlobalProductGetGlobalItemIDRequest) (*GlobalProductGetGlobalItemID, error)
+	GlobalProductCategoryRecommend(*GlobalProductCategoryRecommendRequest) (*GlobalProductCategoryRecommend, error)
 
-    GlobalProductCategoryRecommend(*GlobalProductCategoryRecommendRequest) (*GlobalProductCategoryRecommend, error)
+	GlobalProductGetRecommendAttribute(*GlobalProductGetRecommendAttributeRequest) (*GlobalProductGetRecommendAttribute, error)
 
-    GlobalProductGetRecommendAttribute(*GlobalProductGetRecommendAttributeRequest) (*GlobalProductGetRecommendAttribute, error)
+	MediaSpaceInitVideoUpload(*MediaSpaceInitVideoUploadRequest) (*MediaSpaceInitVideoUpload, error)
 
-    MediaSpaceInitVideoUpload(*MediaSpaceInitVideoUploadRequest) (*MediaSpaceInitVideoUpload, error)
+	MediaSpaceUploadVideoPart(*MediaSpaceUploadVideoPartRequest) error
 
-    MediaSpaceUploadVideoPart(*MediaSpaceUploadVideoPartRequest) error
+	MediaSpaceCompleteVideoUpload(*MediaSpaceCompleteVideoUploadRequest) error
 
-    MediaSpaceCompleteVideoUpload(*MediaSpaceCompleteVideoUploadRequest) error
+	MediaSpaceGetVideoUploadResult(*MediaSpaceGetVideoUploadResultRequest) (*MediaSpaceGetVideoUploadResult, error)
 
-    MediaSpaceGetVideoUploadResult(*MediaSpaceGetVideoUploadResultRequest) (*MediaSpaceGetVideoUploadResult, error)
+	MediaSpaceCancelVideoUpload(*MediaSpaceCancelVideoUploadRequest) error
 
-    MediaSpaceCancelVideoUpload(*MediaSpaceCancelVideoUploadRequest) error
+	MediaSpaceUploadImage(*MediaSpaceUploadImageRequest) (*MediaSpaceUploadImage, error)
 
-    MediaSpaceUploadImage(*MediaSpaceUploadImageRequest) (*MediaSpaceUploadImage, error)
+	ShopGetShopInfo(*ShopGetShopInfoRequest) error
 
-    ShopGetShopInfo(*ShopGetShopInfoRequest) error
+	ShopGetProfile(*ShopGetProfileRequest) (*ShopGetProfile, error)
 
-    ShopGetProfile(*ShopGetProfileRequest) (*ShopGetProfile, error)
+	ShopUpdateProfile(*ShopUpdateProfileRequest) (*ShopUpdateProfile, error)
 
-    ShopUpdateProfile(*ShopUpdateProfileRequest) (*ShopUpdateProfile, error)
+	ShopGetWarehouseDetail(*ShopGetWarehouseDetailRequest) ([]ShopGetWarehouseDetail, error)
 
-    ShopGetWarehouseDetail(*ShopGetWarehouseDetailRequest) ([]ShopGetWarehouseDetail, error)
+	MerchantGetMerchantInfo(*MerchantGetMerchantInfoRequest) error
 
-    MerchantGetMerchantInfo(*MerchantGetMerchantInfoRequest) error
+	MerchantGetShopListByMerchant(*MerchantGetShopListByMerchantRequest) error
 
-    MerchantGetShopListByMerchant(*MerchantGetShopListByMerchantRequest) error
+	OrderGetOrderList(*OrderGetOrderListRequest) (*OrderGetOrderList, error)
 
-    OrderGetOrderList(*OrderGetOrderListRequest) (*OrderGetOrderList, error)
+	OrderGetShipmentList(*OrderGetShipmentListRequest) (*OrderGetShipmentList, error)
 
-    OrderGetShipmentList(*OrderGetShipmentListRequest) (*OrderGetShipmentList, error)
+	OrderGetOrderDetail(*OrderGetOrderDetailRequest) (*OrderGetOrderDetail, error)
 
-    OrderGetOrderDetail(*OrderGetOrderDetailRequest) (*OrderGetOrderDetail, error)
+	OrderSplitOrder(*OrderSplitOrderRequest) (*OrderSplitOrder, error)
 
-    OrderSplitOrder(*OrderSplitOrderRequest) (*OrderSplitOrder, error)
+	OrderUnsplitOrder(*OrderUnsplitOrderRequest) error
 
-    OrderUnsplitOrder(*OrderUnsplitOrderRequest) error
+	OrderCancelOrder(*OrderCancelOrderRequest) (*OrderCancelOrder, error)
 
-    OrderCancelOrder(*OrderCancelOrderRequest) (*OrderCancelOrder, error)
+	OrderHandleBuyerCancellation(*OrderHandleBuyerCancellationRequest) (*OrderHandleBuyerCancellation, error)
 
-    OrderHandleBuyerCancellation(*OrderHandleBuyerCancellationRequest) (*OrderHandleBuyerCancellation, error)
+	OrderSetNote(*OrderSetNoteRequest) error
 
-    OrderSetNote(*OrderSetNoteRequest) error
+	OrderAddInvoiceData(*OrderAddInvoiceDataRequest) error
 
-    OrderAddInvoiceData(*OrderAddInvoiceDataRequest) error
+	OrderGetPendingBuyerInvoiceOrderList(*OrderGetPendingBuyerInvoiceOrderListRequest) (*OrderGetPendingBuyerInvoiceOrderList, error)
 
-    OrderGetPendingBuyerInvoiceOrderList(*OrderGetPendingBuyerInvoiceOrderListRequest) (*OrderGetPendingBuyerInvoiceOrderList, error)
+	OrderUploadInvoiceDoc(*OrderUploadInvoiceDocRequest) error
 
-    OrderUploadInvoiceDoc(*OrderUploadInvoiceDocRequest) error
+	OrderDownloadInvoiceDoc(*OrderDownloadInvoiceDocRequest) error
 
-    OrderDownloadInvoiceDoc(*OrderDownloadInvoiceDocRequest) error
+	OrderGetBuyerInvoiceInfo(*OrderGetBuyerInvoiceInfoRequest) error
 
-    OrderGetBuyerInvoiceInfo(*OrderGetBuyerInvoiceInfoRequest) error
+	LogisticsGetShippingParameter(*LogisticsGetShippingParameterRequest) (*LogisticsGetShippingParameter, error)
 
-    LogisticsGetShippingParameter(*LogisticsGetShippingParameterRequest) (*LogisticsGetShippingParameter, error)
+	LogisticsGetTrackingNumber(*LogisticsGetTrackingNumberRequest) (*LogisticsGetTrackingNumber, error)
 
-    LogisticsGetTrackingNumber(*LogisticsGetTrackingNumberRequest) (*LogisticsGetTrackingNumber, error)
+	LogisticsShipOrder(*LogisticsShipOrderRequest) error
 
-    LogisticsShipOrder(*LogisticsShipOrderRequest) error
+	LogisticsUpdateShippingOrder(*LogisticsUpdateShippingOrderRequest) error
 
-    LogisticsUpdateShippingOrder(*LogisticsUpdateShippingOrderRequest) error
+	LogisticsGetShippingDocumentParameter(*LogisticsGetShippingDocumentParameterRequest) (*LogisticsGetShippingDocumentParameter, error)
 
-    LogisticsGetShippingDocumentParameter(*LogisticsGetShippingDocumentParameterRequest) (*LogisticsGetShippingDocumentParameter, error)
+	LogisticsCreateShippingDocument(*LogisticsCreateShippingDocumentRequest) (*LogisticsCreateShippingDocument, error)
 
-    LogisticsCreateShippingDocument(*LogisticsCreateShippingDocumentRequest) (*LogisticsCreateShippingDocument, error)
+	LogisticsGetShippingDocumentResult(*LogisticsGetShippingDocumentResultRequest) (*LogisticsGetShippingDocumentResult, error)
 
-    LogisticsGetShippingDocumentResult(*LogisticsGetShippingDocumentResultRequest) (*LogisticsGetShippingDocumentResult, error)
+	LogisticsDownloadShippingDocument(saveFilePath string) func(req *LogisticsDownloadShippingDocumentRequest) (err error)
 
-    LogisticsDownloadShippingDocument(*LogisticsDownloadShippingDocumentRequest) error
+	LogisticsGetShippingDocumentInfo(*LogisticsGetShippingDocumentInfoRequest) (*LogisticsGetShippingDocumentInfo, error)
 
-    LogisticsGetShippingDocumentInfo(*LogisticsGetShippingDocumentInfoRequest) (*LogisticsGetShippingDocumentInfo, error)
+	LogisticsGetTrackingInfo(*LogisticsGetTrackingInfoRequest) (*LogisticsGetTrackingInfo, error)
 
-    LogisticsGetTrackingInfo(*LogisticsGetTrackingInfoRequest) (*LogisticsGetTrackingInfo, error)
+	LogisticsGetAddressList(*LogisticsGetAddressListRequest) (*LogisticsGetAddressList, error)
 
-    LogisticsGetAddressList(*LogisticsGetAddressListRequest) (*LogisticsGetAddressList, error)
+	LogisticsSetAddressConfig(*LogisticsSetAddressConfigRequest) error
 
-    LogisticsSetAddressConfig(*LogisticsSetAddressConfigRequest) error
+	LogisticsDeleteAddress(*LogisticsDeleteAddressRequest) error
 
-    LogisticsDeleteAddress(*LogisticsDeleteAddressRequest) error
+	LogisticsGetChannelList(*LogisticsGetChannelListRequest) (*LogisticsGetChannelList, error)
 
-    LogisticsGetChannelList(*LogisticsGetChannelListRequest) (*LogisticsGetChannelList, error)
+	LogisticsUpdateChannel(*LogisticsUpdateChannelRequest) (*LogisticsUpdateChannel, error)
 
-    LogisticsUpdateChannel(*LogisticsUpdateChannelRequest) (*LogisticsUpdateChannel, error)
+	LogisticsBatchShipOrder(*LogisticsBatchShipOrderRequest) (*LogisticsBatchShipOrder, error)
 
-    LogisticsBatchShipOrder(*LogisticsBatchShipOrderRequest) (*LogisticsBatchShipOrder, error)
+	FirstMileGetUnbindOrderList(*FirstMileGetUnbindOrderListRequest) (*FirstMileGetUnbindOrderList, error)
 
-    FirstMileGetUnbindOrderList(*FirstMileGetUnbindOrderListRequest) (*FirstMileGetUnbindOrderList, error)
+	FirstMileGetDetail(*FirstMileGetDetailRequest) (*FirstMileGetDetail, error)
 
-    FirstMileGetDetail(*FirstMileGetDetailRequest) (*FirstMileGetDetail, error)
+	FirstMileGenerateFirstMileTrackingNumber(*FirstMileGenerateFirstMileTrackingNumberRequest) (*FirstMileGenerateFirstMileTrackingNumber, error)
 
-    FirstMileGenerateFirstMileTrackingNumber(*FirstMileGenerateFirstMileTrackingNumberRequest) (*FirstMileGenerateFirstMileTrackingNumber, error)
+	FirstMileBindFirstMileTrackingNumber(*FirstMileBindFirstMileTrackingNumberRequest) (*FirstMileBindFirstMileTrackingNumber, error)
 
-    FirstMileBindFirstMileTrackingNumber(*FirstMileBindFirstMileTrackingNumberRequest) (*FirstMileBindFirstMileTrackingNumber, error)
+	FirstMileUnbindFirstMileTrackingNumber(*FirstMileUnbindFirstMileTrackingNumberRequest) (*FirstMileUnbindFirstMileTrackingNumber, error)
 
-    FirstMileUnbindFirstMileTrackingNumber(*FirstMileUnbindFirstMileTrackingNumberRequest) (*FirstMileUnbindFirstMileTrackingNumber, error)
+	FirstMileGetTrackingNumberList(*FirstMileGetTrackingNumberListRequest) (*FirstMileGetTrackingNumberList, error)
 
-    FirstMileGetTrackingNumberList(*FirstMileGetTrackingNumberListRequest) (*FirstMileGetTrackingNumberList, error)
+	FirstMileGetWaybill(*FirstMileGetWaybillRequest) error
 
-    FirstMileGetWaybill(*FirstMileGetWaybillRequest) error
+	FirstMileGetChannelList(*FirstMileGetChannelListRequest) (*FirstMileGetChannelList, error)
 
-    FirstMileGetChannelList(*FirstMileGetChannelListRequest) (*FirstMileGetChannelList, error)
+	PaymentGetEscrowDetail(*PaymentGetEscrowDetailRequest) (*PaymentGetEscrowDetail, error)
 
-    PaymentGetEscrowDetail(*PaymentGetEscrowDetailRequest) (*PaymentGetEscrowDetail, error)
+	PaymentSetShopInstallmentStatus(*PaymentSetShopInstallmentStatusRequest) (*PaymentSetShopInstallmentStatus, error)
 
-    PaymentSetShopInstallmentStatus(*PaymentSetShopInstallmentStatusRequest) (*PaymentSetShopInstallmentStatus, error)
+	PaymentGetShopInstallmentStatus(*PaymentGetShopInstallmentStatusRequest) (*PaymentGetShopInstallmentStatus, error)
 
-    PaymentGetShopInstallmentStatus(*PaymentGetShopInstallmentStatusRequest) (*PaymentGetShopInstallmentStatus, error)
+	PaymentGetPayoutDetail(*PaymentGetPayoutDetailRequest) (*PaymentGetPayoutDetail, error)
 
-    PaymentGetPayoutDetail(*PaymentGetPayoutDetailRequest) (*PaymentGetPayoutDetail, error)
+	PaymentSetItemInstallmentStatus(*PaymentSetItemInstallmentStatusRequest) (*PaymentSetItemInstallmentStatus, error)
 
-    PaymentSetItemInstallmentStatus(*PaymentSetItemInstallmentStatusRequest) (*PaymentSetItemInstallmentStatus, error)
+	PaymentGetItemInstallmentStatus(*PaymentGetItemInstallmentStatusRequest) (*PaymentGetItemInstallmentStatus, error)
 
-    PaymentGetItemInstallmentStatus(*PaymentGetItemInstallmentStatusRequest) (*PaymentGetItemInstallmentStatus, error)
+	PaymentGetPaymentMethodList(*PaymentGetPaymentMethodListRequest) ([]PaymentGetPaymentMethodList, error)
 
-    PaymentGetPaymentMethodList(*PaymentGetPaymentMethodListRequest) ([]PaymentGetPaymentMethodList, error)
+	PaymentGetWalletTransactionList(*PaymentGetWalletTransactionListRequest) (*PaymentGetWalletTransactionList, error)
 
-    PaymentGetWalletTransactionList(*PaymentGetWalletTransactionListRequest) (*PaymentGetWalletTransactionList, error)
+	PaymentGetEscrowList(*PaymentGetEscrowListRequest) (*PaymentGetEscrowList, error)
 
-    PaymentGetEscrowList(*PaymentGetEscrowListRequest) (*PaymentGetEscrowList, error)
+	DiscountAddDiscount(*DiscountAddDiscountRequest) (*DiscountAddDiscount, error)
 
-    DiscountAddDiscount(*DiscountAddDiscountRequest) (*DiscountAddDiscount, error)
+	DiscountAddDiscountItem(*DiscountAddDiscountItemRequest) (*DiscountAddDiscountItem, error)
 
-    DiscountAddDiscountItem(*DiscountAddDiscountItemRequest) (*DiscountAddDiscountItem, error)
+	DiscountDeleteDiscount(*DiscountDeleteDiscountRequest) (*DiscountDeleteDiscount, error)
 
-    DiscountDeleteDiscount(*DiscountDeleteDiscountRequest) (*DiscountDeleteDiscount, error)
+	DiscountDeleteDiscountItem(*DiscountDeleteDiscountItemRequest) (*DiscountDeleteDiscountItem, error)
 
-    DiscountDeleteDiscountItem(*DiscountDeleteDiscountItemRequest) (*DiscountDeleteDiscountItem, error)
+	DiscountGetDiscount(*DiscountGetDiscountRequest) (*DiscountGetDiscount, error)
 
-    DiscountGetDiscount(*DiscountGetDiscountRequest) (*DiscountGetDiscount, error)
+	DiscountGetDiscountList(*DiscountGetDiscountListRequest) (*DiscountGetDiscountList, error)
 
-    DiscountGetDiscountList(*DiscountGetDiscountListRequest) (*DiscountGetDiscountList, error)
+	DiscountUpdateDiscount(*DiscountUpdateDiscountRequest) (*DiscountUpdateDiscount, error)
 
-    DiscountUpdateDiscount(*DiscountUpdateDiscountRequest) (*DiscountUpdateDiscount, error)
+	DiscountUpdateDiscountItem(*DiscountUpdateDiscountItemRequest) (*DiscountUpdateDiscountItem, error)
 
-    DiscountUpdateDiscountItem(*DiscountUpdateDiscountItemRequest) (*DiscountUpdateDiscountItem, error)
+	DiscountEndDiscount(*DiscountEndDiscountRequest) (*DiscountEndDiscount, error)
 
-    DiscountEndDiscount(*DiscountEndDiscountRequest) (*DiscountEndDiscount, error)
+	BundleDealAddBundleDeal(*BundleDealAddBundleDealRequest) (*BundleDealAddBundleDeal, error)
 
-    BundleDealAddBundleDeal(*BundleDealAddBundleDealRequest) (*BundleDealAddBundleDeal, error)
+	BundleDealAddBundleDealItem(*BundleDealAddBundleDealItemRequest) (*BundleDealAddBundleDealItem, error)
 
-    BundleDealAddBundleDealItem(*BundleDealAddBundleDealItemRequest) (*BundleDealAddBundleDealItem, error)
+	BundleDealGetBundleDealList(*BundleDealGetBundleDealListRequest) (*BundleDealGetBundleDealList, error)
 
-    BundleDealGetBundleDealList(*BundleDealGetBundleDealListRequest) (*BundleDealGetBundleDealList, error)
+	BundleDealGetBundleDeal(*BundleDealGetBundleDealRequest) (*BundleDealGetBundleDeal, error)
 
-    BundleDealGetBundleDeal(*BundleDealGetBundleDealRequest) (*BundleDealGetBundleDeal, error)
+	BundleDealGetBundleDealItem(*BundleDealGetBundleDealItemRequest) (*BundleDealGetBundleDealItem, error)
 
-    BundleDealGetBundleDealItem(*BundleDealGetBundleDealItemRequest) (*BundleDealGetBundleDealItem, error)
+	BundleDealUpdateBundleDeal(*BundleDealUpdateBundleDealRequest) (*BundleDealUpdateBundleDeal, error)
 
-    BundleDealUpdateBundleDeal(*BundleDealUpdateBundleDealRequest) (*BundleDealUpdateBundleDeal, error)
+	BundleDealUpdateBundleDealItem(*BundleDealUpdateBundleDealItemRequest) (*BundleDealUpdateBundleDealItem, error)
 
-    BundleDealUpdateBundleDealItem(*BundleDealUpdateBundleDealItemRequest) (*BundleDealUpdateBundleDealItem, error)
+	BundleDealEndBundleDeal(*BundleDealEndBundleDealRequest) (*BundleDealEndBundleDeal, error)
 
-    BundleDealEndBundleDeal(*BundleDealEndBundleDealRequest) (*BundleDealEndBundleDeal, error)
+	BundleDealDeleteBundleDeal(*BundleDealDeleteBundleDealRequest) (*BundleDealDeleteBundleDeal, error)
 
-    BundleDealDeleteBundleDeal(*BundleDealDeleteBundleDealRequest) (*BundleDealDeleteBundleDeal, error)
+	BundleDealDeleteBundleDealItem(*BundleDealDeleteBundleDealItemRequest) (*BundleDealDeleteBundleDealItem, error)
 
-    BundleDealDeleteBundleDealItem(*BundleDealDeleteBundleDealItemRequest) (*BundleDealDeleteBundleDealItem, error)
+	AddOnDealAddAddOnDeal(*AddOnDealAddAddOnDealRequest) (*AddOnDealAddAddOnDeal, error)
 
-    AddOnDealAddAddOnDeal(*AddOnDealAddAddOnDealRequest) (*AddOnDealAddAddOnDeal, error)
+	AddOnDealAddAddOnDealMainItem(*AddOnDealAddAddOnDealMainItemRequest) (*AddOnDealAddAddOnDealMainItem, error)
 
-    AddOnDealAddAddOnDealMainItem(*AddOnDealAddAddOnDealMainItemRequest) (*AddOnDealAddAddOnDealMainItem, error)
+	AddOnDealAddAddOnDealSubItem(*AddOnDealAddAddOnDealSubItemRequest) (*AddOnDealAddAddOnDealSubItem, error)
 
-    AddOnDealAddAddOnDealSubItem(*AddOnDealAddAddOnDealSubItemRequest) (*AddOnDealAddAddOnDealSubItem, error)
+	AddOnDealDeleteAddOnDeal(*AddOnDealDeleteAddOnDealRequest) (*AddOnDealDeleteAddOnDeal, error)
 
-    AddOnDealDeleteAddOnDeal(*AddOnDealDeleteAddOnDealRequest) (*AddOnDealDeleteAddOnDeal, error)
+	AddOnDealDeleteAddOnDealMainItem(*AddOnDealDeleteAddOnDealMainItemRequest) (*AddOnDealDeleteAddOnDealMainItem, error)
 
-    AddOnDealDeleteAddOnDealMainItem(*AddOnDealDeleteAddOnDealMainItemRequest) (*AddOnDealDeleteAddOnDealMainItem, error)
+	AddOnDealDeleteAddOnDealSubItem(*AddOnDealDeleteAddOnDealSubItemRequest) (*AddOnDealDeleteAddOnDealSubItem, error)
 
-    AddOnDealDeleteAddOnDealSubItem(*AddOnDealDeleteAddOnDealSubItemRequest) (*AddOnDealDeleteAddOnDealSubItem, error)
+	AddOnDealGetAddOnDealList(*AddOnDealGetAddOnDealListRequest) (*AddOnDealGetAddOnDealList, error)
 
-    AddOnDealGetAddOnDealList(*AddOnDealGetAddOnDealListRequest) (*AddOnDealGetAddOnDealList, error)
+	AddOnDealGetAddOnDeal(*AddOnDealGetAddOnDealRequest) (*AddOnDealGetAddOnDeal, error)
 
-    AddOnDealGetAddOnDeal(*AddOnDealGetAddOnDealRequest) (*AddOnDealGetAddOnDeal, error)
+	AddOnDealGetAddOnDealMainItem(*AddOnDealGetAddOnDealMainItemRequest) (*AddOnDealGetAddOnDealMainItem, error)
 
-    AddOnDealGetAddOnDealMainItem(*AddOnDealGetAddOnDealMainItemRequest) (*AddOnDealGetAddOnDealMainItem, error)
+	AddOnDealGetAddOnDealSubItem(*AddOnDealGetAddOnDealSubItemRequest) (*AddOnDealGetAddOnDealSubItem, error)
 
-    AddOnDealGetAddOnDealSubItem(*AddOnDealGetAddOnDealSubItemRequest) (*AddOnDealGetAddOnDealSubItem, error)
+	AddOnDealUpdateAddOnDeal(*AddOnDealUpdateAddOnDealRequest) (*AddOnDealUpdateAddOnDeal, error)
 
-    AddOnDealUpdateAddOnDeal(*AddOnDealUpdateAddOnDealRequest) (*AddOnDealUpdateAddOnDeal, error)
+	AddOnDealUpdateAddOnDealMainItem(*AddOnDealUpdateAddOnDealMainItemRequest) (*AddOnDealUpdateAddOnDealMainItem, error)
 
-    AddOnDealUpdateAddOnDealMainItem(*AddOnDealUpdateAddOnDealMainItemRequest) (*AddOnDealUpdateAddOnDealMainItem, error)
+	AddOnDealUpdateAddOnDealSubItem(*AddOnDealUpdateAddOnDealSubItemRequest) (*AddOnDealUpdateAddOnDealSubItem, error)
 
-    AddOnDealUpdateAddOnDealSubItem(*AddOnDealUpdateAddOnDealSubItemRequest) (*AddOnDealUpdateAddOnDealSubItem, error)
+	AddOnDealEndAddOnDeal(*AddOnDealEndAddOnDealRequest) (*AddOnDealEndAddOnDeal, error)
 
-    AddOnDealEndAddOnDeal(*AddOnDealEndAddOnDealRequest) (*AddOnDealEndAddOnDeal, error)
+	VoucherAddVoucher(*VoucherAddVoucherRequest) (*VoucherAddVoucher, error)
 
-    VoucherAddVoucher(*VoucherAddVoucherRequest) (*VoucherAddVoucher, error)
+	VoucherDeleteVoucher(*VoucherDeleteVoucherRequest) (*VoucherDeleteVoucher, error)
 
-    VoucherDeleteVoucher(*VoucherDeleteVoucherRequest) (*VoucherDeleteVoucher, error)
+	VoucherEndVoucher(*VoucherEndVoucherRequest) (*VoucherEndVoucher, error)
 
-    VoucherEndVoucher(*VoucherEndVoucherRequest) (*VoucherEndVoucher, error)
+	VoucherUpdateVoucher(*VoucherUpdateVoucherRequest) (*VoucherUpdateVoucher, error)
 
-    VoucherUpdateVoucher(*VoucherUpdateVoucherRequest) (*VoucherUpdateVoucher, error)
+	VoucherGetVoucher(*VoucherGetVoucherRequest) (*VoucherGetVoucher, error)
 
-    VoucherGetVoucher(*VoucherGetVoucherRequest) (*VoucherGetVoucher, error)
+	VoucherGetVoucherList(*VoucherGetVoucherListRequest) (*VoucherGetVoucherList, error)
 
-    VoucherGetVoucherList(*VoucherGetVoucherListRequest) (*VoucherGetVoucherList, error)
+	FollowPrizeAddFollowPrize(*FollowPrizeAddFollowPrizeRequest) (*FollowPrizeAddFollowPrize, error)
 
-    FollowPrizeAddFollowPrize(*FollowPrizeAddFollowPrizeRequest) (*FollowPrizeAddFollowPrize, error)
+	FollowPrizeDeleteFollowPrize(*FollowPrizeDeleteFollowPrizeRequest) (*FollowPrizeDeleteFollowPrize, error)
 
-    FollowPrizeDeleteFollowPrize(*FollowPrizeDeleteFollowPrizeRequest) (*FollowPrizeDeleteFollowPrize, error)
+	FollowPrizeEndFollowPrize(*FollowPrizeEndFollowPrizeRequest) (*FollowPrizeEndFollowPrize, error)
 
-    FollowPrizeEndFollowPrize(*FollowPrizeEndFollowPrizeRequest) (*FollowPrizeEndFollowPrize, error)
+	FollowPrizeUpdateFollowPrize(*FollowPrizeUpdateFollowPrizeRequest) (*FollowPrizeUpdateFollowPrize, error)
 
-    FollowPrizeUpdateFollowPrize(*FollowPrizeUpdateFollowPrizeRequest) (*FollowPrizeUpdateFollowPrize, error)
+	FollowPrizeGetFollowPrizeDetail(*FollowPrizeGetFollowPrizeDetailRequest) (*FollowPrizeGetFollowPrizeDetail, error)
 
-    FollowPrizeGetFollowPrizeDetail(*FollowPrizeGetFollowPrizeDetailRequest) (*FollowPrizeGetFollowPrizeDetail, error)
+	FollowPrizeGetFollowPrizeList(*FollowPrizeGetFollowPrizeListRequest) (*FollowPrizeGetFollowPrizeList, error)
 
-    FollowPrizeGetFollowPrizeList(*FollowPrizeGetFollowPrizeListRequest) (*FollowPrizeGetFollowPrizeList, error)
+	TopPicksGetTopPicksList(*TopPicksGetTopPicksListRequest) (*TopPicksGetTopPicksList, error)
 
-    TopPicksGetTopPicksList(*TopPicksGetTopPicksListRequest) (*TopPicksGetTopPicksList, error)
+	TopPicksAddTopPicks(*TopPicksAddTopPicksRequest) (*TopPicksAddTopPicks, error)
 
-    TopPicksAddTopPicks(*TopPicksAddTopPicksRequest) (*TopPicksAddTopPicks, error)
+	TopPicksUpdateTopPicks(*TopPicksUpdateTopPicksRequest) (*TopPicksUpdateTopPicks, error)
 
-    TopPicksUpdateTopPicks(*TopPicksUpdateTopPicksRequest) (*TopPicksUpdateTopPicks, error)
+	TopPicksDeleteTopPicks(*TopPicksDeleteTopPicksRequest) (*TopPicksDeleteTopPicks, error)
 
-    TopPicksDeleteTopPicks(*TopPicksDeleteTopPicksRequest) (*TopPicksDeleteTopPicks, error)
+	ShopCategoryAddShopCategory(*ShopCategoryAddShopCategoryRequest) (*ShopCategoryAddShopCategory, error)
 
-    ShopCategoryAddShopCategory(*ShopCategoryAddShopCategoryRequest) (*ShopCategoryAddShopCategory, error)
+	ShopCategoryGetShopCategoryList(*ShopCategoryGetShopCategoryListRequest) (*ShopCategoryGetShopCategoryList, error)
 
-    ShopCategoryGetShopCategoryList(*ShopCategoryGetShopCategoryListRequest) (*ShopCategoryGetShopCategoryList, error)
+	ShopCategoryDeleteShopCategory(*ShopCategoryDeleteShopCategoryRequest) (*ShopCategoryDeleteShopCategory, error)
 
-    ShopCategoryDeleteShopCategory(*ShopCategoryDeleteShopCategoryRequest) (*ShopCategoryDeleteShopCategory, error)
+	ShopCategoryUpdateShopCategory(*ShopCategoryUpdateShopCategoryRequest) (*ShopCategoryUpdateShopCategory, error)
 
-    ShopCategoryUpdateShopCategory(*ShopCategoryUpdateShopCategoryRequest) (*ShopCategoryUpdateShopCategory, error)
+	ShopCategoryAddItemList(*ShopCategoryAddItemListRequest) (*ShopCategoryAddItemList, error)
 
-    ShopCategoryAddItemList(*ShopCategoryAddItemListRequest) (*ShopCategoryAddItemList, error)
+	ShopCategoryGetItemList(*ShopCategoryGetItemListRequest) (*ShopCategoryGetItemList, error)
 
-    ShopCategoryGetItemList(*ShopCategoryGetItemListRequest) (*ShopCategoryGetItemList, error)
+	ShopCategoryDeleteItemList(*ShopCategoryDeleteItemListRequest) (*ShopCategoryDeleteItemList, error)
 
-    ShopCategoryDeleteItemList(*ShopCategoryDeleteItemListRequest) (*ShopCategoryDeleteItemList, error)
+	ReturnsGetReturnDetail(*ReturnsGetReturnDetailRequest) (*ReturnsGetReturnDetail, error)
 
-    ReturnsGetReturnDetail(*ReturnsGetReturnDetailRequest) (*ReturnsGetReturnDetail, error)
+	ReturnsGetReturnList(*ReturnsGetReturnListRequest) ([]ReturnsGetReturnList, error)
 
-    ReturnsGetReturnList(*ReturnsGetReturnListRequest) ([]ReturnsGetReturnList, error)
+	ReturnsConfirm(*ReturnsConfirmRequest) (*ReturnsConfirm, error)
 
-    ReturnsConfirm(*ReturnsConfirmRequest) (*ReturnsConfirm, error)
+	ReturnsDispute(*ReturnsDisputeRequest) (*ReturnsDispute, error)
 
-    ReturnsDispute(*ReturnsDisputeRequest) (*ReturnsDispute, error)
+	ReturnsGetAvailableSolutions(*ReturnsGetAvailableSolutionsRequest) (*ReturnsGetAvailableSolutions, error)
 
-    ReturnsGetAvailableSolutions(*ReturnsGetAvailableSolutionsRequest) (*ReturnsGetAvailableSolutions, error)
+	ReturnsOffer(*ReturnsOfferRequest) (*ReturnsOffer, error)
 
-    ReturnsOffer(*ReturnsOfferRequest) (*ReturnsOffer, error)
+	ReturnsAcceptOffer(*ReturnsAcceptOfferRequest) (*ReturnsAcceptOffer, error)
 
-    ReturnsAcceptOffer(*ReturnsAcceptOfferRequest) (*ReturnsAcceptOffer, error)
+	AccountHealthShopPerformance(*AccountHealthShopPerformanceRequest) error
 
-    AccountHealthShopPerformance(*AccountHealthShopPerformanceRequest) error
+	AccountHealthShopPenalty(*AccountHealthShopPenaltyRequest) error
 
-    AccountHealthShopPenalty(*AccountHealthShopPenaltyRequest) error
+	PublicGetShopsByPartner(*PublicGetShopsByPartnerRequest) error
 
-    PublicGetShopsByPartner(*PublicGetShopsByPartnerRequest) error
+	PublicGetMerchantsByPartner(*PublicGetMerchantsByPartnerRequest) error
 
-    PublicGetMerchantsByPartner(*PublicGetMerchantsByPartnerRequest) error
+	PublicGetTokenByResendCode(*PublicGetTokenByResendCodeRequest) error
 
-    PublicGetTokenByResendCode(*PublicGetTokenByResendCodeRequest) error
+	PublicGetRefreshTokenByUpgradeCode(*PublicGetRefreshTokenByUpgradeCodeRequest) (*PublicGetRefreshTokenByUpgradeCode, error)
 
-    PublicGetRefreshTokenByUpgradeCode(*PublicGetRefreshTokenByUpgradeCodeRequest) (*PublicGetRefreshTokenByUpgradeCode, error)
+	PushGetPushConfig(*PushGetPushConfigRequest) error
 
-    PushGetPushConfig(*PushGetPushConfigRequest) error
-
-    PushSetPushConfig(*PushSetPushConfigRequest) error
-
+	PushSetPushConfig(*PushSetPushConfigRequest) error
 }

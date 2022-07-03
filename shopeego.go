@@ -301,8 +301,142 @@ func (s *ShopeeClient) get(method string, in interface{}) ([]byte, error) {
 	return s.patchFloat(body), nil
 }
 
+// post download file
+
+func (s *ShopeeClient) postDownloadFile(method string, in interface{}) ([]byte, error) {
+	body, err := json.Marshal(in)
+	if err != nil {
+		return nil, err
+	}
+
+	// build a url
+	url := s.getPath(method)
+
+	// diff version
+	switch s.Version {
+	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
+	case ClientVersionV2:
+		// get the body part auth data
+		p := s.getBodyPart(body)
+		// put auth to url query
+		url += fmt.Sprintf("?partner_id=%d&shop_id=%d&timestamp=%d&access_token=%s&sign=%s", p.partnerID, p.shopID, p.timestamp, s.accessToken, s.signV2(url, body))
+	}
+
+	// trying to remove these key
+	var m map[string]interface{}
+	if err := json.Unmarshal([]byte(body), &m); err != nil {
+		panic(err)
+	}
+	delete(m, "partner_id")
+	delete(m, "shop_id")
+	delete(m, "timestamp")
+	delete(m, "access_token")
+
+	// remarshal back
+	body, err = json.Marshal(m)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", url, strings.NewReader(string(body)))
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Content-Type", "application/json")
+
+	// diff version
+	switch s.Version {
+	// 如果是 V1 就在 Header 安插 Sign。
+	case ClientVersionV1:
+		req.Header.Add("Authorization", s.signV1(url, body))
+	}
+
+	//Do request by native lib
+	client := &http.Client{}
+	res, err := client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	body, err = ioutil.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+	return body, nil
+}
+
 //
 func (s *ShopeeClient) post(method string, in interface{}) ([]byte, error) {
+	body, err := json.Marshal(in)
+	if err != nil {
+		return nil, err
+	}
+
+	// build a url
+	url := s.getPath(method)
+
+	// diff version
+	switch s.Version {
+	// 如果是 V2 的 API，就在 Body 中自動安插 Sign。
+	case ClientVersionV2:
+		// get the body part auth data
+		p := s.getBodyPart(body)
+		// put auth to url query
+		url += fmt.Sprintf("?partner_id=%d&shop_id=%d&timestamp=%d&access_token=%s&sign=%s", p.partnerID, p.shopID, p.timestamp, s.accessToken, s.signV2(url, body))
+	}
+
+	// trying to remove these key
+	var m map[string]interface{}
+	if err := json.Unmarshal([]byte(body), &m); err != nil {
+		panic(err)
+	}
+	delete(m, "partner_id")
+	delete(m, "shop_id")
+	delete(m, "timestamp")
+	delete(m, "access_token")
+
+	// remarshal back
+	body, err = json.Marshal(m)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", url, strings.NewReader(string(body)))
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Add("Content-Type", "application/json")
+
+	// diff version
+	switch s.Version {
+	// 如果是 V1 就在 Header 安插 Sign。
+	case ClientVersionV1:
+		req.Header.Add("Authorization", s.signV1(url, body))
+	}
+
+	//Do request by native lib
+	client := &http.Client{}
+	res, err := client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	body, err = ioutil.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	var errResp ResponseError
+	_ = json.Unmarshal(body, &errResp)
+	if errResp.ErrorType != "" {
+		return nil, errResp
+	}
+
+	return s.patchFloat(body), nil
+}
+
+//
+func (s *ShopeeClient) postAccessTokenRequest(method string, in interface{}) ([]byte, error) {
 	body, err := json.Marshal(in)
 	if err != nil {
 		return nil, err
@@ -438,7 +572,7 @@ func (s *ShopeeClient) AuthPartner(req *AuthPartnerRequest) string {
 
 // GetAccessToken Use this API and the code to obtain the access_token and refresh_token.
 func (s *ShopeeClient) GetAccessToken(req *GetAccessTokenRequest) (resp *GetAccessTokenResponse, err error) {
-	b, err := s.post("GetAccessToken", req)
+	b, err := s.postAccessTokenRequest("GetAccessToken", req)
 	if err != nil {
 		return
 	}
@@ -451,7 +585,7 @@ func (s *ShopeeClient) GetAccessToken(req *GetAccessTokenRequest) (resp *GetAcce
 
 // RefreshAccessToken Use this API to refresh the access_token after it expires.
 func (s *ShopeeClient) RefreshAccessToken(req *RefreshAccessTokenRequest) (resp *RefreshAccessTokenResponse, err error) {
-	b, err := s.post("RefreshAccessToken", req)
+	b, err := s.postAccessTokenRequest("RefreshAccessToken", req)
 	if err != nil {
 		return
 	}

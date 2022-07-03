@@ -2389,31 +2389,6 @@ func (s *ShopeeClient) LogisticsGetShippingDocumentResult(req *LogisticsGetShipp
 	return
 }
 
-func (s *ShopeeClient) LogisticsDownloadShippingDocument(req *LogisticsDownloadShippingDocumentRequest) (err error) {
-	b, err := s.post("LogisticsDownloadShippingDocument", req)
-	if err != nil {
-		return
-	}
-
-	var wrappedResponse *LogisticsDownloadShippingDocumentResponse
-	err = json.Unmarshal(b, &wrappedResponse)
-	if err != nil {
-		return
-	}
-
-	if wrappedResponse.Error != "" {
-		err = errors.New(wrappedResponse.Error)
-		return
-	}
-
-	if wrappedResponse.Warning != "" {
-		log.Printf("[Warning From SHOPEE]" + wrappedResponse.Warning + "\n")
-		return
-	}
-
-	return
-}
-
 func (s *ShopeeClient) LogisticsGetShippingDocumentInfo(req *LogisticsGetShippingDocumentInfoRequest) (resp *LogisticsGetShippingDocumentInfo, err error) {
 	b, err := s.get("LogisticsGetShippingDocumentInfo", req)
 	if err != nil {
